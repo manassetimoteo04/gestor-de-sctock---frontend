@@ -60,6 +60,9 @@
   html {
     font-size: 56.2%;
   }
+  .statics_recent-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* SCREEN SIZE MAX-WIDTH: 603PX */

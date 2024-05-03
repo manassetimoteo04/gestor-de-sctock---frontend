@@ -416,17 +416,20 @@ body {
   gap: 2rem;
   border-radius: var(--bs-border-radius-lg);
 }
+.total-container {
+  width: 100%;
+}
 .total-icon {
   background-color: var(--bs-gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--bs-orange);
-  height: 6rem;
-  width: 6rem;
+  max-height: 6rem;
+  max-width: 6rem;
   padding: 1rem;
   border-radius: 50%;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
 }
 
 .total-flex {
@@ -456,11 +459,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   border-radius: 50%;
-  font-size: 2.8rem !important;
+  max-width: 10rem;
+  max-height: 10rem;
+  font-size: 3.2rem;
 }
-
+.tot-box-02 {
+  padding: 1rem 2rem;
+  font-weight: 700;
+}
 .weekly-earning {
   justify-content: space-between;
 }
@@ -509,6 +516,9 @@ body {
     var(--bs-border-color);
   padding: 2rem;
 }
+.heading-recent-notification ion-icon {
+  font-size: 2.2rem;
+}
 .see-all-link {
   text-decoration: none;
   color: inherit;
@@ -522,6 +532,12 @@ body {
 }
 .estaticos {
   padding: 0 2rem;
+}
+.canvas {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .heading-recent-notification {
   display: flex;
