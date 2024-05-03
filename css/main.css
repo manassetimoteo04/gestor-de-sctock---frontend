@@ -403,7 +403,7 @@ body {
   gap: 2rem;
 }
 .grid-02 {
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 .total-box {
@@ -422,8 +422,8 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--bs-orange);
-  height: 4rem;
-  width: 4rem;
+  height: 6rem;
+  width: 6rem;
   padding: 1rem;
   border-radius: 50%;
   font-size: 2.8rem;
@@ -467,7 +467,6 @@ body {
 .week-span-text {
   font-weight: bold;
   color: var(--bs-orange);
-  margin-bottom: 1.5rem;
 }
 .statics_recent-container {
   display: grid;
@@ -475,12 +474,15 @@ body {
   margin-top: 3rem;
   gap: 2rem;
 }
+.icon {
+  font-size: 6rem;
+  color: var(--bs-orange);
+}
 .grid-more {
   grid-template-columns: 40fr 70fr;
 }
 .weekly-earning .label__total-purchase-due {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
 }
 .weekly-earning .total-text {
   font-size: 1.4rem;
@@ -510,7 +512,10 @@ body {
 .see-all-link {
   text-decoration: none;
   color: inherit;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .see-all-link:hover {
   color: var(--bs-orange);

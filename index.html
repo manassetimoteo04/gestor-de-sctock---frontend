@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script defer src="/js/main.js"></script>
@@ -79,6 +80,7 @@
                 </header>
             </div>
             <div class="grid grid-02">
+
                 <div class="total-box weekly-earning">
 
                     <div class="total-flex">
@@ -89,38 +91,37 @@
                     </div>
                     <div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
                 </div>
-                <div class="total-box total__costumer-box tot-box-02">
+                <div class="total-box weekly-earning">
+
                     <div class="total-flex">
-                        <span class="label__total-purchase-due">100</span>
-                        <span class="total-text">Estoques</span>
+                        <span class="week-span-text">Ganhos mensais</span>
+                        <span class="label__total-purchase-due">$2486</span>
+                        <span class="total-text">+<span class="percentage"> 79.9%</span> aumentado em relação ao mês
+                            passad0</span>
                     </div>
-                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
                 </div>
-                <div class="total-box total__costumer-box tot-box-02">
-                    <div class="total-flex">
-                        <span class="label__total-purchase-due">100</span>
-                        <span class="total-text">Estoques</span>
-                    </div>
-                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
-                </div>
+
             </div>
             <div class="total-container grid grid-04">
                 <div class="total-box total__purchase-box">
-                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+
+                    <div class="icon total-icon"><ion-icon name="cash-outline"></ion-icon></div>
                     <div class="total-flex">
                         <span class="label__total-purchase-due">$100</span>
                         <span class="total-text">Total compras</span>
                     </div>
                 </div>
                 <div class="total-box total__purchase-box">
-                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
+
                     <div class="total-flex">
                         <span class="label__total-purchase-due">$100</span>
                         <span class="total-text">Total vendas</span>
                     </div>
                 </div>
                 <div class="total-box total__purchase-box">
-                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-icon"><ion-icon name="arrow-down-outline"></ion-icon></div>
                     <div class="total-flex">
                         <span class="label__total-purchase-due">$100</span>
                         <span class="total-text">Montante total</span>
@@ -172,14 +173,15 @@
                         <div></div>
                     </div>
                     <div class="estaticos">
-                        tabela de estatísticas aqui
+                        <canvas id="myChart" min-width="400" height="200"></canvas>
                     </div>
                 </div>
                 <div class="recent-products-notification-box">
                     <div class="subheader">
                         <h3 class="heading-h3">Productos recentes</h3>
                         <div>
-                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                            <a href="#" class="see-all-link">Ver todos <ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
                         </div>
                     </div>
                     <div class="estaticos">
@@ -228,7 +230,8 @@
                     <div class="subheader">
                         <h3 class="heading-h3">Mais vendidos</h3>
                         <div>
-                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                            <a href="#" class="see-all-link">Ver todos<ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
                         </div>
                     </div>
                     <div class="estaticos">
@@ -284,7 +287,8 @@
                     <div class="subheader">
                         <h3 class="heading-h3">Transações recentes</h3>
                         <div>
-                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                            <a href="#" class="see-all-link">Ver todos <ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
                         </div>
                     </div>
                     <div class="estaticos">
