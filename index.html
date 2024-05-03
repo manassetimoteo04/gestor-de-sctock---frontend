@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMaster - Gestão de Estoques e Vendas</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="/js/main.js"></script>
+</head>
+
+<body class="">
+    <section class="dashboard-section main-section">
+        <header class="main__header">
+            <div class="search__div">
+                <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+                <div>
+                    <input type="text" placeholder="Pesquisar" class="input__search">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="header__user">
+                <a href="#" class="header__btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a>
+                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
+                <div class="header__profile-box">
+                    <img src="img/costumer/steve.jpg" alt="" class="header__profile-img">
+                    <div class="profile__name-box">
+                        <span class="header__p-name">Timóteo Pembele</span>
+                        <span class="permission">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside class="side__bar">
+            <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li> <a href="#" class="main-nav-link active-link"><ion-icon name="grid-outline"></ion-icon>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="pages/products.html" class="main-nav-link"> <ion-icon name="layers-outline"></ion-icon>
+                            <span>Productos</span></a>
+                    </li>
+                    <li><a href="#" class="main-nav-link"> <ion-icon name="cube-outline"></ion-icon><span>
+                                Estoques</span> </a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="stats-chart-outline"></ion-icon><span>Vendas</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="people-outline"></ion-icon><span>Clientes</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="documents-outline"></ion-icon><span>Relatórios</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="person-outline"></ion-icon><span>Perfil</span></a></li>
+                    <!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+                </ul>
+
+            </nav>
+        </aside>
+        <section class="main__content-section">
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Dashboard</h2>
+                    <span class="section-tag">Vê todas as informações sobre as suas compras e vendas</span>
+                </header>
+            </div>
+            <div class="grid grid-02">
+                <div class="total-box weekly-earning">
+
+                    <div class="total-flex">
+                        <span class="week-span-text">Ganhos semanais</span>
+                        <span class="label__total-purchase-due">$100</span>
+                        <span class="total-text">+<span class="percentage"> 43%</span> aumentado em relação a semana
+                            passada</span>
+                    </div>
+                    <div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
+                </div>
+                <div class="total-box total__costumer-box tot-box-02">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Estoques</span>
+                    </div>
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                </div>
+                <div class="total-box total__costumer-box tot-box-02">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Estoques</span>
+                    </div>
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                </div>
+            </div>
+            <div class="total-container grid grid-04">
+                <div class="total-box total__purchase-box">
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">$100</span>
+                        <span class="total-text">Total compras</span>
+                    </div>
+                </div>
+                <div class="total-box total__purchase-box">
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">$100</span>
+                        <span class="total-text">Total vendas</span>
+                    </div>
+                </div>
+                <div class="total-box total__purchase-box">
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">$100</span>
+                        <span class="total-text">Montante total</span>
+                    </div>
+                </div>
+                <!-- <div class="total-box total__purchase-box">
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">$100</span>
+                        <span class="total-text">Montante total de custos</span>
+                    </div>
+                </div> -->
+
+                <div class="total-box total__costumer-box tot-box-02">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Clientes</span>
+                    </div>
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                </div>
+                <div class="total-box total__costumer-box tot-box-02 box-light-blue">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Fornecedores</span>
+                    </div>
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                </div>
+                <div class="total-box total__costumer-box tot-box-02 box-dark-blue">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Estoques</span>
+                    </div>
+                    <div class="total-icon"><ion-icon name="documents-outline"></ion-icon></div>
+                </div>
+                <!-- <div class="total-box total__costumer-box tot-box-02">
+                    <div class="total-flex">
+                        <span class="label__total-purchase-due">100</span>
+                        <span class="total-text">Fatura de vendas</span>
+                    </div>
+                    <div class="total-icon tot-icon-02"><ion-icon name="documents-outline" class="mm"></ion-icon></div>
+                </div> -->
+
+            </div>
+
+            <div class="statics_recent-container">
+                <div class="statics-box">
+                    <div class="subheader">
+                        <h3 class="heading-h3">Compras & Vendas</h3>
+                        <div></div>
+                    </div>
+                    <div class="estaticos">
+                        tabela de estatísticas aqui
+                    </div>
+                </div>
+                <div class="recent-products-notification-box">
+                    <div class="subheader">
+                        <h3 class="heading-h3">Productos recentes</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="estaticos">
+                        <div class="heading-recent-notification">
+                            <div>
+                                <span>#</span>
+                                <span>Productos</span>
+                            </div>
+                            <span>Preço</span>
+                        </div>
+
+                        <!-- PRODUCTO -->
+                        <div class="product-notification">
+                            <div>
+                                <span class="number">1</span>
+                                <span class="product-name">Lenovo 3D 3GEn</span>
+                            </div>
+                            <span class="product-price">$5380</span>
+                        </div>
+                        <div class="product-notification">
+                            <div>
+                                <span class="number">2</span>
+                                <span class="product-name">Computador</span>
+                            </div>
+                            <span class="product-price">$1500</span>
+                        </div>
+                        <div class="product-notification">
+                            <div>
+                                <span class="number">3</span>
+                                <span class="product-name">Impressora</span>
+                            </div>
+                            <span class="product-price">$1500</span>
+                        </div>
+                        <div class="product-notification">
+                            <div>
+                                <span class="number">4</span>
+                                <span class="product-name">Apple Watch 3D</span>
+                            </div>
+                            <span class="product-price">$1500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statics_recent-container grid-more">
+                <div class="recent-products-notification-box">
+                    <div class="subheader">
+                        <h3 class="heading-h3">Mais vendidos</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="estaticos">
+                        <!-- PRODUCTO -->
+                        <div class="product-notification most-salled">
+                            <div>
+
+                                <span class="product-name">Lenovo 3D 3GEn</span>
+                                <span class="number">Sales</span>
+                            </div>
+                            <div>
+                                <span class="product-price">$5380</span>
+                                <span class="sale-num">2340</span>
+                            </div>
+                        </div>
+                        <div class="product-notification most-salled">
+                            <div>
+
+                                <span class="product-name">Lenovo 3D 3GEn</span>
+                                <span class="number">Sales</span>
+                            </div>
+                            <div>
+                                <span class="product-price">$5380</span>
+                                <span class="sale-num">2340</span>
+                            </div>
+                        </div>
+                        <div class="product-notification most-salled">
+                            <div>
+
+                                <span class="product-name">Lenovo 3D 3GEn</span>
+                                <span class="number">Sales</span>
+                            </div>
+                            <div>
+                                <span class="product-price">$5380</span>
+                                <span class="sale-num">2340</span>
+                            </div>
+                        </div>
+                        <div class="product-notification most-salled">
+                            <div>
+
+                                <span class="product-name">Lenovo 3D 3GEn</span>
+                                <span class="number">Sales</span>
+                            </div>
+                            <div>
+                                <span class="product-price">$5380</span>
+                                <span class="sale-num">2340</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="statics-box">
+                    <div class="subheader">
+                        <h3 class="heading-h3">Transações recentes</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="estaticos">
+                        <div class="heading-recent-notification">
+                            <div>
+                                <span>#</span>
+                                <span>Order details</span>
+                            </div>
+                            <span>Pagamento</span>
+                            <span>Montante</span>
+                        </div>
+                        <!-- TRANSAÇÃO -->
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="number">1</span>
+                                <span class="product-name">Apple Watch 3D</span>
+                            </div>
+                            <span class="product-price">Cash</span>
+                            <span class="product-price">$ 34509</span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="number">1</span>
+                                <span class="product-name">Apple Watch 3D</span>
+                            </div>
+                            <span class="product-price">Cash</span>
+                            <span class="product-price">$ 34509</span>
+
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="number">1</span>
+                                <span class="product-name">Apple Watch 3D</span>
+                            </div>
+                            <span class="product-price">Cash</span>
+                            <span class="product-price">$ 34509</span>
+
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="number">1</span>
+                                <span class="product-name">Apple Watch 3D</span>
+                            </div>
+                            <span class="product-price">Cash</span>
+                            <span class="product-price">$ 34509</span>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

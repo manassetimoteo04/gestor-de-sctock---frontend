@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Gerencie os teus productos </title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="/js/main.js"></script>
+</head>
+
+<body class="">
+    <section class="dashboard-section main-section">
+        <header class="main__header">
+            <div class="search__div">
+                <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+                <div>
+                    <input type="text" placeholder="Pesquisar" class="input__search">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="header__user">
+                <a href="#" class="header__btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a>
+                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
+                <div class="header__profile-box">
+                    <img src="/img/costumer/steve.jpg" alt="" class="header__profile-img">
+                    <div class="profile__name-box">
+                        <span class="header__p-name">Timóteo Pembele</span>
+                        <span class="permission">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside class="side__bar">
+            <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li> <a href="/index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="" class="main-nav-link active-link"> <ion-icon name="layers-outline"></ion-icon>
+                            <span>Productos</span></a>
+                    </li>
+                    <li><a href="#" class="main-nav-link"> <ion-icon name="cube-outline"></ion-icon><span>
+                                Estoques</span> </a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="stats-chart-outline"></ion-icon><span>Vendas</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="people-outline"></ion-icon><span>Clientes</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="documents-outline"></ion-icon><span>Relatórios</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="person-outline"></ion-icon><span>Perfil</span></a></li>
+                    <!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+                </ul>
+
+            </nav>
+        </aside>
+        <section class="main__content-section ">
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Lista de productos</h2>
+                    <span class="section-tag">Gerencie os teus productos</span>
+                </header>
+                <div class="add-new-product-box">
+                    <button class="btn-add-new-product">
+                        Add New Product
+                    </button>
+                </div>
+            </div>
+
+            <div class="statics-box product-container">
+                <div class="subheader">
+                    <h3 class="heading-h3"></h3>
+                    <div class="sort-box">
+                        <select name="" id="" class="sort">
+                            <option value="date">Classificar por data</option>
+                            <option value="price">Classificar por preço</option>
+                            <option value="qtd">Classificar por Qtd</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container">
+
+                    <div class="estaticos">
+                        <div class="heading-recent-notification">
+                            <div>
+                                <span>#</span>
+                                <span>Productos</span>
+                            </div>
+                            <span>Categoria</span>
+                            <span>Preço</span>
+                            <span>Quantidade</span>
+                            <span>Data</span>
+                            <span>Acção</span>
+                        </div>
+                        <!-- TRANSAÇÃO -->
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span>
+                            <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="subheader">
+                    <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                            class="current-product-page">10</span></div>
+                    <div class="btn-pages">
+                        <button class="btn-previous-page">
+                            < </button>
+                                <span class="curr-page-number">1</span>
+                                <button class="btn-next-page"> > </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+        <section class="main__content-section hidden">
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Novo Producto</h2>
+                    <span class="section-tag">Adicione um novo producto</span>
+                </header>
+                <div class="add-new-product-box">
+                    <button class="btn-back-to-product">
+                        &lAarr;
+                        Voltar na lista
+                    </button>
+                </div>
+            </div>
+
+            <div class="statics-box product-container">
+                <div class="subheader">
+                    <h3 class="heading-h3">Informação do producto</h3>
+                    <div class="sort-box">
+                        <select name="" id="" class="sort">
+                            <option value="date">Classificar por data</option>
+                            <option value="price">Classificar por preço</option>
+                            <option value="qtd">Classificar por Qtd</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container">
+
+                    <div class="estaticos">
+                        <div class="heading-recent-notification">
+                            <div>
+                                <span>#</span>
+                                <span>Productos</span>
+                            </div>
+                            <span>Categoria</span>
+                            <span>Preço</span>
+                            <span>Quantidade</span>
+                            <span>Data</span>
+                            <span>Acção</span>
+                        </div>
+                        <!-- TRANSAÇÃO -->
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn">1</span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span>
+                            <span class="product-action">
+                                <button class="btn-edit-product">Editar</button>
+                                <button class="btn-delete-product">Eliminar</button>
+                            </span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="subheader">
+                    <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                            class="current-product-page">10</span></div>
+                    <div class="btn-pages">
+                        <button class="btn-previous-page">
+                            < </button>
+                                <span class="curr-page-number">1</span>
+                                <button class="btn-next-page"> > </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+</body>
+
+</html>
