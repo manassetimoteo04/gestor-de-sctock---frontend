@@ -139,7 +139,7 @@ body {
 .main-section {
   max-width: 100%;
   display: grid;
-  grid-template-columns: 20fr 80fr;
+  grid-template-columns: 25fr 80fr;
   grid-template-rows: 10fr 85fr;
   height: 100%;
   position: relative;
@@ -152,12 +152,12 @@ body {
 }
 .menu-hidden .main-nav-link span {
   user-select: none;
-  pointer-events: none;
   display: none;
+  pointer-events: none;
 }
-.main-nav-link span {
-  display: inline;
-}
+/* .main-nav-link span {
+  display: inline-block;
+} */
 .menu-hidden .side__bar {
   padding: 2rem 1rem;
 }
@@ -265,6 +265,7 @@ body {
   overflow-y: scroll;
   height: 100%;
   transition: all 0.3s ease-in;
+  z-index: 999;
 }
 
 .side__bar:hover::-webkit-scrollbar {
@@ -326,9 +327,9 @@ body {
   transition: all 0.3s;
   border-radius: var(--bs-border-radius-xl);
 }
-.main-nav-link span {
+/* .main-nav-link span {
   transition: all 0.5s;
-}
+} */
 .main-nav-link ion-icon {
   font-size: 2.2rem;
 }
