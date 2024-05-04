@@ -18,7 +18,7 @@ const data = {
   datasets: [
     {
       label: "Compras",
-      data: [10, 20, 30, 40, 50, 60, 70], // Dados de exemplo
+      data: [10, 20, 30, 40, 50, 60, 30], // Dados de exemplo
       borderColor: "red",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
       borderWidth: 2,

@@ -15,7 +15,7 @@
         rel="stylesheet">
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script defer src="./js/main.js"></script>
+    <script defer src="../js/main.js"></script>
 </head>
 
 <body class="">
@@ -80,7 +80,8 @@
                 </header>
                 <div class="add-new-product-box">
                     <button class="btn-add-new-product">
-                        Add New Product
+                        <ion-icon name="add-outline"></ion-icon>
+                        New Product
                     </button>
                 </div>
             </div>
@@ -89,6 +90,7 @@
                 <div class="subheader">
                     <h3 class="heading-h3"></h3>
                     <div class="sort-box">
+                        <ion-icon name="options-outline"></ion-icon>
                         <select name="" id="" class="sort">
                             <option value="date">Classificar por data</option>
                             <option value="price">Classificar por preço</option>
@@ -96,7 +98,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container ">
 
                     <div class="estaticos">
                         <div class="heading-recent-notification">
@@ -222,10 +224,6 @@
                                 <button class=""></button>
                             </span>
                         </div>
-
-
-
-
                     </div>
                 </div>
                 <div class="subheader">
@@ -233,199 +231,86 @@
                             class="current-product-page">10</span></div>
                     <div class="btn-pages">
                         <button class="btn-previous-page">
-                            < </button>
-                                <span class="curr-page-number">1</span>
-                                <button class="btn-next-page"> > </button>
+                            <ion-icon name="chevron-back-outline"></ion-icon></button>
+                        <span class="curr-page-number">1</span>
+                        <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon> </button>
                     </div>
                 </div>
             </div>
 
         </section>
 
+        <!-- ADICIONAR UM PRODUCTO NOVO -->
+        <section class="main__content-section add-product-container">
 
+            <div class="product-container ">
 
-
-
-        <section class="main__content-section hidden">
-            <div class="section-header">
-                <header class="sect-head">
-                    <h2 class="heading-h2">Novo Producto</h2>
-                    <span class="section-tag">Adicione um novo producto</span>
-                </header>
-                <div class="add-new-product-box">
-                    <button class="btn-back-to-product">
-                        &lAarr;
-                        Voltar na lista
-                    </button>
-                </div>
-            </div>
-
-            <div class="statics-box product-container">
-                <div class="subheader">
-                    <h3 class="heading-h3">Informação do producto</h3>
-                    <div class="sort-box">
-                        <select name="" id="" class="sort">
-                            <option value="date">Classificar por data</option>
-                            <option value="price">Classificar por preço</option>
-                            <option value="qtd">Classificar por Qtd</option>
-                        </select>
-                    </div>
-                </div>
                 <div class="container">
-
-                    <div class="estaticos">
-                        <div class="heading-recent-notification">
-                            <div>
-                                <span>#</span>
-                                <span>Productos</span>
+                    <header class="add-new-header">
+                        <h2 class="heading-h2">Adicionar producto</h2>
+                        <span class="section-tag">Adicone as informações sobre o producto</span>
+                    </header>
+                    <form action="#" class="new-product-form">
+                        <div class="form-group">
+                            <div class="group">
+                                <label for="product-name">Nome do producto</label>
+                                <input type="text" placeholder="Nome do producto" class="input-product-name">
                             </div>
-                            <span>Categoria</span>
-                            <span>Preço</span>
-                            <span>Quantidade</span>
-                            <span>Data</span>
-                            <span>Acção</span>
-                        </div>
-                        <!-- TRANSAÇÃO -->
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
-                            </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
-                        </div>
 
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
-                            </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <span class="product-action">
-                                <button class="btn-edit-product">Editar</button>
-                                <button class="btn-delete-product">Eliminar</button>
-                            </span>
                         </div>
+                        <div class="form-group">
+                            <div class="group">
 
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                                <label for="product-category" class="product-category">Categoria <span><ion-icon
+                                            name="add-circle-outline"></ion-icon>
+                                        Adicionar</span></label>
+                                <select name="" id="" class="select-category">
+                                    <option value="">Escolha</option>
+                                    <option value="">Electronicos</option>
+                                    <option value="">Roupas</option>
+                                    <option value="">Mobilias</option>
+                                    <option value="">Calçados</option>
+                                </select>
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>n>
-                            </span>
-                        </div>
 
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="group">
+                                <label for="product-name">Preço de venda</label>
+                                <input type="number" placeholder="Preço de venda" class="input-sell-price">
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
-                        </div>
-
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                            <div class="group">
+                                <label for="product-name">Preço de compra </label>
+                                <input type="number" placeholder="Preço de compra" class="input-buy-price">
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
                         </div>
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                        <div class="form-group">
+                            <div class="group">
+                                <label for="product-name">Quantidade</label>
+                                <input type="number" placeholder="Quantidade" class="input-sell-price">
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
-                        </div>
-
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                            <div class="group">
+                                <label for="product-name">Código SKU </label>
+                                <input type="number" placeholder="Preço de compra" class="input-buy-price">
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
                         </div>
-
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                        <div class="form-group">
+                            <div class="group">
+                                <label for="product-name">Descrição</label>
+                                <textarea name="" id="" cols="10" rows="5"></textarea>
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <button class="btn-edit-product"><ion-icon
-                                    name="create-outline"></ion-icon></button>
-                            <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
-                        </div>
 
-                        <div class="product-notification transation-notification">
-                            <div>
-                                <span class="select-btn">1</span>
-                                <span class="product-name">Lenovo 3rd Geração</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="btns">
+                                <button class="confirmar-new-product">Adicionar</button>
+                                <button class="cancelar-new-product">Cancelar</button>
                             </div>
-                            <span class="product-category">Laptop</span>
-                            <span class="product-price">$15080,00</span>
-                            <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span>
-                            <span class="product-action">
-                                <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
-                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                            </span>
                         </div>
+                    </form>
 
-
-                    </div>
                 </div>
-                <div class="subheader">
-                    <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                            class="current-product-page">10</span></div>
-                    <div class="btn-pages">
-                        <button class="btn-previous-page">
-                            < </button>
-                                <span class="curr-page-number">1</span>
-                                <button class="btn-next-page"> > </button>
-                    </div>
-                </div>
+
             </div>
 
         </section>

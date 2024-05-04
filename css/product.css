@@ -120,7 +120,9 @@
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
 }
-
+body {
+  position: relative;
+}
 .btn-add-new-product {
   background-color: var(--bs-orange);
   padding: 1rem 2rem;
@@ -128,6 +130,15 @@
   color: var(--bs-white);
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: inherit;
+  transition: all 0.3s;
+}
+.btn-add-new-product:hover {
+  background-color: #092c4c;
 }
 .section-header {
   display: flex;
@@ -146,6 +157,9 @@
   padding: 1rem 2rem;
   border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
   border-radius: var(--bs-border-radius-xl);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .heading-recent-notification {
@@ -260,4 +274,105 @@ ion-icon {
   color: var(--bs-white);
   font-weight: bold;
   cursor: pointer;
+}
+
+/* PRODUCT CONTAINER ADD */
+.add-product-container {
+  position: absolute;
+  width: 100%;
+  height: 140vh;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.466);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  backdrop-filter: blur(4px);
+  overflow-y: scroll;
+}
+.add-product-container .container {
+  height: 100%;
+  display: grid;
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bs-white);
+}
+.new-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 0;
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+}
+.group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.form-group input,
+.form-group select,
+textarea {
+  background: none;
+  padding: 1rem;
+  border: var(--bs-border-style) var(--bs-border-width) var(--bs-border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+}
+.form-group input:focus,
+.form-group select:focus,
+textarea:focus {
+  outline: none;
+}
+.product-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-category span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.product-category ion-icon {
+  font-size: 1.4rem;
+}
+.confirmar-new-product {
+  background-color: #052c65;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  color: var(--bs-white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: inherit;
+}
+.cancelar-new-product {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: inherit;
+}
+.btns {
+  display: flex;
+  gap: 2rem;
+}
+.confirmar-new-product:hover {
+  background-color: var(--bs-orange);
 }

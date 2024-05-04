@@ -126,6 +126,25 @@
   box-sizing: border-box;
   margin: 0;
 }
+*::-webkit-scrollbar {
+  max-width: 3px;
+  height: 0rem;
+  position: absolute;
+}
+*::-webkit-scrollbar {
+  height: 0rem;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bs-body-bg); /* Cor do botão de rolagem */
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bs-orange); /* Cor do botão de rolagem */
+}
+/* Estilizando a pista (trilha) da barra de rolagem */
+*:hover::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
 
 html {
   font-size: 62.5%;
@@ -335,11 +354,11 @@ body {
 }
 .main-nav-link:hover {
   background-color: rgba(153, 253, 23, 0.24);
-  color: var(--bs-orange);
+  /* color: var(--bs-orange); */
 }
 .active-link {
   background-color: rgba(153, 253, 23, 0.24);
-  color: var(--bs-orange);
+  /* color: var(--bs-orange); */
 }
 .log-out-btn {
   background: none;
