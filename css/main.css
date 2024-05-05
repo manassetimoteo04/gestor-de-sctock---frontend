@@ -13,6 +13,20 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
 }
+.dark-mode {
+  --primary-color-blue: #4361ee;
+  --secondary-color-blue: #99aaf5;
+  --primary-color-red: #fa3d3d;
+  --dark-grey-heading-01: #f0f1f5
+  --less-dark-grey-heading-02: #d7d9e3;
+  --primary-text-color: #bec0c9;
+  --secondary-text-color: #b3b6c4;
+  --bg-divider-color: #2c2f41;
+  --background-color: #2a2d3d;
+  --btn-border-radius: 1rem;
+  --box-border-radius: 1.2rem;
+  --border-color: #d3d3d3c4;
+}
 /* CONFIGURAÇÃO GERAL */
 
 * {
@@ -494,4 +508,7 @@ body {
 .sale-num {
   font-weight: bold;
   color: var(--bs-gray);
+}
+.hidden {
+  display: none;
 }

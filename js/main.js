@@ -10,6 +10,11 @@ toggleMenuBtn.addEventListener("click", function () {
   body.classList.toggle("menu-hidden");
 });
 
+const btnToggleDarkMode = document.querySelector(".toggle-dark-mode");
+const root = document.documentElement;
+btnToggleDarkMode.addEventListener("click", function () {
+  root.classList.toggle("dark-mode");
+});
 // FUNÇÃO PARA A PÁGINA INICIAL DO DASHBOARD
 const dashBoardFunction = function () {
   const ctx = document.getElementById("myChart");
@@ -34,7 +39,6 @@ const dashBoardFunction = function () {
         data: [10, 20, 30, 40, 50, 60, 30], // Dados de exemplo
         borderColor: "red",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-        borderWidth: 2,
         borderRadius: Number.MAX_VALUE,
         borderSkipped: false,
       },
@@ -43,7 +47,6 @@ const dashBoardFunction = function () {
         data: [70, 60, 50, 40, 30, 20, 10], // Dados de exemplo
         borderColor: "blue",
         backgroundColor: "rgba(54, 162, 235, 0.5)",
-        borderWidth: 2,
         borderRadius: 5,
         borderSkipped: false,
       },
