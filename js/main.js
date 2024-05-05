@@ -10,12 +10,24 @@ toggleMenuBtn.addEventListener("click", function () {
   body.classList.toggle("menu-hidden");
 });
 
-const btnToggleDarkMode = document.querySelector(".toggle-dark-mode");
-const root = document.documentElement;
-btnToggleDarkMode.addEventListener("click", function () {
-  root.classList.toggle("dark-mode");
-  document.querySelector(".light-icon").classList.toggle("hidden");
-  document.querySelector(".dark-icon").classList.toggle("hidden");
+const darkModeFunction = function () {
+  const btnToggleDarkMode = document.querySelector(".toggle-dark-mode");
+  const root = document.documentElement;
+  btnToggleDarkMode.addEventListener("click", function () {
+    root.classList.toggle("dark-mode");
+    document.querySelector(".light-icon").classList.toggle("hidden");
+    document.querySelector(".dark-icon").classList.toggle("hidden");
+    const isDarkMode = root.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+  });
+};
+darkModeFunction();
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const isDarkMode = root.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDarkMode);
+  const DarkMode = localStorage.getItem("darkMode") === "true";
+  if (DarkMode) root.classList.add("dark-mode");
 });
 // FUNÇÃO PARA A PÁGINA INICIAL DO DASHBOARD
 const dashBoardFunction = function () {

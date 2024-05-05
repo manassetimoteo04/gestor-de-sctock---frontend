@@ -330,7 +330,7 @@ body {
   transition: all 0.5s;
 }
 .total-box:hover {
-  box-shadow: 0 10px 8px rgba(96, 97, 106, 0.094);
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.094);
 }
 .total-container {
   width: 100%;
@@ -458,8 +458,8 @@ body {
   justify-content: center;
 }
 .heading-recent-notification {
-  display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   font-weight: bold;
   border-bottom: 1px solid var(--border-color);
@@ -473,8 +473,8 @@ body {
 }
 
 .product-notification {
-  display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  display: flex;
+justify-content: space-between;
   align-items: center;
   padding: 2rem 0.2rem;
 }

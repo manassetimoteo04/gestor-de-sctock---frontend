@@ -11,7 +11,7 @@
   --background-color: #f4f5f9;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
-  --border-color: #d3d3d3c4;
+  --border-color: #bbb8b844;
 }
 .dark-mode {
   --primary-color-blue: #4361ee;
@@ -25,7 +25,7 @@
   --background-color: #2a2d3d;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
-  --border-color: #d3d3d3c4;
+  --border-color: #8f8d8d25;
 }
 
 body {
@@ -56,6 +56,22 @@ body {
   font-size: 3.2rem;
   font-weight: bold;
 }
+.sort {
+  background: none;
+  color: var(--primary-text-color);
+  font-size: inherit;
+}
+.sort:focus {
+  outline: none;
+}
+.sort-box {
+  padding: 1rem 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 .low-stock {
   background-color: var(--bs-orange);
@@ -84,6 +100,40 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.product-action{
+  display: flex;
+  gap: 0.5rem;
+}
+.product-action button {
+  background: none;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: inherit;
+}
+
+.btn-pages button {
+  background: none;
+  font-size: 1.8rem;
+  color: inherit;
+}
+.btn-pages{
+  display: flex;
+  gap: 1rem;
+}
+.btn-pages .curr-page-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color-blue);
+  height: 4rem;
+  width: 4rem;
+  color: #fff ;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .container-registos {
