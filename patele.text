@@ -3,5 +3,7 @@
 #4361EE - PRIMARY COLOR [BLUE]
 #34363F - HEADING H1 (DARK GREY)
 #565863 - HEADING H2 (LESS DARK GREY)
-#5B5D67
-#8C8F9F #60616A, #F4F5F9
+#5B5D67 - Text color primary
+#8C8F9F - Text color secondary
+#60616A - Box divider
+#F4F5F9 - background
