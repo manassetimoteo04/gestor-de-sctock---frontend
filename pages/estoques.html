@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Gerencie os teus productos </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/estoque.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer type="module" src="../js/main.js"></script>
+</head>
+
+<body class="">
+    <!-- SESSÃO PRINCIPAL -->
+    <section class="dashboard-section main-section">
+        <!-- HEADER PRINCIPAL -->
+        <header class="main__header">
+            <!-- BARRA DE PESQUISA -->
+            <div class="search__div">
+                <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+                <div>
+                    <input type="text" placeholder="Pesquisar" class="input__search">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- BOX DO USUÁRIO NO HEADER -->
+            <div class="header__user">
+                <a href="#" class="header__btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a>
+                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
+                <div class="header__profile-box">
+                    <img src="../img/costumer/steve.jpg" alt="" class="header__profile-img">
+                    <div class="profile__name-box">
+                        <span class="header__p-name">Timóteo Pembele</span>
+                        <span class="permission">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
+        <aside class="side__bar">
+            <!-- LOGOTIPO -->
+            <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
+            <!-- BARRA DE MENU PRINCIPAL -->
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="products.html" class="main-nav-link "> <ion-icon name="layers-outline"></ion-icon>
+                            <span>Productos</span></a>
+                    </li>
+                    <li><a href="estoques.html" class="main-nav-link active-link"> <ion-icon
+                                name="cube-outline"></ion-icon><span>
+                                Estoques</span> </a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="stats-chart-outline"></ion-icon><span>Vendas</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="people-outline"></ion-icon><span>Clientes</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="documents-outline"></ion-icon><span>Relatórios</span></a></li>
+                    <li><a href="#" class="main-nav-link"><ion-icon
+                                name="person-outline"></ion-icon><span>Perfil</span></a></li>
+                    <!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+                </ul>
+
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
+        <section class="main__content-section main-stock-section ">
+            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Teus Estoques</h2>
+                    <span class="section-tag">Monitorae os teus estoques</span>
+                </header>
+                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
+                <div class="add-new-product-box">
+                    <button class="btn-add-new-stock">
+                        <ion-icon name="add-outline"></ion-icon>
+                        Novo
+                    </button>
+                </div>
+            </div>
+            <div class="monitoramento-estoque">
+                <div class="total-stock-box">
+                    <span class="stock-tag">Número total de estoques</span>
+                    <div>
+                        <span class="total-stock-number">120</span>
+                    </div>
+
+                </div>
+                <div class="total-stock-box">
+                    <span class="stock-tag">Novos estoques</span>
+                    <div>
+                        <span class="total-stock-number">120</span>
+                    </div>
+
+                </div>
+                <div class="total-stock-box">
+                    <span class="stock-tag">Estoques baixos</span>
+                    <div>
+                        <span class="total-stock-number">120</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container-registos">
+                <div class="entrada-productos-box  registos-box">
+                    <header class="registos-header">
+                        <h3 class="heading-h3">Entradas de productos</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos <ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
+                        </div>
+                    </header>
+                    <div class="entradas-product">
+                        <div class="product product-subheader">
+                            <span>Producto</span>
+                            <span>Categoria</span>
+                            <span>QTD.</span>
+                            <span>Data</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="saidas-productos-box  registos-box">
+                    <header class="registos-header">
+                        <h3 class="heading-h3">Entradas de productos</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos <ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
+                        </div>
+                    </header>
+                    <div class="entradas-product">
+                        <div class="product product-subheader">
+                            <span>Producto</span>
+                            <span>Categoria</span>
+                            <span>QTD.</span>
+                            <span>Data</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                        <div class="product ">
+                            <span>Mackbook Pro</span>
+                            <span>Computador</span>
+                            <span>105</span>
+                            <span>08/04/2024</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- CONTAINER DOS PRODUCTOS -->
+            <div class="statics-box low-stock-container">
+                <div class="subheader">
+                    <h3 class="heading-h3">Alerta de Estoques baixos</h3>
+
+                </div>
+
+
+                <div class="container ">
+                    <div class="estaticos">
+
+                        <div class="heading-low-stock">
+                            <div>
+                                <span><ion-icon name="square-outline"></ion-icon></span>
+                                <span>STOCK ID</span>
+                            </div>
+                            <span>Categoria</span>
+                            <span>QTD</span>
+                            <span>Mín.</span>
+                            <span>Máx.</span>
+
+                            <span>Acção</span>
+
+                        </div>
+
+
+                        <div class="stock-low">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">ID000459</span>
+                            </div>
+                            <span class="product-category">Computador</span>
+                            <span class="product-price">15</span>
+                            <span class="product-date">50</span>
+                            <span class="product-date">500</span> <span class="product-action">
+                                <span class="product-action">
+                                    <button class="btn-edit-product"><ion-icon
+                                            name="create-outline"></ion-icon></button>
+                                    <button class="btn-delete-product"><ion-icon
+                                            name="trash-outline"></ion-icon></button>
+                                    <button class="btn-details-product"><ion-icon
+                                            name="ellipsis-vertical-outline"></ion-icon></button>
+                                </span>
+                        </div>
+
+                        <div class="stock-low">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">ID000459</span>
+                            </div>
+                            <span class="product-category">Computador</span>
+                            <span class="product-price">15</span>
+                            <span class="product-date">50</span>
+                            <span class="product-date">500</span> <span class="product-action">
+                                <span class="product-action">
+                                    <button class="btn-edit-product"><ion-icon
+                                            name="create-outline"></ion-icon></button>
+                                    <button class="btn-delete-product"><ion-icon
+                                            name="trash-outline"></ion-icon></button>
+                                    <button class="btn-details-product"><ion-icon
+                                            name="ellipsis-vertical-outline"></ion-icon></button>
+                                </span>
+                        </div>
+
+                        <div class="stock-low">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">ID000459</span>
+                            </div>
+                            <span class="product-category">Computador</span>
+                            <span class="product-price">15</span>
+                            <span class="product-date">50</span>
+                            <span class="product-date">500</span> <span class="product-action">
+                                <span class="product-action">
+                                    <button class="btn-edit-product"><ion-icon
+                                            name="create-outline"></ion-icon></button>
+                                    <button class="btn-delete-product"><ion-icon
+                                            name="trash-outline"></ion-icon></button>
+                                    <button class="btn-details-product"><ion-icon
+                                            name="ellipsis-vertical-outline"></ion-icon></button>
+                                </span>
+                        </div>
+
+                        <div class="stock-low">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">ID000459</span>
+                            </div>
+                            <span class="product-category">Computador</span>
+                            <span class="product-price">15</span>
+                            <span class="product-date">50</span>
+                            <span class="product-date">500</span> <span class="product-action">
+                                <span class="product-action">
+                                    <button class="btn-edit-product"><ion-icon
+                                            name="create-outline"></ion-icon></button>
+                                    <button class="btn-delete-product"><ion-icon
+                                            name="trash-outline"></ion-icon></button>
+                                    <button class="btn-details-product"><ion-icon
+                                            name="ellipsis-vertical-outline"></ion-icon></button>
+                                </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- CONTAINER DOS PRODUCTOS -->
+            <div class="statics-box product-container">
+                <div class="subheader">
+                    <h3 class="heading-h3">Todos Estoques</h3>
+                    <!-- CLASSIFICAR O PRODUTO POR: DATA, PREÇO E QUANTIDADE -->
+                    <div class="sort-box">
+                        <ion-icon name="options-outline"></ion-icon>
+                        <select name="" id="" class="sort">
+                            <option value="date">Classificar por data</option>
+                            <option value="price">Classificar por preço</option>
+                            <option value="qtd">Classificar por Qtd</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container stocks ">
+                    <div class="estaticos">
+                        <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
+                        <div class="heading-recent-notification">
+                            <div>
+                                <span><ion-icon name="square-outline"></ion-icon></span>
+                                <span>Productos</span>
+                            </div>
+                            <span>Categoria</span>
+                            <span>Preço</span>
+                            <span>Quantidade</span>
+                            <span>Data</span>
+                            <span>Acção</span>
+                        </div>
+                        <!-- PRODUCTOS -->
+                        <div class="product-notification transation-notification">
+                            <!-- NOME DO PRODUCTO -->
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
+                                <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
+                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
+                            </span>
+                        </div>
+                        <!-- PRODUCTO -->
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
+                                <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
+                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
+                            </span>
+                        </div>
+                        <!-- PRODUCTO -->
+                        <div class="product-notification transation-notification">
+                            <div>
+                                <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
+                                <span class="product-name">Lenovo 3rd Geração</span>
+                            </div>
+                            <span class="product-category">Laptop</span>
+                            <span class="product-price">$15080,00</span>
+                            <span class="product-qtd">140</span>
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
+                                <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
+                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- PAGINAÇÃO DO PRODUCTO -->
+                <div class="subheader">
+                    <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                            class="current-product-page">10</span></div>
+                    <div class="btn-pages">
+                        <button class="btn-previous-page">
+                            <ion-icon name="chevron-back-outline"></ion-icon></button>
+                        <span class="curr-page-number">1</span>
+                        <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+    </section>
+</body>
+
+</html>

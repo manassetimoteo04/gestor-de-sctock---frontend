@@ -15,12 +15,15 @@
         rel="stylesheet">
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script defer src="../js/main.js"></script>
+    <script defer type="module" src="../js/main.js"></script>
 </head>
 
 <body class="">
+    <!-- SESSÃO PRINCIPAL -->
     <section class="dashboard-section main-section">
+        <!-- HEADER PRINCIPAL -->
         <header class="main__header">
+            <!-- BARRA DE PESQUISA -->
             <div class="search__div">
                 <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
                 <div>
@@ -28,6 +31,7 @@
                     <ion-icon name="search-outline"></ion-icon>
                 </div>
             </div>
+            <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
                 <a href="#" class="header__btn notification__btn"> <ion-icon
                         name="notifications-outline"></ion-icon></a>
@@ -41,16 +45,20 @@
                 </div>
             </div>
         </header>
+
+        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
         <aside class="side__bar">
+            <!-- LOGOTIPO -->
             <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
+            <!-- BARRA DE MENU PRINCIPAL -->
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
                             <span>Dashboard</span></a></li>
-                    <li><a href="" class="main-nav-link active-link"> <ion-icon name="layers-outline"></ion-icon>
+                    <li><a href="products.html" class="main-nav-link active-link"> <ion-icon name="layers-outline"></ion-icon>
                             <span>Productos</span></a>
                     </li>
-                    <li><a href="#" class="main-nav-link"> <ion-icon name="cube-outline"></ion-icon><span>
+                    <li><a href="estoques.html" class="main-nav-link"> <ion-icon name="cube-outline"></ion-icon><span>
                                 Estoques</span> </a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="stats-chart-outline"></ion-icon><span>Vendas</span></a></li>
@@ -72,23 +80,28 @@
 
             </nav>
         </aside>
+
+        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
         <section class="main__content-section ">
+            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
                     <h2 class="heading-h2">Lista de productos</h2>
                     <span class="section-tag">Gerencie os teus productos</span>
                 </header>
+                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
                 <div class="add-new-product-box">
                     <button class="btn-add-new-product">
                         <ion-icon name="add-outline"></ion-icon>
-                        New Product
+                        Adicionar
                     </button>
                 </div>
             </div>
-
+            <!-- CONTAINER DOS PRODUCTOS -->
             <div class="statics-box product-container">
                 <div class="subheader">
                     <h3 class="heading-h3"></h3>
+                    <!-- CLASSIFICAR O PRODUTO POR: DATA, PREÇO E QUANTIDADE -->
                     <div class="sort-box">
                         <ion-icon name="options-outline"></ion-icon>
                         <select name="" id="" class="sort">
@@ -99,8 +112,8 @@
                     </div>
                 </div>
                 <div class="container ">
-
                     <div class="estaticos">
+                        <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
                         <div class="heading-recent-notification">
                             <div>
                                 <span><ion-icon name="square-outline"></ion-icon></span>
@@ -112,8 +125,9 @@
                             <span>Data</span>
                             <span>Acção</span>
                         </div>
-                        <!-- TRANSAÇÃO -->
+                        <!-- PRODUCTOS -->
                         <div class="product-notification transation-notification">
+                            <!-- NOME DO PRODUCTO -->
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
                                 <span class="product-name">Lenovo 3rd Geração</span>
@@ -121,12 +135,16 @@
                             <span class="product-category">Laptop</span>
                             <span class="product-price">$15080,00</span>
                             <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -135,12 +153,16 @@
                             <span class="product-category">Laptop</span>
                             <span class="product-price">$15080,00</span>
                             <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -149,12 +171,16 @@
                             <span class="product-category">Laptop</span>
                             <span class="product-price">$15080,00</span>
                             <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                            <span class="product-date">12/04/2023</span>
+                            <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                            <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -166,9 +192,11 @@
                             <span class="product-date">12/04/2023</span> <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -177,11 +205,15 @@
                             <span class="product-category">Laptop</span>
                             <span class="product-price">$15080,00</span>
                             <span class="product-qtd">140</span>
-                            <span class="product-date">12/04/2023</span> <span class="product-action">
+                            <span class="product-date">12/04/2023</span>
+                            <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -193,9 +225,11 @@
                             <span class="product-date">12/04/2023</span> <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -207,9 +241,11 @@
                             <span class="product-date">12/04/2023</span> <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
                                 <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
+                                <button class="btn-details-product"><ion-icon
+                                        name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
-
+                        <!-- PRODUCTO -->
                         <div class="product-notification transation-notification">
                             <div>
                                 <span class="select-btn"><ion-icon name="square-outline"></ion-icon></span>
@@ -220,12 +256,14 @@
                             <span class="product-qtd">140</span>
                             <span class="product-date">12/04/2023</span> <span class="product-action">
                                 <button class="btn-edit-product"><ion-icon name="create-outline"></ion-icon></button>
-                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon></button>
-                                <button class=""></button>
+                                <button class="btn-delete-product"><ion-icon name="trash-outline"></ion-icon> <button
+                                        class="btn-delete-product"><ion-icon
+                                            name="ellipsis-vertical-outline"></ion-icon></button>
                             </span>
                         </div>
                     </div>
                 </div>
+                <!-- PAGINAÇÃO DO PRODUCTO -->
                 <div class="subheader">
                     <div class="pagination">Página <span class="current-product-page">01</span> de <span
                             class="current-product-page">10</span></div>
@@ -240,29 +278,30 @@
 
         </section>
 
-        <!-- ADICIONAR UM PRODUCTO NOVO -->
-        <section class="main__content-section add-product-container">
-
-            <div class="product-container ">
+        <!-- ADICIONAR UM PRODUCTO NOVO : FORMULÁRIO -->
+        <section class=" add-product-container hidden">
+            <div class="sub-container">
 
                 <div class="container">
-                    <header class="add-new-header">
-                        <h2 class="heading-h2">Adicionar producto</h2>
-                        <span class="section-tag">Adicone as informações sobre o producto</span>
-                    </header>
+                    <!-- CABEÇARIO DO FORMULÁRIO -->
+
+                    <!-- FORMULÁRIO PARA ADICIONAR NOVO PRODUCTO -->
                     <form action="#" class="new-product-form">
+                        <header class="add-new-header">
+                            <h2 class="heading-h2">Adicionar producto</h2>
+                            <span class="section-tag">Adicone as informações sobre o producto</span>
+                        </header>
                         <div class="form-group">
                             <div class="group">
                                 <label for="product-name">Nome do producto</label>
                                 <input type="text" placeholder="Nome do producto" class="input-product-name">
                             </div>
-
                         </div>
                         <div class="form-group">
                             <div class="group">
 
-                                <label for="product-category" class="product-category">Categoria <span><ion-icon
-                                            name="add-circle-outline"></ion-icon>
+                                <label for="product-category" class="product-category">Categoria <span
+                                        class="btn-new-category"><ion-icon name="add-circle-outline"></ion-icon>
                                         Adicionar</span></label>
                                 <select name="" id="" class="select-category">
                                     <option value="">Escolha</option>
@@ -301,6 +340,7 @@
                             </div>
 
                         </div>
+                        <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
                         <div class="form-group">
                             <div class="btns">
                                 <button class="confirmar-new-product">Adicionar</button>
@@ -308,11 +348,92 @@
                             </div>
                         </div>
                     </form>
+                    <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+                </div>
+                <div class="create-category hidden">
+                    <form action="" class="category-form">
+                        <header>
+                            <span class="categ-header">Criar Categoria</span>
+                            <span class="close-category">X</span>
+                        </header>
+                        <input type="text" placeholder="Nova Categoria">
 
+                        <button class="btn-add-category">Confirmar</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- VER DETALHES DO PRODUCTO -->
+        <section class=" details-container hidden">
+            <div class="sub-container">
+
+                <div class="container">
+                    <!-- CABEÇARIO DO FORMULÁRIO -->
+                    <header class="add-new-header details-header">
+                        <div>
+                            <h2 class="heading-h2">Detalhes</h2>
+                            <span class="section-tag">Ver detalhes do producto</span>
+                        </div>
+                        <button class="btn-close-details">X</button>
+
+                    </header>
+                    <!-- FORMULÁRIO PARA ADICIONAR NOVO PRODUCTO -->
+                    <div class="product-details">
+                        <div class="form-group details-group">
+                            <div class="group">
+                                <label>Nome do producto</label>
+                                <span for="product-name-details">Lenovo 3rd Gerenetion</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group details-group">
+                            <div class="group">
+                                <label>Categoria</label>
+                                <span for="product-category-details">Computador</span>
+                            </div>
+                        </div>
+                        <div class="form-group details-group">
+                            <div class="group">
+                                <label>Preço de compra</label>
+                                <span for="product-buy-price-details">$ 3259,00</span>
+                            </div>
+                            <div class="group">
+                                <label>Preço de venda</label>
+                                <span for="product-sell-price-details">$ 3259,00</span>
+                            </div>
+                        </div>
+                        <div class="form-group details-group">
+                            <div class="group">
+                                <label>Qtd. em Estoque</label>
+                                <span for="product-stock-qtd-details">132</span>
+                            </div>
+                            <div class="group">
+                                <label>Código SKU</label>
+                                <span for="product-SKU-code-details">CP043</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group details-group">
+                            <div class="group">
+                                <label>Descrição</label>
+                                <p for="product-description-details">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing
+                                    elit placeat error autem nihil.</p>
+                            </div>
+                        </div>
+                        <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
+                        <div class="barcode">
+                            <img src="../assets/barcode1.png" alt="">
+                        </div>
+                    </div>
+                    <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
                 </div>
 
             </div>
-
         </section>
     </section>
 </body>
