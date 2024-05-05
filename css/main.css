@@ -121,6 +121,7 @@ body {
   background: none;
   width: 100%;
   font-size: inherit;
+  color: inherit;
 }
 .input__search:focus {
   outline: none;
@@ -181,7 +182,6 @@ body {
   color: var(--primary-text-color);
 }
 .header__btn:hover {
-  color: var(--primary-color-blue);
   background-color: rgba(67, 98, 238, 0.089);
 }
 

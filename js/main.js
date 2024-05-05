@@ -14,6 +14,8 @@ const btnToggleDarkMode = document.querySelector(".toggle-dark-mode");
 const root = document.documentElement;
 btnToggleDarkMode.addEventListener("click", function () {
   root.classList.toggle("dark-mode");
+  document.querySelector(".light-icon").classList.toggle("hidden");
+  document.querySelector(".dark-icon").classList.toggle("hidden");
 });
 // FUNÇÃO PARA A PÁGINA INICIAL DO DASHBOARD
 const dashBoardFunction = function () {

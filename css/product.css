@@ -80,6 +80,7 @@ body {
   gap: 1rem;
   font-size: inherit;
   transition: all 0.3s;
+  color: #fff;
 }
 .btn-add-new-product:hover {
   background-color: var(--secondary-color-blue);
@@ -134,13 +135,9 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 1rem;
   cursor: pointer;
+  color: inherit;
 }
-.btn-edit-product {
-  color: var(--primary-color-blue);
-}
-.btn-delete-product {
-  color: var(--primary-color-red);
-}
+
 .select-btn {
   display: inline-block;
   cursor: pointer;
@@ -178,6 +175,7 @@ body {
 
 .pagination {
   font-size: 1.4rem;
+  color: inherit;
 }
 
 .btn-pages {
@@ -188,6 +186,7 @@ body {
 
 ion-icon {
   font-size: 2.2rem;
+  color: inherit;
 }
 .btn-pages button {
   background: none;
@@ -207,14 +206,6 @@ ion-icon {
 
 .hidden {
   display: none;
-}
-.btn-back-to-product {
-  background-color: var(--bs-info-text-emphasis);
-  padding: 1rem 2rem;
-  border-radius: var(--bs-border-radius-xl);
-  color: var(--bs-white);
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /* PRODUCT CONTAINER ADD */
@@ -240,7 +231,7 @@ ion-icon {
   padding: 2rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-divider-color);
+  background-color: var(--background-color);
   min-width: 37rem;
   max-width: 60rem;
   margin: 5rem auto;
@@ -272,17 +263,19 @@ ion-icon {
 textarea {
   background: none;
   padding: 1rem;
-  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   cursor: pointer;
   width: 100%;
   font-size: inherit;
   font-family: inherit;
+  color: inherit;
+  background-color: var(--bg-divider-color);
 }
 .form-group input:focus,
 .form-group select:focus,
 textarea:focus {
   outline: none;
+  border: 1px solid var(--border-color);
 }
 .product-category {
   display: flex;
@@ -309,6 +302,7 @@ textarea:focus {
   cursor: pointer;
   transition: 0.3s;
   font-size: inherit;
+  color: #fff;
 }
 .cancelar-new-product {
   padding: 1rem 2rem;
@@ -348,7 +342,7 @@ textarea:focus {
   font-size: 2rem;
 }
 .category-form {
-  background-color: var(--bg-divider-color);
+  background-color: var(--background-color);
   max-width: 40rem;
   padding: 4rem;
   display: flex;
@@ -357,20 +351,23 @@ textarea:focus {
   border-radius: 1.2rem;
 }
 .create-category input {
-  border: 1px solid var(--border-color);
   padding: 1rem;
   font-size: inherit;
   border-radius: 0.5rem;
+  background-color: var(--bg-divider-color);
+  color: inherit;
 }
 .create-category input:focus {
   outline: none;
+  border: 1px solid var(--border-color);
+
 }
 .btn-add-category {
   padding: 1rem;
   font-size: inherit;
   border-radius: 0.5rem;
   background-color: var(--primary-color-blue);
-  color: var(--bg-divider-color);
+  color: #fff;
 }
 .btn-add-category:hover {
   background-color: var(--secondary-color-blue);
