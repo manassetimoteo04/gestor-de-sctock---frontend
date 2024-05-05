@@ -458,8 +458,8 @@ body {
   justify-content: center;
 }
 .heading-recent-notification {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
   font-weight: bold;
   border-bottom: 1px solid var(--border-color);
@@ -473,8 +473,8 @@ body {
 }
 
 .product-notification {
-  display: flex;
-justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
   padding: 2rem 0.2rem;
 }
