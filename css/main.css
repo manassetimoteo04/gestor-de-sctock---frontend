@@ -1,14 +1,17 @@
 /* CONFIGURANDO AS CORES */
 :root {
   --primary-color-blue: #4361ee;
+  --secondary-color-blue: #99aaf5;
+  --primary-color-red: #fa3d3d;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
   --primary-text-color: #8c8f9f;
   --secondary-text-color: #60616a;
   --bg-divider-color: #fff;
   --background-color: #f4f5f9;
-  --btn-border-radius: 1rem
-  --box-border-radius: 1.2rem
+  --btn-border-radius: 1rem;
+  --box-border-radius: 1.2rem;
+  --border-color: #d3d3d3c4;
 }
 /* CONFIGURAÇÃO GERAL */
 
@@ -98,7 +101,7 @@ body {
 .header__profile-img {
   width: 4.6rem;
   border-radius: 0.5rem;
-  border: 0.1rem solid var(--background-color)
+  border: 0.1rem solid var(--background-color);
 }
 .input__search {
   background: none;
@@ -117,7 +120,6 @@ body {
 .search__div ion-icon {
   font-size: 2.2rem;
   width: 2.4rem;
-  
 }
 .search__div div {
   width: 30rem;
@@ -162,13 +164,14 @@ body {
   border-radius: 0.5rem;
   border: 2px solid var(--background-color);
   background-color: var(--background-color);
+  color: var(--primary-text-color);
 }
 .header__btn:hover {
   color: var(--primary-color-blue);
+  background-color: rgba(67, 98, 238, 0.089);
 }
 
 /* ESTILIZANDO O ASIDE BAR */
-
 .side__bar {
   grid-row: 1/-1;
   padding: 2rem 3rem;
@@ -288,7 +291,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
 }
-.headingh2{
+.headingh2 {
   color: var(--dark-grey-heading-01);
 }
 .grid {
@@ -312,7 +315,7 @@ body {
   gap: 2rem;
   transition: all 0.5s;
 }
-.total-box:hover{
+.total-box:hover {
   box-shadow: 0 10px 8px rgba(96, 97, 106, 0.094);
 }
 .total-container {
@@ -365,7 +368,7 @@ body {
   right: 10%;
   transition: all 0.5s;
 }
-.tot-box-02:hover .total-icon{
+.tot-box-02:hover .total-icon {
   transform: scale(130%);
 }
 .weekly-earning {
@@ -407,13 +410,13 @@ body {
   flex-direction: column;
   padding: 2rem;
   gap: 2rem;
+  min-width: 37.5rem;
 }
 .subheader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: var(--bs-border-style) var(--bs-border-width)
-    var(--bs-border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 2rem;
 }
 .heading-recent-notification ion-icon {
@@ -428,10 +431,11 @@ body {
   gap: 1rem;
 }
 .see-all-link:hover {
-  color: var(--bs-orange);
+  color: var(--primary-color-blue);
 }
 .estaticos {
   padding: 0 2rem;
+  overflow-x: scroll;
 }
 .canvas {
   max-width: 100%;
@@ -440,12 +444,11 @@ body {
   justify-content: center;
 }
 .heading-recent-notification {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
   align-items: center;
   font-weight: bold;
-  border-bottom: var(--bs-border-style) var(--bs-border-width)
-    var(--bs-border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 1.5rem 0.2rem;
   text-align: left;
 }
@@ -456,18 +459,23 @@ body {
 }
 
 .product-notification {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
   align-items: center;
-  border-bottom: var(--bs-border-style) var(--bs-border-width)
-    var(--bs-border-color);
   padding: 2rem 0.2rem;
+}
+.product-notification:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 .product-notification div {
   display: flex;
   align-items: center;
-
   gap: 2rem;
+}
+.payment-type,
+.transations-id {
+  font-size: 1.4rem;
+  color: var(--primary-color-blue);
 }
 
 .most-salled {

@@ -35,14 +35,17 @@
    */
 :root {
   --primary-color-blue: #4361ee;
+  --secondary-color-blue: #99aaf5;
+  --primary-color-red: #fa3d3d;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
   --primary-text-color: #8c8f9f;
   --secondary-text-color: #60616a;
-  --bg-divider-color: #e7e8ef;
+  --bg-divider-color: #fff;
   --background-color: #f4f5f9;
-  --btn-border-radius: 0.5rem
-  --box-border-radius: 1.2rem
+  --btn-border-radius: 1rem;
+  --box-border-radius: 1.2rem;
+  --border-color: #d3d3d3c4;
 }
 body {
   font-size: 1.6rem;
@@ -50,10 +53,10 @@ body {
   height: 100vh;
 }
 .btn-add-new-product {
-  background-color: var(--bs-orange);
+  background-color: var(--primary-color-blue);
   padding: 1rem 2rem;
-  border-radius: var(--bs-border-radius-xl);
-  color: var(--bs-white);
+  border-radius: 0.5rem;
+  color: var(--bg-divider-color);
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -64,7 +67,7 @@ body {
   transition: all 0.3s;
 }
 .btn-add-new-product:hover {
-  background-color: #092c4c;
+  background-color: var(--secondary-color-blue);
 }
 .section-header {
   display: flex;
@@ -73,7 +76,7 @@ body {
 }
 .sort {
   background: none;
-  color: var(--bs-gray-600);
+  color: var(--primary-text-color);
   font-size: inherit;
 }
 .sort:focus {
@@ -81,8 +84,8 @@ body {
 }
 .sort-box {
   padding: 1rem 2rem;
-  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
-  border-radius: var(--bs-border-radius-xl);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -94,8 +97,7 @@ body {
   align-items: center;
   justify-content: left;
   font-weight: bold;
-  border-bottom: var(--bs-border-style) var(--bs-border-width)
-    var(--bs-border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 1.5rem 0.2rem;
 }
 .product-notification {
@@ -114,15 +116,15 @@ body {
 .product-action button {
   background: none;
   padding: 1rem;
-  border: var(--bs-border-style) var(--bs-border-width) var(--bs-border-color);
-  border-radius: var(--bs-border-radius-xl);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
   cursor: pointer;
 }
 .btn-edit-product {
-  color: var(--bs-blue);
+  color: var(--primary-color-blue);
 }
 .btn-delete-product {
-  color: var(--bs-red);
+  color: var(--primary-color-red);
 }
 .select-btn {
   display: inline-block;
@@ -146,12 +148,10 @@ body {
   height: 0.5rem;
 }
 .container::-webkit-scrollbar-thumb {
-  background-color: var(--bs-body-bg); /* Cor do botão de rolagem */
+  background-color: var(--primary-color-blue); /* Cor do botão de rolagem */
   border-radius: 10px;
 }
-.container::-webkit-scrollbar-thumb {
-  background-color: var(--bs-orange); /* Cor do botão de rolagem */
-}
+
 /* Estilizando a pista (trilha) da barra de rolagem */
 .container:hover::-webkit-scrollbar-track {
   background-color: rgba(255, 255, 255, 0);
@@ -182,12 +182,12 @@ ion-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bs-orange);
+  background-color: var(--primary-color-blue);
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
   font-weight: bold;
-  color: var(--bs-white);
+  color: var(--bg-divider-color);
 }
 
 .hidden {
@@ -222,14 +222,16 @@ ion-icon {
 .add-product-container .container {
   display: grid;
   border-radius: 1rem;
-  padding: 2rem 4rem;
+  padding: 2rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--bs-white);
+  background-color: var(--bg-divider-color);
   min-width: 37rem;
   max-width: 60rem;
   margin: 5rem auto;
+  opacity: 1;
 }
+
 .new-product-form {
   display: flex;
   flex-direction: column;
@@ -255,7 +257,7 @@ ion-icon {
 textarea {
   background: none;
   padding: 1rem;
-  border: var(--bs-border-style) var(--bs-border-width) var(--bs-border-color);
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   cursor: pointer;
   width: 100%;
@@ -284,10 +286,10 @@ textarea:focus {
   font-size: 1.4rem;
 }
 .confirmar-new-product {
-  background-color: #052c65;
+  background-color: var(--primary-color-blue);
   padding: 1rem 2rem;
   border-radius: 5px;
-  color: var(--bs-white);
+  color: var(--bg-divider-color);
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -306,7 +308,7 @@ textarea:focus {
   gap: 2rem;
 }
 .confirmar-new-product:hover {
-  background-color: var(--bs-orange);
+  background-color: var(--secondary-color-blue);
 }
 
 .create-category {
@@ -331,19 +333,19 @@ textarea:focus {
   font-size: 2rem;
 }
 .category-form {
-  background-color: var(--bs-white);
+  background-color: var(--bg-divider-color);
   max-width: 40rem;
   padding: 4rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border-radius: var(--bs-border-radius-xl);
+  border-radius: 1.2rem;
 }
 .create-category input {
-  border: 1px solid var(--bs-border-color);
+  border: 1px solid var(--border-color);
   padding: 1rem;
   font-size: inherit;
-  border-radius: var(--bs-border-radius-sm);
+  border-radius: 0.5rem;
 }
 .create-category input:focus {
   outline: none;
@@ -351,12 +353,12 @@ textarea:focus {
 .btn-add-category {
   padding: 1rem;
   font-size: inherit;
-  border-radius: var(--bs-border-radius-xl);
-  background-color: var(--bs-orange);
-  color: var(--bs-white);
+  border-radius: 0.5rem;
+  background-color: var(--primary-color-blue);
+  color: var(--bg-divider-color);
 }
 .btn-add-category:hover {
-  background-color: #052c65;
+  background-color: var(--secondary-color-blue);
 }
 .hidden {
   display: none !important;
@@ -380,7 +382,7 @@ textarea:focus {
   padding: 4rem 2rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--bs-white);
+  background-color: var(--bg-divider-color);
   margin: 5rem auto;
   min-width: 37rem;
   max-width: 60rem;
@@ -392,7 +394,7 @@ textarea:focus {
   gap: 1rem;
 }
 .details-group {
-  border-bottom: 1px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 1rem;
 }
 .details-group span {
