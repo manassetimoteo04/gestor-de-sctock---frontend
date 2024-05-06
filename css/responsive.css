@@ -101,6 +101,7 @@
   html {
     font-size: 50%;
   }
+
   .side__bar {
     position: absolute;
     width: 40%;
@@ -116,6 +117,13 @@
   }
   .grid-04 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .category-tag {
+    display: none !important;
+    background-color: blue;
+  }
+  .transation {
+    grid-template-columns: 2.5fr 1.5fr 0.5fr !important;
   }
 }
 

@@ -2,32 +2,31 @@
 :root {
   --primary-color-blue: #4361ee;
   --secondary-color-blue: #99aaf5;
-  --primary-color-red: #fa3d3d;
+  --primary-color-red: #ff6868;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
   --primary-text-color: #8c8f9f;
   --secondary-text-color: #60616a;
   --bg-divider-color: #fff;
-  --background-color: #f4f5f9;
+  --background-color: #eee;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
-  --border-color: #bbb8b844;
+  --border-color: #d3d3d3c4;
 }
+
 .dark-mode {
   --primary-color-blue: #4361ee;
   --secondary-color-blue: #99aaf5;
-  --primary-color-red: #f78888;
+  --primary-color-red: #fa3d3d;
   --dark-grey-heading-01: #f0f1f5
   --less-dark-grey-heading-02: #d7d9e3;
   --primary-text-color: #bec0c9;
   --secondary-text-color: #b3b6c4;
   --bg-divider-color: #2c2f41;
-  --background-color: #2a2d3d;
+  --background-color: #242630;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
-  /* --border-color: #8f8d8d25; */
   --border-color: #d3d3d31e;
-
 }
 
 body {
@@ -161,7 +160,7 @@ border-radius: 100rem;
   background-color: var(--bg-divider-color);
   padding: 3rem;
   border-radius: 1.2rem;
-  min-width: 48rem;
+  min-width: 60rem;
 }
 .registos-header {
   display: flex;
@@ -172,11 +171,18 @@ border-radius: 100rem;
 .entradas-product {
   padding: 2rem;
 }
+.out-product-icon{
+  color: var(--primary-color-bluer);
+  display: flex;
+  align-items: center;
+}
 .product {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1.5fr 1fr 1fr;
+  gap: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
+  align-items: center;
 }
 .product-subheader {
   font-weight: 600;

@@ -48,41 +48,25 @@ const labelPurchase = document.querySelectorAll(".tot-label-num");
 const counter = function (content) {
   const number = +content.textContent;
   let starter = 0;
-  let numberCounter;
-  // if (number > 1000000) {
-  //   numberCounter = function () {
-  //     starter += ;
-  //     content.textContent = starter;
-  //   };
-  // }
-  // if (number > 100000) {
-  //   numberCounter = function () {
-  //     starter += 5000;
-  //     content.textContent = starter;
-  //   };
-  // }
-  // if (number > 10000) {
-  //   numberCounter = function () {
-  //     starter += 500;
-  //     content.textContent = starter;
-  //   };
-  // }
 
-  numberCounter = function () {
+  // Função para incrementar o contador gradualmente
+  const numberCounter = function () {
+    // Incrementa o contador
     starter += 100;
+    // Atualiza o conteúdo do elemento com o novo valor
     content.textContent = starter;
+    // Se o contador atingir o número desejado, para o intervalo de tempo
+    if (starter >= number) clearInterval(timer);
   };
 
-  const timer = setInterval(() => {
-    numberCounter();
-    if (starter > number) clearInterval(timer);
-  }, 0);
+  // Define um intervalo para chamar a função de incremento
+  const timer = setInterval(numberCounter, 0);
 };
 
 const callBack = function (entries, obs) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
-  body.scroll(function (e) {
+  body.addEventListener("scroll", function (e) {
     const target = closest(`.${entry.target.classList[1]}`);
     if (!target) return;
     console.log(entry);
@@ -105,15 +89,7 @@ const dashBoardFunction = function () {
   // Crie o gráfico com CHART JS
 
   const DATA_COUNT = 7;
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ]; // Rótulos para os meses
+  const labels = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"]; // Rótulos para os meses
 
   const data = {
     labels: labels,
@@ -136,12 +112,14 @@ const dashBoardFunction = function () {
       },
     ],
   };
+
   if (ctx) {
     const myChart = new Chart(ctx, {
       type: "bar",
       data: data,
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             position: "top",
@@ -149,9 +127,19 @@ const dashBoardFunction = function () {
           title: {
             display: true,
           },
+          labels: {
+            render: "label",
+            fontColor: function (context) {
+              const color = window
+                .getComputedStyle(document.documentElement)
+                .getPropertyValue("--secondary-text-color");
+              return color;
+            },
+          },
         },
       },
     });
   }
 };
+
 dashBoardFunction();

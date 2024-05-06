@@ -8,11 +8,18 @@ const productFunction = function () {
   const btnShowCategoryForm = document.querySelector(".btn-new-category");
   const categoryFormContainer = document.querySelector(".create-category");
   const btnCloseCategoryForm = document.querySelector(".close-category");
+  const btnCloseNewProductForm = document.querySelector(
+    ".btn-close-add-new-product"
+  );
   // MOSTRANDO O FORMULÁRIO DE ADICIONAR PRODUCTO
   const detailsContainer = document.querySelector(".details-container");
   newProduct?.addEventListener("click", () =>
     formContainer.classList.remove("hidden")
   );
+  btnCloseNewProductForm?.addEventListener("click", () =>
+    formContainer.classList.add("hidden")
+  );
+
   //MOSTRAR O MINI FORMULÁRIO PARA ADICIONAR NOVA CATEGORIA
   btnShowCategoryForm?.addEventListener("click", () =>
     categoryFormContainer.classList.remove("hidden")
