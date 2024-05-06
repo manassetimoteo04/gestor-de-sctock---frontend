@@ -43,14 +43,23 @@
 					<ion-icon name="moon-outline" class="dark-icon"></ion-icon>
 				</a>
 				<div class="header__profile-box">
-					<img src="img/costumer/steve.jpg" alt="" class="header__profile-img">
+					<img src="../img/costumer/steve.jpg" alt="" class="header__profile-img">
 					<div class="profile__name-box">
 						<span class="header__p-name">Timóteo Pembele</span>
-						<span class="permission">Admin</span>
+						<span class="permission">Admin <ion-icon name="chevron-down-outline"
+								class="profile-click-icon"></ion-icon></span>
 					</div>
 				</div>
 			</div>
 			<!-- FIM DO CONYAINER DO USUÁRIO -->
+			<div class="profile-infor-box">
+				<ul class="profile-list">
+					<li><a href="#" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu Perfil</a></li>
+					<li><a href="#" class="p-link"><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
+					<li><a href="#" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon> Terminar
+							Sessão</a></li>
+				</ul>
+			</div>
 		</header>
 		<!-- FIM DO HEADER PRINCIPLA -->
 
@@ -71,7 +80,7 @@
 					<li><a href="pages/estoques.html" class="main-nav-link"> <ion-icon
 								name="cube-outline"></ion-icon><span>
 								Estoques</span> </a></li>
-					<li><a href="#" class="main-nav-link"><ion-icon
+					<li><a href="pages/vendas.html" class="main-nav-link"><ion-icon
 								name="stats-chart-outline"></ion-icon><span>Vendas</span></a>
 					</li>
 					<li><a href="#" class="main-nav-link"><ion-icon
@@ -113,7 +122,7 @@
 				<div class="total-box weekly-earning">
 					<div class="total-flex">
 						<span class="week-span-text">Ganhos semanais</span>
-						<span class="label__total-purchase-due">$100</span>
+						<span class="label__total-purchase-due tot-label-num">113090</span>
 						<span class="total-text">+<span class="percentage"> 43%</span> aumentado em relação a semana
 							passada</span>
 					</div>
@@ -124,7 +133,7 @@
 				<div class="total-box weekly-earning">
 					<div class="total-flex">
 						<span class="week-span-text">Ganhos mensais</span>
-						<span class="label__total-purchase-due">$2486</span>
+						<span class="label__total-purchase-due tot-label-num">2486</span>
 						<span class="total-text">+<span class="percentage"> 79.9%</span> aumentado em relação ao mês
 							passad0</span>
 					</div>
@@ -141,7 +150,7 @@
 					<div class="total-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
 
 					<div class="total-flex">
-						<span class="label__total-purchase-due">$100</span>
+						<span class="label__total-purchase-due tot-label-num">6700</span>
 						<span class="total-text">Total compras</span>
 					</div>
 				</div>
@@ -151,7 +160,7 @@
 					<div class="total-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
 
 					<div class="total-flex">
-						<span class="label__total-purchase-due">$100</span>
+						<span class="label__total-purchase-due tot-label-num">5670</span>
 						<span class="total-text">Total vendas</span>
 					</div>
 				</div>
@@ -160,7 +169,7 @@
 				<div class="total-box total__purchase-box">
 					<div class="total-icon"><ion-icon name="arrow-down-outline"></ion-icon></div>
 					<div class="total-flex">
-						<span class="label__total-purchase-due">$100</span>
+						<span class="label__total-purchase-due tot-label-num">2340</span>
 						<span class="total-text">Montante total</span>
 					</div>
 				</div>
@@ -168,7 +177,7 @@
 				<!-- BOX DO TOTAL DE CLIENTES -->
 				<div class="total-box total__costumer-box tot-box-02">
 					<div class="total-flex">
-						<span class="label__total-purchase-due">100</span>
+						<span class="label__total-purchase-due tot-label-num">4570</span>
 						<span class="total-text">Clientes</span>
 					</div>
 					<div class="total-icon"><ion-icon name="people-outline"></ion-icon></div>
@@ -177,7 +186,7 @@
 				<!-- BOX DO TOTAL DE FORNECEDORES -->
 				<div class="total-box total__costumer-box tot-box-02 box-light-blue">
 					<div class="total-flex">
-						<span class="label__total-purchase-due">100</span>
+						<span class="label__total-purchase-due tot-label-num">3450</span>
 						<span class="total-text">Fornecedores</span>
 					</div>
 					<div class="total-icon"><ion-icon name="person-add-outline"></ion-icon></div>
@@ -186,7 +195,7 @@
 				<!-- BOX DO TOTAL DE ESTOQUES -->
 				<div class="total-box total__costumer-box tot-box-02 ">
 					<div class="total-flex">
-						<span class="label__total-purchase-due">100</span>
+						<span class="label__total-purchase-due tot-label-num">100</span>
 						<span class="total-text">Estoques</span>
 					</div>
 					<div class="total-icon"><ion-icon name="cube-outline"></ion-icon></div>

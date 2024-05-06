@@ -60,7 +60,9 @@
   --background-color: #2a2d3d;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
-  --border-color: #d3d3d3c4;
+  /* --border-color: #d3d3d3c4; */
+  --border-color: #d3d3d31e;
+
 }
 body {
   font-size: 1.6rem;
