@@ -92,6 +92,31 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.product-lis{
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  
+  }
+  .product-lis li{
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+.product-lis li:hover{
+
+    color: var(--primary-color-blue);
+}
+  .active{
+    /* border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important; */
+    border-bottom: 3px solid var(--primary-color-blue);
+    box-shadow: inset 0 0 0 3px var(--primary-color-blue);
+    font-weight: 600;
+    color: var(--primary-color-blue);
+  }
 .sort {
   background: none;
   color: var(--primary-text-color);
@@ -454,4 +479,73 @@ textarea:focus {
 .btn-close-details {
   background: none;
   font-size: 1.8rem;
+}
+
+/* CONFIRMAÇÃO DE ELIMINAÇÃO DE PRODUCTO */ 
+.alert-message-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.596);
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.alerta-message{
+  background-color: var(--background-color);
+  color: var(--secondary-text-color);
+  padding: 3rem;
+  border-radius: 1.2rem;
+  max-width: 40rem;
+}
+
+.alert-text{
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+.alert-btns{
+  display: flex;
+  gap: 1rem;
+}
+.alert-btns button{
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-divider-color);
+  font-size: inherit;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+.confirm-delete-btn{
+  background-color: var(--primary-color-red) !important;
+  color: #fff !important;
+}
+
+.delete-confirmed-message{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.596);
+  z-index: 99999;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.confirmed{
+  text-align: center;
+  margin: 0;
+}
+.sem-resul{
+  text-align: center;
+  padding: 3rem;
 }

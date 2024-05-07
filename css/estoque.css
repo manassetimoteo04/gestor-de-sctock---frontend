@@ -42,6 +42,7 @@ body {
   gap: 2rem;
   margin-bottom: 3rem;
 }
+
 .total-stock-box {
   background-color: var(--bg-divider-color);
   border-radius: 1.2rem;
@@ -109,6 +110,9 @@ border-radius: 100rem;
 }
 .btn-add-new-stock:hover {
   background-color: var(--secondary-color-blue);
+}
+.btn-add-new-stock ion-icon{
+  font-size: 2.2rem;
 }
 .main-stock-section .section-header {
   display: flex;
