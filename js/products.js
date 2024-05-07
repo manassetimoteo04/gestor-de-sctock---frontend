@@ -283,50 +283,51 @@ const paginationRender = function () {
   const curPagelabel = document.querySelector(".curr-page-number");
   const curPage = document.querySelector(".current-product-page");
   const totalPageslabel = document.querySelector(".total-pages");
-
-  const productsPerPage = 7;
-  let currentPage = 1;
-  const totalPages = Math.ceil(productList.length / productsPerPage);
-  totalPageslabel.textContent = totalPages;
-  // Função para renderizar uma página específica da lista de produtos
-  const renderPage = function (page) {
-    const startIndex = (page - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    const productsToRender = productList.slice(startIndex, endIndex);
-    renderProductList(productsToRender);
-  };
-
-  // Função para renderizar a lista de produtos na página atual
-  const renderCurrentPage = function () {
-    renderPage(currentPage);
-  };
-
-  // Função para navegar para a página anterior
-  const goToPreviousPage = function () {
-    if (currentPage > 1) {
-      currentPage--;
-      renderCurrentPage();
-    }
-    curPagelabel.textContent = currentPage;
-    curPage.textContent = currentPage;
-  };
-
-  // Função para navegar para a próxima página
-  const goToNextPage = function () {
+  if ((curPagelabel, curPagelabel, totalPageslabel)) {
+    const productsPerPage = 7;
+    let currentPage = 1;
     const totalPages = Math.ceil(productList.length / productsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderCurrentPage();
-    }
-    curPagelabel.textContent = currentPage;
-    curPage.textContent = currentPage;
-  };
-  // Adiciona eventos aos botões de navegação
+    totalPageslabel.textContent = totalPages;
+    // Função para renderizar uma página específica da lista de produtos
+    const renderPage = function (page) {
+      const startIndex = (page - 1) * productsPerPage;
+      const endIndex = startIndex + productsPerPage;
+      const productsToRender = productList.slice(startIndex, endIndex);
+      renderProductList(productsToRender);
+    };
 
-  prevPageBtn.addEventListener("click", goToPreviousPage);
-  nextPageBtn.addEventListener("click", goToNextPage);
-  // Renderiza a página inicial
-  renderCurrentPage();
+    // Função para renderizar a lista de produtos na página atual
+    const renderCurrentPage = function () {
+      renderPage(currentPage);
+    };
+
+    // Função para navegar para a página anterior
+    const goToPreviousPage = function () {
+      if (currentPage > 1) {
+        currentPage--;
+        renderCurrentPage();
+      }
+      curPagelabel.textContent = currentPage;
+      curPage.textContent = currentPage;
+    };
+
+    // Função para navegar para a próxima página
+    const goToNextPage = function () {
+      const totalPages = Math.ceil(productList.length / productsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderCurrentPage();
+      }
+      curPagelabel.textContent = currentPage;
+      curPage.textContent = currentPage;
+    };
+    // Adiciona eventos aos botões de navegação
+
+    prevPageBtn.addEventListener("click", goToPreviousPage);
+    nextPageBtn.addEventListener("click", goToNextPage);
+    // Renderiza a página inicial
+    renderCurrentPage();
+  }
 };
 paginationRender();
 
