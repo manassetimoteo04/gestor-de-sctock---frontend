@@ -129,6 +129,9 @@
 
 /* SCREEN SIZE MAX-WIDTH: 493PX */
 @media (max-width: 26.4375em) {
+  .grid-04 {
+    grid-template-columns: 1fr;
+  }
   .menu-hidden .input__search {
     display: none;
   }

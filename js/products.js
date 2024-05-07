@@ -77,71 +77,26 @@ const CreateProduct = function (
   this.description = description;
   this.searchData = this.name.toLowerCase();
 };
-const product = new CreateProduct(
-  "Car",
-  "Vehicols",
-  123,
-  "12/10/2024",
-  12000,
-  6000,
-  "CA001",
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
-);
-const product2 = new CreateProduct(
-  "Car",
-  "Vehicols",
-  123,
-  "12/10/2024",
-  12000,
-  6000,
-  "CA001",
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
-);
-const product3 = new CreateProduct(
-  "Keybord",
-  "Vehicols",
-  123,
-  "12/10/2024",
-  12000,
-  6000,
-  "CA001",
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
-);
-const product4 = new CreateProduct(
-  "Computer",
-  "Vehicols",
-  123,
-  "12/10/2024",
-  12000,
-  6000,
-  "CA001",
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
-);
 
+// prettier-ignore
+let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+for (let i = 1; i <= 100; i++) {
+  const randomIndex = Math.floor(Math.random() * 16) + 1;
+  const product = new CreateProduct(
+    `${alfabeto[randomIndex]}${alfabeto[randomIndex]}${alfabeto[randomIndex]} Product ${i}`,
+    `Category ${i % 5}`,
+    Math.floor(Math.random() * 100) + 1, // Quantidade aleatória entre 1 e 100
+    "12/10/2024",
+    Math.floor(Math.random() * 10000) + 1, // Preço de venda aleatório entre 1 e 10000
+    Math.floor(Math.random() * 5000) + 1, // Preço de compra aleatório entre 1 e 5000
+    `SKU00${i}`,
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
+  );
+
+  productList.push(product);
+}
 // ADICIONANDO OS DADOS NA LISTA
-productList.push(
-  product,
-  product2,
-  product3,
-  product4,
-  product,
-  product2,
-  product3,
-  product,
-  product2,
-  product3,
-  product4,
-  product4,
-  product4,
-  product4,
-  product,
-  product2,
-  product3,
-  product4,
-  product,
-  product2,
-  product3
-);
 
 //OBS: DADOS FICTICIOS PARA FAZER O FUNCIONAMENTO DO SEARCH BAR NO INPUT SEADH DA PARTE DOS PRODUCTOS
 // RENDERIZAÇÃO DOS PRODUCTOS NA LISTA
@@ -152,7 +107,7 @@ const renderProductList = function (arrList) {
       .querySelector(".product-list")
       .insertAdjacentHTML(
         "afterbegin",
-        `<p classs="sem-resul">SEM RESULTADO </P>`
+        `<p classs="sem-resul">Nenhum producto encontrado </p>`
       );
   } else {
     // RENDERIZAR ELEMENTO HTML NO DOM PARA A LISTA
@@ -246,43 +201,14 @@ const alertConfirmFunction = function () {
 };
 alertConfirmFunction();
 
-// FUNÇÃO PARA DE PESQUISA
-
-const searchFunction = function () {
-  // PEGANDO O VALOR DO INPUT DO SEARCH BAR
-  const searchInput = document.querySelector(".input__search");
-
-  // ADICIONAR UM EVENTO DE PRESSIONAR O TECLADO NO INPUT SEARCH
-  searchInput.addEventListener("keypress", function (e) {
-    // TRANSFORMANDO O VALOR DO INPUT EM MINUSCULA PARA FACILITAR SEMPRE NA COMPARAÇÃO
-    const value = searchInput.value.toLowerCase();
-    // FILTRAR ELEMENTOS DO PRODUCT LIST COM O MÉTODO FILTER, COM PASSE NA CONDIÇÃO QUE RETORNA VERDADEIRA
-    const result = productList.filter((item) => {
-      return item.searchData.startsWith(value);
-    });
-
-    // LIMPANDO O CONTAINER PARA DEPOIS RENDERIZAR O RESULTADO DA PESQUISA NO CONTAINER DA LISTA
-    document.querySelector(".product-list").innerHTML = "";
-    renderProductList(result);
-  });
-
-  // FUNÇÃO PARA VOLTAR A RENDERIZAR A LISTA INTEIRA SEMPRE O INPUT ESTIVER VAZIA
-  searchInput.addEventListener("keydown", function (e) {
-    console.log(e.key);
-    if (searchInput.value === "" && e.key === "Backspace")
-      renderProductList(productList);
-  });
-};
-searchFunction();
-renderProductList(productList);
-
 // FUNÇÃO PARA A PAGINAÇÃO DA LISTA COM UM LIMITE DE 10 PRODUCTOS POR PÁGINA
-const paginationRender = function () {
+const paginationRender = function (productList) {
   const prevPageBtn = document.querySelector(".btn-previous-page");
   const nextPageBtn = document.querySelector(".btn-next-page");
   const curPagelabel = document.querySelector(".curr-page-number");
   const curPage = document.querySelector(".current-product-page");
   const totalPageslabel = document.querySelector(".total-pages");
+
   if ((curPagelabel, curPagelabel, totalPageslabel)) {
     const productsPerPage = 7;
     let currentPage = 1;
@@ -313,7 +239,6 @@ const paginationRender = function () {
 
     // Função para navegar para a próxima página
     const goToNextPage = function () {
-      const totalPages = Math.ceil(productList.length / productsPerPage);
       if (currentPage < totalPages) {
         currentPage++;
         renderCurrentPage();
@@ -329,6 +254,34 @@ const paginationRender = function () {
     renderCurrentPage();
   }
 };
-paginationRender();
 
+paginationRender(productList);
+// FUNÇÃO PARA DE PESQUISA
+
+const searchFunction = function () {
+  // PEGANDO O VALOR DO INPUT DO SEARCH BAR
+  const searchInput = document.querySelector(".input__search");
+
+  // ADICIONAR UM EVENTO DE PRESSIONAR O TECLADO NO INPUT SEARCH
+  searchInput.addEventListener("keypress", function (e) {
+    // TRANSFORMANDO O VALOR DO INPUT EM MINUSCULA PARA FACILITAR SEMPRE NA COMPARAÇÃO
+    const value = searchInput.value.toLowerCase();
+    // FILTRAR ELEMENTOS DO PRODUCT LIST COM O MÉTODO FILTER, COM PASSE NA CONDIÇÃO QUE RETORNA VERDADEIRA
+    const result = productList.filter((item) => {
+      return item.searchData.startsWith(value);
+    });
+
+    // LIMPANDO O CONTAINER PARA DEPOIS RENDERIZAR O RESULTADO DA PESQUISA NO CONTAINER DA LISTA
+    document.querySelector(".product-list").innerHTML = "";
+    paginationRender(result);
+  });
+
+  // FUNÇÃO PARA VOLTAR A RENDERIZAR A LISTA INTEIRA SEMPRE O INPUT ESTIVER VAZIA
+  searchInput.addEventListener("keydown", function (e) {
+    console.log(e.key);
+    if (searchInput.value === "" && e.key === "Backspace")
+      paginationRender(productList);
+  });
+};
+searchFunction();
 export { productFunction };

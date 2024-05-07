@@ -2,7 +2,8 @@
 // import { callback } from "chart.js/dist/helpers/helpers.core.js";
 import { productFunction } from "./products.js";
 productFunction();
-
+import { stockFunction } from "./estoque.js";
+stockFunction();
 // EXECUTAR A FUNÇÃO DE MOSTAR E FECHAR O MENU
 const toggleMenuBtn = document.querySelector(".toggleMenu__btn");
 const body = document.querySelector("body");
@@ -63,21 +64,6 @@ const counter = function (content) {
   const timer = setInterval(numberCounter, 0);
 };
 
-const callBack = function (entries, obs) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) return;
-  body.addEventListener("scroll", function (e) {
-    const target = closest(`.${entry.target.classList[1]}`);
-    if (!target) return;
-    console.log(entry);
-  });
-  // counter(entry.target.outer);
-  // obs.unobserve(entry.target);
-};
-const observer = new IntersectionObserver(callBack, {
-  root: null,
-  threshold: 0,
-});
 labelPurchase?.forEach((element) => {
   // observer.observe(element);
   counter(element);

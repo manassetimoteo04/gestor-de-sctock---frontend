@@ -38,15 +38,20 @@ body {
 /* ESTILIZANDO O CONTAINER DOS ESTOQUES */
 .monitoramento-estoque {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
 }
-
+.grid-02-cols{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 .total-stock-box {
   background-color: var(--bg-divider-color);
   border-radius: 1.2rem;
   padding: 3rem;
+  height: 100%;
 }
 .stock-tag {
   font-weight: bold;
@@ -217,6 +222,25 @@ border-radius: 100rem;
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width: 40em) {
+  .monitoramento-estoque {
+   
+    grid-template-columns: repeat(1, 1fr);
+   
+  }
+  .grid-02-cols{
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 29em) {
+  .grid-02-cols{
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media (max-width: 26em) {
   .monitoramento-estoque {
     grid-template-columns: repeat(1, 1fr);
@@ -229,4 +253,141 @@ border-radius: 100rem;
 .low-stock-container .estaticos,
 .stocks .estaticos {
   min-width: 100rem;
+}
+
+
+#pieChart{
+  width: 100%;
+  height: 100%;
+}
+
+/* ESTILIZANDO A LISTA DE PRODUCTOS COM ESTOQUES BAIXO */
+
+.sort {
+  background: none;
+  color: var(--primary-text-color);
+  font-size: inherit;
+}
+.sort:focus {
+  outline: none;
+}
+.sort-box {
+  padding: 1rem 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.products-header{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  font-weight: bold;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 0.2rem;
+}
+.products-header div{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.product-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  justify-content: left;
+  padding: 1.5rem 0.2rem;
+  align-items: center;
+}
+.product-item:not(:last-child){
+  border-bottom: 1px solid var(--border-color);
+}
+.product-item div{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.product-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.product-action button {
+  background: none;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  color: inherit;
+  
+}
+
+.select-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+.product-container .container {
+  overflow-x: scroll;
+}
+.estaticos {
+  min-width: 110rem;
+  min-height: 40rem;
+}
+
+/* ESTILIZANDO O SCROLL BAR */
+.container::-webkit-scrollbar {
+  max-width: 3px;
+  height: 0rem;
+  position: absolute;
+}
+.container::-webkit-scrollbar {
+  height: 0.5rem;
+}
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-blue); /* Cor do botão de rolagem */
+  border-radius: 10px;
+}
+
+/* Estilizando a pista (trilha) da barra de rolagem */
+.container:hover::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor do botão de rolagem ao passar o mouse */
+}
+
+.pagination {
+  font-size: 1.4rem;
+  color: inherit;
+}
+
+.btn-pages {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+ion-icon {
+  font-size: 2.2rem;
+  color: inherit;
+}
+.btn-pages button {
+  background: none;
+  font-size: 1.8rem;
+  color: inherit;
+}
+.btn-pages .curr-page-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color-blue);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #fff;
 }

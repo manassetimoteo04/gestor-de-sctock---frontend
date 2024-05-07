@@ -495,6 +495,8 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  background-attachment: fixed;
+
 }
 .alerta-message{
   background-color: var(--background-color);
@@ -540,6 +542,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  background-attachment: fixed;
 }
 .confirmed{
   text-align: center;
@@ -548,4 +551,8 @@ textarea:focus {
 .sem-resul{
   text-align: center;
   padding: 3rem;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  color: #4361ee;
 }
