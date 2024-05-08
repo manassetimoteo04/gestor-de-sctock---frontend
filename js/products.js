@@ -11,6 +11,7 @@ const productFunction = function () {
   const btnCloseNewProductForm = document.querySelector(
     ".btn-close-add-new-product"
   );
+
   // MOSTRANDO O FORMULÁRIO DE ADICIONAR PRODUCTO
   const detailsContainer = document.querySelector(".details-container");
   newProduct?.addEventListener("click", () =>
@@ -76,19 +77,24 @@ const CreateProduct = function (
   this.SKUCode = SKUCode;
   this.description = description;
   this.searchData = this.name.toLowerCase();
+  this.alertQuantity = 20;
 };
 
 // prettier-ignore
 let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 //GERAL INICIAIS ALEATÓRIAS
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 30; i++) {
   const randomIndex = Math.floor(Math.random() * 16) + 1;
+  const randomMonth = Math.floor(Math.random() * 12) + 1;
+  const randomDate = Math.floor(Math.random() * 31) + 1;
   const product = new CreateProduct(
     `${alfabeto[randomIndex]}${alfabeto[randomIndex]}${alfabeto[randomIndex]} Product ${i}`,
     `Category ${i % 5}`,
     Math.floor(Math.random() * 100) + 1, // Quantidade aleatória entre 1 e 100
-    "12/10/2024",
+    `2024-${randomMonth.toString().padStart(2, 0)}-${randomDate
+      .toString()
+      .padStart(2, 0)}`,
     Math.floor(Math.random() * 10000) + 1, // Preço de venda aleatório entre 1 e 10000
     Math.floor(Math.random() * 5000) + 1, // Preço de compra aleatório entre 1 e 5000
     `SKU00${i}`,
@@ -180,7 +186,7 @@ const alertConfirmFunction = function () {
     if (productList.length === 1) productList.splice(1);
 
     // RENDERIZANDO A LISTA DE ERRAY COM O ERRAY MUTADO ATÉ A ESTE PONTO
-    renderProductList(productList);
+    paginationRender(productList);
 
     // ESCONDENDO O PAINEL DE CONFIRMAÇÃO DE ELIMINAÇÃO
     alerDeleteMsgContainer.classList.add("hidden");
@@ -285,4 +291,40 @@ const searchFunction = function () {
   });
 };
 searchFunction();
+
+// this.quantity = quantity;
+// this.date = date;
+// this.sellPrice = sellPrice;
+
+// FUNÇÃO PARA CLASSIFICAR A LISTA
+const sortContainer = document.querySelector(".sort");
+const sortFunction = function (e) {
+  productList.sort((a, b) => {
+    if (e === "date") {
+      if (a.date < b.date) return -1;
+      if (a.date > b.date) return 1;
+    }
+    // if (e === "date") {
+    //   if (a.tipo === "entrada" && b.tipo === "saida") return -1;
+    //   if (a.tipo === "saida" && b.tipo === "entrada") return 1;
+    // }
+    if (e === "qtd") {
+      if (a.quantity > b.quantity) return 1;
+      if (a.quantity < b.quantity) return -1;
+    }
+
+    if (e === "price") {
+      if (a.sellPrice > b.sellPrice) return 1;
+      if (a.sellPrice < b.sellPrice) return -1;
+    }
+    return 0;
+  });
+  paginationRender(productList);
+};
+sortContainer?.addEventListener("change", function () {
+  const sortType = sortContainer.value;
+  console.log(sortType);
+  sortFunction(sortType);
+});
 export { productFunction };
+export { productList };

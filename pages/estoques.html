@@ -84,7 +84,7 @@
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
-                                name="documents-outline"></ion-icon><span>Relatórios</span></a></li>
+                                name="pie-chart-outline"></ion-icon><span>Relatórios</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="person-outline"></ion-icon><span>Perfil</span></a></li>
                     <!-- <li>
@@ -156,7 +156,7 @@
                             <span class="">#</span>
                             <span>Producto</span>
                             <span>Categoria</span>
-                            <span>QTD.</span>
+                            <span>Quantidade</span>
                             <span>Data</span>
                         </div>
                         <div class="product ">
@@ -166,34 +166,8 @@
                             <span>105</span>
                             <span>08/04/2024</span>
                         </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
+
+
                     </div>
                 </div>
                 <div class="saidas-productos-box  registos-box">
@@ -209,39 +183,11 @@
                             <span class="">#</span>
                             <span>Producto</span>
                             <span>Categoria</span>
-                            <span>QTD.</span>
+                            <span>Quantidade</span>
                             <span>Data</span>
                         </div>
                         <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
+                            <span class="income-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
                             <span>Mackbook Pro</span>
                             <span>Computador</span>
                             <span>105</span>
@@ -259,14 +205,9 @@
 
                 <div class="subheader">
 
-                    <div class="links">
-                        <!-- <ul class="product-lis">
-                            <li class="active">Productos</li>
-                            <li>Entrada e saidas</li>
-                            <li>Estoques baixo</li>
-
-                        </ul> -->
-                    </div>
+                    <h3>
+                        Baixos Estoque
+                    </h3>
 
                     <!-- CLASSIFICAR O PRODUTO POR: DATA, PREÇO E QUANTIDADE -->
                     <div class="sort-box">
@@ -287,13 +228,14 @@
                                 <span>Productos</span>
                             </div>
                             <span>Categoria</span>
-                            <span>Preço</span>
-                            <span>QTD.</span>
-                            <span>Data</span>
+                            <span>Qtd. Mínima</span>
+                            <span>Quantidade</span>
+                            <span>Status</span>
+                            <span>Actualização</span>
                             <span>Acção</span>
                         </div>
                         <!-- PRODUCTOS -->
-                        <div class="product-list">
+                        <div class="low-stock-list">
 
                             <div class="product-item">
                                 <!-- NOME DO PRODUCTO -->
@@ -317,115 +259,7 @@
                                 </span>
                             </div>
 
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
-                                </span>
-                            </div>
 
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
-                                </span>
-                            </div>
-
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
-                                </span>
-                            </div>
-
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
-                                </span>
-                            </div>
-
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
-                                </span>
-                            </div>
                         </div>
 
                     </div>
@@ -442,9 +276,61 @@
                     </div>
                 </div>
             </div>
-
-
         </section>
+    </section>
+
+
+    <section class=" low-stock-edit-container hidden">
+        <div class="container">
+            <form action="#" class="update-product-form">
+                <header class="update-form-header">
+                    <h2 class="heading-h2">Actualizar Estoque</h2>
+                    <span class="btn-close-update-product"><ion-icon name="close-outline"></ion-icon></span>
+                </header>
+                <div class="update-label-group">
+                    <span for="product-label">Nome do producto</span>
+                    <span class="update-product-name update-main">Computador</span>
+                </div>
+                <div class="update-label-group">
+                    <span for="product-label">Categoria</span>
+                    <span class="update-product-category update-main">Computador</span>
+                </div>
+                <div class="form-update-group">
+                    <div class="update-label-group non-border">
+                        <span for="product-label">Preço de venda</span>
+                        <span class="update-product-sell-price update-main">$ 1094,00</span>
+                    </div>
+                    <div class="update-label-group non-border">
+                        <span for="product-label">Preço de compra</span>
+                        <span class="update-product-buy-price update-main">$ 600,00</span>
+                    </div>
+                </div>
+
+                <div class="form-update-group">
+                    <div class="update-label-group non-border">
+                        <span for="product-label">Estoque actual</span>
+                        <span class="update-product-actual-stock update-main">17</span>
+                    </div>
+                    <div class="update-label-group non-border">
+                        <span for="product-label">Estoque mínimo</span>
+                        <span class="update-product-min-stock update-main">50</span>
+                    </div>
+                </div>
+                <div class="update-label-group non-border">
+                    <span for="product-label">Seleciona a Quantidade</span>
+                    <input type="number" min="5" max="100" class="update-quantity-input">
+                </div>
+                <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
+                <div class="form-group">
+                    <div class="btns">
+                        <button class="confirm-update-product">Adicionar</button>
+
+                    </div>
+                </div>
+            </form>
+            <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+        </div>
+
 
     </section>
 </body>

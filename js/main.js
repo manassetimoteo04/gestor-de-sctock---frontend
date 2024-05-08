@@ -4,6 +4,7 @@ import { productFunction } from "./products.js";
 productFunction();
 import { stockFunction } from "./estoque.js";
 stockFunction();
+
 // EXECUTAR A FUNÇÃO DE MOSTAR E FECHAR O MENU
 const toggleMenuBtn = document.querySelector(".toggleMenu__btn");
 const body = document.querySelector("body");

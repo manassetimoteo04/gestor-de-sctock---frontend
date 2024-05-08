@@ -32,7 +32,7 @@
 /* CONFIGURAÇÃO GERAL */
 
 * {
-  font-family: "Ubuntu Sans", sans-serif;
+  font-family: "Ubuntu Sans",  Helvetica, sans-serif;
   border: 0;
   box-sizing: border-box;
   margin: 0;
@@ -64,7 +64,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   background-color: var(--background-color);
   height: 100vh;
   color: var(--secondary-text-color);
@@ -72,7 +72,7 @@ body {
 .main-section {
   max-width: 100%;
   display: grid;
-  grid-template-columns: 25fr 80fr;
+  grid-template-columns: 18fr 80fr;
   grid-template-rows: 10fr 85fr;
   height: 100%;
   position: relative;
@@ -114,7 +114,7 @@ body {
   background-color: var(--bg-divider-color);
   gap: 2rem;
   margin: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   position: relative ;
   transition: none;
 }
@@ -325,8 +325,8 @@ input::placeholder{
   padding: 1rem;
   width: 100%;
   transition: all 0.3s;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   position: relative;
   border-right: 3px solid transparent;
 }
@@ -394,7 +394,7 @@ input::placeholder{
 .total-box {
   background-color: var(--bg-divider-color);
   padding: 3rem;
-  border-radius: 1.2rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -502,7 +502,7 @@ color: var(--primary-color-blue);
 .statics-box,
 .recent-products-notification-box {
   background-color: var(--bg-divider-color);
-  border-radius: 1.2rem;
+  border-radius: 0.5rem;
   border: var(--bs-border-style) var(--bs-border-width) var(--bs-border-color);
   display: flex;
   flex-direction: column;

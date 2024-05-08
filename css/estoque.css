@@ -49,9 +49,10 @@ body {
 }
 .total-stock-box {
   background-color: var(--bg-divider-color);
-  border-radius: 1.2rem;
+  border-radius: 0.5rem;
   padding: 3rem;
   height: 100%;
+  border: 1px solid var(--border-color);
 }
 .stock-tag {
   font-weight: bold;
@@ -168,8 +169,10 @@ border-radius: 100rem;
 .registos-box {
   background-color: var(--bg-divider-color);
   padding: 3rem;
-  border-radius: 1.2rem;
+  border-radius: 0.5rem;
   min-width: 60rem;
+  border: 1px solid var(--border-color);
+
 }
 .registos-header {
   display: flex;
@@ -188,7 +191,7 @@ border-radius: 100rem;
 .product {
   display: grid;
   grid-template-columns: 0.5fr 2fr 1.5fr 1fr 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
   align-items: center;
@@ -216,7 +219,24 @@ border-radius: 100rem;
 .container-registos {
   overflow-x: scroll;
 }
-
+.out-product-icon{
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--primary-color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.income-product-icon{
+  background-color: var(--primary-color-blue);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color:#fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-width: 48em) {
   .monitoramento-estoque {
     grid-template-columns: repeat(2, 1fr);
@@ -250,10 +270,11 @@ border-radius: 100rem;
 .stocks {
   overflow-x: scroll;
 }
-.low-stock-container .estaticos,
+/* .low-stock-container .estaticos,
 .stocks .estaticos {
-  min-width: 100rem;
-}
+  min-width: 90rem;
+  max-width: 100rem;
+} */
 
 
 #pieChart{
@@ -282,12 +303,13 @@ border-radius: 100rem;
 
 .products-header{
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr repeat(6,1fr);
   align-items: center;
   font-weight: bold;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   padding: 1.5rem 0.2rem;
+  gap: 2rem;
 }
 .products-header div{
   display: flex;
@@ -297,10 +319,13 @@ border-radius: 100rem;
 
 .product-item {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr repeat(6, 1fr);
   justify-content: left;
   padding: 1.5rem 0.2rem;
   align-items: center;
+  gap: 2rem;
+
+
 }
 .product-item:not(:last-child){
   border-bottom: 1px solid var(--border-color);
@@ -333,7 +358,7 @@ border-radius: 100rem;
   overflow-x: scroll;
 }
 .estaticos {
-  min-width: 110rem;
+  min-width: 100rem;
   min-height: 40rem;
 }
 
@@ -390,4 +415,98 @@ ion-icon {
   border-radius: 50%;
   font-weight: bold;
   color: #fff;
+}
+.alert-icon{
+  color: var(--primary-color-red);
+}
+.status-baixo{
+  display: inline-block;
+  padding: 0.5rem ;
+  border-radius: 10rem;
+  width: 50%;
+  color: #fff;
+  text-align: center;
+  background-color: var(--primary-color-red);
+}
+
+/* FORMULÁRIO PARA ACTUALIZAÇÃO DO ESTOQUE */
+.low-stock-edit-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.407);
+  backdrop-filter: blur(5px);
+}
+.low-stock-edit-container .container{
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+.update-product-form{
+  background-color: var(--background-color);
+  max-width: 40rem;
+  margin: 5rem auto;
+  padding: 4rem;
+  border-radius: 1.2rem;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+.update-product-form div:not(:last-child){
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 0;
+}
+.non-border{
+  border: none !important;
+}
+.update-form-header{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.update-label-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.update-main{
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.form-update-group{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+}
+.update-quantity-input{
+  background-color: var(--bg-divider-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  color: inherit;
+  font-size: inherit;
+  margin-top: 1rem;
+}
+.update-quantity-input:focus{
+  outline: none;
+}
+.confirm-update-product{
+  padding: 1rem 2rem;
+  background-color: var(--primary-color-blue);
+  border-radius: 0.5rem;
+  font-size: inherit;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.confirm-update-product:hover{
+  background-color: var(--secondary-color-blue);
+}
+.btn-close-update-product{
+  cursor: pointer;
 }
