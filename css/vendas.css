@@ -18,7 +18,8 @@
 .dark-mode {
   --primary-color-blue: #4361ee;
   --secondary-color-blue: #99aaf5;
-  --primary-color-red: #fa3d3d;
+  --primary-color-red: #ff6868;
+
   --dark-grey-heading-01: #f0f1f5
   --less-dark-grey-heading-02: #d7d9e3;
   --primary-text-color: #fafafa;
@@ -113,7 +114,16 @@ body{
   gap: 2rem;
   margin-bottom: 3rem;
 }
-
+.sell-history{
+  background-color: var(--bg-divider-color);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  min-height: 50rem;
+}
+.sell-history .container {
+  padding: 2rem;
+  min-height: 50rem;
+}
 
 .heading-sell {
   display: grid;
@@ -128,10 +138,13 @@ body{
 .sell-box {
   display: grid;
   grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr ;
-  border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
   gap: 2rem;
   align-items: center;
+}
+.sell-box:not(:last-child){
+  border-bottom: 1px solid var(--border-color);
+
 }
 
 .sell-product-description{
@@ -168,7 +181,7 @@ body{
 .selled-product-status{
 display: inline-block;
 background-color: var(--background-color);
-padding: 0.5rem;
+padding:  0.5rem 1rem;
 text-align: center;
 border-radius: 0.5rem;
 font-weight: bold;
@@ -217,6 +230,7 @@ color: var(--sucess-color);
   border-bottom:  1px solid var(--border-color);
 
 }
+
 .current-product-sell-name{
   font-weight: 500;
   color: var(--primary-text-color);
@@ -240,6 +254,120 @@ color: var(--sucess-color);
   color: var(--primary-color-blue);
   font-size: 1.6rem;
 }
-.current-sell-date, .current-parcel{
+.current-sell-date, .costumer{
   font-size: 1.6rem;
+}
+.total-sell{
+  font-weight: 500;
+}
+.pagination-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-top:  1px solid var(--border-color);
+
+}
+/* .FORMULÁRIO PARA REALIZAR VENDA */
+
+.btn-close-sell-form{
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.new-sell-container{
+  background-color: var(--bg-divider-color);
+  min-width: 40rem;
+  border-radius: 0.5rem;
+  border:  1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+.new-sell-heading{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:2rem;
+
+}
+.detail-header{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.detail-icon{
+  background-color: var(--background-color);
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+ 
+}
+.border-detail{
+  border-bottom:  1px solid var(--border-color);
+
+}
+
+.current-product-sell-name{
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+.sell-label{
+  font-size: 2rem;
+  
+}
+.details{
+  padding: 2rem;
+}
+.new-sell-flex-box{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+.current-sell-invoice-number{
+  color: var(--primary-color-blue);
+  font-size: 1.6rem;
+}
+.current-sell-date, .costumer{
+  font-size: 1.6rem;
+}
+.total-sell{
+  font-weight: 500;
+}
+.new-sell-input, .sell-payment-way{
+  padding: 1rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  font-size: inherit;
+  border-radius: 0.5rem;
+  color: inherit;
+}
+.new-sell-input:focus{
+  outline: none;
+}
+.sell-btns{
+  display: flex;
+  gap: 1rem;
+}
+.sell-btns button{
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color-blue);
+  font-size: inherit;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-cancel-sell{
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--primary-text-color) !important;
+}
+.hidden{
+  display: none;
 }
