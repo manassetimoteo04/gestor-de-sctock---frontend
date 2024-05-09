@@ -72,7 +72,7 @@ body {
 .main-section {
   max-width: 100%;
   display: grid;
-  grid-template-columns: 18fr 80fr;
+  grid-template-columns: 25fr 80fr;
   grid-template-rows: 10fr 85fr;
   height: 100%;
   position: relative;
@@ -117,6 +117,7 @@ body {
   border-radius: 0.5rem;
   position: relative ;
   transition: none;
+  border:  1px solid var(--border-color);
 }
 .header__profile-img {
   width: 4.6rem;
@@ -194,10 +195,12 @@ input::placeholder{
   display: flex;
   align-items: center;
   gap: 2rem;
+  
 }
 .search__div ion-icon {
   font-size: 2.2rem;
   width: 2.4rem;
+  
 }
 .permission{
   display: flex;
@@ -213,6 +216,8 @@ input::placeholder{
   border-radius: 0.5rem;
   border: 2px solid var(--background-color);
   background-color: var(--background-color);
+  border:  1px solid var(--border-color);
+
 }
 .header__user {
   display: flex;
@@ -249,6 +254,8 @@ input::placeholder{
   border: 2px solid var(--background-color);
   background-color: var(--background-color);
   color: var(--primary-text-color);
+  border:  1px solid var(--border-color);
+
 }
 .header__btn:hover {
   background-color: rgba(67, 98, 238, 0.089);
@@ -266,6 +273,8 @@ input::placeholder{
   height: 100%;
   transition: all 0.3s ease-in;
   z-index: 999;
+  border-right:  1px solid var(--border-color);
+
 }
 
 .side__bar:hover::-webkit-scrollbar {
@@ -381,7 +390,7 @@ input::placeholder{
 }
 .grid {
   display: grid;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .grid-04 {
   grid-template-columns: repeat(3, 1fr);
@@ -401,6 +410,7 @@ input::placeholder{
   transition: all 0.5s;
   border: 5px solid var(--bg-divider-color);
   position: relative;
+  border:  1px solid var(--border-color);
 }
 .today::after{
 content: 'Hoje';
@@ -503,12 +513,12 @@ color: var(--primary-color-blue);
 .recent-products-notification-box {
   background-color: var(--bg-divider-color);
   border-radius: 0.5rem;
-  border: var(--bs-border-style) var(--bs-border-width) var(--bs-border-color);
   display: flex;
   flex-direction: column;
   padding: 2rem;
   gap: 2rem;
   min-width: 37.5rem;
+  border:  1px solid var(--border-color);
 }
 .subheader {
   display: flex;

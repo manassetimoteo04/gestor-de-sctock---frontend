@@ -1,10 +1,11 @@
 const sellFuntion = function () {
-  const sellDetailContainer = document.querySelector(".sell-detail-container");
-  const newSellFormContainer = document.querySelector(".new-sell-container");
+  const sellDetailContainer = document.querySelector(".section-sell-ditails");
+  const newSellFormContainer = document.querySelector(".section-new-sell");
   const btnShowNewSellForm = document.querySelector(".btn-add-new-sell");
   const btnCloseSellFormContainer = document.querySelector(
     ".btn-close-sell-form"
   );
+  const btnCloseSellDetail = document.querySelector(".btn-close-sell-details");
 
   btnShowNewSellForm?.addEventListener("click", function (e) {
     sellDetailContainer?.classList.add("hidden");
@@ -13,6 +14,9 @@ const sellFuntion = function () {
   btnCloseSellFormContainer?.addEventListener("click", function () {
     sellDetailContainer?.classList.remove("hidden");
     newSellFormContainer?.classList.add("hidden");
+  });
+  btnCloseSellDetail?.addEventListener("click", function () {
+    sellDetailContainer?.classList.add("hidden");
   });
 };
 sellFuntion();
