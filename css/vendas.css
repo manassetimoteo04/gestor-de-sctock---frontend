@@ -125,7 +125,7 @@ min-width: 55rem;
 }
 .sell-history .container {
   padding: 2rem;
-  min-height: 70rem;
+  min-height: 30rem;
 min-width: 0rem;
 }
 
@@ -264,6 +264,15 @@ color: var(--sucess-color);
 .total-sell{
   font-weight: 500;
 }
+.product-description-list{
+  padding: 0 2rem;
+  font-size: 1.4rem;
+}
+.product-description-list li{
+  display: flex;
+  justify-content: space-between;
+}
+
 .pagination-container{
   display: flex;
   justify-content: space-between;
@@ -271,6 +280,7 @@ color: var(--sucess-color);
   border-top:  1px solid var(--border-color);
 
 }
+
 /* .FORMULÁRIO PARA REALIZAR VENDA */
 
 .btn-close-sell-form{
@@ -404,7 +414,7 @@ color: var(--sucess-color);
   }
 }
 /* MAX WITH 868 */
-@media (max-width:60.8em) {
+@media (max-width:54.25em) {
   .sell-history{
 
   min-width: 0;
@@ -424,14 +434,48 @@ color: var(--sucess-color);
   z-index: 99999;
 }
 .sell-detail-container{
-  max-width: 80%;
+  max-width: 70%;
   margin: 6rem auto;
 }
 .new-sell-container{
-  max-width: 80%;
+  max-width: 70%;
   margin: 6rem auto;
 }
 .btn-close-sell-details{
   display: block;
 }
 }
+
+/* MAX WITH 492 */
+@media (max-width:30.8em) {
+  .sell-detail-container{
+    max-width: 90%;
+    margin: 6rem auto;
+  }
+  .new-sell-container{
+    max-width: 90%;
+    margin: 6rem auto;
+  }
+  .heading-sell {
+    grid-template-columns: 2fr 1fr 1.2fr 1fr;
+   
+  }
+  .sell-box {
+    grid-template-columns: 2fr 1fr 1.2fr 1fr;
+  }
+  .selled-product-costumer{
+    display: none;
+  }
+  .client-label{
+    display: none;
+  }
+
+  .sell-history .container {
+    width: 100%;
+    overflow-x: scroll;
+    padding: 0 2rem;
+  }
+  .sell-history .scroll-container{
+    min-width: 45rem;
+  }
+  }
