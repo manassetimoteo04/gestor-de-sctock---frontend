@@ -123,7 +123,6 @@ body{
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   min-width: 55rem;
-  min-height: 10rem !important;
   
 }
 .sell-history .container {
@@ -151,6 +150,9 @@ body{
 .sell-box:hover{
   background-color: var(--background-color);
   cursor: pointer;
+}
+.sell-box:hover .selled-product-status{
+  border: 1px solid var(--border-color);
 }
 .sell-box:not(:last-child){
   border-bottom: 1px solid var(--border-color);
