@@ -272,9 +272,10 @@
                                     <span class="current-product-sell-name sell-label">Detalhes da venda</span>
 
                                 </div>
-                                <span class="hide-dett"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                                <span class="hide-dett" data-class="data-sell-detail"><ion-icon
+                                        name="chevron-down-outline"></ion-icon></span>
                             </div>
-                            <div class="details sell-details">
+                            <div class="details sell-details data-sell-detail">
                                 <div class="details-flex-box">
                                     <span>Número da Fatura</span>
                                     <span class="current-sell-invoice-number">SMI034-950-9560</span>
@@ -291,9 +292,20 @@
                                     <span class="current-product-sell-name sell-label">Detalhes dos Productos</span>
 
                                 </div>
-                                <span class="hide-dett"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                                <span class="hide-dett" data-class="data-sell-product-detail"><ion-icon
+                                        name="chevron-down-outline"></ion-icon></span>
                             </div>
-                            <div class="details sell-details ">
+                            <div class="details sell-details data-sell-product-detail">
+                                <div class="details-flex-box">
+                                    <span>Producto 1</span>
+                                    <span class="costumer">Computador</span>
+                                </div>
+                                <ul class="product-description-list">
+                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
+                                            500</span></li>
+                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
+                                    </li>
+                                </ul>
                                 <div class="details-flex-box">
                                     <span>Producto 1</span>
                                     <span class="costumer">Computador</span>
@@ -305,22 +317,9 @@
                                     </li>
                                 </ul>
 
-
                             </div>
-                            <div class="details sell-details ">
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
-                                </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
 
 
-                            </div>
                         </div>
                         <div class="detail-container">
                             <div class="current-sell-product border-detail">
@@ -328,9 +327,10 @@
                                     <span class="current-product-sell-name sell-label">Informações do Cliente</span>
 
                                 </div>
-                                <span class="hide-dett"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                                <span class="hide-dett" data-class="data-sell-costumer-detail"><ion-icon
+                                        name="chevron-down-outline"></ion-icon></span>
                             </div>
-                            <div class="details sell-details">
+                            <div class="details sell-details data-sell-costumer-detail">
                                 <div class="details-flex-box">
                                     <span>Nome</span>
                                     <span class="costumer costumer-name">Mardoquéu Dickson</span>
@@ -347,9 +347,10 @@
                                     <span class="current-product-sell-name sell-label">Detalhe de Pagamento</span>
 
                                 </div>
-                                <span class="hide-dett"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                                <span class="hide-dett" data-class="data-sell-payment-detail"><ion-icon
+                                        name="chevron-down-outline"></ion-icon></span>
                             </div>
-                            <div class="details sell-details">
+                            <div class="details sell-details data-sell-payment-detail">
                                 <div class="details-flex-box">
                                     <span>Método de Pagamento</span>
                                     <span class="current-parcel">Cartão</span>
@@ -391,19 +392,68 @@
                                 <div class="current-sell-product border-detail">
                                     <div>
                                         <span class="current-product-sell-name sell-label">Selecionar Producto</span>
-
                                     </div>
                                 </div>
                                 <div class="details new-sell-details">
                                     <div class="new-sell-flex-box">
                                         <span>Nome do Producto</span>
-                                        <input type="text" class="new-sell-input" placeholder="Digite o Producto...">
+                                        <input type="text" class="new-sell-input select-product-input"
+                                            placeholder="Digite o Producto...">
+                                    </div>
+
+                                    <!-- LISTA DE PRODCUTOS A SER SELECIONADO -->
+                                    <div class="product-list-select hidden">
+                                        <ul>
+                                            <li>
+                                                <span class="select-header">Producto</span>
+                                                <span class="select-header">Disponível</span>
+
+                                            </li>
+                                            <li class="product-item-select" data-product-id="">
+                                                <span class="product-item-name">Computador</span>
+                                                <span class="product-item-quantity">349</span>
+                                            </li>
+                                            <li class="product-item-select" data-product-id="">
+                                                <span class="product-item-name">Computador</span>
+                                                <span class="product-item-quantity">349</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div class="new-sell-flex-box">
                                         <span>Quantidade do Producto</span>
                                         <input type="number" class="new-sell-input" placeholder="Digite Quantidade">
                                     </div>
-
+                                    <button class="btn-add-product-cart"><ion-icon
+                                            name="add-outline"></ion-icon>Adicionar</button>
+                                </div>
+                                <!-- PRODUCTOS ADICIONADOS NO CARRINHO -->
+                                <div class="cart-list">
+                                    <span class="header-cart">Productos no Carrinho <ion-icon
+                                            name="cart-outline"></ion-icon></span>
+                                    <ul>
+                                        <li class="cart-item">
+                                            <div class="added-product">
+                                                <span>Producto 02:</span>
+                                                <span class="added-product-name">Computador</span>
+                                            </div>
+                                            <div class="added-product">
+                                                <span>Quantidade:</span>
+                                                <span class="added-product-name">34</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li class="cart-item">
+                                            <div class="added-product">
+                                                <span>Producto 01:</span>
+                                                <span class="added-product-name">Computador</span>
+                                            </div>
+                                            <div class="added-product">
+                                                <span>Quantidade:</span>
+                                                <span class="added-product-name">34</span>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="sell-input-group">

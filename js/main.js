@@ -83,20 +83,20 @@ const dashBoardFunction = function () {
   const data = {
     labels: labels,
     datasets: [
-      {
-        label: "Compras",
-        data: [10, 20, 30, 40, 50, 60, 30], // Dados de exemplo
-        borderColor: "red",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-        borderRadius: Number.MAX_VALUE,
-        borderSkipped: false,
-      },
+      // {
+      //   label: "Compras",
+      //   data: [10, 20, 30, 40, 50, 60, 30], // Dados de exemplo
+      //   borderColor: "red",
+      //   backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   borderRadius: Number.MAX_VALUE,
+      //   borderSkipped: false,
+      // },
       {
         label: "Vendas",
-        data: [70, 60, 50, 40, 30, 20, 10], // Dados de exemplo
+        data: [30, 67, 45, 40, 50, 20, 10], // Dados de exemplo
         borderColor: "blue",
         backgroundColor: "rgba(54, 162, 235, 0.5)",
-        borderRadius: 5,
+        borderRadius: 10,
         borderSkipped: false,
       },
     ],
