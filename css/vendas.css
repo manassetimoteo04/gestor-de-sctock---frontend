@@ -89,7 +89,9 @@ body{
   font-size: 1.8rem;
   color: inherit;
 }
-
+.pagination-container{
+  margin-top: auto;
+}
 .btn-pages button {
   background: none;
   font-size: 1.8rem;
@@ -123,7 +125,8 @@ body{
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   min-width: 55rem;
-  
+  min-height: 95rem ;
+  max-height: 97rem ;
 }
 .sell-history .container {
   min-height: 10rem;
@@ -214,6 +217,7 @@ color: var(--sucess-color);
   border:  1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .current-sell-product{
   width: 100%;

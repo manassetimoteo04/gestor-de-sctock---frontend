@@ -1,0 +1,578 @@
+/* CONFIGURANDO AS CORES */
+:root {
+    --primary-color-blue: #4361ee;
+    --secondary-color-blue: #99aaf5;
+    --primary-color-red: #ff6868;
+    --dark-grey-heading-01: #565863;
+    --less-dark-grey-heading-02: #8c8f9f;
+    --primary-text-color: #000;
+    --secondary-text-color: #60616a;
+    --bg-divider-color: #fff;
+    --background-color: #eee;
+    --btn-border-radius: 1rem;
+    --box-border-radius: 1.2rem;
+    --border-color: #d3d3d3c4;
+    --sucess-color: #43b943;
+  }
+  
+  .dark-mode {
+    --primary-color-blue: #4361ee;
+    --secondary-color-blue: #99aaf5;
+    --primary-color-red: #ff6868;
+    --dark-grey-heading-01: #f0f1f5
+    --less-dark-grey-heading-02: #d7d9e3;
+    --primary-text-color: #fafafa;
+    --secondary-text-color: #b3b6c4;
+    --bg-divider-color: #2c2f41;
+    --background-color: #242630;
+    --btn-border-radius: 1rem;
+    --box-border-radius: 1.2rem;
+    --border-color: #d3d3d31e;
+    --sucess-color: #43b943;
+  
+  }
+  body{
+    font-size: 1.6rem;
+    position: relative;
+  }
+  
+  .sort {
+    background: none;
+    color: var(--primary-text-color);
+    font-size: inherit;
+  }
+  .sort:focus {
+    outline: none;
+  }
+  .sort-box {
+    padding: 1rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .btn-add-new-sell {
+    background-color: var(--primary-color-blue);
+    padding: 1rem 2rem;
+    font-size: inherit;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-add-new-sell:hover {
+    background-color: var(--secondary-color-blue);
+  }
+  .btn-add-new-sell ion-icon{
+    font-size: 2.2rem;
+  }
+  .main__content-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-action{
+    display: flex;
+    gap: 0.5rem;
+  }
+  .product-action button {
+    background: none;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: inherit;
+  }
+  .pagination-container{
+    margin-top: auto;
+  }
+  .btn-pages button {
+    background: none;
+    font-size: 1.8rem;
+    color: inherit;
+  }
+  .btn-pages{
+    display: flex;
+    gap: 1rem;
+  }
+  .btn-pages .curr-page-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color-blue);
+    height: 4rem;
+    width: 4rem;
+    color: #fff ;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+  
+  .grid-sell {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  
+  }
+  .sell-history{
+    background-color: var(--bg-divider-color);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    min-width: 55rem;
+    min-height: 95rem ;
+    max-height: 97rem ;
+  }
+  .sell-history .container {
+    min-height: 10rem;
+  }
+  
+  .heading-sell {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr ;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+    color: var(--primary-text-color);
+  }
+  .sell-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr ;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+  
+  }
+  .sell-box:hover{
+    background-color: var(--background-color);
+    cursor: pointer;
+  }
+  .sell-box:hover .selled-product-status{
+    border: 1px solid var(--border-color);
+  }
+  .sell-box:not(:last-child){
+    border-bottom: 1px solid var(--border-color);
+  
+  }
+  
+  .sell-product-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 0;
+  }
+  
+  .sell-product-description .selled-product-name{
+    font-weight: bold;
+    text-align: left;
+  }
+  .sell-product-description .selled-invoice-number{
+    font-size: 1.2rem;
+    color: var(--primary-color-blue);
+  }
+  .sell-icon{
+    font-size: 2.2rem;
+    color: var(--primary-color-blue);
+   
+  }
+  .sell-box div{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .product-action{
+    text-align: right;
+  }
+  .btn-detais-product{
+    text-align: right;
+  }
+  .selled-product-status{
+    display: inline-block;
+    background-color: var(--background-color);
+    padding:  0.5rem 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .pending-payment{
+    color: var(--primary-color-red);
+  }
+  .success-payment{
+  color: var(--sucess-color);
+  }
+  
+  /* DETALHES DO PRODUCTO */
+  .sell-detail-container{
+    background-color: var(--bg-divider-color);
+    min-width: 40rem;
+    border-radius: 0.5rem;
+    border:  1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .current-sell-product{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2rem;
+  
+  }
+  .detail-header{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .detail-icon{
+    background-color: var(--background-color);
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+   
+  }
+  .border-detail{
+    border-bottom:  1px solid var(--border-color);
+  
+  }
+  
+  .current-product-sell-name{
+    font-weight: 500;
+    color: var(--primary-text-color);
+  }
+  .sell-label{
+    font-size: 2rem;
+    
+  }
+  .hidden{
+    display: none;
+  }
+  .details{
+    padding: 2rem;
+  }
+  .hide-sell-detail{
+    display: none;
+  }
+  .details-flex-box{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 500;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .current-sell-invoice-number{
+    color: var(--primary-color-blue);
+    font-size: 1.6rem;
+  }
+  .current-sell-date, .costumer{
+    font-size: 1.6rem;
+  }
+  .total-sell{
+    font-weight: 500;
+  }
+  .product-description-list{
+    padding: 0 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    border-left: 0.3rem solid var(--primary-color-blue);
+  }
+  .product-description-list li{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .pagination-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border-top:  1px solid var(--border-color);
+  
+  }
+  
+  /* .FORMULÁRIO PARA REALIZAR VENDA */
+  
+  .btn-close-sell-form{
+    font-size: 2.4rem;
+    cursor: pointer;
+  }
+  
+  .new-sell-container{
+    background-color: var(--bg-divider-color);
+    min-width: 40rem;
+    border-radius: 0.5rem;
+    border:  1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+  }
+  .new-sell-container .current-sell-product{
+    padding: 0.5rem 2rem;
+  
+  }
+  .new-sell-heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2rem;
+  
+  }
+  .detail-header{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .detail-icon{
+    background-color: var(--background-color);
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+   
+  }
+  
+  .btn-close-sell-details{
+    font-size: 2.4rem;
+    padding: 2rem;
+    text-align: right;
+    display: none;
+  }
+  .border-detail{
+    border-bottom:  1px solid var(--border-color);
+  
+  }
+  
+  .current-product-sell-name{
+    font-weight: 500;
+    color: var(--primary-text-color);
+  }
+  .sell-label{
+    font-size: 2rem;
+  
+  }
+  .new-sell-details{
+    position: relative;
+  }
+  .product-list-select{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 100%;
+    min-height: 90%;
+    width: 90%;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    z-index: 99;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+  }
+  .select-header{
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .product-list-select ul{
+    list-style: none;
+  }
+  .product-list-select ul li{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  }
+  .product-item-select:hover{
+    background-color: var(--bg-divider-color);
+    cursor: pointer;
+  }
+  .product-list-select ul li:not(:last-child){
+    border-bottom: 1px solid var(--border-color);
+    }
+  .btn-add-product-cart{
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color-blue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 0.3rem;
+  }
+  .btn-add-product-cart ion-icon{
+    font-size: 2rem;
+  }
+  .details{
+    padding: 2rem;
+  }
+  
+  /* CARRINHO */
+  .cart-list{
+    padding: 1rem 2rem;
+    
+  }
+  .cart-list .header-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .cart-list ul{
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  .cart-list li{
+    border-left: 0.3rem solid var(--primary-color-blue);
+    padding: 1rem;
+  }
+  .added-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .new-sell-flex-box{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+  .heading-sell-label{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+  }
+  .current-sell-invoice-number{
+    color: var(--primary-color-blue);
+    font-size: 1.6rem;
+  }
+  .current-sell-date, .costumer{
+    font-size: 1.6rem;
+  }
+  .total-sell{
+    font-weight: 500;
+  }
+  .new-sell-input, .sell-payment-way{
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    font-size: inherit;
+    border-radius: 0.5rem;
+    color: inherit;
+  }
+  .new-sell-input:focus{
+    outline: none;
+  }
+  .sell-btns{
+    display: flex;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+  .sell-btns button{
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color-blue);
+    font-size: inherit;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn-cancel-sell{
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--primary-text-color) !important;
+  }
+  .hidden{
+    display: none;
+  }
+  
+  @media (max-width:60.8em) {
+    .sell-history{
+     
+    min-width: 46rem;
+      
+    }
+    .sell-detail-container, .new-sell-container{
+      min-width: 33rem;
+    }
+  }
+  /* MAX WITH 868 */
+  @media (max-width:54.25em) {
+    .sell-history{
+  
+    min-width: 0;
+    }
+    .grid-sell {
+      grid-template-columns:1fr;
+  }
+  .section-sell-ditails, .section-new-sell{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.411);
+    overflow-y: scroll;
+    backdrop-filter: blur(5px);
+    z-index: 99999;
+  }
+  .sell-detail-container{
+    max-width: 70%;
+    margin: 6rem auto;
+  }
+  .new-sell-container{
+    max-width: 70%;
+    margin: 6rem auto;
+  }
+  .btn-close-sell-details{
+    display: block;
+  }
+  }
+  
+  /* MAX WITH 492 */
+  @media (max-width:30.8em) {
+    .sell-detail-container{
+      max-width: 90%;
+      margin: 6rem auto;
+    }
+    .new-sell-container{
+      max-width: 90%;
+      margin: 6rem auto;
+    }
+    .heading-sell {
+      grid-template-columns: 2fr 1fr 1.2fr 1fr;
+     
+    }
+    .sell-box {
+      grid-template-columns: 2fr 1fr 1.2fr 1fr;
+    }
+    .selled-product-costumer{
+      display: none;
+    }
+    .client-label{
+      display: none;
+    }
+  
+    .sell-history .container {
+      width: 100%;
+      overflow-x: scroll;
+      padding: 0 2rem;
+    }
+    .sell-history .scroll-container{
+      min-width: 45rem;
+    }
+    }

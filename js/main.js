@@ -10,7 +10,6 @@ sellFuntion();
 // EXECUTAR A FUNÇÃO DE MOSTAR E FECHAR O MENU
 const toggleMenuBtn = document.querySelector(".toggleMenu__btn");
 const body = document.querySelector("body");
-
 toggleMenuBtn.addEventListener("click", function () {
   body.classList.toggle("menu-hidden");
 });
