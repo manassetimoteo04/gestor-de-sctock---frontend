@@ -36,6 +36,11 @@
     position: relative;
   }
   
+
+
+
+
+
   .sort {
     background: none;
     color: var(--primary-text-color);
@@ -53,6 +58,7 @@
     gap: 1rem;
   }
   
+
   .btn-add-new-sell {
     background-color: var(--primary-color-blue);
     padding: 1rem 2rem;
@@ -76,6 +82,65 @@
     justify-content: space-between;
     align-items: center;
   }
+
+.clients-summary{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3rem;
+  background-color: var(--bg-divider-color);
+  padding: 3rem;
+  margin:  4rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+}
+.client-summary-box{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.client-summary-box:not(:last-child){
+  border-right: 1px solid var(--border-color);
+}
+.summary-text{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.icon-client-summary{
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.icon-client-summary ion-icon{
+  font-size: 4rem;
+  color: var(--primary-color-blue);
+}
+.total-client-number{
+  font-size: 4rem;
+  color: var(--primary-text-color);
+}
+
+.increasing-span{
+  font-size: 1.4rem;
+  display: flex;
+  gap: 0.3rem;
+}
+.increasing-span span{
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+}
+.percentage-number{
+  font-weight: 600;
+  color: var(--primary-color-blue);
+}
   .product-action{
     display: flex;
     gap: 0.5rem;
@@ -113,14 +178,14 @@
     font-weight: bold;
   }
   
-  .grid-sell {
+  .grid-client {
     display: grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns:1fr;
     gap: 2rem;
     margin-bottom: 3rem;
   
   }
-  .sell-history{
+  .client-list{
     background-color: var(--bg-divider-color);
     border-radius: 0.5rem;
     border: 1px solid var(--border-color);
@@ -128,11 +193,11 @@
     min-height: 95rem ;
     max-height: 97rem ;
   }
-  .sell-history .container {
+  .client-list .container {
     min-height: 10rem;
   }
   
-  .heading-sell {
+  .heading-client {
     display: grid;
     grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr ;
     font-weight: 600;

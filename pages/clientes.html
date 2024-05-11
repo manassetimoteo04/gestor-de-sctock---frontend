@@ -7,7 +7,8 @@
     <title>Productos - Gerencie os teus productos </title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/vendas.css">
+    <link rel="stylesheet" href="../css/clientes.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -74,14 +75,14 @@
                     </li>
                     <li><a href="estoques.html" class="main-nav-link "> <ion-icon name="cube-outline"></ion-icon><span>
                                 Estoques</span> </a></li>
-                    <li><a href="#" class="main-nav-link active-link"><ion-icon
+                    <li><a href="vendas.html" class="main-nav-link "><ion-icon
                                 name="cart-outline"></ion-icon><span>Vendas</span></a></li>
-                    <li><a href="#" class="main-nav-link"><ion-icon
+                    <li><a href="#" class="main-nav-link active-link"><ion-icon
                                 name="people-outline"></ion-icon><span>Clientes</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
-                                name="documents-outline"></ion-icon><span>Relatórios</span></a></li>
+                                name="bar-chart-outline"></ion-icon><span>Relatórios</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="person-outline"></ion-icon><span>Perfil</span></a></li>
                     <!-- <li>
@@ -107,33 +108,68 @@
                 <div class="add-new-sell">
                     <button class="btn-add-new-sell">
                         <ion-icon name="add-outline"></ion-icon>
-                        Nova venda
+                        Novo Cliente
                     </button>
                 </div>
             </div>
+            <div class="clients-summary">
+                <div class="client-summary-box">
+                    <span class="icon-client-summary"><ion-icon name="people-outline"></ion-icon></span>
+                    <div class="summary-text">
+                        <span class="summary-heading">Total Clientes</span>
+                        <span class="total-client-number">3456</span>
+                        <span class="increasing-span"><span class="percentage-number"><ion-icon
+                                    name="arrow-up-outline"></ion-icon> <span class="percentage-num">5.8%</span></span>
+                            Este
+                            mês</span>
+                    </div>
+                </div>
 
-            <!-- CONTAINER DOS PRODUCTOS -->
-            <div class="grid-sell">
+                <div class="client-summary-box">
+                    <span class="icon-client-summary"><ion-icon name="person-add-outline"></ion-icon></span>
+                    <div class="summary-text">
+                        <span class="summary-heading">Novos Clientes</span>
+                        <span class="total-client-number">3456</span>
+                        <span class="increasing-span"><span class="percentage-number"><ion-icon
+                                    name="arrow-up-outline"></ion-icon> <span class="percentage-num">3.6%</span></span>
+                            Este
+                            mês</span>
+                    </div>
+                </div>
 
-                <div class="sell-history">
+                <div class="client-summary-box">
+                    <span class="icon-client-summary"><ion-icon name="heart-outline"></ion-icon></span>
+                    <div class="summary-text">
+                        <span class="summary-heading">Activos</span>
+                        <span class="total-client-number">345</span>
+                        <span class="increasing-span"><span class="percentage-number"><ion-icon
+                                    name="arrow-up-outline"></ion-icon> <span class="percentage-num">0,5%</span></span>
+                            Este
+                            mês</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTAINER DOS CLIENTES -->
+            <div class="grid-client">
+
+                <div class="client-list">
                     <div class="subheader">
-                        <h3 class="heading-h3">Registo de Vendas</h3>
+                        <h3 class="heading-h3">Todos de Clientes</h3>
 
                     </div>
 
                     <div class="container ">
                         <div class="scroll-container">
 
-                            <div class="heading-sell">
+                            <div class="heading-client">
                                 <div>
-                                    <span>Transação</span>
+                                    <span>Nome Clientes</span>
                                 </div>
-                                <span>Total</span>
-                                <span>Data</span>
-                                <span>Pagamento</span>
+                                <span>Telefone</span>
+                                <span>Email</span>
+                                <span>Compras</span>
                                 <span class="client-label">Cliente</span>
-
-
                             </div>
                             <div class="sell-box">
                                 <div>
