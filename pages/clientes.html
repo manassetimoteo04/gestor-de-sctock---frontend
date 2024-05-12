@@ -80,11 +80,11 @@
                     <li><a href="#" class="main-nav-link active-link"><ion-icon
                                 name="people-outline"></ion-icon><span>Clientes</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
-                                name="extension-puzzle-outline"></ion-icon><span>Fornecedores</span></a></li>
+                                name="podium-outline"></ion-icon><span>Fornecedores</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
                                 name="bar-chart-outline"></ion-icon><span>Relatórios</span></a></li>
                     <li><a href="#" class="main-nav-link"><ion-icon
-                                name="person-outline"></ion-icon><span>Perfil</span></a></li>
+                                name="person-circle-outline"></ion-icon><span>Perfil</span></a></li>
                     <!-- <li>
                         <button class="log-out-btn">
                             <ion-icon name="log-out-outline"></ion-icon>
@@ -97,7 +97,7 @@
         </aside>
 
         <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
-        <section class="main__content-section">
+        <section class="main__content-section client-container">
             <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
@@ -160,147 +160,62 @@
                     </div>
 
                     <div class="container ">
-                        <div class="scroll-container">
+                        <div class="scroll-bar">
 
-                            <div class="heading-client">
-                                <div>
-                                    <span>Nome Clientes</span>
-                                </div>
-                                <span>Telefone</span>
-                                <span>Email</span>
-                                <span>Compras</span>
-                                <span class="client-label">Cliente</span>
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
+                            <div class="scroll-container">
+
+                                <div class="heading-client">
+                                    <div>
+                                        <span>Nome Clientes</span>
                                     </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status pending-payment">Pendente</span>
-                                <span class="selled-product-costumer">Adelino Pembele</span>
+                                    <span>Telefone</span>
+                                    <span>Email</span>
+                                    <span>Compras</span>
+                                    <span class="client-label">Status</span>
+                                    <span class="client-label">Acção</span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
+                                </div>
+                                <div class="client-box">
+                                    <div>
+                                        <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
+                                        <span class="client-name">Manasse Timóteo</span>
                                     </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
+                                    <span class="client-phone-number">+244 940 407 979</span>
+                                    <span class="client-email">manassetimoteo@gmail.com</span>
+                                    <span class="client-total-sell">123</span>
+                                    <span class="client-status client-active">Activo</span>
+                                    <span class="action-client-btns">
+                                        <button class="btn-edit-user"><ion-icon
+                                                name="create-outline"></ion-icon></button>
+                                        <button class="btn-delete-user"><ion-icon
+                                                name="trash-outline"></ion-icon></button>
+                                        <button class="btn-details-user"><ion-icon
+                                                name="ellipsis-vertical-outline"></ion-icon></button>
+                                    </span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
+                                </div>
+                                <div class="client-box">
+                                    <div>
+                                        <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
+                                        <span class="client-name">Manasse Timóteo</span>
                                     </div>
+                                    <span class="client-phone-number">+244 940 407 979</span>
+                                    <span class="client-email">manassetimoteo@gmail.com</span>
+                                    <span class="client-total-sell">123</span>
+                                    <span class="client-status client-inactive">Inactivo</span>
+                                    <span class="action-client-btns">
+                                        <button class="btn-edit-user"><ion-icon
+                                                name="create-outline"></ion-icon></button>
+                                        <button class="btn-delete-user"><ion-icon
+                                                name="trash-outline"></ion-icon></button>
+                                        <button class="btn-details-user"><ion-icon
+                                                name="ellipsis-vertical-outline"></ion-icon></button>
+                                    </span>
+
                                 </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
 
                             </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-
                         </div>
-
-
                     </div>
                     <!-- PAGINAÇÃO DA LISTA DE VENDAS -->
                     <div class="pagination-container">
@@ -317,292 +232,161 @@
 
                 </div>
 
+            </div>
+            </div>
+        </section>
 
-                <!-- -----------------DETAHLHES DO PRODUCTO------------------- -->
-                <div class="section-sell-ditails">
-
-                    <div class="sell-detail-container">
-                        <span class="btn-close-sell-details"><ion-icon name="close-outline"></ion-icon></span>
-                        <div class="current-sell-product btn-close-header">
-
-                            <div class="detail-header">
-                                <span class="sell-icon detail-icon"><ion-icon
-                                        name="swap-horizontal-outline"></ion-icon></span>
-                                <span class="current-product-sell-name">Computador</span>
-                            </div>
-                            <span class="selled-product-status success-payment">Sucesso</span>
+        <section class="section__client-details hidden">
+            <div class="client-detail-header">
+                <span class="btn-back-to-client-list"><ion-icon name="arrow-back-outline"></ion-icon> Voltar</span>
+                <span class="btn-delete-client">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </span>
+            </div>
+            <div class="client-detail-grid">
+                <div class="client-information-box">
+                    <div class="profile-box">
+                        <div class="capa">
+                            <img src="../assets/img/admin/admin.png" alt="" class="client-img">
                         </div>
-                        <div class="detail-container">
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Detalhes da venda</span>
-
-                                </div>
-                                <span class="hide-dett" data-class="data-sell-detail"><ion-icon
-                                        name="chevron-down-outline"></ion-icon></span>
-                            </div>
-                            <div class="details sell-details data-sell-detail">
-                                <div class="details-flex-box">
-                                    <span>Número da Fatura</span>
-                                    <span class="current-sell-invoice-number">SMI034-950-9560</span>
-                                </div>
-                                <div class="details-flex-box">
-                                    <span>Data da venda</span>
-                                    <span class="current-sell-date">Ago 23, 2023, 16:01 PM</span>
-                                </div>
-                            </div>
+                        <div class="client-information">
+                            <span class="client-name">Manasse Timóteo <span
+                                    class="client-status client-active">Activo</span></span>
+                            <span class="">Email: <span class="client-email">manassetimoteo04@gmail.com</span></span>
+                            <span class="">Phone: <span class="client-number">+244 940 407 979</span></span>
+                            <span class="">ID Usuário: <span class="client-number">0001</span></span>
                         </div>
-                        <div class="detail-container">
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Detalhes dos Productos</span>
-
-                                </div>
-                                <span class="hide-dett" data-class="data-sell-product-detail"><ion-icon
-                                        name="chevron-down-outline"></ion-icon></span>
-                            </div>
-                            <div class="details sell-details data-sell-product-detail">
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
-                                </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
-                                </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
-
-                            </div>
+                    </div>
 
 
+                    <div class="client-information">
+                        <span class="client-label">Descrição</span>
+
+                        <span class="client-decription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Numquam minus at qui
+                            deleniti, aliquid unde recusandae saepe cumque nulla a amet quo quisquam
+                            deserunt.</span>
+
+                    </div>
+                    <div class="client-information">
+                        <span class="client-label">Residências</span>
+                        <span class="client-residence">Luanda, Cazenga Rua Agusto Casa nº 23</span>
+                    </div>
+                    <div class="client-information buy-information">
+                        <span class="client-label">Informação de Vendas</span>
+                        <span class="client-buy-number">Número de Compras <span
+                                class="total-client-buy-number">230</span></span>
+                        <span class="client-buy-number">Total Montante <span class="total-client-buy-amount">34095,00
+                            </span></span>
+                    </div>
+
+                </div>
+                <div class="client-buy-history">
+                    <div class="buy-history-container">
+                        <div class="client-buy-history-header">
+                            <span class="header-history">Histórico de Compras</span>
                         </div>
-                        <div class="detail-container">
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Informações do Cliente</span>
-
-                                </div>
-                                <span class="hide-dett" data-class="data-sell-costumer-detail"><ion-icon
-                                        name="chevron-down-outline"></ion-icon></span>
+                        <div class="history">
+                            <div class="history-header">
+                                <span>Factura</span>
+                                <span>Data</span>
+                                <span>Quantidade</span>
+                                <span>Acção</span>
                             </div>
-                            <div class="details sell-details data-sell-costumer-detail">
-                                <div class="details-flex-box">
-                                    <span>Nome</span>
-                                    <span class="costumer costumer-name">Mardoquéu Dickson</span>
-                                </div>
-                                <div class="details-flex-box">
-                                    <span>E-mail</span>
-                                    <span class="costumer costumer-email">mardoqueudickson@gmail.com</span>
-                                </div>
+                            <div class="buy-history">
+                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
+                                <span>23/04/2023</span>
+                                <span>$ 3456,00</span>
+                                <span><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
+                            </div>
+                            <div class="buy-history">
+                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
+                                <span>23/04/2023</span>
+                                <span>$ 3456,00</span>
+                                <span><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
+                            </div>
+                            <div class="buy-history">
+                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
+                                <span>23/04/2023</span>
+                                <span>$ 3456,00</span>
+                                <span><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
+                            </div>
+                            <div class="buy-history">
+                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
+                                <span>23/04/2023</span>
+                                <span>$ 3456,00</span>
+                                <span><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
                             </div>
                         </div>
-                        <div class="detail-container">
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Detalhe de Pagamento</span>
+                    </div>
 
-                                </div>
-                                <span class="hide-dett" data-class="data-sell-payment-detail"><ion-icon
-                                        name="chevron-down-outline"></ion-icon></span>
-                            </div>
-                            <div class="details sell-details data-sell-payment-detail">
-                                <div class="details-flex-box">
-                                    <span>Método de Pagamento</span>
-                                    <span class="current-parcel">Cartão</span>
-                                </div>
-                                <div class="details-flex-box">
-                                    <span>Preço Unitário </span>
-                                    <span class="current-parcel">$ 3050</span>
-                                </div>
-                                <div class="details-flex-box">
-                                    <span>Quantidade</span>
-                                    <span class="current-parcel">50</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail-container">
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Total</span>
-
-                                </div>
-                                <span class="total-sell">$ 495 890,00</span>
-                            </div>
-
+                    <div class="pagination-container">
+                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                                class="current-product-page total-pages">10</span></div>
+                        <div class="btn-pages">
+                            <button class="btn-previous-page">
+                                <ion-icon name="chevron-back-outline"></ion-icon></button>
+                            <span class="curr-page-number">1</span>
+                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- -----------------REALIZAR NOVA VENDA------------------- -->
-                <div class="section-new-sell hidden">
-                    <div class="new-sell-container ">
-                        <div class="new-sell-heading">
-                            <div class="detail-header">
-                                <h3 class="heading-h3">Realizar Venda</h3>
-                            </div>
-                            <span class="btn-close-sell-form"><ion-icon name="close-outline"></ion-icon></span>
-                        </div>
-                        <form action="" class="new-sell-form">
-                            <div class="sell-input-group">
-                                <div class="current-sell-product border-detail">
-                                    <div>
-                                        <span class="current-product-sell-name sell-label">Selecionar Producto</span>
-                                    </div>
-                                </div>
-                                <div class="details new-sell-details">
-                                    <div class="new-sell-flex-box">
-                                        <span>Nome do Producto</span>
-                                        <input type="text" class="new-sell-input select-product-input"
-                                            placeholder="Digite o Producto...">
-                                    </div>
-
-                                    <!-- LISTA DE PRODCUTOS A SER SELECIONADO -->
-                                    <div class="product-list-select hidden">
-                                        <ul>
-                                            <li>
-                                                <span class="select-header">Producto</span>
-                                                <span class="select-header">Disponível</span>
-
-                                            </li>
-                                            <li class="product-item-select" data-product-id="">
-                                                <span class="product-item-name">Computador</span>
-                                                <span class="product-item-quantity">349</span>
-                                            </li>
-                                            <li class="product-item-select" data-product-id="">
-                                                <span class="product-item-name">Computador</span>
-                                                <span class="product-item-quantity">349</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="new-sell-flex-box">
-                                        <span>Quantidade do Producto</span>
-                                        <input type="number" class="new-sell-input" placeholder="Digite Quantidade">
-                                    </div>
-                                    <button class="btn-add-product-cart"><ion-icon
-                                            name="add-outline"></ion-icon>Adicionar</button>
-                                </div>
-                                <!-- PRODUCTOS ADICIONADOS NO CARRINHO -->
-                                <div class="cart-list">
-                                    <span class="header-cart">Productos no Carrinho <ion-icon
-                                            name="cart-outline"></ion-icon></span>
-                                    <ul>
-                                        <li class="cart-item">
-                                            <div class="added-product">
-                                                <span>Producto 02:</span>
-                                                <span class="added-product-name">Computador</span>
-                                            </div>
-                                            <div class="added-product">
-                                                <span>Quantidade:</span>
-                                                <span class="added-product-name">34</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li class="cart-item">
-                                            <div class="added-product">
-                                                <span>Producto 01:</span>
-                                                <span class="added-product-name">Computador</span>
-                                            </div>
-                                            <div class="added-product">
-                                                <span>Quantidade:</span>
-                                                <span class="added-product-name">34</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sell-input-group">
-                                <div class="current-sell-product border-detail">
-                                    <div>
-                                        <span class="current-product-sell-name sell-label">Informações do Cliente</span>
-
-                                    </div>
-                                </div>
-                                <div class="details new-sell-details">
-                                    <div class="new-sell-flex-box">
-                                        <span>Nome do Cliente</span>
-                                        <input type="text" class="new-sell-input" placeholder="Digite Nome do Cliente">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="sell-input-group">
-                                <div class="current-sell-product border-detail">
-                                    <div>
-                                        <span class="current-product-sell-name sell-label">Forma de Pagamento</span>
-
-                                    </div>
-                                </div>
-                                <div class="details new-sell-details">
-                                    <div class="new-sell-flex-box">
-                                        <span>Selecionar Forma de Pagamento</span>
-                                        <select name="" id="" class="sell-payment-way">
-                                            <option value="Cash">Cash</option>
-                                            <option value="Cartão">Cartão de Crédito</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="detail-container">
-                                <div class="current-sell-product border-detail">
-                                    <div>
-                                        <span class="current-product-sell-name sell-label">Prê-visualização da
-                                            Venda</span>
-
-                                    </div>
-
-                                </div>
-                                <div class="details sell-details">
-                                    <div class="details-flex-box">
-                                        <span>Método de Pagamento</span>
-                                        <span class="current-parcel">Cartão</span>
-                                    </div>
-                                    <div class="details-flex-box">
-                                        <span>Preço Unitário </span>
-                                        <span class="current-parcel">$ 3050</span>
-                                    </div>
-                                    <div class="details-flex-box">
-                                        <span>Quantidade</span>
-                                        <span class="current-parcel">50</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="current-sell-product border-detail">
-                                <div>
-                                    <span class="current-product-sell-name sell-label">Total</span>
-
-                                </div>
-                                <span class="total-sell">$ 495 890,00</span>
-                            </div>
-
-                            <div class="current-sell-product">
-                                <div class="sell-btns">
-                                    <button class="btn-confirm-sell">Confirmar</button>
-                                    <button class="btn-cancel-sell">Cancelar</button>
-                                </div>
-
-                            </div>
-                        </form>
+            <!-- DETALHES DE VENDA -->
+            <div class="client-buy-detail-container hidden">
+                <div class="buy-detail-box">
+                    <button class="btn-close-buy-detail">X</button>
+                    <div class="buy-detail-header">
+                        <span class="invoice-number">SMG9348457945</span>
+                        <span class="buy-status buy-succes">Succeso</span>
                     </div>
+
+                    <div class="buy-detail-informations">
+                        <span class="subheader-buy">Detalhes da Compra</span>
+                        <ul class="buy-detail-list">
+                            <li><span>Número da Factura</span> <span class="invoice-number-detail">SMG9348457945</span>
+                            </li>
+                            <li><span>Data da Compra</span> <span class="buy-date">Ago 23, 2023, 17:01
+                                    PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="buy-detail-informations">
+                        <span class="subheader-buy">Productos Comprados</span>
+                        <div class="product">
+                            <span class="product-header">Producto 01 <span class="product-name">Computador</span></span>
+                            <ul class="product-bought-list">
+                                <li>Quantidade <span class="quantity">23</span></li>
+                                <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
+                            </ul>
+                        </div>
+                        <div class="product">
+                            <span class="product-header">Producto 02 <span class="product-name">Computador</span></span>
+                            <ul class="product-bought-list">
+                                <li>Quantidade <span class="quantity">23</span></li>
+                                <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="buy-detail-informations">
+                        <span class="subheader-buy">Detalhes de Pagamento</span>
+                        <ul class="buy-detail-list">
+                            <li><span>Método de Pagamento</span> <span class="pay-method">Cash</span>
+                            </li>
+                            <li><span>Status</span> <span class="buy-date">Succeso</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="total-div">
+                        <span class="subheader-buy">Total <span class="total-buy-amount">$
+                                45896,00</span></span>
+
+                    </div>
+
                 </div>
-
             </div>
-            </div>
-
-
         </section>
 
     </section>

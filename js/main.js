@@ -6,6 +6,7 @@ import { stockFunction } from "./estoque.js";
 stockFunction();
 import { sellFuntion } from "./vendas.js";
 sellFuntion();
+import { btnCloseBuyDetail } from "./clientes.js";
 
 // EXECUTAR A FUNÇÃO DE MOSTAR E FECHAR O MENU
 const toggleMenuBtn = document.querySelector(".toggleMenu__btn");
