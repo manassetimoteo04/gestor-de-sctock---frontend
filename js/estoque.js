@@ -1,155 +1,92 @@
 // Defina a função stockFunction
 import { productList } from "./products.js";
-const counter = function (content) {
-  const number = +content.textContent;
-  let starter = 0;
 
-  // Função para incrementar o contador gradualmente
-  const numberCounter = function () {
-    // Incrementa o contador
-    starter += 100;
-    // Atualiza o conteúdo do elemento com o novo valor
-    content.textContent = starter;
-    // Se o contador atingir o número desejado, para o intervalo de tempo
-    if (starter >= number) clearInterval(timer);
-  };
+//REFACTORING THE CODE
 
-  // Define um intervalo para chamar a função de incremento
-  const timer = setInterval(numberCounter, 0);
-};
+class StockApp {
+  index;
+  lowStockProductList;
+  constructor() {
+    // SELECIONADO AS VARIAVEIS
+    this.ctx = document.getElementById("pieChart");
+    this.lowStockForm = document.querySelector(".low-stock-edit-container");
+    this.lowStockContainer = document.querySelector(".low-stock-list");
+    this.btnUpdateStockConfirm = document.querySelector(
+      ".confirm-update-product"
+    );
+    this.inputQuantityUpdate = document.querySelector(".update-quantity-input");
+    this.listContainer = document.querySelector(".low-stock-list");
+    // LIDANDO COM EVENT LISTNERS
+    this.lowStockContainer?.addEventListener(
+      "click",
+      this._updateStock.bind(this)
+    );
+    this.btnUpdateStockConfirm?.addEventListener(
+      "click",
+      this._confirmUpdateStock.bind(this)
+    );
 
-const numbers = document.querySelectorAll(".counter-num");
-numbers.forEach((num) => counter(num));
-const stockFunction = function () {
-  // Dados para o gráfico de pizza
-  const pieData = {
-    // labels: ["Entradas Producto", "Saida Produtos ", "Total Productos"],
-    // datasets: [
-    //   {
-    //     data: [300, 200, 400],
-    //     backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"],
-    //   },
-    // ],
-
-    datasets: [
-      {
-        type: "bar",
-        label: "Saidas de Productos",
-        data: [10, 20, 30, 40],
-      },
-      {
-        type: "line",
-        label: "Meta",
-        data: [50, 50, 50, 50],
-      },
-    ],
-    labels: ["January", "February", "March", "April"],
-  };
-
-  // Configuração do gráfico de pizza
-  const pieConfig = {
-    // type: "pie",
-    // data: pieData,
-    // options: {
-    //   responsive: true,
-    //   maintainAspectRatio: false, // Faz o gráfico ser responsivo
-    //   elements: {
-    //     arc: {
-    //       borderWidth: 1, // Remove as bordas
-    //     },
-    //   },
-
-    type: "scatter",
-    data: pieData,
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
+    this._filterLowStockProduct();
+    this._renderLowStockProduct(this.lowStockProductList);
+  }
+  _renderPieChart() {
+    this.pieData = {
+      datasets: [
+        {
+          type: "bar",
+          label: "Saidas de Productos",
+          data: [10, 20, 30, 40],
         },
-      },
-      plugins: {
-        datalabels: {
-          color: "inherit", // Usa a cor do elemento pai (herda do CSS)
-          font: {
-            size: 18, // Define o tamanho da fonte dos rótulos
+        {
+          type: "line",
+          label: "Meta",
+          data: [50, 50, 50, 50],
+        },
+      ],
+      labels: ["January", "February", "March", "April"],
+    };
+
+    // Configuração do gráfico de pizza
+    this.pieConfig = {
+      type: "scatter",
+      data: this.pieData,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+        plugins: {
+          datalabels: {
+            color: "inherit", // Usa a cor do elemento pai (herda do CSS)
+            font: {
+              size: 18, // Define o tamanho da fonte dos rótulos
+            },
           },
         },
       },
-    },
-  };
-
-  // Renderizar o gráfico de pizza quando o DOM estiver completamente carregado
-  document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById("pieChart");
-    if (ctx) new Chart(ctx, pieConfig);
-  });
-};
-const lowStockForm = document.querySelector(".low-stock-edit-container");
-const updateStockFunction = function () {
-  const lowStockContainer = document.querySelector(".low-stock-list");
-  let index;
-  lowStockContainer?.addEventListener("click", function (e) {
-    const target = e.target.closest(".btn-update-stock");
-    if (!target) return;
-    const data = target.closest(".product-item");
-    const item = productList.find((p) => p.SKUCode === data.dataset.id);
-    index = productList.indexOf(item);
-    console.log(productList[index]);
-    lowStockForm.classList.remove("hidden");
-    renderUpdateForm(productList[index]);
-  });
-
-  const renderUpdateForm = function (item) {
-    document.querySelector(".update-product-name").textContent = item.name;
-    document.querySelector(".update-product-category").textContent =
-      item.category;
-    document.querySelector(
-      ".update-product-sell-price"
-    ).textContent = `$ ${item.sellPrice}`;
-    document.querySelector(
-      ".update-product-buy-price"
-    ).textContent = `$ ${item.buyPrice}`;
-    document.querySelector(".update-product-actual-stock").textContent =
-      item.quantity;
-    document.querySelector(".update-product-min-stock").textContent =
-      item.alertQuantity;
-  };
-
-  const btnUpdateConfirm = document.querySelector(".confirm-update-product");
-  const inputQuantityUpdate = document.querySelector(".update-quantity-input");
-  btnUpdateConfirm?.addEventListener("click", function () {
-    productList[index].quantity += +inputQuantityUpdate.value;
-    lowStockForm.classList.add("hidden");
-    lowStockProductList = productList.filter(
+    };
+    if (this.ctx) new Chart(ctx, pieConfig);
+  }
+  _filterLowStockProduct() {
+    this.lowStockProductList = productList.filter(
       (product) => product.quantity < product.alertQuantity
     );
-    renderLowProductStock(lowStockProductList);
-  });
-};
-updateStockFunction();
-let lowStockProductList = productList.filter(
-  (product) => product.quantity < product.alertQuantity
-);
-
-const renderLowProductStock = function (arrList) {
-  // SE A LISTA DE ERRAY ESTIVER VAZIA VAI RENDELIZAR LISTA FAZIA
-  if (arrList.length === 0) {
-    document
-      .querySelector(".product-list")
-      .insertAdjacentHTML(
-        "afterbegin",
-        `<p classs="sem-resul">Nenhum producto encontrado </p>`
-      );
-  } else {
-    // RENDERIZAR ELEMENTO HTML NO DOM PARA A LISTA
-    const listContainer = document.querySelector(".low-stock-list");
-    // VERIFICAR SE P LISTCONTANER NÃO É UNDEFINED PARA NÃO DAR ERRO QUANDO É ABERTO OUTRAS PÁGINAS DA APLICAÇÃO
-    if (listContainer) listContainer.innerHTML = "";
-    arrList.forEach((element) => {
-      console.log(element);
-      let html = `
+  }
+  _renderLowStockProduct(arrList) {
+    if (arrList.length === 0) {
+      document
+        .querySelector(".product-list")
+        .insertAdjacentHTML(
+          "afterbegin",
+          `<p classs="sem-resul">Nenhum producto encontrado </p>`
+        );
+    } else {
+      if (this.listContainer) this.listContainer.innerHTML = "";
+      arrList.forEach((element) => {
+        let html = `
     <div class="product-item" data-id="${element.SKUCode}">
        <!-- NOME DO PRODUCTO -->
        <div>
@@ -165,16 +102,48 @@ const renderLowProductStock = function (arrList) {
        <span class="product-action">
            <button class="btn-update-stock"><ion-icon
                    name="create-outline"></ion-icon></button>
-        
-          
        </span>
    </div>
     `;
-      // VERIFICAR NOVAMENTO SE O LISTCONTAINER NÃO É UNDEFINED
-      if (listContainer) listContainer.insertAdjacentHTML("afterbegin", html);
-    });
+        // VERIFICAR NOVAMENTO SE O LISTCONTAINER NÃO É UNDEFINED
+        if (this.listContainer)
+          this.listContainer.insertAdjacentHTML("afterbegin", html);
+      });
+    }
   }
-};
-renderLowProductStock(lowStockProductList);
-
-export { stockFunction };
+  _updateStock(e) {
+    this.target = e.target.closest(".btn-update-stock");
+    if (!this.target) return;
+    this.data = this.target.closest(".product-item");
+    this.item = productList.find((p) => p.SKUCode === this.data.dataset.id);
+    this.index = productList.indexOf(this.item);
+    console.log(productList[this.index]);
+    this.lowStockForm.classList.remove("hidden");
+    this._renderUpdateForm(productList[this.index]);
+  }
+  _renderUpdateForm(item) {
+    document.querySelector(".update-product-name").textContent = item.name;
+    document.querySelector(".update-product-category").textContent =
+      item.category;
+    document.querySelector(
+      ".update-product-sell-price"
+    ).textContent = `$ ${item.sellPrice}`;
+    document.querySelector(
+      ".update-product-buy-price"
+    ).textContent = `$ ${item.buyPrice}`;
+    document.querySelector(".update-product-actual-stock").textContent =
+      item.quantity;
+    document.querySelector(".update-product-min-stock").textContent =
+      item.alertQuantity;
+  }
+  _confirmUpdateStock() {
+    productList[this.index].quantity += +this.inputQuantityUpdate.value;
+    this.lowStockForm.classList.add("hidden");
+    this.lowStockProductList = productList.filter(
+      (product) => product.quantity < product.alertQuantity
+    );
+    this._renderLowStockProduct(this.lowStockProductList);
+  }
+}
+const newStock = new StockApp();
+export { newStock };

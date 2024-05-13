@@ -35,11 +35,9 @@
 body {
   font-size: 1.6rem;
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
-
-
-
-
 
 .sort {
   background: none;
@@ -103,14 +101,12 @@ body {
   display: flex;
   align-items: center;
   gap: 2rem;
+  padding: 0 1rem;
 }
 
 .client-summary-box:not(:last-child) {
   border-right: 1px solid var(--border-color);
 }
-
-
-
 
 .summary-text {
   display: flex;
@@ -212,27 +208,22 @@ body {
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
-
+  width: 100%;
 }
 
 .client-list {
   background-color: var(--bg-divider-color);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
+  min-width: 37.5rem;
+  padding: 0 2rem;
 }
 
 .client-list .container {
-  padding: 2rem;
-  overflow: hidden;
-  overflow-x: scroll;
-  max-width: 100%;
-
-
-}
-
-.scroll-bar {
+  display: grid;
   min-height: 55rem;
-  min-width: 120rem;
+  overflow-x: scroll;
+
 }
 
 .heading-client {
@@ -244,7 +235,7 @@ body {
   gap: 2rem;
   align-items: center;
   color: var(--primary-text-color);
-
+  min-width: 100rem;
 }
 
 .client-box {
@@ -253,13 +244,11 @@ body {
   padding: 2rem;
   gap: 2rem;
   align-items: center;
-
-
+  min-width: 100rem;
 }
 
 .client-box:not(:last-child) {
   border-bottom: 1px solid var(--border-color);
-
 }
 
 .client-box div {
@@ -597,4 +586,80 @@ body {
   color: inherit;
   margin-bottom: 1rem;
   align-items: end;
+}
+
+@media (max-width: 54.3em) {
+  .icon-client-summary {
+    width: 7rem;
+    height: 7rem;
+
+  }
+
+  .icon-client-summary ion-icon {
+    font-size: 3.5rem;
+  }
+
+  .total-client-number {
+    font-size: 3rem;
+  }
+
+  .increasing-span {
+    font-size: 1.2rem;
+  }
+
+  .summary-text {
+    font-size: 1.4rem;
+  }
+
+}
+
+@media (max-width: 54.3em) {
+  .clients-summary {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .client-summary-box:nth-child(odd) {
+    border-right: 1px solid var(--border-color);
+  }
+}
+
+@media (max-width: 26.43em) {
+  .clients-summary {
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .client-summary-box {
+    border-right: 0 solid var(--border-color) !important;
+    padding: 2rem 0;
+  }
+
+  .client-summary-box:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+
+  }
+
+  .icon-client-summary {
+    width: 9rem;
+    height: 9rem;
+
+  }
+
+  .icon-client-summary ion-icon {
+    font-size: 4rem;
+  }
+
+  .total-client-number {
+    font-size: 6rem;
+  }
+
+  .increasing-span {
+    font-size: 1.6rem;
+  }
+
+  .summary-text {
+    font-size: 1.8rem;
+  }
 }

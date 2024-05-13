@@ -1,29 +1,51 @@
-const btnCloseBuyDetail = document.querySelector(".btn-close-buy-detail");
-const clientBuyDetailContainer = document.querySelector(
-  ".client-buy-detail-container"
-);
+// REFACTORING THE CODE
 
-btnCloseBuyDetail?.addEventListener("click", function () {
-  clientBuyDetailContainer?.classList.add("hidden");
-});
+class ClientApp {
+  constructor() {
+    // SELECIONANDO AS VARIÁVEIS
+    this.actionClientBtns = document.querySelector(".action-client-btns");
+    this.clientListContainer = document.querySelector(".client-container");
+    this.clientDetailContainer = document.querySelector(
+      ".section__client-details"
+    );
+    this.btnBackToClientList = document.querySelector(
+      ".btn-back-to-client-list"
+    );
+    this.btnCloseBuyDetail = document.querySelector(".btn-close-buy-detail");
+    this.clientBuyDetailContainer = document.querySelector(
+      ".client-buy-detail-container"
+    );
 
-//////////////////////////////77
-const actionClientBtns = document.querySelector(".action-client-btns");
-const clientListContainer = document.querySelector(".client-container");
-const clientDetailContainer = document.querySelector(
-  ".section__client-details"
-);
-const btnBackToClientList = document.querySelector(".btn-back-to-client-list");
+    // EVENT LISTNERS
+    this.btnCloseBuyDetail?.addEventListener(
+      "click",
+      this._closeBuyDetail.bind(this)
+    );
 
-actionClientBtns?.addEventListener("click", function (e) {
-  const target = e.target.closest(".btn-details-user");
-  if (!target) return;
-  clientListContainer.classList.add("hidden");
-  clientDetailContainer.classList.remove("hidden");
-});
-btnBackToClientList?.addEventListener("click", function () {
-  clientListContainer.classList.remove("hidden");
-  clientDetailContainer.classList.add("hidden");
-});
+    this.actionClientBtns?.addEventListener(
+      "click",
+      this._actionClient.bind(this)
+    );
+    this.btnBackToClientList?.addEventListener(
+      "click",
+      this._backToClient.bind(this)
+    );
+  }
 
-export { btnCloseBuyDetail };
+  // FUNCÇÕES DOS EVENT LISTENERS
+  _closeBuyDetail() {
+    clientBuyDetailContainer?.classList.add("hidden");
+  }
+  _actionClient(e) {
+    const target = e.target.closest(".btn-details-user");
+    if (!target) return;
+    this.clientListContainer.classList.add("hidden");
+    this.clientDetailContainer.classList.remove("hidden");
+  }
+  _backToClient() {
+    this.clientListContainer.classList.remove("hidden");
+    this.clientDetailContainer.classList.add("hidden");
+  }
+}
+const client = new ClientApp();
+export { client };
