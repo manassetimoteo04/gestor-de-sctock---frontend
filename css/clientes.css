@@ -59,7 +59,7 @@ body {
 }
 
 
-.btn-add-new-sell {
+.btn-add-client {
   background-color: var(--primary-color-blue);
   padding: 1rem 2rem;
   font-size: inherit;
@@ -70,13 +70,14 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
-.btn-add-new-sell:hover {
+.btn-add-client :hover {
   background-color: var(--secondary-color-blue);
 }
 
-.btn-add-new-sell ion-icon {
+.btn-add-client ion-icon {
   font-size: 2.2rem;
 }
 
@@ -314,10 +315,124 @@ body {
   display: none;
 }
 
+/* FORMULÁRIO PARA ADICIONAR NOVO CLIENTE
+ */
+
+.add-new-client-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.356);
+  backdrop-filter: blur(5px);
+  z-index: 99999;
+}
+
+.form-new-client {
+  background-color: var(--bg-divider-color);
+  max-width: 50rem;
+  padding: 3rem 2rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+
+}
+
+.form-header {
+  font-size: 2.4rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-header .close-form-new-client {
+  cursor: pointer;
+}
+
+.add-new-client-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--background-color);
+  color: inherit;
+  border: 1px solid var(--border-color);
+  font-size: initial;
+}
+
+.form-group input:focus,
+.form-group textarea {
+  outline: none;
+}
+
+.btns-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btns-group button {
+  padding: 1rem 2rem;
+  font-size: inherit;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: inherit;
+}
+
+.add-client-btn {
+  background-color: var(--primary-color-blue) !important;
+  border-color: transparent;
+  color: #fff !important;
+}
+
 /* DETALHES DO CLIENTE */
 .section__client-details {
   padding: 2rem;
   overflow-y: scroll;
+}
+
+.client-menu {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+  display: none;
+}
+
+
+
+.client-menu span {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 0;
+  border-bottom: 3px solid transparent;
+}
+
+.client-menu .active {
+  border-bottom: 3px solid var(--primary-color-blue);
+}
+
+.client-menu span:hover {
+  color: var(--primary-color-blue);
+  border-bottom: 3px solid var(--primary-color-blue);
 }
 
 .client-detail-grid {
@@ -424,14 +539,123 @@ body {
   color: var(--primary-text-color);
 }
 
+
+/* HISTORICO DE COMPRAS  */
+
+
+.client-list-history {
+  background-color: var(--bg-divider-color);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  min-width: 37.5rem;
+  padding: 0 2rem;
+}
+
+.client-list-history .container {
+  display: grid;
+  min-height: 55rem;
+  overflow-x: scroll;
+
+}
+
+.heading-client-history {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.5fr 0.5fr;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem 0;
+  align-items: center;
+  color: var(--primary-text-color);
+  min-width: 50rem;
+}
+
+.client-history {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.5fr 0.5fr;
+  padding: 2rem 0;
+  align-items: center;
+  min-width: 50rem;
+}
+
+.client-history div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.client-box:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.client-box div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.client-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+}
+
+.client-icon ion-icon {
+  font-size: 2.4rem;
+  color: var(--primary-color-blue);
+}
+
+.buy-invoice-number {
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+
+.action-client-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.client-status {
+  background-color: var(--background-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.client-active {
+  color: var(--sucess-color);
+}
+
+.client-inactive {
+  color: var(--primary-color-red);
+}
+
+.action-client-btns button {
+  background: none;
+  padding: 1rem;
+  font-size: 2.4rem;
+  color: inherit;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
 .client-buy-history {
   background-color: var(--bg-divider-color);
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
+
 }
 
-.buy-history-container {
+.client-buy-history .history {
+  overflow-x: scroll;
   min-height: 60rem;
 }
 
@@ -448,20 +672,22 @@ body {
   font-weight: 600;
   color: var(--primary-text-color);
   display: grid;
-  grid-template-columns: 3fr 2.5fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr 1.3fr 1fr;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);
-
   padding: 2rem 0;
+  gap: 1rem;
+
 }
 
 .buy-history {
   display: grid;
-  grid-template-columns: 3fr 2.5fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr 1.3fr 1fr;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
+  gap: 1rem;
 }
 
 .buy-history span:first-child {
@@ -651,6 +877,21 @@ body {
   .client-summary-box:nth-child(odd) {
     border-right: 1px solid var(--border-color);
   }
+}
+
+@media (max-width: 48.31em) {
+  .client-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-menu {
+    display: flex;
+  }
+
+  .hideClientInfo {
+    display: none;
+  }
+
 }
 
 @media (max-width: 26.43em) {

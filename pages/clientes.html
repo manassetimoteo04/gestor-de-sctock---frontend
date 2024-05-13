@@ -105,12 +105,13 @@
                 </header>
                 <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
                 <div class="add-new-sell">
-                    <button class="btn-add-new-sell">
+                    <button class="btn-add-client">
                         <ion-icon name="add-outline"></ion-icon>
                         Novo Cliente
                     </button>
                 </div>
             </div>
+
             <div class="clients-summary">
                 <div class="client-summary-box">
                     <span class="icon-client-summary"><ion-icon name="people-outline"></ion-icon></span>
@@ -192,6 +193,7 @@
                                     </span>
 
                                 </div>
+
                                 <div class="client-box">
                                     <div>
                                         <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
@@ -200,7 +202,7 @@
                                     <span class="client-phone-number">+244 940 407 979</span>
                                     <span class="client-email">manassetimoteo@gmail.com</span>
                                     <span class="client-total-sell">123</span>
-                                    <span class="client-status client-inactive">Inactivo</span>
+                                    <span class="client-status client-active">Activo</span>
                                     <span class="action-client-btns">
                                         <button class="btn-edit-user"><ion-icon
                                                 name="create-outline"></ion-icon></button>
@@ -211,6 +213,7 @@
                                     </span>
 
                                 </div>
+
 
                             </div>
                         </div>
@@ -231,16 +234,54 @@
 
                 </div>
 
+                <div class="add-new-client-container hidden">
+                    <form action="" class="form-new-client">
+                        <span class="form-header">Adicionar Cliente <span class="close-form-new-client"><ion-icon
+                                    name="close-outline"></ion-icon></span></span>
+
+                        <div class="form-group">
+                            <label for="">Nome do Cliente</label>
+                            <input type="text" placeholder="Nome do Cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email do Cliente</label>
+                            <input type="text" placeholder="Exemplo@me.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Número do Cliente</label>
+                            <input type="text" placeholder="Número do Cliente">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Descrição</label>
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Descrição"></textarea>
+                        </div>
+                        <div class="btns-group">
+                            <button class="add-client-btn">Adicionar</button>
+                            <button class="cancel-add-client-btn">Cancelar</button>
+
+                        </div>
+                    </form>
+                </div>
+
             </div>
             </div>
         </section>
 
         <section class="section__client-details hidden">
             <div class="client-detail-header">
-                <span class="btn-back-to-client-list"><ion-icon name="arrow-back-outline"></ion-icon> Voltar</span>
+                <span class="btn-back-to-client-list"><ion-icon name="arrow-back-outline"></ion-icon> Informação do
+                    Cliente</span>
                 <span class="btn-delete-client">
                     <ion-icon name="trash-outline"></ion-icon>
                 </span>
+
+
+            </div>
+            <div class="client-menu">
+                <span class="client-link link-client-profile">Perfil</span>
+                <span class="client-link link-client-historic">Histórico de Compra</span>
+
             </div>
             <div class="client-detail-grid">
                 <div class="client-information-box">
@@ -280,12 +321,72 @@
                     </div>
 
                 </div>
-                <div class="client-buy-history">
+
+
+
+                <!-- -------------------------------- -->
+
+                <div class="client-list-history">
+                    <div class="subheader">
+                        <h3 class="heading-h3">Histórico de Compras</h3>
+
+                    </div>
+
+                    <div class="container ">
+                        <div class="scroll-bar">
+                            <div class="scroll-container">
+
+                                <div class="heading-client-history">
+                                    <div>
+                                        <span>Factura</span>
+                                    </div>
+                                    <span>Data</span>
+                                    <span>Montante</span>
+
+                                    <span>Ver</span>
+
+                                </div>
+                                <div class="client-history">
+                                    <div>
+                                        <span class="client-icon"><ion-icon
+                                                name="swap-horizontal-outline"></ion-icon></span>
+                                        <span class="buy-invoice-number">SM045495045</span>
+                                    </div>
+                                    <span class="buy-date">23/04/2024</span>
+                                    <span class="buy-amount">$ 4509.00</span>
+
+                                    <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGINAÇÃO DA LISTA DE VENDAS -->
+                    <div class="pagination-container">
+                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                                class="current-product-page total-pages">10</span></div>
+                        <div class="btn-pages">
+                            <button class="btn-previous-page">
+                                <ion-icon name="chevron-back-outline"></ion-icon></button>
+                            <span class="curr-page-number">1</span>
+                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ------------------------------ -->
+                <!-- <div class="client-buy-history">
                     <div class="buy-history-container">
                         <div class="client-buy-history-header">
                             <span class="header-history">Histórico de Compras</span>
                         </div>
                         <div class="history">
+
                             <div class="history-header">
                                 <span>Factura</span>
                                 <span>Data</span>
@@ -316,7 +417,9 @@
                                 <span>$ 3456,00</span>
                                 <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
                             </div>
+
                         </div>
+
                     </div>
 
                     <div class="pagination-container">
@@ -330,7 +433,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- DETALHES DE VENDA -->
