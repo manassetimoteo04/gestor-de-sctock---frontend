@@ -15,7 +15,10 @@ class ClientApp {
     this.clientBuyDetailContainer = document.querySelector(
       ".client-buy-detail-container"
     );
-
+    this.clientHistoryContainer = document.querySelector(".history");
+    this.clientBuyDetail = document.querySelector(
+      ".client-buy-detail-container"
+    );
     // EVENT LISTNERS
     this.btnCloseBuyDetail?.addEventListener(
       "click",
@@ -30,11 +33,15 @@ class ClientApp {
       "click",
       this._backToClient.bind(this)
     );
+    this.clientHistoryContainer?.addEventListener(
+      "click",
+      this._clientHistoryFunction.bind(this)
+    );
   }
 
   // FUNCÇÕES DOS EVENT LISTENERS
   _closeBuyDetail() {
-    clientBuyDetailContainer?.classList.add("hidden");
+    this.clientBuyDetailContainer?.classList.add("hidden");
   }
   _actionClient(e) {
     const target = e.target.closest(".btn-details-user");
@@ -45,6 +52,11 @@ class ClientApp {
   _backToClient() {
     this.clientListContainer.classList.remove("hidden");
     this.clientDetailContainer.classList.add("hidden");
+  }
+  _clientHistoryFunction(e) {
+    const target = e.target.closest(".btn-see-buy-detail");
+    if (!target) return;
+    this.clientBuyDetailContainer.classList.remove("hidden");
   }
 }
 const client = new ClientApp();

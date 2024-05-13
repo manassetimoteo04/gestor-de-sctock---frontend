@@ -28,48 +28,52 @@ class StockApp {
 
     this._filterLowStockProduct();
     this._renderLowStockProduct(this.lowStockProductList);
+    // if (this.ctx) this._renderPieChart();
   }
-  _renderPieChart() {
-    this.pieData = {
-      datasets: [
-        {
-          type: "bar",
-          label: "Saidas de Productos",
-          data: [10, 20, 30, 40],
-        },
-        {
-          type: "line",
-          label: "Meta",
-          data: [50, 50, 50, 50],
-        },
-      ],
-      labels: ["January", "February", "March", "April"],
-    };
+  // _renderPieChart() {
+  //   this.pieData = {
+  //     datasets: [
+  //       {
+  //         type: "bar",
+  //         label: "Saidas de Productos",
+  //         data: [10, 20, 30, 40],
+  //       },
+  //       {
+  //         type: "line",
+  //         label: "Meta",
+  //         data: [50, 50, 50, 50],
+  //       },
+  //     ],
+  //     labels: ["January", "February", "March", "April"],
+  //   };
 
-    // Configuração do gráfico de pizza
-    this.pieConfig = {
-      type: "scatter",
-      data: this.pieData,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-        plugins: {
-          datalabels: {
-            color: "inherit", // Usa a cor do elemento pai (herda do CSS)
-            font: {
-              size: 18, // Define o tamanho da fonte dos rótulos
-            },
-          },
-        },
-      },
-    };
-    if (this.ctx) new Chart(ctx, pieConfig);
-  }
+  //   // Configuração do gráfico de pizza
+  //   this.pieConfig = {
+  //     type: "scatter",
+  //     data: this.pieData,
+  //     options: {
+  //       responsive: true,
+  //       maintainAspectRatio: false,
+  //       scales: {
+  //         y: {
+  //           beginAtZero: true,
+  //         },
+  //       },
+  //       plugins: {
+  //         datalabels: {
+  //           color: "inherit", // Usa a cor do elemento pai (herda do CSS)
+  //           font: {
+  //             size: 18, // Define o tamanho da fonte dos rótulos
+  //           },
+  //         },
+  //       },
+  //     },
+  //   };
+  //   if (this.ctx) {
+  //     this.myChart = new Chart(this.ctx, this.pieConfig);
+  //     console.log(this.myChart);
+  //   }
+  // }
   _filterLowStockProduct() {
     this.lowStockProductList = productList.filter(
       (product) => product.quantity < product.alertQuantity
@@ -77,12 +81,10 @@ class StockApp {
   }
   _renderLowStockProduct(arrList) {
     if (arrList.length === 0) {
-      document
-        .querySelector(".product-list")
-        .insertAdjacentHTML(
-          "afterbegin",
-          `<p classs="sem-resul">Nenhum producto encontrado </p>`
-        );
+      this.listContainer?.insertAdjacentHTML(
+        "afterbegin",
+        `<p classs="sem-resul">Nenhum producto encontrado </p>`
+      );
     } else {
       if (this.listContainer) this.listContainer.innerHTML = "";
       arrList.forEach((element) => {
