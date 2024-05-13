@@ -62,7 +62,7 @@ class ClientApp {
       "click",
       this._closeNewClientForm.bind(this)
     );
-    this.newClientFormContainer.addEventListener(
+    this.newClientFormContainer?.addEventListener(
       "click",
       this._closeNewClientForm.bind(this)
     );
