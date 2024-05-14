@@ -58,6 +58,7 @@ class ProductApp {
     this.productContainer = document.querySelector(".estaticos");
     this.newProduct = document.querySelector(".btn-add-new-product");
     this.formContainer = document.querySelector(".add-product-container");
+    // console.log(this.formContainer);
     this.cancelAddProduct = document.querySelector(".cancelar-new-product");
     this.btnCloseDetails = document.querySelector(".btn-close-details");
     this.btnShowCategoryForm = document.querySelector(".btn-new-category");
@@ -86,6 +87,10 @@ class ProductApp {
     //   "click",
     //   this._showNewProductForm.bind(this)
     // );
+    this.newProduct?.addEventListener(
+      "click",
+      this._showNewProductForm.bind(this)
+    );
     this.btnCloseNewProductForm?.addEventListener(
       "click",
       this._closeNewProductForm.bind(this)
@@ -164,7 +169,8 @@ class ProductApp {
   _editProduct(e) {
     this.target = e.target.closest(".btn-edit-product");
     if (!this.target) return;
-    this.formContainer.classList.remove("hidden");
+    // console.log(this.formContainer);
+    this.formContainer?.classList.remove("hidden");
   }
   _seeProductDetail(e) {
     this.target = e.target.closest(".btn-details-product");

@@ -251,6 +251,7 @@ ion-icon {
 .add-product-container .add-new-header {
   display: flex;
   justify-content: space-between;
+  color: var(--primary-text-color);
 }
 
 .btn-close-add-new-product {
@@ -266,22 +267,22 @@ ion-icon {
 
 .add-product-container .container {
   display: grid;
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
+  background-color: var(--bg-divider-color);
   min-width: 37rem;
   max-width: 50rem;
   margin: 5rem auto;
   opacity: 1;
+  border: 1px solid var(--border-color);
 }
 
 .new-product-form {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 2rem 0;
   width: 100%;
 }
 
@@ -311,7 +312,8 @@ textarea {
   font-size: inherit;
   font-family: inherit;
   color: inherit;
-  background-color: var(--bg-divider-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
 }
 
 .form-group input:focus,
@@ -359,6 +361,9 @@ textarea:focus {
   cursor: pointer;
   transition: 0.3s;
   font-size: inherit;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: inherit;
 }
 
 .btns {
@@ -397,11 +402,12 @@ textarea:focus {
 .category-form {
   background-color: var(--background-color);
   max-width: 40rem;
-  padding: 4rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   border-radius: 1.2rem;
+  border: 1px solid var(--border-color);
 }
 
 .create-category input {
@@ -410,6 +416,8 @@ textarea:focus {
   border-radius: 0.5rem;
   background-color: var(--bg-divider-color);
   color: inherit;
+  border: 1px solid var(--border-color);
+
 }
 
 .create-category input:focus {
@@ -424,6 +432,7 @@ textarea:focus {
   border-radius: 0.5rem;
   background-color: var(--primary-color-blue);
   color: #fff;
+  font-weight: 600;
 }
 
 .btn-add-category:hover {

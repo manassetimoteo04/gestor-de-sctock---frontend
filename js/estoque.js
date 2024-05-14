@@ -14,6 +14,9 @@ class StockApp {
     this.btnUpdateStockConfirm = document.querySelector(
       ".confirm-update-product"
     );
+    this.btnCloseUpdateContainer = document.querySelector(
+      ".btn-close-update-product"
+    );
     this.inputQuantityUpdate = document.querySelector(".update-quantity-input");
     this.listContainer = document.querySelector(".low-stock-list");
     // LIDANDO COM EVENT LISTNERS
@@ -25,55 +28,58 @@ class StockApp {
       "click",
       this._confirmUpdateStock.bind(this)
     );
+    this.btnCloseUpdateContainer?.addEventListener(
+      "click",
+      this._closeUpdateStockFom.bind(this)
+    );
 
     this._filterLowStockProduct();
     this._renderLowStockProduct(this.lowStockProductList);
-    // if (this.ctx) this._renderPieChart();
+    if (this.ctx) this._renderPieChart();
   }
-  // _renderPieChart() {
-  //   this.pieData = {
-  //     datasets: [
-  //       {
-  //         type: "bar",
-  //         label: "Saidas de Productos",
-  //         data: [10, 20, 30, 40],
-  //       },
-  //       {
-  //         type: "line",
-  //         label: "Meta",
-  //         data: [50, 50, 50, 50],
-  //       },
-  //     ],
-  //     labels: ["January", "February", "March", "April"],
-  //   };
-
-  //   // Configuração do gráfico de pizza
-  //   this.pieConfig = {
-  //     type: "scatter",
-  //     data: this.pieData,
-  //     options: {
-  //       responsive: true,
-  //       maintainAspectRatio: false,
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //       plugins: {
-  //         datalabels: {
-  //           color: "inherit", // Usa a cor do elemento pai (herda do CSS)
-  //           font: {
-  //             size: 18, // Define o tamanho da fonte dos rótulos
-  //           },
-  //         },
-  //       },
-  //     },
-  //   };
-  //   if (this.ctx) {
-  //     this.myChart = new Chart(this.ctx, this.pieConfig);
-  //     console.log(this.myChart);
-  //   }
-  // }
+  _renderPieChart() {
+    //   this.pieData = {
+    //     datasets: [
+    //       {
+    //         type: "bar",
+    //         label: "Saidas de Productos",
+    //         data: [10, 20, 30, 40],
+    //       },
+    //       {
+    //         type: "line",
+    //         label: "Meta",
+    //         data: [50, 50, 50, 50],
+    //       },
+    //     ],
+    //     labels: ["January", "February", "March", "April"],
+    //   };
+    //   // Configuração do gráfico de pizza
+    //   this.pieConfig = {
+    //     type: "scatter",
+    //     data: this.pieData,
+    //     options: {
+    //       responsive: true,
+    //       maintainAspectRatio: false,
+    //       scales: {
+    //         y: {
+    //           beginAtZero: true,
+    //         },
+    //       },
+    //       plugins: {
+    //         datalabels: {
+    //           color: "inherit", // Usa a cor do elemento pai (herda do CSS)
+    //           font: {
+    //             size: 18, // Define o tamanho da fonte dos rótulos
+    //           },
+    //         },
+    //       },
+    //     },
+    //   };
+    //   if (this.ctx) {
+    //     console.log(this.myChart);
+    //     this.myChart = new Chart(this.ctx, this.pieConfig);
+    //   }
+  }
   _filterLowStockProduct() {
     this.lowStockProductList = productList.filter(
       (product) => product.quantity < product.alertQuantity
@@ -92,7 +98,7 @@ class StockApp {
     <div class="product-item" data-id="${element.SKUCode}">
        <!-- NOME DO PRODUCTO -->
        <div>
-           <span class="alert-icon"><ion-icon name="alert-circle-outline"></ion-icon></span>
+           <span class="alert-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
            <span class="product-name">${element.name} </span>
        </div>
        <span class="product-category">${element.category}</span>
@@ -122,6 +128,9 @@ class StockApp {
     console.log(productList[this.index]);
     this.lowStockForm.classList.remove("hidden");
     this._renderUpdateForm(productList[this.index]);
+  }
+  _closeUpdateStockFom() {
+    this.lowStockForm.classList.add("hidden");
   }
   _renderUpdateForm(item) {
     document.querySelector(".update-product-name").textContent = item.name;

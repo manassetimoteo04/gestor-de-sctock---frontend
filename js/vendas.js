@@ -1,49 +1,3 @@
-// const sellFuntion = function () {
-//   const sellDetailContainer = document.querySelector(".section-sell-ditails");
-//   const newSellFormContainer = document.querySelector(".section-new-sell");
-//   const btnShowNewSellForm = document.querySelector(".btn-add-new-sell");
-//   const btnCloseSellFormContainer = document.querySelector(
-//     ".btn-close-sell-form"
-//   );
-//   const btnCloseSellDetail = document.querySelector(".btn-close-sell-details");
-
-//   btnShowNewSellForm?.addEventListener("click", function (e) {
-//     sellDetailContainer?.classList.add("hidden");
-//     newSellFormContainer?.classList.remove("hidden");
-//   });
-//   btnCloseSellFormContainer?.addEventListener("click", function () {
-//     sellDetailContainer?.classList.remove("hidden");
-//     newSellFormContainer?.classList.add("hidden");
-//   });
-//   btnCloseSellDetail?.addEventListener("click", function () {
-//     sellDetailContainer?.classList.add("hidden");
-//   });
-
-//   // ESCONDENDO O DETAIL
-//   const btnHideSingleDetail = document.querySelectorAll(".hide-dett");
-//   btnHideSingleDetail.forEach((btn) => {
-//     btn.addEventListener("click", function (e) {
-//       const name = btn.dataset.class;
-//       const target = document.querySelector(`.${name}`);
-//       console.log(target);
-//       target.classList.toggle("hidden");
-//     });
-//   });
-
-//   // /////////////////////////////////////////////
-//   const selectProductInput = document.querySelector(".select-product-input");
-//   const miniProductList = document.querySelector(".product-list-select");
-//   selectProductInput?.addEventListener("click", function (e) {
-//     miniProductList.classList.remove("hidden");
-//   });
-//   const listItem = document.querySelectorAll(".product-list-select ul li");
-//   listItem?.forEach((item) => {
-//     item.addEventListener("click", function () {
-//       miniProductList.classList.add("hidden");
-//     });
-//   });
-// };
-
 // REFACTORING THE CODE
 
 class VendasApp {
@@ -59,11 +13,16 @@ class VendasApp {
     this.btnHideSingleDetail = document.querySelectorAll(".hide-dett");
     this.selectProductInput = document.querySelector(".select-product-input");
     this.miniProductList = document.querySelector(".product-list-select");
+    this.sellHistoryContainer = document.querySelector(".sell-history");
     this.miniListItem = document.querySelectorAll(".product-item-select");
     //LIDANDO COM OS EVENTLISTNERS
     this.btnShowNewSellForm?.addEventListener(
       "click",
       this._showNewSellFunction.bind(this)
+    );
+    this.sellHistoryContainer?.addEventListener(
+      "click",
+      this._showsellDetail.bind(this)
     );
     this.btnCloseSellFormContainer?.addEventListener(
       "click",
@@ -71,7 +30,7 @@ class VendasApp {
     );
     this.btnCloseSellDetail?.addEventListener(
       "click",
-      this._closeSellDetailFunction
+      this._closeSellDetailFunction.bind(this)
     );
     this.btnHideSingleDetail?.forEach(
       this._hideSingleDetailFunction.bind(this)
@@ -85,13 +44,19 @@ class VendasApp {
     //
     this._miniListItemFunction(this);
   }
+  _showsellDetail(e) {
+    const target = e.target.closest(".sell-box");
+    if (!target) return;
+    this.sellDetailContainer.classList.remove("hidden");
+    this.sellDetailContainer.classList.remove("hide-detail");
+  }
   _showNewSellFunction() {
-    console.log(this.sellDetailContainer);
     this.sellDetailContainer.classList.add("hidden");
     this.newSellFormContainer.classList.remove("hidden");
   }
   _closeSellFormFunction() {
     this.sellDetailContainer.classList.remove("hidden");
+    this.sellDetailContainer.classList.add("hide-detail");
     this.newSellFormContainer.classList.add("hidden");
   }
   _closeSellDetailFunction() {
