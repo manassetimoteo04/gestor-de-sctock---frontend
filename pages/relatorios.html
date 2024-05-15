@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios e Análises</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/relatorios.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer type="module" src="../js/controller.js"></script>
+</head>
+
+<body class="menu-hidden">
+    <!-- SESSÃO PRINCIPAL -->
+    <section class="dashboard-section main-section">
+        <!-- HEADER PRINCIPAL -->
+        <header class="main__header">
+            <!-- BARRA DE PESQUISA -->
+            <div class="search__div">
+                <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+                <div>
+                    <input type="text" placeholder="Pesquisar" class="input__search">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- BOX DO USUÁRIO NO HEADER -->
+            <div class="header__user">
+                <!-- <a href="#" class="header__btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a> -->
+                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
+
+                <a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
+                        class="hidden light-icon"></ion-icon>
+                    <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
+                </a>
+                <div class="header__profile-box">
+                    <img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
+                    <div class="profile__name-box">
+                        <span class="header__p-name">Timóteo Pembele</span>
+                        <span class="permission">Admin <ion-icon name="chevron-down-outline"
+                                class="profile-click-icon"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-infor-box">
+                <ul class="profile-list">
+                    <li><a href="" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu Perfil</a></li>
+                    <li><a href="#" class="p-link"><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
+                    <li><a href="#" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon> Terminar
+                            Sessão</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
+        <aside class="side__bar">
+            <!-- LOGOTIPO -->
+            <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
+            <!-- BARRA DE MENU PRINCIPAL -->
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="products.html" class="main-nav-link "> <ion-icon name="layers-outline"></ion-icon>
+                            <span>Productos</span></a>
+                    </li>
+                    <li><a href="estoques.html" class="main-nav-link "> <ion-icon name="cube-outline"></ion-icon><span>
+                                Estoques</span> </a></li>
+                    <li><a href="vendas.html" class="main-nav-link "><ion-icon
+                                name="cart-outline"></ion-icon><span>Vendas</span></a></li>
+                    <li><a href="clientes.html" class="main-nav-link "><ion-icon
+                                name="people-outline"></ion-icon><span>Clientes</span></a></li>
+                    <li><a href="fornecedores.html" class="main-nav-link"><ion-icon
+                                name="podium-outline"></ion-icon><span>Fornecedores</span></a></li>
+                    <li><a href="relatorios.html" class="main-nav-link active-link"><ion-icon
+                                name="bar-chart-outline"></ion-icon><span>Relatórios e Análises</span></a></li>
+                    <li><a href="perfil.html" class="main-nav-link"><ion-icon
+                                name="person-circle-outline"></ion-icon><span>Perfil</span></a></li>
+                    <!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+                </ul>
+
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
+        <section class="main__content-section">
+            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Relátorios e Análises</h2>
+                    <span class="section-tag">Vê as estátisticas</span>
+                </header>
+                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
+                <div class="filter-analitycs-container">
+                    <button class="btn-add-new-sell">
+                        <ion-icon name="add-outline"></ion-icon>
+                        Nova venda
+                    </button>
+                </div>
+            </div>
+
+            <div class="analitycs-reports-container">
+                <div class="analitycs-summary-container">
+                    <div class="analityc-summary-box">
+                        <div class="summary">
+                            <span class="analityc-tag">Ganhos Totais</span>
+                            <span class="analityc-total-earning">$ 45096</span>
+                        </div>
+                        <span class="analityc-summary-icon"><ion-icon name="logo-usd"></ion-icon></span>
+                    </div>
+                    <div class="analityc-summary-box">
+                        <div class="summary">
+                            <span class="analityc-tag">Lucros Totais</span>
+                            <span class="analityc-total-earning">$ 45096</span>
+                        </div>
+                        <span class="analityc-summary-icon"><ion-icon name="trending-up-outline"></ion-icon></span>
+                    </div>
+                    <div class="analityc-summary-box">
+                        <div class="summary">
+                            <span class="analityc-tag">Receita Totais</span>
+                            <span class="analityc-total-earning">$ 45096</span>
+                        </div>
+                        <span class="analityc-summary-icon"><ion-icon name="cash-outline"></ion-icon></span>
+                    </div>
+                </div>
+
+                <div class="all-analitycs-charts">
+                    <canvas id="monthlySalesChart"></canvas>
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+</body>
+
+</html>

@@ -29,14 +29,14 @@
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   /* background-color: var(--bs-gray-500); */
   color: var(--secondary-text-color) !important;
   height: 100vh;
 }
 
 /* ESTILIZANDO O CONTAINER DOS ESTOQUES */
-.monitoramento-estoque {
+.managing-stock {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
@@ -273,13 +273,13 @@ body {
 }
 
 @media (max-width: 48em) {
-  .monitoramento-estoque {
+  .managing-stock {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 40em) {
-  .monitoramento-estoque {
+  .managing-stock {
 
     grid-template-columns: repeat(1, 1fr);
 
@@ -301,7 +301,7 @@ body {
 }
 
 @media (max-width: 26em) {
-  .monitoramento-estoque {
+  .managing-stock {
     grid-template-columns: repeat(1, 1fr);
   }
 }

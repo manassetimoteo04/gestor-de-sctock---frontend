@@ -1,5 +1,5 @@
 // REFACTORING
-
+// import { Chart, registerables } from "/node_modules/chart.js/dist/chart.js";
 class MainApp {
   constructor() {
     // SELECIONANDO AS VARIÁVEIS

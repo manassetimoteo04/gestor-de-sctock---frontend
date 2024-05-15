@@ -5,3 +5,4 @@ import { newStock } from "./estoque.js";
 import { sellApp } from "./vendas.js";
 import { jsonData } from "./data.js";
 import { supplier } from "./fornecedores.js";
+import { report } from "./reports.js";

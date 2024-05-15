@@ -33,7 +33,7 @@
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   position: relative;
   max-width: 100%;
   overflow: hidden;
@@ -344,6 +344,25 @@ body {
   gap: 3rem;
 }
 
+.name-detail-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row !important;
+  width: 100%;
+  font-weight: 600;
+}
+
+.name-detail-box .supplier-status {
+  font-size: 1.4rem;
+  color: var(--sucess-color);
+}
+
+.name-detail-box span {
+  font-size: 2rem;
+  color: var(--primary-text-color);
+}
+
 .supplier-header {
   font-size: 2.4rem;
   display: flex;
@@ -367,11 +386,9 @@ body {
 
 .detail-label {
   font-weight: 600;
-}
-
-.label {
+  font-size: 2rem;
   color: var(--primary-text-color);
-  font-weight: 600;
+
 }
 
 .supplier-description {
