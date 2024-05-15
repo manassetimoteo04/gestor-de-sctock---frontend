@@ -1,113 +1,63 @@
 // REFACTORING THE CODE
 
-class ClientApp {
+class SupplierApp {
   constructor() {
     // SELECIONANDO AS VARIÁVEIS
-    this.actionClientBtns = document.querySelector(".action-client-btns");
-    this.clientListContainer = document.querySelector(".client-container");
-    this.clientDetailContainer = document.querySelector(
-      ".section__client-details"
+    this.btnShowNewSupplierForm = document.querySelector(".btn-add-supplier");
+    this.supplierFormContainer = document.querySelector(
+      ".add-new-supplier-container"
     );
-    this.btnBackToClientList = document.querySelector(
-      ".btn-back-to-client-list"
+    this.supplierListContainer = document.querySelector(".supplier-list");
+    this.btnCloseNewSupplierForm = document.querySelector(
+      ".close-form-new-supplier"
     );
-    this.btnCloseBuyDetail = document.querySelector(".btn-close-buy-detail");
-    this.clientBuyDetailContainer = document.querySelector(
-      ".client-buy-detail-container"
+    this.supplerDetailContainer = document.querySelector(
+      ".supplier-detail-container"
     );
-    this.clientHistoryContainer = document.querySelector(".client-history");
-    this.clientBuyDetail = document.querySelector(
-      ".client-buy-detail-container"
-    );
-    this.clientMenuList = document.querySelector(".client-menu");
-
-    this.clientInformationBox = document.querySelector(
-      ".client-information-box"
-    );
-    this.clientListHistoryBox = document.querySelector(".client-list-history");
-    this.btnCloseAddClientForm = document.querySelector(
-      ".close-form-new-client"
-    );
-    this.newClientFormContainer = document.querySelector(
-      ".add-new-client-container"
-    );
-    this.btnShowNewClientForm = document.querySelector(".btn-add-client");
-    // EVENT LISTNERS
-    this.btnCloseBuyDetail?.addEventListener(
+    this.closeSupplierDetail = document.querySelector(".close-detail-supplier");
+    // LINDANDO COM OS EVENT LISTNERS
+    this.btnShowNewSupplierForm.addEventListener(
       "click",
-      this._closeBuyDetail.bind(this)
+      this._showSupplierForm.bind(this)
     );
-
-    this.actionClientBtns?.addEventListener(
+    this.btnCloseNewSupplierForm.addEventListener(
       "click",
-      this._actionClient.bind(this)
+      this._closeSupplierForm.bind(this)
     );
-    this.btnBackToClientList?.addEventListener(
+    this.supplierListContainer.addEventListener(
       "click",
-      this._backToClient.bind(this)
+      this._editSupplierInfo.bind(this)
     );
-    this.clientHistoryContainer?.addEventListener(
+    this.supplierListContainer.addEventListener(
       "click",
-      this._clientHistoryFunction.bind(this)
+      this._showSupplierDetail.bind(this)
     );
-    this.clientMenuList?.addEventListener(
+    this.closeSupplierDetail.addEventListener(
       "click",
-      this._clientToggleMenu.bind(this)
+      this._closeSupplierDetail.bind(this)
     );
-    this.btnShowNewClientForm?.addEventListener(
-      "click",
-      this._showNewClientForm.bind(this)
-    );
-    this.btnCloseAddClientForm?.addEventListener(
-      "click",
-      this._closeNewClientForm.bind(this)
-    );
-    // this.newClientFormContainer?.addEventListener(
-    //   "click",
-    //   this._closeNewClientForm.bind(this)
-    // );
   }
-
   // FUNCÇÕES DOS EVENT LISTENERS
-  _closeBuyDetail() {
-    this.clientBuyDetailContainer?.classList.add("hidden");
+
+  _showSupplierForm() {
+    this.supplierFormContainer.classList.remove("hidden");
   }
-  _actionClient(e) {
-    const target = e.target.closest(".btn-details-user");
+  _closeSupplierForm() {
+    this.supplierFormContainer.classList.add("hidden");
+  }
+  _editSupplierInfo(e) {
+    const target = e.target.closest(".btn-edit-supplier");
     if (!target) return;
-    this.clientListContainer.classList.add("hidden");
-    this.clientDetailContainer.classList.remove("hidden");
+    this._showSupplierForm();
   }
-  _backToClient() {
-    this.clientListContainer.classList.remove("hidden");
-    this.clientDetailContainer.classList.add("hidden");
-  }
-  _clientHistoryFunction(e) {
-    const target = e.target.closest(".btn-see-buy-detail");
+  _showSupplierDetail(e) {
+    const target = e.target.closest(".btn-details-supplier");
     if (!target) return;
-    this.clientBuyDetailContainer.classList.remove("hidden");
+    this.supplerDetailContainer.classList.remove("hidden");
   }
-  _clientToggleMenu(e) {
-    this.link = e.target;
-    this.afterElement = document.querySelector(".client-menu::after");
-    if (this.link.closest(".link-client-profile")) {
-      // const link = link.closest(".link-client-profile")
-      // link.add
-      this.clientInformationBox.classList.remove("hideClientInfo");
-      this.clientListHistoryBox.classList.add("hideClientInfo");
-    }
-    if (this.link.closest(".link-client-historic")) {
-      console.log(this.afterElement);
-      this.clientInformationBox.classList.add("hideClientInfo");
-      this.clientListHistoryBox.classList.remove("hideClientInfo");
-    }
-  }
-  _showNewClientForm() {
-    this.newClientFormContainer.classList.remove("hidden");
-  }
-  _closeNewClientForm() {
-    this.newClientFormContainer.classList.add("hidden");
+  _closeSupplierDetail() {
+    this.supplerDetailContainer.classList.add("hidden");
   }
 }
-const client = new ClientApp();
-export { client };
+const supplier = new SupplierApp();
+export { supplier };

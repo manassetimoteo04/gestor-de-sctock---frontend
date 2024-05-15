@@ -1,8 +1,3 @@
-import { productClass, productList } from "./products.js";
-import { client } from "./clientes.js";
-import { newStock } from "./estoque.js";
-import { sellApp } from "./vendas.js";
-
 // REFACTORING
 
 class MainApp {
@@ -112,4 +107,5 @@ class MainApp {
   }
 }
 
-const newApp = new MainApp();
+const mainApp = new MainApp();
+export { mainApp };
