@@ -30,7 +30,7 @@ const CreateProduct = function (
 let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 //GERAL INICIAIS ALEATÓRIAS
-for (let i = 1; i <= 6; i++) {
+for (let i = 1; i <= 30; i++) {
   const randomIndex = Math.floor(Math.random() * 16) + 1;
   const randomMonth = Math.floor(Math.random() * 12) + 1;
   const randomDate = Math.floor(Math.random() * 31) + 1;

@@ -16,23 +16,23 @@ class SupplierApp {
     );
     this.closeSupplierDetail = document.querySelector(".close-detail-supplier");
     // LINDANDO COM OS EVENT LISTNERS
-    this.btnShowNewSupplierForm.addEventListener(
+    this.btnShowNewSupplierForm?.addEventListener(
       "click",
       this._showSupplierForm.bind(this)
     );
-    this.btnCloseNewSupplierForm.addEventListener(
+    this.btnCloseNewSupplierForm?.addEventListener(
       "click",
       this._closeSupplierForm.bind(this)
     );
-    this.supplierListContainer.addEventListener(
+    this.supplierListContainer?.addEventListener(
       "click",
       this._editSupplierInfo.bind(this)
     );
-    this.supplierListContainer.addEventListener(
+    this.supplierListContainer?.addEventListener(
       "click",
       this._showSupplierDetail.bind(this)
     );
-    this.closeSupplierDetail.addEventListener(
+    this.closeSupplierDetail?.addEventListener(
       "click",
       this._closeSupplierDetail.bind(this)
     );
