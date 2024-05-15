@@ -10,30 +10,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Dados do gráfico
   const data = {
     labels: [
-      "Janeiro",
-      "Fevereiro",
-      "Março",
-      "Abril",
-      "Maio",
-      "Junho",
-      "Julho",
-      "Agosto",
-      "Setembro",
-      "Outubro",
-      "Novembro",
-      "Dezembro",
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Set",
+      "Out",
+      "Nov",
+      "Dez",
     ],
     datasets: [
       {
-        label: "Vendas (em R$)",
+        label: "Vendas (em KZ)",
         data: [
           12000, 15000, 14000, 13000, 16000, 17000, 18000, 19000, 20000, 21000,
           22000, 23000,
         ],
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "#4361ee",
+        backgroundColor: "rgba(153, 170, 245, 0.2)",
         fill: true,
-        tension: 0.1,
+        tension: 0.01,
       },
     ],
   };
@@ -48,13 +48,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         x: {
           title: {
             display: true,
-            text: "Meses",
+            color: "#4361ee",
+          },
+          ticks: {
+            color: "#4361ee", // Cor dos ticks do eixo X
           },
         },
         y: {
           title: {
             display: true,
-            text: "Vendas (em KZ)",
+            color: "#4361ee",
+          },
+          ticks: {
+            color: "#4361ee", // Cor dos ticks do eixo X
           },
           beginAtZero: true,
         },
@@ -62,7 +68,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       plugins: {
         title: {
           display: true,
-          text: "Relatório de Vendas Mensal",
+          color: "#4361ee",
         },
         tooltip: {
           callbacks: {

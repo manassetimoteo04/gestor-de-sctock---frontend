@@ -106,13 +106,24 @@
                 </header>
                 <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
                 <div class="filter-analitycs-container">
-                    <button class="btn-add-new-sell">
-                        <ion-icon name="add-outline"></ion-icon>
-                        Nova venda
-                    </button>
+                    <span class="filter-buy today-reports">Hoje</span>
+                    <span class="filter-buy today-reports filtered">Semanal</span>
+                    <span class="filter-buy today-reports">Mensal</span>
+                    <span class="filter-buy today-reports">Anual</span>
                 </div>
             </div>
+            <div class="days-week-days-month-container">
+                <div class="weekdays">
+                    <span class="weekday">Dom</span>
+                    <span class="weekday active-weekday">Seg</span>
+                    <span class="weekday">Ter</span>
+                    <span class="weekday">Qua</span>
+                    <span class="weekday">Qui</span>
+                    <span class="weekday">Sex</span>
+                    <span class="weekday">Sáb</span>
 
+                </div>
+            </div>
             <div class="analitycs-reports-container">
                 <div class="analitycs-summary-container">
                     <div class="analityc-summary-box">
@@ -139,7 +150,43 @@
                 </div>
 
                 <div class="all-analitycs-charts">
-                    <canvas id="monthlySalesChart"></canvas>
+                    <div class="box-analityc">
+                        <span class="analitycs-header">Análises de Vendas</span>
+                        <canvas id="monthlySalesChart"></canvas>
+                    </div>
+                    <div class="most-selled-product-reports box-analityc">
+                        <span class="analitycs-header">Mais Vendidos</span>
+
+                        <div class="most-selled-analitycs">
+                            <div class="most-selled-heading">
+                                <span>Producto</span>
+                                <span>Qtd.</span>
+                                <span>Vendas</span>
+
+                                <span>Total</span>
+                            </div>
+                            <div class="most-selled-product">
+                                <span class="product-name"> <ion-icon
+                                        name="arrow-up-outline"></ion-icon>Computador</span>
+                                <span class="quantity">567</span>
+                                <span class="quantity">34</span>
+
+                                <span>$ 459865</span>
+                            </div>
+                            <div class="most-selled-product">
+                                <span class="product-name"> <ion-icon
+                                        name="arrow-up-outline"></ion-icon>Computador</span>
+                                <span class="quantity">567</span>
+                                <span class="quantity">34</span>
+
+                                <span>$ 459865</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-reports-container">
+
                 </div>
             </div>
 

@@ -1,7 +1,10 @@
 /* CONFIGURANDO AS CORES */
 :root {
   --primary-color-blue: #4361ee;
+
   --secondary-color-blue: #99aaf5;
+  --secondary-color-blue: rgba(153, 170, 245, 0.5);
+
   --primary-color-red: #ff6868;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
@@ -39,46 +42,47 @@ body {
   overflow: hidden;
 }
 
-.sort {
-  background: none;
-  color: var(--primary-text-color);
-  font-size: inherit;
-}
-
-.sort:focus {
-  outline: none;
-}
-
-.sort-box {
-  padding: 1rem 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
+.filter-analitycs-container {
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
-
-.btn-add-supplier {
-  background-color: var(--primary-color-blue);
-  padding: 1rem 2rem;
-  font-size: inherit;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.filter-analitycs-container span {
+  background-color: var(--bg-divider-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  border: 1px solid var(--border-color);
   cursor: pointer;
+  font-weight: 400;
+  transition: 0.3s;
 }
 
-.btn-add-supplier :hover {
-  background-color: var(--secondary-color-blue);
+.filter-analitycs-container span:hover {
+  background-color: var(--primary-color-blue);
+  color: #fff;
 }
 
-.btn-add-supplier ion-icon {
-  font-size: 2.2rem;
+.filtered {
+  background-color: var(--primary-color-blue) !important;
+  color: #fff;
+}
+
+.days-week-days-month-container {
+  background-color: var(--bg-divider-color);
+  padding: 2rem 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.days-week-days-month-container div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 500;
 }
 
 .main__content-section .section-header {
@@ -87,45 +91,44 @@ body {
   align-items: center;
 }
 
-.pagination-container {
-  margin-top: auto;
+.weekday {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-.btn-pages button {
-  background: none;
-  font-size: 1.8rem;
-  color: inherit;
-}
-
-.btn-pages {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn-pages .curr-page-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.weekday::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0.3rem;
   background-color: var(--primary-color-blue);
-  height: 4rem;
-  width: 4rem;
-  color: #fff;
-  border-radius: 50%;
-  font-weight: bold;
+  border-radius: 5rem;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s;
 }
 
-.pagination-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  border-top: 1px solid var(--border-color);
-
+.weekday:hover::after {
+  width: 100%;
 }
+
+.active-weekday::after {
+  transform: translateY(-0%);
+  width: 0.7rem;
+  width: 100%;
+  height: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .analitycs-summary-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .analityc-summary-box {
@@ -167,5 +170,70 @@ body {
 
 .all-analitycs-charts {
   width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  gap: 2rem;
 
+}
+
+.all-analitycs-charts .box-analityc {
+  background-color: var(--bg-divider-color);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+}
+
+.analitycs-header {
+  font-weight: 600;
+  color: var(--primary-text-color);
+  font-size: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.most-selled-analitycs {
+  margin-top: 2rem;
+}
+
+.most-selled-heading {
+  display: grid;
+  grid-template-columns: 3.5fr 2fr 2fr 2fr;
+  font-weight: 500;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+
+}
+
+.most-selled-product {
+  display: grid;
+  grid-template-columns: 3.5fr 2fr 2fr 2fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  align-items: center;
+}
+
+.most-selled-product:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+
+.product-name ion-icon {
+  background-color: var(--background-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  color: var(--primary-color-blue);
 }
