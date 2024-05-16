@@ -44,8 +44,10 @@ body {
 
 canvas {
   width: 100% !important;
-  height: auto !important;
+  height: auto;
 }
+
+
 
 .filter-analitycs-container {
   display: flex;
@@ -241,16 +243,13 @@ canvas {
   padding: 1rem 0;
 }
 
-.most-selled-analitycs {
-  margin-top: 2rem;
-}
 
 .most-selled-heading {
   display: grid;
   grid-template-columns: 3.5fr 2fr 2fr;
-  font-weight: 500;
-  gap: 2rem;
-  padding: 1rem 0;
+  font-weight: 600;
+  gap: 1rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-color);
   align-items: center;
 
@@ -313,10 +312,9 @@ canvas {
 .heading-stock {
   display: grid;
   grid-template-columns: 2.5fr 1.5fr 1fr 1fr 1fr;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-color);
   font-weight: 600;
-  align-items: center;
   align-items: center;
 }
 
@@ -370,59 +368,29 @@ canvas {
 .static-stock-container {
   width: 100%;
   grid-column: 1/-1;
+  gap: 0;
 }
 
 /* -------------------- */
 
-.products-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-  align-items: center;
-  font-weight: bold;
-  align-items: center;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.products-header div {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-
-.product-item div {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.product-action {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.product-action button {
-  background: none;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  cursor: pointer;
-  color: inherit;
-}
-
-.select-btn {
-  display: inline-block;
-  cursor: pointer;
-}
 
 .static-stock-container .container {
   overflow-x: scroll;
 }
 
+.actual-stock-container .container-stock {
+  overflow-x: scroll;
+}
+
 .estatic {
   min-width: 70rem;
-  min-height: 40rem;
+  min-height: 42rem;
+  padding: 0;
+}
+
+.actual-stock-container .container-fixed-width {
+  min-width: 70rem;
+  min-height: 30rem;
   padding: 0;
 }
 
@@ -485,4 +453,101 @@ ion-icon {
   border-radius: 50%;
   font-weight: bold;
   color: #fff;
+}
+
+.top-pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-pagination-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 1rem;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+}
+
+.top-pagination-container .page {
+  padding: 1rem;
+  background-color: var(--primary-color-blue);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width:49.56em) {
+
+  .box-analityc {
+    grid-column: 1/-1;
+  }
+
+
+}
+
+@media (max-width:41.4375em) {
+  .actual-stock-container {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .analityc-summary-box .analityc-total-earning {
+    font-size: 2.4rem;
+  }
+
+  .analityc-summary-box .analityc-summary-icon {
+    padding: 1.5rem;
+
+  }
+
+}
+
+@media (max-width:37.6875em) {
+  .actual-stock-container {
+    grid-template-columns: 1fr
+  }
+
+  .analityc-tag {
+    font-size: 1.4rem;
+  }
+
+  .analityc-summary-box .analityc-total-earning {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:30.75em) {
+  .analitycs-summary-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: start !important;
+    gap: 1rem;
+  }
+}
+
+@media (max-width:22.9375em) {
+  .analitycs-summary-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .analityc-tag {
+    font-size: inherit;
+  }
+
+  .analityc-summary-box .analityc-total-earning {
+    font-size: 3.2rem;
+  }
+
+  .analityc-summary-box .analityc-summary-icon {
+    padding: 2rem;
+
+  }
 }

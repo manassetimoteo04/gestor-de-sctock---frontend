@@ -41,27 +41,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const ctx = document.getElementById("monthlySalesChart");
   // Dados do gráfico
   const data = {
-    labels: [
-      "Jan",
-      "Fev",
-      "Mar",
-      "Abr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Set",
-      "Out",
-      "Nov",
-      "Dez",
-    ],
+    labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
     datasets: [
       {
         label: "Vendas (em KZ)",
-        data: [
-          12000, 15000, 14000, 13000, 16000, 17000, 18000, 19000, 20000, 21000,
-          22000, 23000,
-        ],
+        data: [12000, 15000, 14000, 13000, 16000, 17000, 18000],
         borderColor: "#4361ee",
         backgroundColor: "rgba(153, 170, 245, 0.2)",
         fill: true,

@@ -203,57 +203,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="stock-reports-container">
-                    <div class="stock-container">
-                        <span class="analitycs-header">Relatórios de Estoques</span>
-                        <div class="scroll-container">
-
-
-                            <div class="heading-stock">
-                                <div>
-                                    <span>Productos</span>
-                                </div>
-                                <span>Categoria</span>
-                                <span>Estoques</span>
-                                <span>Mínimo</span>
-                                <span>Status</span>
-                            </div>
-
-
-                            <div class="product-box">
-                                <div>
-                                    <span class="product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                                    <span class="">Computador</span>
-                                </div>
-                                <span class="">Informática</span>
-                                <span class="">23</span>
-                                <span class="">123</span>
-                                <span class="stock-status low-stock">Baixo</span>
+                <div class="stock-reports-container actual-stock-container">
+                    <div class="statics-box actual-stock">
+                        <div class="analitycs-header top-pagination">Estoque Actual <div
+                                class="top-pagination-container">
+                                <span class="btn"><ion-icon name="chevron-back-outline"></ion-icon></span>
+                                <p class="page">01</p>
+                                <span class="btn"><ion-icon name="chevron-forward-outline"></ion-icon></span>
 
                             </div>
-                            <div class="product-box">
-                                <div>
-                                    <span class="product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                                    <span class="">Computador</span>
+                        </div>
+                        <div class="container-stock">
+                            <div class="container-fixed-width">
+                                <div class="heading-stock">
+                                    <div>
+                                        <span>Productos</span>
+                                    </div>
+                                    <span>Categoria</span>
+                                    <span>Estoques</span>
+                                    <span>Mínimo</span>
+                                    <span>Status</span>
                                 </div>
-                                <span class="">Informática</span>
-                                <span class="">23</span>
-                                <span class="">123</span>
-                                <span class="stock-status excess-stock">Excesso</span>
+                                <div class="actual-stock-list">
+                                    <div class="product-box">
+                                        <div>
+                                            <span class="product-icon"><ion-icon
+                                                    name="arrow-up-outline"></ion-icon></span>
+                                            <span class="">Computador</span>
+                                        </div>
+                                        <span class="">Informática</span>
+                                        <span class="">23</span>
+                                        <span class="">123</span>
+                                        <span class="stock-status low-stock">Baixo</span>
+
+                                    </div>
+                                </div>
 
                             </div>
-                            <div class="product-box">
-                                <div>
-                                    <span class="product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                                    <span class="">Computador</span>
-                                </div>
-                                <span class="">Informática</span>
-                                <span class="">23</span>
-                                <span class="">123</span>
-                                <span class="stock-status medium-stock">Médio</span>
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -262,14 +248,14 @@
                         <canvas id="myDonutChart"></canvas>
                     </div>
 
+
                     <div class="statics-box static-stock-container">
 
-                        <span class="analitycs-header">Productos Estáticos</span>
+                        <span class="analitycs-header">Productos sem Venda</span>
                         <div class="container ">
                             <div class="estatic">
                                 <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
                                 <div class="heading-stock">
-
                                     <span>Productos</span>
 
                                     <span>Categoria</span>
@@ -282,7 +268,7 @@
                                     <div class="product-box">
                                         <div>
                                             <span class="product-icon"><ion-icon
-                                                    name="arrow-up-outline"></ion-icon></span>
+                                                    name="trending-down-outline"></ion-icon></span>
                                             <span class="">Computador</span>
                                         </div>
                                         <span class="">Informática</span>
