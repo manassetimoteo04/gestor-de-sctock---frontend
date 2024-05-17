@@ -108,13 +108,14 @@
             <div class="section-account-settings">
                 <menu class="account-menu">
                     <ul>
-                        <li> <span>Perfil</span></li>
-                        <li> <span>Segurança</span></li>
-                        <li>Usuários <span>Usuários</span></li>
-                        <li>Excluir Conta </li>
+                        <li class="profile-infor"> <span>Perfil</span></li>
+                        <li class="security-infor"> <span>Segurança</span></li>
+                        <li class="users-infor">Usuários <span>Usuários</span></li>
+                        <li class="detele-acc">Excluir Conta </li>
                     </ul>
                 </menu>
-                <div class="information-account-container">
+
+                <div class="information-account-container  profile-infor">
                     <div class="profile">
                         <h3 class="heading-h3">Meu Perfil <button class="btn-edit-profile-info"><ion-icon
                                     name="create-outline"></ion-icon></button></h3>
@@ -187,8 +188,105 @@
 
                         </div>
                     </div>
+                    <div class="edit-profile-information hidden">
+                        <form action="#" class="edit-profile-information-form">
+                            <div class="form-heading">
+                                <h3 class="heading-h3">Editar as Informações</h3>
+                                <span class="btn-close-edit-profile"><ion-icon name="close-outline"></ion-icon></span>
+                            </div>
+                            <h4>Informações Pessoais</h4>
+                            <div class="form-group">
+
+                                <div class="field">
+                                    <input type="text" id="first-name" required>
+                                    <label for="first-name">Primeiro nome</label>
+                                </div>
+                                <div class="field">
+                                    <input type="text" id="last-name" required>
+                                    <label for="last-name">Último nome</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="text" id="email-adress" required>
+                                    <label for="email-adress">E-mail</label>
+                                </div>
+                                <div class="field">
+                                    <input type="text" id="user-phone" required>
+                                    <label for="user-phone">Telefone</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="text" id="user-bio" required>
+                                    <label for="user-bio">Bio</label>
+                                </div>
+                                <div class="field">
+                                    <input type="text" id="user-name" required>
+                                    <label for="user-name">Username</label>
+                                </div>
+                            </div>
+                            <h4>Endereço</h4>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="text" id="countryuser" required>
+                                    <label for="countryuser">País</label>
+                                </div>
+                                <div class="field">
+                                    <input type="text" id="user-province" required>
+                                    <label for="user-province">Província</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="text" id="user-neighbor" required>
+                                    <label for="user-neighbor">Bairro</label>
+                                </div>
+                                <div class="field">
+                                    <input type="text" id="user-city" required>
+                                    <label for="user-city">Município</label>
+                                </div>
+                            </div>
+                            <button class="btn-save-profile-info">Salvar Alterações</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="security-information security-infor hidden">
+                    <h3 class="heading-h3">Segurança</h3>
+                    <span>Gere a tua palavra passe, redefina e mais</span>
 
 
+                    <div class="password">
+                        <span>Alterar Palavra-passe </span><ion-icon name="chevron-forward-outline"></ion-icon>
+                    </div>
+                    <div class="edit-user-password hidden">
+                        <form action="#" class="edit-password-form">
+                            <div class="form-heading">
+                                <h3 class="heading-h3">Alterar Palavra-passe</h3>
+                                <span class="btn-close-edit-password"><ion-icon name="close-outline"></ion-icon></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    <input type="password" id="actual-password" required>
+                                    <label for="actual-password">Senha</label>
+                                </div>
+
+
+                                <div class="field">
+                                    <input type="password" id="countryuser" required>
+                                    <label for="countryuser">Nova Senha</label>
+                                </div>
+                                <div class="field">
+                                    <input type="password" id="user-province" required>
+                                    <label for="user-province">Confirmar Senha</label>
+                                </div>
+                            </div>
+
+                            <button class="btn-save-profile-info">Salvar Alterações</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

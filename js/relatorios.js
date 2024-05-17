@@ -128,11 +128,11 @@ class ReportApp {
     );
 
     // EVENT LISTENERS
-    this.filterContainer.addEventListener(
+    this.filterContainer?.addEventListener(
       "click",
       this._toggleFiterBtn.bind(this)
     );
-    this.btnCloseDateInputContainer.addEventListener(
+    this.btnCloseDateInputContainer?.addEventListener(
       "click",
       this._closeFilterDateContainer.bind(this)
     );

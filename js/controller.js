@@ -6,3 +6,4 @@ import { sellApp } from "./vendas.js";
 import { jsonData } from "./data.js";
 import { supplier } from "./fornecedores.js";
 import { report } from "./relatorios.js";
+import { profile } from "./perfil.js";
