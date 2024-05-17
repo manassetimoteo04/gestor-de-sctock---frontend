@@ -48,7 +48,6 @@ canvas {
 }
 
 
-
 .filter-analitycs-container {
   display: flex;
   gap: 1rem;
@@ -100,7 +99,9 @@ canvas {
   background-color: var(--background-color);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
+  padding-right: -3rem;
 }
+
 
 .filter-input .filter-heading {
   font-size: 2.4rem;
@@ -231,6 +232,12 @@ canvas {
   padding: 2rem;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
+  height: 45rem;
+
+}
+
+.box-analityc #monthlySalesChart {
+  padding-bottom: 3rem;
 }
 
 .analitycs-header {
@@ -505,6 +512,8 @@ ion-icon {
 
   }
 
+
+
 }
 
 @media (max-width:37.6875em) {
@@ -518,6 +527,10 @@ ion-icon {
 
   .analityc-summary-box .analityc-total-earning {
     font-size: 2rem;
+  }
+
+  #monthlySalesChart {
+    height: 100%;
   }
 }
 

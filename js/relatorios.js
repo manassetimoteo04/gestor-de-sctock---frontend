@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     data: data,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
         x: {
           title: {
