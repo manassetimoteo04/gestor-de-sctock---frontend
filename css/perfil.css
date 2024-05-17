@@ -70,14 +70,24 @@ body {
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: all 0.3s;
+  background-color: transparent;
 }
 
 .account-menu li:hover {
-  padding: 1rem 2rem;
   background-color: rgba(67, 98, 238, 0.08);
   display: inline;
   border-radius: 0.5rem;
   color: var(--primary-color-blue);
+}
+
+.active-menu {
+
+  background-color: rgba(67, 98, 238, 0.08) !important;
+  display: inline;
+  border-radius: 0.5rem;
+  color: var(--primary-color-blue);
+
 }
 
 .information-account-container {

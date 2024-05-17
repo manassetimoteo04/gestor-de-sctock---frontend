@@ -3,6 +3,7 @@
 class ProfileApp {
   constructor() {
     this.accounMenuContainer = document.querySelector(".account-menu");
+    this.inforBoxes = document.querySelectorAll(".account-box");
     this.btnCloseEditProfileForm = document.querySelector(
       ".btn-close-edit-profile"
     );
@@ -20,6 +21,10 @@ class ProfileApp {
       ".btn-close-edit-password"
     );
     // event listners
+    this.accounMenuContainer.addEventListener(
+      "click",
+      this._toggleActiveMenu.bind(this)
+    );
     this.btnCloseEditProfileForm?.addEventListener(
       "click",
       this._closeEditForm.bind(this)
@@ -39,6 +44,22 @@ class ProfileApp {
     // chamando funções
     this._floatingLabel();
   }
+  _toggleActiveMenu(e) {
+    const target = e.target.closest("ul li");
+    if (!target) return;
+    const [classNAme] = target.classList;
+    document
+      .querySelectorAll("ul li")
+      .forEach((li) => li.classList.remove("active-menu"));
+    document
+      .querySelector(`.account-menu ul .${classNAme}`)
+      .classList.add("active-menu");
+
+    this.inforBoxes.forEach((box) => box.classList.add("hidden"));
+    const contianer = document.querySelector(`.${classNAme}-box`);
+    contianer.classList.remove("hidden");
+  }
+
   _closeEditForm() {
     this.editProfileContainer.classList.add("hidden");
   }
