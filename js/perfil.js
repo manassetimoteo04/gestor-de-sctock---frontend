@@ -20,6 +20,22 @@ class ProfileApp {
     this.closeEditPasssordForm = document.querySelector(
       ".btn-close-edit-password"
     );
+
+    this.showDeleteAccountBox = document.querySelector(".delete-account");
+    this.alertDeleteContainer = document.querySelector(
+      ".delete-alert-notification"
+    );
+    this.alertDeleteBox = document.querySelector(".alert-message-container");
+    this.alertMessageBtns = document.querySelector(".alert-message-btns");
+
+    this.confirmDeleteAccountBox = document.querySelector(
+      ".confirm-delete-password"
+    );
+    this.deleteAccountBtn = document.querySelector(".delete-account-btn");
+    this.closeDeleteConfirmPassword = document.querySelector(
+      ".btn-close-delete-account"
+    );
+
     // event listners
     this.accounMenuContainer.addEventListener(
       "click",
@@ -41,6 +57,19 @@ class ProfileApp {
       "click",
       this._closeEditPasswordForm.bind(this)
     );
+    this.showDeleteAccountBox?.addEventListener(
+      "click",
+      this._showDeleteAlertContainer.bind(this)
+    );
+    this.alertMessageBtns?.addEventListener(
+      "click",
+      this._alertMessageBtns.bind(this)
+    );
+    this.closeDeleteConfirmPassword?.addEventListener(
+      "click",
+      this._closeDeleteAlertContainer.bind(this)
+    );
+
     // chamando funções
     this._floatingLabel();
   }
@@ -102,6 +131,24 @@ class ProfileApp {
   }
   _closeEditPasswordForm() {
     this.passwordForm.classList.add("hidden");
+  }
+  _showDeleteAlertContainer() {
+    this.alertDeleteContainer.classList.remove("hidden");
+  }
+  _closeDeleteAlertContainer() {
+    this.alertDeleteContainer.classList.add("hidden");
+    this.confirmDeleteAccountBox.classList.add("hidden");
+    this.alertDeleteBox.classList.remove("hidden");
+  }
+  _alertMessageBtns(e) {
+    const target = e.target;
+    if (target.closest(".confirm-alert")) {
+      this.confirmDeleteAccountBox.classList.remove("hidden");
+      this.alertDeleteBox.classList.add("hidden");
+    }
+    if (target.closest(".cancel-alert")) {
+      this._closeDeleteAlertContainer();
+    }
   }
 }
 const profile = new ProfileApp();

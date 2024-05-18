@@ -113,10 +113,9 @@
                         <li class="profile-info"><ion-icon name="person-outline"></ion-icon> <span>Perfil</span></li>
                         <li class="security-info"> <ion-icon name="shield-outline"></ion-icon><span>Segurança</span>
                         </li>
-                        <li class="users-infor"> <ion-icon name="people-outline"></ion-icon>
-                            <span>Usuários</span>
-                        </li>
-                        <li class="detele-acc"> <ion-icon name="trash-outline"></ion-icon><span>Excluir Conta</span>
+
+                        <li class="delete-acc delete-account-menu"> <ion-icon
+                                name="trash-outline"></ion-icon><span>Excluir Conta</span>
                         </li>
                     </ul>
                 </menu>
@@ -293,6 +292,40 @@
                             <button class="btn-save-profile-info">Salvar Alterações</button>
                         </form>
                     </div>
+                </div>
+
+                <div class="security-information delete-acc-box hidden account-box">
+                    <h3 class="heading-h3">Eliminar conta</h3>
+                    <span>Gere a tua palavra passe, redefina e mais</span>
+
+                    <div class="delete-account">
+                        <span>Alterar Palavra-passe </span><ion-icon name="trash-outline"></ion-icon></ion-icon>
+                    </div>
+
+                    <div class="delete-alert-notification hidden">
+                        <div class="alert-message-container ">
+                            <ion-icon name="trash-outline"></ion-icon></ion-icon>
+                            <span class="alert-text">Tens certeza que deseja eliminar a tua conta?</span>
+
+                            <div class="alert-message-btns">
+                                <button class="confirm-alert">Eliminar</button>
+                                <button class="cancel-alert">Cancelar</button>
+                            </div>
+                        </div>
+
+                        <div class="confirm-delete-password hidden">
+                            <span class="alert-text confirm-header">Confirmar Palavra-passe <span
+                                    class="btn-close-delete-account"><ion-icon
+                                        name="close-outline"></ion-icon></span></span>
+                            <span>Confirmar a tua senha para continuar</span>
+                            <div class="field">
+                                <input type="password" id="actual-password" required>
+                                <label for="actual-password">Senha</label>
+                            </div>
+                            <button class="delete-account-btn">Eliminar conta</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

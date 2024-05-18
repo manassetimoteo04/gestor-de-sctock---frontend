@@ -257,7 +257,7 @@ body {
   overflow: hidden;
 }
 
-/* 
+/*
 .field input:focus {} */
 
 
@@ -398,6 +398,135 @@ body {
   font-weight: 600;
   color: #fff;
   cursor: pointer;
+}
+
+/* ELIMINAR CONTA */
+.delete-account {
+  background-color: var(--background-color);
+  margin-top: 3rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--primary-text-color);
+  border-radius: 0.5px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.delete-account-menu {
+  color: var(--primary-color-red) !important;
+}
+
+.delete-account ion-icon {
+  font-size: 2.4rem;
+  color: var(--primary-color-red);
+}
+
+.delete-alert-notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.322);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+}
+
+.close-delete-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.alert-message-container {
+  background-color: var(--bg-divider-color);
+  padding: 3rem;
+  border-radius: 0.5rem;
+  width: 35rem;
+  margin: 10rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999999;
+
+}
+
+.alert-message-container ion-icon {
+  font-size: 3.4rem;
+  color: var(--primary-color-red);
+  margin-bottom: 1rem;
+}
+
+.alert-text {
+  font-size: 2rem;
+  color: var(--primary-text-color);
+}
+
+.alert-message-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.alert-message-btns button {
+  padding: 1rem;
+  width: 100%;
+  font-size: inherit;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: inherit;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.confirm-alert {
+  background-color: var(--primary-color-blue) !important;
+  color: #fff !important;
+}
+
+
+.confirm-delete-password {
+  background-color: var(--bg-divider-color);
+  padding: 3rem;
+  border-radius: 0.5rem;
+  width: 35rem;
+  margin: 10rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999999;
+}
+
+.confirm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confirm-delete-password .field {
+  margin-top: 2rem;
+}
+
+.delete-account-btn {
+  background-color: var(--primary-color-blue);
+  width: 100%;
+  padding: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 1rem;
+  font-size: inherit;
+  border-radius: 0.5rem;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width:45.4em) {
