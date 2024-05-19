@@ -1,56 +1,10 @@
-const productList = [];
+import { appData } from "./data.js";
+import { formatNumbers } from "./views/formatNumbers.js";
 
-// REFACTORING THE CODE
-// FUNÇÃO ALEATÓRIA PARA GERAR DADOS DE PRODUCTOS
+const productList = appData.products;
 
-//CONSTRUCTOR FUNTION PARA CRIAÇÃO DOS PRODUCTOS
-const CreateProduct = function (
-  name,
-  category,
-  quantity,
-  date,
-  sellPrice,
-  buyPrice,
-  SKUCode,
-  description
-) {
-  this.name = name;
-  this.category = category;
-  this.quantity = quantity;
-  this.date = date;
-  this.sellPrice = sellPrice;
-  this.buyPrice = buyPrice;
-  this.SKUCode = SKUCode;
-  this.description = description;
-  this.searchData = this.name.toLowerCase();
-  this.alertQuantity = 20;
-};
-
-// prettier-ignore
-let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-//GERAL INICIAIS ALEATÓRIAS
-for (let i = 1; i <= 30; i++) {
-  const randomIndex = Math.floor(Math.random() * 16) + 1;
-  const randomMonth = Math.floor(Math.random() * 12) + 1;
-  const randomDate = Math.floor(Math.random() * 31) + 1;
-  const product = new CreateProduct(
-    `${alfabeto[randomIndex]}${alfabeto[randomIndex]}${alfabeto[randomIndex]} Product ${i}`,
-    `Category ${i % 5}`,
-    Math.floor(Math.random() * 100) + 1, // Quantidade aleatória entre 1 e 100
-    `2024-${randomMonth.toString().padStart(2, 0)}-${randomDate
-      .toString()
-      .padStart(2, 0)}`,
-    Math.floor(Math.random() * 10000) + 1, // Preço de venda aleatório entre 1 e 10000
-    Math.floor(Math.random() * 5000) + 1, // Preço de compra aleatório entre 1 e 5000
-    `SKU00${i}`,
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit placeat error autem nihil."
-  );
-
-  productList.push(product);
-}
 class ProductApp {
-  productList = productList;
+  productList = appData.products;
   target;
   constructor() {
     // SELECIONANDO VARIÁVEIS
@@ -74,19 +28,14 @@ class ProductApp {
     this.alerDeleteMsgContainer = document.querySelector(
       ".alert-message-container"
     );
-    this.prevPageBtn = document.querySelector(".btn-previous-page");
-    this.nextPageBtn = document.querySelector(".btn-next-page");
+    this.btnPrevius = document.querySelector(".btn-previous-page");
+    this.btnNext = document.querySelector(".btn-next-page");
     this.curPagelabel = document.querySelector(".curr-page-number");
     this.curPage = document.querySelector(".current-product-page");
-    this.totalPageslabel = document.querySelector(".total-pages");
+    this.totalPagesLabel = document.querySelector(".total-pages");
     this.searchInput = document.querySelector(".input__search");
     this.sortContainer = document.querySelector(".sort");
 
-    // LIDANDO COM EVENT LISTNERS
-    // this.detailsContainer?.addEventListener(
-    //   "click",
-    //   this._showNewProductForm.bind(this)
-    // );
     this.newProduct?.addEventListener(
       "click",
       this._showNewProductForm.bind(this)
@@ -137,17 +86,13 @@ class ProductApp {
     );
 
     //PAGINATION BTNS
-    this.prevPageBtn?.addEventListener(
+    this.btnNext?.addEventListener("click", this.goToNextPage.bind(this));
+    this.btnPrevius?.addEventListener(
       "click",
       this.goToPreviousPage.bind(this)
     );
-    this.nextPageBtn?.addEventListener("click", this.goToNextPage.bind(this));
-    this.btnConfirmDelete?.addEventListener(
-      "click",
-      this._deteleProductFunction.bind(this)
-    );
     // CHAMANDO FUNCTIONS
-    this.renderPagination(productList);
+    this._pagination(this.productList);
   }
 
   //FUNCTIONS
@@ -169,8 +114,28 @@ class ProductApp {
   _editProduct(e) {
     this.target = e.target.closest(".btn-edit-product");
     if (!this.target) return;
-    // console.log(this.formContainer);
     this.formContainer?.classList.remove("hidden");
+    const productID = +this.target.closest(".product-item").dataset.id;
+    // SELECIONANDO VARÍAVEIS DO EDIT PRODUCT
+    this._settingTheProductEditInputValue(productID);
+  }
+  _settingTheProductEditInputValue(product) {
+    const cureentProduct = appData.products.find((item) => item.id === product);
+    console.log(cureentProduct);
+    const heading = document.querySelector(".add-new-header .heading-h2");
+    const inputName = document.querySelector(".input-edit-product-name");
+    const inputPrice = document.querySelector(".input-edit-product-price");
+    const inputBuyPrice = document.querySelector(".input-edit-buy-price");
+    const inputDescription = document.querySelector(
+      ".product-description-input"
+    );
+    const estockQ = document.querySelector(".input-quantity");
+    heading.textContent = "Editar Producto";
+    inputName.value = cureentProduct.name;
+    inputPrice.value = cureentProduct.price;
+    inputBuyPrice.value = 2303;
+    inputDescription.value = cureentProduct.description;
+    estockQ.value = cureentProduct.stock;
   }
   _seeProductDetail(e) {
     this.target = e.target.closest(".btn-details-product");
@@ -181,18 +146,12 @@ class ProductApp {
     this.detailsContainer.classList.add("hidden");
   }
   _renderProductList(arrList) {
-    if (arrList.length === 0) {
-      document
-        .querySelector(".product-list")
-        .insertAdjacentHTML(
-          "afterbegin",
-          `<p classs="sem-resul">Nenhum producto encontrado </p>`
-        );
-    } else {
+    console.log(arrList);
+    if (arrList.length > 0) {
       if (this.listContainer) this.listContainer.innerHTML = "";
       arrList.forEach((element) => {
         let html = `
-      <div class="product-item" data-id="${element.SKUCode}">
+      <div class="product-item" data-id="${element.id}">
          <!-- NOME DO PRODUCTO -->
          <div>
              <span class="select-btn"><ion-icon
@@ -200,9 +159,13 @@ class ProductApp {
              <span class="product-name">${element.name} </span>
          </div>
          <span class="product-category">${element.category}</span>
-         <span class="product-price">$ ${element.sellPrice}</span>
-         <span class="product-qtd">${element.quantity}</span>
-         <span class="product-date">${element.date}</span>
+         <span class="product-price">${formatNumbers.formatCurrency(
+           element.price
+         )}</span>
+         <span class="product-qtd">${element.stock}</span>
+         <span class="product-date">${formatNumbers.formatDates(
+           element.date
+         )}</span>
          <span class="product-action">
              <button class="btn-edit-product"><ion-icon
                      name="create-outline"></ion-icon></button>
@@ -218,7 +181,17 @@ class ProductApp {
           this.listContainer.insertAdjacentHTML("afterbegin", html);
       });
     }
+    // if (arrList.length === 0) {
+    //   console.log(arrList);
+    //   document
+    //     .querySelector(".product-list")
+    //     .insertAdjacentHTML(
+    //       "afterbegin",
+    //       `<p classs="sem-resul">Nenhum producto encontrado </p>`
+    //     );
+    // }
   }
+
   _alertMessage() {
     this.alerDeleteMsgContainer.classList.add("hidden");
   }
@@ -253,42 +226,6 @@ class ProductApp {
     );
   }
 
-  // FUNÇÃO PARA A PAGINAÇÃO DAS LISTAS
-  renderPagination(productList) {
-    if (this.totalPageslabel) {
-      this.productsPerPage = 7;
-      this.currentPage = 1;
-      this.totalPages = Math.ceil(productList.length / this.productsPerPage);
-      this.totalPageslabel.textContent = this.totalPages;
-      this.renderCurrentPage(this.currentPage);
-    }
-  }
-  renderPage(page) {
-    this.startIndex = (page - 1) * this.productsPerPage;
-    this.endIndex = this.startIndex + this.productsPerPage;
-    this.productsToRender = productList.slice(this.startIndex, this.endIndex);
-    this._renderProductList(this.productsToRender);
-  }
-  renderCurrentPage(currentPage) {
-    this.renderPage(currentPage);
-  }
-  goToPreviousPage = function () {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.renderCurrentPage(this.currentPage);
-    }
-    this.curPagelabel.textContent = this.currentPage;
-    this.curPage.textContent = this.currentPage;
-  };
-  goToNextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.renderCurrentPage(this.currentPage);
-    }
-    this.curPagelabel.textContent = this.currentPage;
-    this.curPage.textContent = this.currentPage;
-  }
-
   // FUNCIONALIDADE DE PESQUISA
   _searchFunctionality(e) {
     this.value = this.searchInput.value.toLowerCase();
@@ -305,8 +242,9 @@ class ProductApp {
     });
   }
   _sortFunction() {
-    this.productList.sort((a, b) => {
-      if (e === "date") {
+    const e = this.sortContainer;
+    const sort = this.productList.sort((a, b) => {
+      if (e.value === "date") {
         if (a.date < b.date) return -1;
         if (a.date > b.date) return 1;
       }
@@ -314,21 +252,59 @@ class ProductApp {
       //   if (a.tipo === "entrada" && b.tipo === "saida") return -1;
       //   if (a.tipo === "saida" && b.tipo === "entrada") return 1;
       // }
-      if (e === "qtd") {
-        if (a.quantity > b.quantity) return 1;
-        if (a.quantity < b.quantity) return -1;
+      if (e.value === "qtd") {
+        if (a.stock > b.stock) return 1;
+        if (a.stock < b.stock) return -1;
       }
 
-      if (e === "price") {
-        if (a.sellPrice > b.sellPrice) return 1;
-        if (a.sellPrice < b.sellPrice) return -1;
+      if (e.value === "price") {
+        if (a.price > b.price) return 1;
+        if (a.price < b.price) return -1;
       }
       return 0;
     });
-    this.paginationRender(this.productList);
+    console.log(e.value === "date");
+    console.log(sort);
+    this._pagination(sort);
+  }
+
+  _pagination(productList) {
+    if (!this.totalPagesLabel) return;
+    this.productsPerPage = 7;
+    this.currentPage = 1;
+    this.totalPages = Math.ceil(productList.length / this.productsPerPage);
+    this.totalPagesLabel.textContent = `${this.totalPages
+      .toString()
+      .padStart(2, 0)}`;
+    this.renderCurrentPage(this.currentPage);
+  }
+  renderPage(page) {
+    this.startIndex = (page - 1) * this.productsPerPage;
+    this.endIndex = this.startIndex + this.productsPerPage;
+    this.productsToRender = this.productList.slice(
+      this.startIndex,
+      this.endIndex
+    );
+    this._renderProductList(this.productsToRender);
+  }
+  renderCurrentPage(currentPage) {
+    this.renderPage(currentPage);
+  }
+  goToPreviousPage = function () {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.renderCurrentPage(this.currentPage);
+    }
+    this.curPagelabel.textContent = this.currentPage;
+  };
+  goToNextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.renderCurrentPage(this.currentPage);
+    }
+    this.curPagelabel.textContent = this.currentPage;
   }
 }
 
 const productClass = new ProductApp();
-// export { productFunction };
 export { productList, productClass };

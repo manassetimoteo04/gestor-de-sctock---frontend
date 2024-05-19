@@ -27,10 +27,10 @@
 
 			<div class="search__div">
 				<a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
-				<div class="hidden">
+				<!-- <div class="hidden">
 					<input type="text" placeholder="Pesquisar" class="input__search">
 					<ion-icon name="search-outline"></ion-icon>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="header__user">
@@ -118,7 +118,7 @@
 				<div class="total-box weekly-earning">
 					<div class="total-flex">
 						<span class="week-span-text">Ganhos semanais</span>
-						<span class="label__total-purchase-due tot-label-num">11390</span>
+						<span class="label__total-purchase-due tot-label-num week-earning-total">11390</span>
 						<span class="total-text">+<span class="percentage"> 43%</span> aumentado em relação a semana
 							passada</span>
 					</div>
@@ -129,7 +129,7 @@
 				<div class="total-box weekly-earning">
 					<div class="total-flex">
 						<span class="week-span-text">Ganhos mensais</span>
-						<span class="label__total-purchase-due tot-label-num">24086</span>
+						<span class="label__total-purchase-due tot-label-num month-earn-total">24086</span>
 						<span class="total-text">+<span class="percentage"> 79.9%</span> aumentado em relação ao mês
 							passad0</span>
 					</div>
@@ -145,7 +145,7 @@
 					<div class="total-icon"><ion-icon name="logo-usd"></ion-icon></div>
 
 					<div class="total-flex">
-						<span class="label__total-purchase-due tot-label-num">6700</span>
+						<span class="label__total-purchase-due tot-label-num ">6700</span>
 						<span class="total-text">Renda Total</span>
 					</div>
 				</div>
@@ -173,7 +173,7 @@
 				<div class="total-box total__costumer-box tot-box-02">
 					<div class="total-flex">
 						<span class="total-text">Clientes</span>
-						<span class="label__total-purchase-due tot-label-num">4570</span>
+						<span class="label__total-purchase-due tot-label-num total-client-number">4570</span>
 					</div>
 					<div class="total-icon"><ion-icon name="people-outline"></ion-icon></div>
 				</div>
@@ -182,7 +182,7 @@
 				<div class="total-box total__costumer-box tot-box-02 box-light-blue">
 					<div class="total-flex">
 						<span class="total-text">Fornecedores</span>
-						<span class="label__total-purchase-due tot-label-num">3450</span>
+						<span class="label__total-purchase-due tot-label-num total-supplier-number">3450</span>
 					</div>
 					<div class="total-icon"><ion-icon name="person-add-outline"></ion-icon></div>
 				</div>
@@ -190,8 +190,8 @@
 
 				<div class="total-box total__costumer-box tot-box-02 ">
 					<div class="total-flex">
-						<span class="total-text">Estoques</span>
-						<span class="label__total-purchase-due tot-label-num">100</span>
+						<span class="total-text">Productos</span>
+						<span class="label__total-purchase-due tot-label-num total-product-number">100</span>
 					</div>
 					<div class="total-icon"><ion-icon name="cube-outline"></ion-icon></div>
 				</div>
@@ -203,11 +203,11 @@
 
 				<div class="statics-box">
 					<div class="subheader">
-						<h3 class="heading-h3">Compras & Vendas</h3>
+						<h3 class="heading-h3">Vendas</h3>
 						<div></div>
 					</div>
 
-					<div class="estaticos canvas">
+					<div class="fixed canvas">
 						<canvas id="myChart" width="400" height="300"></canvas>
 					</div>
 				</div>
@@ -217,64 +217,28 @@
 					<div class="subheader">
 						<h3 class="heading-h3">Productos recentes</h3>
 						<div>
-							<a href="#" class="see-all-link">Ver todos <ion-icon
+							<a href="pages/products.html" class="see-all-link">Ver todos <ion-icon
 									name="arrow-forward-outline"></ion-icon></a>
 						</div>
 					</div>
 
-					<div class="estaticos">
+					<div class="fixed">
 						<div class="recent-product-notification recent-product-heading">
 							<div>
-								<span>#</span>
 								<span>Productos</span>
 							</div>
 							<span>Categoria</span>
 						</div>
+						<div class="recent-product-list">
+							<!-- <div class="recent-product-notification">
+								<div>
+									<ion-icon name="arrow-down-outline"></ion-icon>
+									<span class="product-name">Lenovo 3D 3GEn</span>
+								</div>
+								<span class="product-price">Electonicos</span>
+							</div> -->
 
-
-
-						<div class="recent-product-notification">
-							<div>
-								<span class="number"><ion-icon name="caret-down-outline"></ion-icon></span>
-								<span class="product-name">Lenovo 3D 3GEn</span>
-							</div>
-							<span class="product-price">Electonicos</span>
 						</div>
-
-
-
-						<div class="recent-product-notification">
-							<div>
-								<span class="number"><ion-icon name="caret-down-outline"></ion-icon></span>
-								<span class="product-name">Lenovo 3D 3GEn</span>
-							</div>
-							<span class="product-price">Electonicos</span>
-						</div>
-
-						<div class="recent-product-notification">
-							<div>
-								<span class="number"><ion-icon name="caret-down-outline"></ion-icon></span>
-								<span class="product-name">Lenovo 3D 3GEn</span>
-							</div>
-							<span class="product-price">Electonicos</span>
-						</div>
-
-						<div class="recent-product-notification">
-							<div>
-								<span class="number"><ion-icon name="caret-down-outline"></ion-icon></span>
-								<span class="product-name">Lenovo 3D 3GEn</span>
-							</div>
-							<span class="product-price">Electonicos</span>
-						</div>
-
-						<div class="recent-product-notification">
-							<div>
-								<span class="number"><ion-icon name="caret-down-outline"></ion-icon></span>
-								<span class="product-name">Lenovo 3D 3GEn</span>
-							</div>
-							<span class="product-price">Electonicos</span>
-						</div>
-
 					</div>
 
 				</div>
@@ -288,92 +252,29 @@
 					<div class="subheader">
 						<h3 class="heading-h3">Mais vendidos</h3>
 						<div>
-							<a href="#" class="see-all-link">Ver todos<ion-icon
+							<a href="pages/vendas.html" class="see-all-link">Ver todos<ion-icon
 									name="arrow-forward-outline"></ion-icon></a>
 						</div>
 					</div>
-					<div class="estaticos">
+					<div class="fixed">
+						<div class="most-selled-list">
 
-						<div class="product-notification most-salled">
-							<ion-icon name="stats-chart-outline" class="icon-tag"></ion-icon>
-							<div>
-								<div class="flex-most-selled">
+							<div class="product-notification most-salled">
+								<ion-icon name="trending-up-outline"></ion-icon>
+								<div>
+									<div class="flex-most-selled">
 
-									<span class="product-name">Lenovo 3D 3GEn</span>
-									<span class="number">Vendas</span>
+										<span class="product-name">Lenovo 3D 3GEn</span>
+										<span class="number">Quantidade</span>
+									</div>
+									<div class="flex-most-selled">
+										<span class="product-price">$580</span>
+										<span class="sale-num">230</span>
+									</div>
 								</div>
-								<div class="flex-most-selled">
-									<span class="product-price">$5380</span>
-									<span class="sale-num">2340</span>
-								</div>
+
 							</div>
-
 						</div>
-
-						<div class="product-notification most-salled">
-							<ion-icon name="stats-chart-outline" class="icon-tag"></ion-icon>
-							<div>
-								<div class="flex-most-selled">
-
-									<span class="product-name">Lenovo 3D 3GEn</span>
-									<span class="number">Vendas</span>
-								</div>
-								<div class="flex-most-selled">
-									<span class="product-price">$5380</span>
-									<span class="sale-num">2340</span>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="product-notification most-salled">
-							<ion-icon name="stats-chart-outline" class="icon-tag"></ion-icon>
-							<div>
-								<div class="flex-most-selled">
-
-									<span class="product-name">Lenovo 3D 3GEn</span>
-									<span class="number">Vendas</span>
-								</div>
-								<div class="flex-most-selled">
-									<span class="product-price">$5380</span>
-									<span class="sale-num">2340</span>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="product-notification most-salled">
-							<ion-icon name="stats-chart-outline" class="icon-tag"></ion-icon>
-							<div>
-								<div class="flex-most-selled">
-
-									<span class="product-name">Lenovo 3D 3GEn</span>
-									<span class="number">Vendas</span>
-								</div>
-								<div class="flex-most-selled">
-									<span class="product-price">$5380</span>
-									<span class="sale-num">2340</span>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="product-notification most-salled">
-							<ion-icon name="stats-chart-outline" class="icon-tag"></ion-icon>
-							<div>
-								<div class="flex-most-selled">
-
-									<span class="product-name">Lenovo 3D 3GEn</span>
-									<span class="number">Vendas</span>
-								</div>
-								<div class="flex-most-selled">
-									<span class="product-price">$5380</span>
-									<span class="sale-num">2340</span>
-								</div>
-							</div>
-
-						</div>
-
 
 					</div>
 				</div>
@@ -381,140 +282,39 @@
 
 				<div class="statics-box">
 					<div class="subheader">
-						<h3 class="heading-h3">Transações recentes</h3>
+						<h3 class="heading-h3">Vendas Recentes</h3>
 						<div>
 							<a href="#" class="see-all-link">Ver todos <ion-icon
 									name="arrow-forward-outline"></ion-icon></a>
 						</div>
 					</div>
-					<div class="estaticos">
+					<div class="fixed transation-scroll">
 
-						<div class="transation-notification recent-product-heading">
-							<span class="icon-tag"><ion-icon name="attach-outline"></ion-icon></span>
-							<div class="transation">
 
-								<div>
-									<span class="product-name">Descrição</span>
-								</div>
-
-								<!-- status -->
-								<div class="category-tag">
-									<span class="product-category">Categoria</span>
-								</div>
-								<div>
-									<span class="product-price">Montante</span>
-								</div>
-								<div>
-									<span></span>
-								</div>
-							</div>
-
+						<div class="recent-transation-heading">
+							<span>Factura</span>
+							<span>Total</span>
+							<span>Data</span>
+							<span>Satus</span>
 						</div>
 
-						<div class="transation-notification">
-							<span class="icon-tag"> <ion-icon name="swap-horizontal-outline"></ion-icon></span>
-							<div class="transation">
-
-								<div>
-									<span class="product-name">Apple Watch 3D</span>
-									<span class="payment-time sub-desc">Há 1 min</span>
+						<div class="recent-transation-list">
+							<div class="transation-recent">
+								<div class="invoice-container">
+									<ion-icon name="swap-horizontal-outline"></ion-icon>
+									<div>
+										<span class="invoice-number">SMO0934343</span>
+										<span class="payment-type">Cash</span>
+									</div>
 								</div>
-
-								<!-- status -->
-								<div class="category-tag">
-									<span class="product-category">Electonicos</span>
-									<span class="payment-id sub-desc">ID000459</span>
-								</div>
-								<div>
-									<span class="product-price">$ 305,75</span>
-									<span class="product-price sub-desc">Cash</span>
-								</div>
-								<div>
-									<span class="icon-tag"><ion-icon
-											name="ellipsis-horizontal-outline"></ion-icon></span>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="transation-notification">
-							<span class="icon-tag"> <ion-icon name="swap-horizontal-outline"></ion-icon></span>
-							<div class="transation">
-
-								<div>
-									<span class="product-name">Apple Watch 3D</span>
-									<span class="payment-time sub-desc">Há 1 min</span>
-								</div>
-
-								<!-- status -->
-								<div class="category-tag">
-									<span class="product-category">Electonicos</span>
-									<span class="payment-id sub-desc">ID000459</span>
-								</div>
-								<div>
-									<span class="product-price">$ 185,75</span>
-									<span class="product-price sub-desc">Cash</span>
-								</div>
-								<div>
-									<span class="icon-tag"><ion-icon
-											name="ellipsis-horizontal-outline"></ion-icon></span>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="transation-notification">
-							<span class="icon-tag"> <ion-icon name="swap-horizontal-outline"></ion-icon></span>
-							<div class="transation">
-
-								<div>
-									<span class="product-name">Apple Watch 3D</span>
-									<span class="payment-time sub-desc">Há 1 min</span>
-								</div>
-
-								<!-- status -->
-								<div class="category-tag">
-									<span class="product-category">Electonicos</span>
-									<span class="payment-id sub-desc">ID000459</span>
-								</div>
-								<div>
-									<span class="product-price">$ 305,75</span>
-									<span class="product-price sub-desc">Cash</span>
-								</div>
-								<div>
-									<span class="icon-tag"><ion-icon
-											name="ellipsis-horizontal-outline"></ion-icon></span>
-								</div>
+								<span class="total-sell">$ 23498</span>
+								<span class="sell-date">há 1 min</span>
+								<span class="sell-status">Sucesso</span>
 							</div>
 
 						</div>
 
 
-						<div class="transation-notification">
-							<span class="icon-tag"> <ion-icon name="swap-horizontal-outline"></ion-icon></span>
-							<div class="transation">
-
-								<div>
-									<span class="product-name">TV Plasma 32</span>
-									<span class="payment-time sub-desc">Há 10 min</span>
-								</div>
-
-								<!-- status -->
-								<div class="category-tag">
-									<span class="product-category">Electonicos</span>
-									<span class="payment-id sub-desc">ID100459</span>
-								</div>
-								<div>
-									<span class="product-price">$ 1905,00</span>
-									<span class="product-price sub-desc">Cartão</span>
-								</div>
-								<div>
-									<span class="icon-tag"><ion-icon
-											name="ellipsis-horizontal-outline"></ion-icon></span>
-								</div>
-							</div>
-
-						</div>
 					</div>
 				</div>
 			</div>

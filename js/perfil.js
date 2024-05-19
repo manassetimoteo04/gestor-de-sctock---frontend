@@ -37,7 +37,7 @@ class ProfileApp {
     );
 
     // event listners
-    this.accounMenuContainer.addEventListener(
+    this.accounMenuContainer?.addEventListener(
       "click",
       this._toggleActiveMenu.bind(this)
     );

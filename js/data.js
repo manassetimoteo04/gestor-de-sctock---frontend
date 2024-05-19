@@ -12,24 +12,63 @@ const appData = {
       "generate_reports",
     ],
   },
+  weekEarning: 230093,
+  monthEarnig: 34049505,
   products: [
     {
       id: 101,
-      name: "Product A",
+      name: "Computador",
       description: "Description of Product A",
-      price: 10.99,
+      price: 100.99,
       supplier: "Supplier X",
       category: "Category 1",
-      stock: 50,
+      stock: 70,
+      sales: 45,
+      date: new Date(),
     },
     {
       id: 102,
-      name: "Product B",
+      name: "Computador",
+      description: "Description of Product A",
+      price: 34.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 50,
+      sales: 45,
+      date: new Date(),
+    },
+    {
+      id: 103,
+      name: "Impressora",
       description: "Description of Product B",
       price: 20.99,
       supplier: "Supplier Y",
       category: "Category 2",
-      stock: 30,
+      stock: 10,
+      sales: 45,
+      date: new Date(),
+    },
+    {
+      id: 104,
+      name: "Impressora",
+      description: "Description of Product B",
+      price: 450.99,
+      supplier: "Supplier Y",
+      category: "Category 2",
+      stock: 450,
+      sales: 105,
+      date: new Date(),
+    },
+    {
+      id: 105,
+      name: "Impressora",
+      description: "Description of Product B",
+      price: 28.99,
+      supplier: "Supplier Y",
+      category: "Category 2",
+      stock: 300,
+      sales: 205,
+      date: new Date(),
     },
   ],
   inventory: {
@@ -54,7 +93,7 @@ const appData = {
   sales: [
     {
       id: 201,
-      date: "2024-05-12",
+      date: new Date(),
       clientId: 301,
       totalAmount: 50.99,
       items: [
@@ -69,7 +108,8 @@ const appData = {
           price: 20.99,
         },
       ],
-      paymentStatus: "Paid",
+      paymentStatus: "Pago",
+      paymentType: "Cash",
       invoice: {
         id: "INV20240512",
         generatedAt: "2024-05-12T10:00:00Z",
@@ -102,6 +142,15 @@ const appData = {
           ],
         },
       ],
+    },
+  ],
+  supplier: [
+    {
+      id: 301,
+      name: "Client One",
+      email: "clientone@example.com",
+      phone: "1234567890",
+      address: "123 Street, City, Country",
     },
   ],
   reports: {
@@ -161,6 +210,6 @@ const appData = {
   },
 };
 
-const jsonData = JSON.stringify(appData, null, 2); // O 'null, 2' é para formatação com indentação de 2 espaços
+// const jsonData = JSON.stringify(appData, null, 2); // O 'null, 2' é para formatação com indentação de 2 espaços
 
-export { jsonData };
+export { appData };

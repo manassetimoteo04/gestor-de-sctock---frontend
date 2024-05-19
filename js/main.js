@@ -1,7 +1,151 @@
-// REFACTORING
-// import { Chart, registerables } from "/node_modules/chart.js/dist/chart.js";
-class MainApp {
+import { appData } from "./data.js";
+import { formatNumbers } from "./views/formatNumbers.js";
+
+// CLASSE PARA FENDERIZAR OS DADOS
+class renderDataMain {
   constructor() {
+    //SELECIONANDO VARIAVEIS
+    this.recentProductContainer = document.querySelector(
+      ".recent-product-list"
+    );
+    this.recentTransationContainer = document.querySelector(
+      ".recent-transation-list"
+    );
+
+    //VARIAVEIS DO SUMMARY
+    this.mostSelledProductContainer =
+      document.querySelector(".most-selled-list");
+    this.weekTotalEarningLabel = document.querySelector(".week-earning-total");
+    this.monthTotalEarningLabel = document.querySelector(".month-earn-total");
+    this.clientTotalnumberLabel = document.querySelector(
+      ".total-client-number"
+    );
+    this.supplierTotalNumberLabel = document.querySelector(
+      ".total-supplier-number"
+    );
+    this.totalProductNumberLabel = document.querySelector(
+      ".total-product-number"
+    );
+    // CHAMANDO AS FUNÇÕES
+    this._renderRecentProducts();
+    this._renderRecentTransation();
+    this._displayMainSummary();
+    this._renderMostSelledProduct();
+  }
+  _displayMainSummary() {
+    if ((!this.weekTotalEarningLabel, !this.monthTotalEarningLabel)) return;
+    this.weekTotalEarningLabel.textContent = formatNumbers.formatCurrency(
+      appData.weekEarning
+    );
+    this.monthTotalEarningLabel.textContent = formatNumbers.formatCurrency(
+      appData.monthEarnig
+    );
+    this.totalProductNumberLabel.textContent = appData.products.length;
+    this.clientTotalnumberLabel.textContent = appData.clients.length;
+    this.supplierTotalNumberLabel.textContent = appData.supplier.length;
+  }
+  _renderRecentProducts() {
+    const recentList = appData.products.slice(
+      Math.max(appData.products.length - 5, 0)
+    );
+    this.recentProductContainer
+      ? (this.recentProductContainer.innerHTML = "")
+      : "";
+    recentList.forEach((recent) => {
+      const html = `
+      <div class="recent-product-notification">
+				<div>
+					<ion-icon name="arrow-down-outline"></ion-icon>
+					<span class="product-name">${recent.name}</span>
+				</div>
+				<span class="product-price">${recent.category}</span>
+			</div>
+      `;
+
+      this.recentProductContainer
+        ? this.recentProductContainer.insertAdjacentHTML("afterbegin", html)
+        : "";
+    });
+  }
+  _renderRecentTransation() {
+    const transationList = appData.sales.slice(
+      Math.max(appData.sales.length - 5, 0)
+    );
+    if (this.recentProductContainer) {
+      this.recentTransationContainer.innerHTML = "";
+      transationList.forEach((trans) => {
+        const html = `
+      <div class="transation-recent">
+				<div class="invoice-container">
+					<ion-icon name="swap-horizontal-outline"></ion-icon>
+					<div>
+						<span class="invoice-number">${trans.invoice.id} </span>
+						<span class="payment-type">${trans.paymentType} </span>
+					</div>
+				</div>
+				<span class="total-sell">${formatNumbers.formatCurrency(
+          trans.totalAmount
+        )}</span>
+				<span class="sell-date">${formatNumbers.formatDates(trans.date)} </span>
+				<span class="sell-status">${trans.paymentStatus}</span>
+			</div>
+      `;
+        this.recentTransationContainer.insertAdjacentHTML("afterbegin", html);
+      });
+    }
+  }
+  _renderMostSelledProduct() {
+    const products = appData.products.sort((a, b) => a.sales - b.sales);
+    const mostSelledList = products.slice(Math.max(products.length - 5, 0));
+    if (this.mostSelledProductContainer) {
+      this.mostSelledProductContainer.innerHTML = "";
+      mostSelledList.forEach((product) => {
+        const html = `
+        <div class="product-notification most-salled">
+								<ion-icon name="trending-up-outline"></ion-icon>
+								<div>
+									<div class="flex-most-selled">
+
+										<span class="product-name">${product.name} </span>
+										<span class="number">Quantidade</span>
+									</div>
+									<div class="flex-most-selled">
+										<span class="product-price">${formatNumbers.formatCurrency(
+                      product.price
+                    )} </span>
+										<span class="sale-num">${product.sales} </span>
+									</div>
+								</div>
+
+							</div>
+        `;
+        this.mostSelledProductContainer.insertAdjacentHTML("afterbegin", html);
+      });
+    }
+  }
+  _formatCurrency(number) {
+    const numb = number;
+    const options = {
+      style: "currency",
+      currency: "AOA",
+    };
+    return new Intl.NumberFormat("pt-AO", options).format(numb);
+  }
+  _formatDates = function (now) {
+    const calDaysFuntion = (date1, date2) =>
+      Math.round(Math.abs(date1 - date2) / (1000 * 60 * 60 * 24));
+    const displayDays = calDaysFuntion(new Date(), now);
+    if (displayDays === 0) return `Hoje`;
+    if (displayDays === 1) return `Ontem`;
+    if (displayDays <= 7) return `Há ${displayDays} dias`;
+    return new Intl.DateTimeFormat("pt-PT").format(now);
+  };
+}
+
+// CLASSE PARA MANIPULAÇÃO GERAL DO DOM
+class MainApp extends renderDataMain {
+  constructor() {
+    super();
     // SELECIONANDO AS VARIÁVEIS
     this.toggleMenuBtn = document.querySelector(".toggleMenu__btn");
     this.body = document.querySelector("body");
@@ -47,21 +191,9 @@ class MainApp {
       ? this.root.classList.add("dark-mode")
       : this.root.classList.remove("dark-mode");
   }
-  // _counter(content) {
-  //   this.number = +content.textContent;
-  //   this.starter = 0;
-  //   this.timer = setInterval(this._startCounting, 0);
-  // }
-  // _startCounting(starter) {
-  //   starter += 100;
-  //   content.textContent = starter;
-  //   if (starter >= this.number) clearInterval(this.timer);
-  // }
-  // _displaycounter() {
-  //   this.allNumberLabel.forEach((num) => this.counter(num));
-  // }
+
   _renderChart() {
-    this.labels = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"];
+    this.labels = ["07h", "10h", "13h", "16", "18h", "20h", "21h"];
 
     this.data = {
       labels: this.labels,
@@ -108,4 +240,6 @@ class MainApp {
 }
 
 const mainApp = new MainApp();
-export { mainApp };
+const renderMain = new renderDataMain();
+
+export { mainApp, renderMain };

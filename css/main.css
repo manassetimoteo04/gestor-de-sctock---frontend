@@ -1,32 +1,34 @@
 /* CONFIGURANDO AS CORES */
-
 :root {
   --primary-color-blue: #4361ee;
   --secondary-color-blue: #99aaf5;
   --primary-color-red: #ff6868;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
-  --primary-text-color: #8c8f9f;
+  --primary-text-color: #000;
   --secondary-text-color: #60616a;
   --bg-divider-color: #fff;
   --background-color: #eee;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
+  --sucess-color: #43b943;
 }
 
 .dark-mode {
   --primary-color-blue: #4361ee;
   --secondary-color-blue: #99aaf5;
-  --primary-color-red: #fa3d3d;
+  --primary-color-red: #ff6868;
   --dark-grey-heading-01: #f0f1f5 --less-dark-grey-heading-02: #d7d9e3;
-  --primary-text-color: #bec0c9;
+  --primary-text-color: #fafafa;
   --secondary-text-color: #b3b6c4;
   --bg-divider-color: #2c2f41;
   --background-color: #242630;
   --btn-border-radius: 1rem;
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d31e;
+  --sucess-color: #43b943;
+  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee)
 }
 
 /* CONFIGURAÇÃO GERAL */
@@ -439,8 +441,8 @@ input::placeholder {
   gap: 0.5rem;
 }
 
-.headingh2 {
-  color: var(--dark-grey-heading-01);
+.heading-h2 {
+  color: var(--primary-text-color);
 }
 
 .grid {
@@ -527,7 +529,6 @@ input::placeholder {
   background: none;
   color: var(--primary-color-blue);
   background-color: var(--background-color);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -538,8 +539,12 @@ input::placeholder {
   right: 10%;
   transition: all 0.5s;
   position: absolute;
-  right: -5%;
-  bottom: -5%;
+
+}
+
+.tot-label-num {
+  font-size: 2.8rem;
+  color: var(--primary-text-color);
 }
 
 .weekly-earning {
@@ -568,7 +573,8 @@ input::placeholder {
 }
 
 .weekly-earning .label__total-purchase-due {
-  font-size: 2.8rem;
+  font-size: 4rem;
+  color: var(--primary-text-color);
 }
 
 .weekly-earning .total-text {
@@ -587,9 +593,9 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  gap: 2rem;
   min-width: 37.5rem;
   border: 1px solid var(--border-color);
+  min-height: 40rem;
 }
 
 .subheader {
@@ -597,7 +603,12 @@ input::placeholder {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: 1rem 0;
+}
+
+.heading-h3 {
+  font-size: 2.4rem;
+  color: var(--primary-text-color);
 }
 
 .heading-recent-notification ion-icon {
@@ -617,8 +628,7 @@ input::placeholder {
   color: var(--primary-color-blue);
 }
 
-.estaticos {
-  padding: 0 2rem;
+.fixed {
   overflow-x: scroll;
 }
 
@@ -652,6 +662,7 @@ input::placeholder {
   padding: 2rem 0.2rem;
 }
 
+
 .transation-notification:not(:last-child) {
   border-bottom: 1px solid var(--border-color);
 }
@@ -666,7 +677,7 @@ input::placeholder {
 
 .transation-notification .transation {
   display: grid;
-  grid-template-columns: 2.5fr 1.5fr 1fr 0.5fr;
+  grid-template-columns: 2.5fr 1.5fr 1fr;
   gap: 1rem;
   padding: 1.5rem 0.2rem;
   text-align: left;
@@ -682,6 +693,7 @@ input::placeholder {
 
 .recent-product-heading {
   font-weight: bold;
+  color: var(--primary-text-color);
 }
 
 .recent-product-notification:not(:last-child) {
@@ -698,11 +710,31 @@ input::placeholder {
   display: grid;
   grid-template-columns: 6fr 2fr;
   padding: 2rem 0.2rem;
+  align-items: center;
+}
+
+.recent-product-notification .product-name {
+  color: var(--primary-text-color) !important;
+  font-weight: 600;
 }
 
 .product-notification:not(:last-child) {
   border-bottom: 1px solid var(--border-color);
 }
+
+.recent-product-notification ion-icon {
+  background-color: var(--background-color);
+  padding: 1rem;
+  font-size: 2.2rem;
+  color: var(--primary-color-blue);
+  border-radius: 0.5rem;
+}
+
+.invoice-number {
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+
 
 .sub-desc {
   font-size: 1.2rem;
@@ -733,7 +765,6 @@ input::placeholder {
 .icon-tag {
   font-size: 2.4rem;
   text-align: right;
-
 }
 
 .flex-most-selled {
@@ -743,11 +774,98 @@ input::placeholder {
   width: 100%;
 }
 
+.most-salled ion-icon {
+  background-color: var(--background-color);
+  padding: 1rem;
+  font-size: 2.2rem;
+  color: var(--sucess-color);
+  border-radius: 0.5rem;
+}
+
 .most-salled .product-price,
 .sale-num {
   font-weight: bold;
   color: var(--bs-gray);
 }
+
+.transation-scroll {
+  overflow-x: scroll;
+}
+
+.transation-scroll::-webkit-scrollbar {
+  max-width: 3px;
+  height: 0rem;
+  position: absolute;
+}
+
+.transation-scroll::-webkit-scrollbar {
+  height: 0rem;
+}
+
+.transation-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);
+
+  border-radius: 10px;
+}
+
+.transation-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-blue);
+}
+
+.transation-scroll:hover::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.payment-status {
+  background-color: var(--background-color);
+  width: 7rem;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--sucess-color);
+  border-radius: 0.5rem;
+}
+
+.recent-transation-heading {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  padding: 2rem 0;
+  font-weight: 600;
+  color: var(--primary-text-color);
+  border-bottom: 1px solid var(--border-color);
+  min-width: 60rem;
+}
+
+.transation-recent {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  padding: 2rem 0;
+  min-width: 60rem;
+}
+
+.transation-recent:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.invoice-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+.invoice-container ion-icon {
+  font-size: inherit;
+  color: var(--primary-color-blue);
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+}
+
+.invoice-container div {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .hidden {
   display: none;
