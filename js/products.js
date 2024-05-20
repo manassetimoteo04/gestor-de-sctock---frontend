@@ -1,14 +1,12 @@
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";
 
-const productList = appData.products;
-
+const productList = [];
 class ProductApp {
   productList = appData.products;
   target;
   constructor() {
     // SELECIONANDO VARIÁVEIS
-
     this.productContainer = document.querySelector(".estaticos");
     this.newProduct = document.querySelector(".btn-add-new-product");
     this.formContainer = document.querySelector(".add-product-container");
@@ -72,6 +70,10 @@ class ProductApp {
       "click",
       this._alertMessage.bind(this)
     );
+    this.btnConfirmDelete?.addEventListener(
+      "click",
+      this._deteleProductFunction.bind(this)
+    );
     this.productContainer?.addEventListener(
       "click",
       this._setTarget.bind(this)
@@ -96,6 +98,7 @@ class ProductApp {
   }
 
   //FUNCTIONS
+  _allEventListener() {}
   _showNewProductForm() {
     this.formContainer.classList.remove("hidden");
   }
@@ -141,6 +144,33 @@ class ProductApp {
     this.target = e.target.closest(".btn-details-product");
     if (!this.target) return;
     this.detailsContainer.classList.remove("hidden");
+    const productID = +this.target.closest(".product-item").dataset.id;
+    this._displayProductDetailContent(productID);
+  }
+  _displayProductDetailContent(product) {
+    const cureentProduct = appData.products.find((item) => item.id === product);
+    const productNameLabel = document.querySelector(".product-name-details");
+    const productCategoryLabel = document.querySelector(
+      ".product-category-details"
+    );
+    const productBuyPrice = document.querySelector(
+      ".product-buy-price-details"
+    );
+    const productSellPriceLabel = document.querySelector(
+      ".product-sell-price-details"
+    );
+    const productStockQtyLabel = document.querySelector(
+      ".product-stock-qtd-details"
+    );
+    const productIDLabel = document.querySelector(".product-id-details");
+
+    productNameLabel.textContent = cureentProduct.name;
+    productBuyPrice.textContent = formatNumbers.formatCurrency(2304);
+    productSellPriceLabel.textContent = formatNumbers.formatCurrency(
+      cureentProduct.price
+    );
+    productCategoryLabel.textContent = cureentProduct.category;
+    productIDLabel.textContent = cureentProduct.id;
   }
   _closeProductDetail() {
     this.detailsContainer.classList.add("hidden");
@@ -164,7 +194,7 @@ class ProductApp {
          )}</span>
          <span class="product-qtd">${element.stock}</span>
          <span class="product-date">${formatNumbers.formatDates(
-           element.date
+           new Date(element.date)
          )}</span>
          <span class="product-action">
              <button class="btn-edit-product"><ion-icon
@@ -201,18 +231,18 @@ class ProductApp {
     this.alerDeleteMsgContainer.classList.remove("hidden");
   }
   _deteleProductFunction(e) {
-    // PEGANDO O PARENT COM A CLASS PRODUCT ITEM COM O EVENTO TARGET
-    this.item = this.target;
-    this.index = this.item.dataset.id;
-    console.log(this.item);
-    this.product = productList.find((i) => i.SKUCode === this.index);
-    const i = productList.indexOf(this.product);
-    productList.splice(i, 1);
-    console.log(productList);
-    this.renderPagination(productList);
-    if (productList.length === 1) productList.splice(1);
+    const productID = +this.target.closest(".product-item").dataset.id;
+    console.log(productID);
+    const i = appData.products.findIndex((item) => item.id === productID);
+    console.log(appData.products);
+    console.log(i);
+    appData.products.splice(i, 1);
+    console.log(appData.products);
+    // this.renderPagination(productList);
+    if (productList.length === 1) productList.splice(0, -1);
     this.alerDeleteMsgContainer.classList.add("hidden");
     // ALERTA DE SUCESSO NO PROCESSO DE ELIMINAÇÃO
+    this._pagination(appData.products);
     document
       .querySelector(".delete-confirmed-message")
       .classList.remove("hidden");
@@ -224,6 +254,7 @@ class ProductApp {
           .classList.add("hidden"),
       1500
     );
+    setLocalStorage();
   }
 
   // FUNCIONALIDADE DE PESQUISA

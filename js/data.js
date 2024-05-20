@@ -1,3 +1,7 @@
+// '2019-11-18T21:31:17.178Z',
+// '2019-12-23T07:42:02.383Z',
+// ,
+
 const appData = {
   loggedInUser: {
     id: 1,
@@ -24,7 +28,7 @@ const appData = {
       category: "Category 1",
       stock: 70,
       sales: 45,
-      date: new Date(),
+      date: "2020-07-12T10:51:36.790Z",
     },
     {
       id: 102,
@@ -35,7 +39,7 @@ const appData = {
       category: "Category 1",
       stock: 50,
       sales: 45,
-      date: new Date(),
+      date: "2020-07-11T23:36:17.929Z",
     },
     {
       id: 103,
@@ -46,7 +50,7 @@ const appData = {
       category: "Category 2",
       stock: 10,
       sales: 45,
-      date: new Date(),
+      date: "2024-05-13T17:01:17.194Z",
     },
     {
       id: 104,
@@ -57,7 +61,7 @@ const appData = {
       category: "Category 2",
       stock: 450,
       sales: 105,
-      date: new Date(),
+      date: "2024-05-15T14:11:59.604Z",
     },
     {
       id: 105,
@@ -68,7 +72,7 @@ const appData = {
       category: "Category 2",
       stock: 300,
       sales: 205,
-      date: new Date(),
+      date: "2020-04-01T10:17:24.185Z",
     },
   ],
   inventory: {
@@ -93,7 +97,7 @@ const appData = {
   sales: [
     {
       id: 201,
-      date: new Date(),
+      date: "2024-05-19T16:15:04.904Z",
       clientId: 301,
       totalAmount: 50.99,
       items: [
@@ -213,3 +217,11 @@ const appData = {
 // const jsonData = JSON.stringify(appData, null, 2); // O 'null, 2' é para formatação com indentação de 2 espaços
 
 export { appData };
+
+const calDays = function (now) {
+  const newD = +new Date();
+  console.log(newD);
+  const date = Math.round((newD - new Date(now)) / (1000 * 60));
+  console.log(date);
+};
+calDays("2024-05-19T21:37:43.811Z");

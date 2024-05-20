@@ -86,7 +86,9 @@ class renderDataMain {
 				<span class="total-sell">${formatNumbers.formatCurrency(
           trans.totalAmount
         )}</span>
-				<span class="sell-date">${formatNumbers.formatDates(trans.date)} </span>
+				<span class="sell-date">${formatNumbers.formatDates(
+          new Date(trans.date)
+        )} </span>
 				<span class="sell-status">${trans.paymentStatus}</span>
 			</div>
       `;
