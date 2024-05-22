@@ -127,7 +127,7 @@
   }
 
   .menu-hidden .main__header {
-    margin-left: 42%;
+    margin-left: 40%;
   }
 
   .main__header .profile__name-box {
@@ -136,6 +136,13 @@
 
   .menu-hidden .notification__btn {
     display: none;
+  }
+
+  .notification-header {
+    position: absolute;
+    right: 2rem;
+    bottom: -30.5rem;
+
   }
 
   .grid-04 {
@@ -184,7 +191,7 @@
   }
 
   .menu-hidden .main__header {
-    margin-left: 62%;
+    margin-left: 60%;
   }
 
   .menu-hidden .search__div div {

@@ -1,5 +1,7 @@
 // Defina a função stockFunction
-import { productList } from "./products.js";
+// import { productList } from "./products.js";
+import { appData } from "./data.js";
+import { formatNumbers } from "./views/formatNumbers.js";
 
 //REFACTORING THE CODE
 
@@ -33,8 +35,8 @@ class StockApp {
       this._closeUpdateStockFom.bind(this)
     );
 
-    this._filterLowStockProduct();
-    this._renderLowStockProduct(this.lowStockProductList);
+    this._renderLowStockProduct(appData.inventory.lowStockNotifications);
+    console.log(this.lowStockContainer);
     if (this.ctx) this._renderPieChart();
   }
   _renderPieChart() {
@@ -80,11 +82,7 @@ class StockApp {
     //     this.myChart = new Chart(this.ctx, this.pieConfig);
     //   }
   }
-  _filterLowStockProduct() {
-    this.lowStockProductList = productList.filter(
-      (product) => product.quantity < product.alertQuantity
-    );
-  }
+
   _renderLowStockProduct(arrList) {
     if (arrList.length === 0) {
       this.listContainer?.insertAdjacentHTML(
@@ -92,26 +90,17 @@ class StockApp {
         `<p classs="sem-resul">Nenhum producto encontrado </p>`
       );
     } else {
-      if (this.listContainer) this.listContainer.innerHTML = "";
+      // if (this.listContainer) this.listContainer.innerHTML = "";
       arrList.forEach((element) => {
         let html = `
-    <div class="product-item" data-id="${element.SKUCode}">
-       <!-- NOME DO PRODUCTO -->
-       <div>
-           <span class="alert-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-           <span class="product-name">${element.name} </span>
-       </div>
-       <span class="product-category">${element.category}</span>
-       <span class="product-price"> ${element.alertQuantity}</span>
-       <span class="product-qtd ">${element.quantity}</span>
-       <span class="product-qtd status-baixo">Baixo</span>
-       <span class="product-date">${element.date}</span>
-       <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-       <span class="product-action">
-           <button class="btn-update-stock"><ion-icon
-                   name="create-outline"></ion-icon></button>
-       </span>
-   </div>
+        <div class="product-stock-alert ">
+        <span class="product-span"> <span class="product-alert-icon"><ion-icon
+                    name="warning-outline"></ion-icon></span>
+           ${element.name} </span>
+        <span>${element.category} </span>
+        <span>${element.alert} </span>
+        <span>${element.stock} </span>
+    </div>
     `;
         // VERIFICAR NOVAMENTO SE O LISTCONTAINER NÃO É UNDEFINED
         if (this.listContainer)

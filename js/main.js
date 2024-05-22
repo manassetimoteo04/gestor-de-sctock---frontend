@@ -11,6 +11,12 @@ class renderDataMain {
     this.recentTransationContainer = document.querySelector(
       ".recent-transation-list"
     );
+    this.notiticaTionHeaderContainer = document.querySelector(
+      ".notification-header"
+    );
+    this.btnToggleNotificationContainer = document.querySelector(
+      ".show-notification_btn"
+    );
 
     //VARIAVEIS DO SUMMARY
     this.mostSelledProductContainer =
@@ -26,12 +32,14 @@ class renderDataMain {
     this.totalProductNumberLabel = document.querySelector(
       ".total-product-number"
     );
+
     // CHAMANDO AS FUNÇÕES
     this._renderRecentProducts();
     this._renderRecentTransation();
     this._displayMainSummary();
     this._renderMostSelledProduct();
   }
+
   _displayMainSummary() {
     if ((!this.weekTotalEarningLabel, !this.monthTotalEarningLabel)) return;
     this.weekTotalEarningLabel.textContent = formatNumbers.formatCurrency(
@@ -150,6 +158,10 @@ class MainApp extends renderDataMain {
     super();
     // SELECIONANDO AS VARIÁVEIS
     this.toggleMenuBtn = document.querySelector(".toggleMenu__btn");
+    this.btnToggleNotificationContainer?.addEventListener(
+      "click",
+      this._showNofitication.bind(this)
+    );
     this.body = document.querySelector("body");
     this.profileBtn = document.querySelector(".header__profile-box");
     this.btnToggleDarkMode = document.querySelector(".toggle-dark-mode");
@@ -173,6 +185,10 @@ class MainApp extends renderDataMain {
   // TODAS AS FUNCIONALIDADES
   _toggleMenu() {
     this.body.classList.toggle("menu-hidden");
+  }
+  _showNofitication(e) {
+    this.notiticaTionHeaderContainer.classList.toggle("hidden");
+    console.log(e);
   }
   _profileToggle() {
     this.body.classList.toggle("show");

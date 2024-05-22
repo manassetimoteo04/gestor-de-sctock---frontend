@@ -34,12 +34,53 @@
 			</div>
 
 			<div class="header__user">
-				<!-- <a href="#" class="header__btn notification__btn"> <ion-icon
-						name="notifications-outline"></ion-icon></a> -->
+				<a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
+						name="notifications-outline"></ion-icon></a>
+
 				<a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
 						class="hidden light-icon"></ion-icon>
 					<ion-icon name="moon-outline" class="dark-icon"></ion-icon>
 				</a>
+				<div class="notification-header hidden">
+					<h3 class="heading-h3">Notificações</h3>
+					<div class="filter-noti"><span>Hoje</span>
+						<span>Todos</span>
+					</div>
+					<div class="notitification-list-header">
+						<div class="list">
+
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container"><span class="notification-text-header">Estoque
+										Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Agora mesmo</span>
+								</div>
+							</div>
+
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container"><span class="notification-text-header">Estoque
+										Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Há 2h</span>
+								</div>
+							</div>
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container">
+									<span class="notification-text-header">Estoque Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Ontem</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
 				<div class="header__profile-box">
 					<img src="assets/img/admin/admin.png" alt="" class="header__profile-img">
 					<div class="profile__name-box">
@@ -319,6 +360,66 @@
 				</div>
 			</div>
 		</section>
+	</section>
+
+	<section class="section-login-register hidden">
+		<h1 class="logo login-logo"> StockMaster <a href="#" class="header__btn toggle-dark-mode notification__btn">
+				<ion-icon name="sunny-outline" class="hidden light-icon"></ion-icon>
+				<ion-icon name="moon-outline" class="dark-icon"></ion-icon>
+			</a></h1>
+		<div class="login-container hidden">
+			<form action="" class="login-form">
+				<h2 class="heading-h2">Iniciar Sessão</h2>
+				<div class="form-group">
+					<label for="user-name">Nome se Usuário</label>
+					<input type="text" class="login-input input-user-name" placeholder="@username">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Palavra-passe</label>
+					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
+				</div>
+				<button class="btn-login">Login</button>
+				<span class="no-account">Não tem conta? <span class="create-account">Criar Conta</span></span>
+			</form>
+			<div class="ilustration-container">
+
+			</div>
+		</div>
+		<div class="create-account-container">
+			<div class="ilustration-container">
+
+			</div>
+			<form action="" class="login-form">
+				<h2 class="heading-h2">Criar Conta</h2>
+				<div class="form-group">
+					<label for="user-name">Primeiro nome</label>
+					<input type="text" class="login-input input-user-name" placeholder="Ex: Manasse">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Segundo Nome</label>
+					<input type="text" class="login-input input-user-name" placeholder="Ex: Timóteo">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Nome se Usuário</label>
+					<input type="text" class="login-input input-user-name" placeholder="@username">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Número Telefone</label>
+					<input type="text" class="login-input input-user-name" placeholder="Ex: +244 94040*****">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Palavra-passe</label>
+					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
+				</div>
+				<div class="form-group">
+					<label for="user-name">Confirmar Palavra-passe</label>
+					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
+				</div>
+				<button class="btn-login">Criar conta</button>
+				<span class="no-account">Já tem conta?<span class="create-account">Iniciar sessão</span></span>
+			</form>
+
+		</div>
 	</section>
 </body>
 

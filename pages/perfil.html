@@ -26,23 +26,62 @@
             <!-- BARRA DE PESQUISA -->
             <div class="search__div">
                 <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
-                <div>
+                <!-- <div>
                     <input type="text" placeholder="Pesquisar" class="input__search">
                     <ion-icon name="search-outline"></ion-icon>
-                </div>
+                </div> -->
             </div>
             <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
-                <!-- <a href="#" class="header__btn notification__btn"> <ion-icon
-                        name="notifications-outline"></ion-icon></a> -->
-                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
+                <a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a>
 
                 <a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
+                <div class="notification-header hidden">
+                    <h3 class="heading-h3">Notificações</h3>
+                    <div class="filter-noti"><span>Hoje</span>
+                        <span>Todos</span>
+                    </div>
+                    <div class="notitification-list-header">
+                        <div class="list">
+
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container"><span class="notification-text-header">Estoque
+                                        Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Agora mesmo</span>
+                                </div>
+                            </div>
+
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container"><span class="notification-text-header">Estoque
+                                        Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Há 2h</span>
+                                </div>
+                            </div>
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container">
+                                    <span class="notification-text-header">Estoque Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Ontem</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="header__profile-box">
-                    <img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
+                    <img src="/assets/img/admin/admin.png" alt="" class="header__profile-img">
                     <div class="profile__name-box">
                         <span class="header__p-name">Timóteo Pembele</span>
                         <span class="permission">Admin <ion-icon name="chevron-down-outline"

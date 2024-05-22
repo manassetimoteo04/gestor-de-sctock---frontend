@@ -35,16 +35,55 @@
             </div>
             <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
-                <a href="#" class="header__btn notification__btn"> <ion-icon
+                <a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
                         name="notifications-outline"></ion-icon></a>
-                <!-- <a href="#" class="header__btn setting__btn"> <ion-icon name="settings-outline"></ion-icon></a> -->
 
                 <a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
-                        class=" light-icon"></ion-icon>
-                    <ion-icon name="moon-outline" class="dark-icon hidden"></ion-icon>
+                        class="hidden light-icon"></ion-icon>
+                    <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
+                <div class="notification-header hidden">
+                    <h3 class="heading-h3">Notificações</h3>
+                    <div class="filter-noti"><span>Hoje</span>
+                        <span>Todos</span>
+                    </div>
+                    <div class="notitification-list-header">
+                        <div class="list">
+
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container"><span class="notification-text-header">Estoque
+                                        Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Agora mesmo</span>
+                                </div>
+                            </div>
+
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container"><span class="notification-text-header">Estoque
+                                        Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Há 2h</span>
+                                </div>
+                            </div>
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container">
+                                    <span class="notification-text-header">Estoque Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Ontem</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="header__profile-box">
-                    <img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
+                    <img src="/assets/img/admin/admin.png" alt="" class="header__profile-img">
                     <div class="profile__name-box">
                         <span class="header__p-name">Timóteo Pembele</span>
                         <span class="permission">Admin <ion-icon name="chevron-down-outline"
@@ -135,81 +174,66 @@
                     </div>
                 </div>
 
-                <!-- <div class="total-stock-box">
-                    <canvas id="pieChart"></canvas>
+                <div class="stock-notification-container">
+                    <h3 class="heading-h3">Notificações de Estoque</h3>
+                </div>
+                <!-- <div class="statics-box product-container alert-stock">
+
+                    <header class="alert-header-stock">
+                        <h3 class="heading-h3">Notificação de Estoque</h3>
+                        <div>
+                            <a href="#" class="see-all-link">Ver todos <ion-icon
+                                    name="arrow-forward-outline"></ion-icon></a>
+                        </div>
+                    </header>
+                    <div class="container ">
+                        <div class="estaticos">
+                            <div class="alert-header">
+
+                                <span>Producto</span>
+                                <span>Categoria</span>
+                                <span>Mínimo</span>
+                                <span>Estoque</span>
+                            </div>
+                            <div class="low-stock-list">
+
+                                <div class="product-stock-alert ">
+
+                                    <span class="product-span"> <span class="product-alert-icon"><ion-icon
+                                                name="warning-outline"></ion-icon></span>
+                                        Mackbook Pro</span>
+                                    <span>Computador</span>
+                                    <span>10</span>
+                                    <span>9</span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    PAGINAÇÃO DO PRODUCTO
+                    <div class="subheader">
+                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
+                                class="current-product-page total-pages">10</span></div>
+                        <div class="btn-pages">
+                            <button class="btn-previous-page">
+                                <ion-icon name="chevron-back-outline"></ion-icon></button>
+                            <span class="curr-page-number">1</span>
+                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div> 
                 </div> -->
 
             </div>
 
-            <div class="container-registos">
 
-                <div class="saidas-productos-box  registos-box">
-                    <header class="registos-header">
-                        <h3 class="heading-h3">Entradas de productos</h3>
-                        <div>
-                            <a href="#" class="see-all-link">Ver todos <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
-                        </div>
-                    </header>
-                    <div class="entradas-product">
-                        <div class="product product-subheader">
-                            <span class="">#</span>
-                            <span>Producto</span>
-                            <span>Categoria</span>
-                            <span>Quantidade</span>
-                            <span>Data</span>
-                        </div>
-                        <div class="product ">
-                            <span class="out-product-icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="saidas-productos-box  registos-box">
-                    <header class="registos-header">
-                        <h3 class="heading-h3">Saidas de productos</h3>
-                        <div>
-                            <a href="#" class="see-all-link">Ver todos <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
-                        </div>
-                    </header>
-                    <div class="entradas-product">
-                        <div class="product product-subheader">
-                            <span class="">#</span>
-                            <span>Producto</span>
-                            <span>Categoria</span>
-                            <span>Quantidade</span>
-                            <span>Data</span>
-                        </div>
-                        <div class="product ">
-                            <span class="income-product-icon"><ion-icon name="arrow-up-outline"></ion-icon></span>
-                            <span>Mackbook Pro</span>
-                            <span>Computador</span>
-                            <span>105</span>
-                            <span>08/04/2024</span>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <!-- CONTAINER DOS PRODUCTOS -->
             <div class="statics-box product-container">
 
                 <div class="subheader">
 
-                    <h3>
-                        Baixos Estoque
-                    </h3>
+                    <h3 class="heading-h3">Histórico</h3>
 
-                    <!-- CLASSIFICAR O PRODUTO POR: DATA, PREÇO E QUANTIDADE -->
                     <div class="sort-box">
                         <ion-icon name="options-outline"></ion-icon>
                         <select name="" id="" class="sort">
@@ -222,44 +246,47 @@
                 <div class="container ">
                     <div class="estaticos">
                         <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
-                        <div class="products-header">
-                            <div>
-                                <span><ion-icon name="list-outline"></ion-icon></span>
-                                <span>Productos</span>
-                            </div>
+                        <div class="products-historic-header">
+
+                            <span>Productos</span>
                             <span>Categoria</span>
-                            <span>Qtd. Mínima</span>
                             <span>Quantidade</span>
-                            <span>Status</span>
-                            <span>Actualização</span>
-                            <span>Acção</span>
+                            <span>Tipo</span>
+                            <span>Data</span>
+                            <span>Ver</span>
                         </div>
                         <!-- PRODUCTOS -->
-                        <div class="low-stock-list">
+                        <div class="product-in-out-history">
+                            <div class="product-item-history" data-id="">
 
-                            <div class="product-item">
-                                <!-- NOME DO PRODUCTO -->
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
-                                </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
+                                <span class="product-name"><ion-icon name="arrow-down-outline"
+                                        class="in-product"></ion-icon>
+                                    Computador</span>
+
+                                <span class="product-category">Electronicos</span>
+                                <span class="product-price"> 120</span>
+                                <span class="product-qtd ">Entrada</span>
+                                <span class="product-date">Agora mesmo</span>
                                 <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
                                 <span class="product-action">
-                                    <button class="btn-edit-product"><ion-icon
-                                            name="create-outline"></ion-icon></button>
-                                    <button class="btn-delete-product"><ion-icon
-                                            name="trash-outline"></ion-icon></button>
-                                    <button class="btn-details-product"><ion-icon
-                                            name="ellipsis-vertical-outline"></ion-icon></button>
+                                    <button class="btn-update-stock"><ion-icon name="eye-outline"></ion-icon></button>
                                 </span>
                             </div>
+                            <div class="product-item-history" data-id="">
 
+                                <span class="product-name"><ion-icon name="arrow-up-outline"
+                                        class="out-product"></ion-icon>
+                                    Computador</span>
 
+                                <span class="product-category">Electronicos</span>
+                                <span class="product-price"> 120</span>
+                                <span class="product-qtd ">Saida</span>
+                                <span class="product-date">Agora mesmo</span>
+                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
+                                <span class="product-action">
+                                    <button class="btn-update-stock"><ion-icon name="eye-outline"></ion-icon></button>
+                                </span>
+                            </div>
                         </div>
 
                     </div>
