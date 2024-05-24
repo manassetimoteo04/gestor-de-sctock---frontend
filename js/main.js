@@ -97,7 +97,7 @@ class renderDataMain {
 				<span class="sell-date">${formatNumbers.formatDates(
           new Date(trans.date)
         )} </span>
-				<span class="sell-status">${trans.paymentStatus}</span>
+				<span class="sell-status">${trans.status}</span>
 			</div>
       `;
         this.recentTransationContainer.insertAdjacentHTML("afterbegin", html);
@@ -133,23 +133,23 @@ class renderDataMain {
       });
     }
   }
-  _formatCurrency(number) {
-    const numb = number;
-    const options = {
-      style: "currency",
-      currency: "AOA",
-    };
-    return new Intl.NumberFormat("pt-AO", options).format(numb);
-  }
-  _formatDates = function (now) {
-    const calDaysFuntion = (date1, date2) =>
-      Math.round(Math.abs(date1 - date2) / (1000 * 60 * 60 * 24));
-    const displayDays = calDaysFuntion(new Date(), now);
-    if (displayDays === 0) return `Hoje`;
-    if (displayDays === 1) return `Ontem`;
-    if (displayDays <= 7) return `Há ${displayDays} dias`;
-    return new Intl.DateTimeFormat("pt-PT").format(now);
-  };
+  // _formatCurrency(number) {
+  //   const numb = number;
+  //   const options = {
+  //     style: "currency",
+  //     currency: "AOA",
+  //   };
+  //   return new Intl.NumberFormat("pt-AO", options).format(numb);
+  // }
+  // _formatDates = function (now) {
+  //   const calDaysFuntion = (date1, date2) =>
+  //     Math.round(Math.abs(date1 - date2) / (1000 * 60 * 60 * 24));
+  //   const displayDays = calDaysFuntion(new Date(), now);
+  //   if (displayDays === 0) return `Hoje`;
+  //   if (displayDays === 1) return `Ontem`;
+  //   if (displayDays <= 7) return `Há ${displayDays} dias`;
+  //   return new Intl.DateTimeFormat("pt-PT").format(now);
+  // };
 }
 
 // CLASSE PARA MANIPULAÇÃO GERAL DO DOM
@@ -188,7 +188,6 @@ class MainApp extends renderDataMain {
   }
   _showNofitication(e) {
     this.notiticaTionHeaderContainer.classList.toggle("hidden");
-    console.log(e);
   }
   _profileToggle() {
     this.body.classList.toggle("show");

@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="menu-hidden">
+<body >
     <!-- SESSÃO PRINCIPAL -->
     <section class="dashboard-section main-section">
         <!-- HEADER PRINCIPAL -->
@@ -28,10 +28,10 @@
             <!-- BARRA DE PESQUISA -->
             <div class="search__div">
                 <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
-                <div>
+                <!-- <div>
                     <input type="text" placeholder="Pesquisar" class="input__search">
                     <ion-icon name="search-outline"></ion-icon>
-                </div>
+                </div> -->
             </div>
             <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
@@ -176,7 +176,31 @@
 
                 <div class="stock-notification-container">
                     <h3 class="heading-h3">Notificações de Estoque</h3>
+                    <div class="notification-stock-list">
+
+                        <div class="stock-notification-box">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <div class="notification-content">
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tenetur deserunt
+                                    </p>
+                                    <span class="notification-time">há 1 min</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stock-notification-box">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <div class="notification-content">
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tenetur deserunt
+                                    </p>
+                                    <span class="notification-time">há 1 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- <div class="statics-box product-container alert-stock">
 
                     <header class="alert-header-stock">
@@ -230,18 +254,30 @@
 
             <div class="statics-box product-container">
 
-                <div class="subheader">
+                <div class="list-header">
 
-                    <h3 class="heading-h3">Histórico</h3>
+                    <h3 class="heading-h3">Histórico de vendas</h3>
+                    <div class="sub-box-header">
 
-                    <div class="sort-box">
-                        <ion-icon name="options-outline"></ion-icon>
-                        <select name="" id="" class="sort">
-                            <option value="date">Classificar por data</option>
-                            <option value="price">Classificar por preço</option>
-                            <option value="qtd">Classificar por Qtd</option>
-                        </select>
+                        <div class="seach-product">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input type="text" placeholder="Pesquisar nome do producto"
+                                class="input__search search-input-history-product">
+                        </div>
+
+                        <div class="sort-by">
+                            <ion-icon name="filter-outline"></ion-icon>
+                            <span class="default">Data</span>
+                            <div name="" id="" class="sort-list">
+                                <span class="date">Data</span>
+                                <span class="qtd">Estoque</span>
+                                <span class="outcome">Entradas</span>
+                                <span class="income">Saídas</span>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="container ">
                     <div class="estaticos">
@@ -256,6 +292,7 @@
                             <span>Ver</span>
                         </div>
                         <!-- PRODUCTOS -->
+
                         <div class="product-in-out-history">
                             <div class="product-item-history" data-id="">
 
@@ -288,13 +325,13 @@
                                 </span>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
                 <!-- PAGINAÇÃO DO PRODUCTO -->
-                <div class="subheader">
-                    <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                            class="current-product-page total-pages">10</span></div>
+                <div class="pagination-box">
+
+                    <div class="pagination">Páginas <span class="total-pages">10</span></div>
                     <div class="btn-pages">
                         <button class="btn-previous-page">
                             <ion-icon name="chevron-back-outline"></ion-icon></button>
@@ -302,6 +339,7 @@
                         <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon> </button>
                     </div>
                 </div>
+
             </div>
         </section>
     </section>

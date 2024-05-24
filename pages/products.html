@@ -18,7 +18,7 @@
     <script defer type="module" src="../js/controller.js"></script>
 </head>
 
-<body class="menu-hidden">
+<body>
     <!-- SESSÃO PRINCIPAL -->
     <section class="dashboard-section main-section">
         <!-- HEADER PRINCIPAL -->
@@ -154,27 +154,32 @@
             <!-- CONTAINER DOS PRODUCTOS -->
             <div class="statics-box product-container">
 
-                <div class="subheader">
 
-                    <div class="links">
-                        <!-- <ul class="product-lis">
-                            <li class="active">Productos</li>
-                            <li>Entrada e saidas</li>
-                            <li>Estoques baixo</li>
 
-                        </ul> -->
+                <div class="list-header">
+
+                    <h3 class="heading-h3">Todos os Productos</h3>
+                    <div class="sub-box-header">
+
+                        <div class="seach-product">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input type="text" placeholder="Pesquisar nome do producto"
+                                class="input__search product-search-input">
+                        </div>
+
+                        <div class="sort-by">
+                            <ion-icon name="filter-outline"></ion-icon>
+                            <span class="default">Data</span>
+                            <div name="" id="" class="sort-list">
+                                <span class="date">Data</span>
+                                <span class="qtd">Estoque</span>
+                                <span class="price">Preço</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- CLASSIFICAR O PRODUTO POR: DATA, PREÇO E QUANTIDADE -->
-                    <div class="sort-box">
-                        <ion-icon name="options-outline"></ion-icon>
-                        <select name="" id="" class="sort">
-                            <option value="date">Classificar por data</option>
-                            <option value="price">Classificar por preço</option>
-                            <option value="qtd">Classificar por Qtd</option>
-                        </select>
-                    </div>
                 </div>
+
                 <div class="container ">
                     <div class="estaticos">
                         <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
@@ -192,9 +197,9 @@
                         <!-- PRODUCTOS -->
                         <div class="product-list">
 
-                            <div class="empty-product">
+                            <!-- <div class="empty-product">
                                 <p>Nenhum producto encontrado</p>
-                            </div>
+                            </div> -->
                             <!-- <div class="product-item">
                                
                                 <div>
@@ -223,13 +228,15 @@
                     </div>
                 </div>
                 <!-- PAGINAÇÃO DO PRODUCTO -->
-                <div class="subheader">
-                    <div class="pagination">Páginas <span class="current-product-page total-pages">10</span></div>
+                <div class="pagination-box">
+
+                    <div class="pagination">Páginas <span class="total-pages-product">10</span></div>
                     <div class="btn-pages">
-                        <button class="btn-previous-page">
-                            <ion-icon name="chevron-back-outline"></ion-icon></button>
-                        <span class="curr-page-number">1</span>
-                        <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon> </button>
+                        <button class="btn-previous-page-product">
+                            <<ion-icon name="chevron-back-outline"></ion-icon></button>
+                        <span class="curr-page-number-product">1</span>
+                        <button class="btn-next-page-product"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            ></button>
                     </div>
                 </div>
             </div>

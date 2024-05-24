@@ -123,11 +123,11 @@
 
   .side__bar {
     position: absolute;
-    width: 40%;
+    width: 50%;
   }
 
   .menu-hidden .main__header {
-    margin-left: 40%;
+    margin-left: 50%;
   }
 
   .main__header .profile__name-box {

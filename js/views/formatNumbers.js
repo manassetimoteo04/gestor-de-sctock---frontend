@@ -37,6 +37,3 @@ const formatNumbers = new FormatNumbers();
 export { formatNumbers };
 
 const date = new Date("2024-05-19T22:00:34.921Z");
-console.log(new Date().toISOString());
-console.log(formatNumbers.formatDates(date));
-console.log(new Intl.DateTimeFormat("pt-PT").format(date));

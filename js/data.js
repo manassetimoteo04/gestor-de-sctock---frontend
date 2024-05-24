@@ -21,10 +21,10 @@ const appData = {
   products: [
     {
       id: 101,
-      name: "Computador",
+      name: "Arca",
       description: "Description of Product A",
-      price: 100.99,
-      supplier: "Supplier X",
+      price: 590.99,
+      supplier: "Supplier 124",
       category: "Category 1",
       stock: 70,
       alert: 40,
@@ -33,51 +33,87 @@ const appData = {
     },
     {
       id: 102,
-      name: "Computador",
+      name: "Impressora",
       description: "Description of Product A",
-      price: 34.99,
+      price: 3090.99,
       supplier: "Supplier X",
       category: "Category 1",
-      stock: 50,
-      alert: 60,
+      stock: 70,
+      alert: 40,
       sales: 45,
-      date: "2020-07-11T23:36:17.929Z",
+      date: "2020-07-12T10:51:36.790Z",
     },
     {
       id: 103,
-      name: "Impressora",
-      description: "Description of Product B",
-      price: 20.99,
-      supplier: "Supplier Y",
-      category: "Category 2",
-      stock: 10,
-      alert: 10,
+      name: "Tv Plasma",
+      description: "Description of Product A",
+      price: 88.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 70,
+      alert: 40,
       sales: 45,
-      date: "2024-05-13T17:01:17.194Z",
+      date: "2020-07-12T10:51:36.790Z",
     },
     {
       id: 104,
-      name: "Impressora",
-      description: "Description of Product B",
-      price: 450.99,
-      supplier: "Supplier Y",
-      category: "Category 2",
-      stock: 450,
+      name: "Calculadora",
+      description: "Description of Product A",
+      price: 70.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 50,
       alert: 40,
-      sales: 105,
-      date: "2024-05-15T14:11:59.604Z",
+      sales: 45,
+      date: "2020-07-12T10:51:36.790Z",
     },
     {
       id: 105,
-      name: "Impressora",
-      description: "Description of Product B",
-      price: 28.99,
-      supplier: "Supplier Y",
-      category: "Category 2",
-      stock: 300,
+      name: "AC Simba",
+      description: "Description of Product A",
+      price: 450.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 12,
       alert: 40,
-      sales: 205,
-      date: "2020-04-01T10:17:24.185Z",
+      sales: 45,
+      date: "2020-07-12T10:51:36.790Z",
+    },
+    {
+      id: 106,
+      name: "Mesa",
+      description: "Description of Product A",
+      price: 110.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 230,
+      alert: 40,
+      sales: 45,
+      date: "2020-07-12T10:51:36.790Z",
+    },
+    {
+      id: 107,
+      name: "Cadeira",
+      description: "Description of Product A",
+      price: 800.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 9,
+      alert: 40,
+      sales: 45,
+      date: "2020-07-12T10:51:36.790Z",
+    },
+    {
+      id: 108,
+      name: "Fones",
+      description: "Description of Product A",
+      price: 100.99,
+      supplier: "Supplier X",
+      category: "Category 1",
+      stock: 28,
+      alert: 40,
+      sales: 45,
+      date: "2020-07-12T10:51:36.790Z",
     },
   ],
   inventory: {
@@ -97,91 +133,17 @@ const appData = {
         message: "Stock for Product B is below the threshold.",
         threshold: 20,
         stock: 12,
-      },
-      {
-        productId: 102,
-        message: "Stock for Product B is below the threshold.",
-        threshold: 20,
-        stock: 12,
-      },
-      {
-        productId: 102,
-        message: "Stock for Product B is below the threshold.",
-        threshold: 20,
-        stock: 12,
+        date: "2024-05-19T10:17:24.185Z",
       },
     ],
   },
   registerInOutProducts: [
     {
-      nome: "Produto A",
-      quantidade: 50,
-      data: "2024-05-20",
-      categoria: "Eletrônicos",
-      tipo: "entrada",
-    },
-    {
-      nome: "Produto B",
-      quantidade: 30,
-      data: "2024-05-21",
-      categoria: "Roupas",
-      tipo: "entrada",
-    },
-    {
-      nome: "Produto A",
-      quantidade: 20,
-      data: "2024-05-22",
-      categoria: "Eletrônicos",
-      tipo: "saída",
-    },
-    {
-      nome: "Produto C",
-      quantidade: 40,
-      data: "2024-05-22",
-      categoria: "Alimentos",
-      tipo: "entrada",
-    },
-    {
-      nome: "Produto B",
-      quantidade: 10,
-      data: "2024-05-23",
-      categoria: "Roupas",
-      tipo: "saída",
-    },
-    {
-      nome: "Produto D",
-      quantidade: 25,
-      data: "2024-05-24",
-      categoria: "Ferramentas",
-      tipo: "entrada",
-    },
-    {
-      nome: "Produto C",
-      quantidade: 15,
-      data: "2024-05-25",
-      categoria: "Alimentos",
-      tipo: "saída",
-    },
-    {
-      nome: "Produto E",
-      quantidade: 60,
-      data: "2024-05-25",
-      categoria: "Móveis",
-      tipo: "entrada",
-    },
-    {
-      nome: "Produto A",
-      quantidade: 10,
-      data: "2024-05-26",
-      categoria: "Eletrônicos",
-      tipo: "saída",
-    },
-    {
-      nome: "Produto F",
-      quantidade: 80,
-      data: "2024-05-27",
-      categoria: "Brinquedos",
-      tipo: "entrada",
+      name: "Massa F",
+      quantity: 80,
+      date: "2024-05-22T10:17:24.185Z",
+      category: "Brinquedos",
+      type: "entrada",
     },
   ],
   sales: [
@@ -189,7 +151,108 @@ const appData = {
       id: 201,
       date: "2024-05-19T16:15:04.904Z",
       clientId: 301,
-      totalAmount: 50.99,
+      totalAmount: 10507.99,
+      items: [
+        {
+          productId: 101,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 102,
+          quantity: 1,
+          price: 20.99,
+        },
+        {
+          productId: 103,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "pending",
+      paymentType: "Cash",
+      invoice: {
+        id: "INV20240512",
+        generatedAt: "2024-05-12T10:00:00Z",
+      },
+    },
+    {
+      id: 202,
+      date: "2024-05-12T16:15:04.904Z",
+      clientId: 302,
+      totalAmount: 50507.99,
+      items: [
+        {
+          productId: 104,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 108,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "success",
+      paymentType: "Cash",
+      invoice: {
+        id: "INV20240512",
+        generatedAt: "2024-05-12T10:00:00Z",
+      },
+    },
+    {
+      id: 203,
+      date: "2024-05-19T16:15:04.904Z",
+      clientId: 303,
+      totalAmount: 5007.99,
+      items: [
+        {
+          productId: 104,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 103,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "pending",
+      paymentType: "Cash",
+      invoice: {
+        id: "INV20240512",
+        generatedAt: "2024-05-12T10:00:00Z",
+      },
+    },
+    {
+      id: 204,
+      date: "2024-05-19T16:15:04.904Z",
+      clientId: 301,
+      totalAmount: 100507.99,
+      items: [
+        {
+          productId: 105,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 107,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "success",
+      paymentType: "Cash",
+      invoice: {
+        id: "BBV20240512",
+        generatedAt: "2024-05-12T10:00:00Z",
+      },
+    },
+    {
+      id: 205,
+      date: "2024-05-19T16:15:04.904Z",
+      clientId: 302,
+      totalAmount: 10507.99,
       items: [
         {
           productId: 101,
@@ -202,7 +265,79 @@ const appData = {
           price: 20.99,
         },
       ],
-      paymentStatus: "Pago",
+      status: "pending",
+      paymentType: "Cash",
+      invoice: {
+        id: "PPNV20240512",
+        generatedAt: "2024-02-12T10:00:00Z",
+      },
+    },
+    {
+      id: 206,
+      date: "2024-05-18T16:15:04.904Z",
+      clientId: 303,
+      totalAmount: 50507.99,
+      items: [
+        {
+          productId: 101,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 102,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "success",
+      paymentType: "Cash",
+      invoice: {
+        id: "AANV20240512",
+        generatedAt: "2024-01-12T10:00:00Z",
+      },
+    },
+    {
+      id: 207,
+      date: "2024-05-09T16:15:04.904Z",
+      clientId: 301,
+      totalAmount: 5007.99,
+      items: [
+        {
+          productId: 101,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 102,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "pending",
+      paymentType: "Cash",
+      invoice: {
+        id: "KAV20240512",
+        generatedAt: "2024-03-15T10:00:00Z",
+      },
+    },
+    {
+      id: 208,
+      date: "2024-05-22T16:15:04.904Z",
+      clientId: 302,
+      totalAmount: 100507.99,
+      items: [
+        {
+          productId: 101,
+          quantity: 2,
+          price: 10.99,
+        },
+        {
+          productId: 102,
+          quantity: 1,
+          price: 20.99,
+        },
+      ],
+      status: "success",
       paymentType: "Cash",
       invoice: {
         id: "INV20240512",
@@ -213,8 +348,61 @@ const appData = {
   clients: [
     {
       id: 301,
-      name: "Client One",
-      email: "clientone@example.com",
+      name: "Mardoqueu Dickson",
+      email: "mardoqueu@gmail.com",
+      phone: "1234567890",
+      address: "123 Street, City, Country",
+      purchaseHistory: [
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      id: 302,
+      name: "Justina Pembele",
+      email: "justina@gmal.com",
+      phone: "1234567890",
+      address: "123 Street, City, Country",
+      purchaseHistory: [
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 303,
+      name: "Adelino Pembele",
+      email: "adelino@gmail.com",
       phone: "1234567890",
       address: "123 Street, City, Country",
       purchaseHistory: [
@@ -305,13 +493,8 @@ const appData = {
 };
 
 // const jsonData = JSON.stringify(appData, null, 2); // O 'null, 2' é para formatação com indentação de 2 espaços
-
+// const sorted = appData.products.sort(
+//   (a, b) => new Date(a.date) - new Date(b.date)
+// );
+// console.log(sorted);
 export { appData };
-
-const calDays = function (now) {
-  const newD = +new Date();
-  console.log(newD);
-  const date = Math.round((newD - new Date(now)) / (1000 * 60));
-  console.log(date);
-};
-calDays("2024-05-19T21:37:43.811Z");

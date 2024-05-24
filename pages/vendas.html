@@ -18,7 +18,7 @@
     <script defer type="module" src="../js/controller.js"></script>
 </head>
 
-<body class="menu-hidden">
+<body>
     <!-- SESSÃO PRINCIPAL -->
     <section class="dashboard-section main-section">
         <!-- HEADER PRINCIPAL -->
@@ -157,8 +157,29 @@
             <div class="grid-sell">
 
                 <div class="sell-history">
-                    <div class="subheader">
-                        <h3 class="heading-h3">Registo de Vendas</h3>
+                    <div class="list-header">
+
+                        <h3 class="heading-h3">Histórico de vendas</h3>
+                        <div class="sub-box-header">
+
+                            <div class="seach-product">
+                                <ion-icon name="search-outline"></ion-icon>
+                                <input type="text" placeholder="Pesquisar nome do producto"
+                                    class="input__search search-input-sell">
+                            </div>
+
+                            <div class="sort-by">
+                                <ion-icon name="filter-outline"></ion-icon>
+                                <span class="default">Data</span>
+                                <div name="" id="" class="sort-list sell-sort-list">
+                                    <span class="date">Data</span>
+                                    <span class="amount">Preço</span>
+                                    <span class="success">Sucesso</span>
+                                    <span class="pending">Pendente</span>
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -167,7 +188,7 @@
 
                             <div class="heading-sell">
                                 <div>
-                                    <span>Transação</span>
+                                    <span>Factura</span>
                                 </div>
                                 <span>Total</span>
                                 <span>Data</span>
@@ -176,146 +197,41 @@
 
 
                             </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status pending-payment">Pendente</span>
-                                <span class="selled-product-costumer">Adelino Pembele</span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
+                            <div class="sell-container-list">
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
+                                <div class="sell-box">
+                                    <div>
+                                        <span class="sell-icon"><ion-icon
+                                                name="swap-horizontal-outline"></ion-icon></span>
+                                        <div class="sell-product-description">
+                                            <span class="invoice-number">SMI034-950-9560</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
+                                    <span class="selled-roduct-price">$ 1200</span>
+                                    <span class="selled-product-date">08 Abr 2023</span>
+                                    <span class="selled-product-status success-payment">Sucesso</span>
+                                    <span class="selled-product-costumer">Mardoquéu Dickson</span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
                                 </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
                             </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
 
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
-                            <div class="sell-box">
-                                <div>
-                                    <span class="sell-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                                    <div class="sell-product-description">
-                                        <span class="selled-product-name">Computador</span>
-                                        <span class="selled-invoice-number">SMI034-950-9560</span>
-                                    </div>
-                                </div>
-                                <span class="selled-roduct-price">$ 1200</span>
-                                <span class="selled-product-date">08 Abr 2023</span>
-                                <span class="selled-product-status success-payment">Sucesso</span>
-                                <span class="selled-product-costumer">Mardoquéu Dickson</span>
-
-                            </div>
 
                         </div>
 
 
                     </div>
                     <!-- PAGINAÇÃO DA LISTA DE VENDAS -->
+
                     <div class="pagination-container">
-                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                                class="current-product-page total-pages">10</span></div>
+                        <div class="pagination">Páginas <span class="sell-total-page">10</span></div>
                         <div class="btn-pages">
-                            <button class="btn-previous-page">
-                                <ion-icon name="chevron-back-outline"></ion-icon></button>
-                            <span class="curr-page-number">1</span>
-                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            <button class="btn-previous-page-sell">
+                                < <ion-icon name="chevron-back-outline"></ion-icon>
+                            </button>
+                            <span class="curr-page-number-sell">1</span>
+                            <button class="btn-next-page-sell"> <ion-icon name="chevron-forward-outline"></ion-icon>>
                             </button>
                         </div>
                     </div>
@@ -333,9 +249,9 @@
                             <div class="detail-header">
                                 <span class="sell-icon detail-icon"><ion-icon
                                         name="swap-horizontal-outline"></ion-icon></span>
-                                <span class="current-product-sell-name">Computador</span>
+                                <span class="current-product-sell-name invoice-number-label-header">Computador</span>
                             </div>
-                            <span class="selled-product-status success-payment">Sucesso</span>
+                            <span class="selled-product-status single-status ">Sucesso</span>
                         </div>
                         <div class="detail-container">
                             <div class="current-sell-product border-detail">
@@ -367,26 +283,42 @@
                                         name="chevron-down-outline"></ion-icon></span>
                             </div>
                             <div class="details sell-details data-sell-product-detail">
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
+                                <div class="sell-item-list">
+
+                                    <div class="details-flex-box">
+                                        <span>Producto 1</span>
+                                        <span class="costumer">Computador</span>
+                                    </div>
+                                    <ul class="product-description-list">
+                                        <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
+                                                500</span></li>
+                                        <li><span>Quantidade</span> <span
+                                                class="selled-product-price costumer">40</span>
+                                        </li>
+                                    </ul>
+                                    <div class="details-flex-box">
+                                        <span>Producto 1</span>
+                                        <span class="costumer">Computador</span>
+                                    </div>
+                                    <ul class="product-description-list">
+                                        <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
+                                                500</span></li>
+                                        <li><span>Quantidade</span> <span
+                                                class="selled-product-price costumer">40</span>
+                                        </li>
+                                    </ul>
+                                    <div class="details-flex-box">
+                                        <span>Producto 1</span>
+                                        <span class="costumer">Computador</span>
+                                    </div>
+                                    <ul class="product-description-list">
+                                        <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
+                                                500</span></li>
+                                        <li><span>Quantidade</span> <span
+                                                class="selled-product-price costumer">40</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
-                                </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
 
                             </div>
 
@@ -424,16 +356,16 @@
                             <div class="details sell-details data-sell-payment-detail">
                                 <div class="details-flex-box">
                                     <span>Método de Pagamento</span>
-                                    <span class="current-parcel">Cartão</span>
+                                    <span class="payment-type">Cartão</span>
                                 </div>
-                                <div class="details-flex-box">
+                                <!-- <div class="details-flex-box">
                                     <span>Preço Unitário </span>
                                     <span class="current-parcel">$ 3050</span>
                                 </div>
                                 <div class="details-flex-box">
                                     <span>Quantidade</span>
                                     <span class="current-parcel">50</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="detail-container">
@@ -480,19 +412,23 @@
                                                 <span class="select-header">Disponível</span>
 
                                             </li>
-                                            <li class="product-item-select" data-product-id="">
-                                                <span class="product-item-name">Computador</span>
-                                                <span class="product-item-quantity">349</span>
-                                            </li>
-                                            <li class="product-item-select" data-product-id="">
-                                                <span class="product-item-name">Computador</span>
-                                                <span class="product-item-quantity">349</span>
-                                            </li>
+
+                                            <div class="mini-product-list">
+                                                <li class="product-item-select" data-product-id="">
+                                                    <span class="product-item-name">Computador</span>
+                                                    <span class="product-item-quantity">349</span>
+                                                </li>
+                                                <li class="product-item-select" data-product-id="">
+                                                    <span class="product-item-name">Computador</span>
+                                                    <span class="product-item-quantity">349</span>
+                                                </li>
+                                            </div>
                                         </ul>
                                     </div>
                                     <div class="new-sell-flex-box">
                                         <span>Quantidade do Producto</span>
-                                        <input type="number" class="new-sell-input" placeholder="Digite Quantidade">
+                                        <input type="number" class="new-sell-input product-quantity-input"
+                                            placeholder="Digite Quantidade">
                                     </div>
                                     <button class="btn-add-product-cart"><ion-icon
                                             name="add-outline"></ion-icon>Adicionar</button>
@@ -501,7 +437,18 @@
                                 <div class="cart-list">
                                     <span class="header-cart">Productos no Carrinho <ion-icon
                                             name="cart-outline"></ion-icon></span>
-                                    <ul>
+                                    <ul class="added-cart-list">
+
+                                        <li class="cart-item">
+                                            <div class="added-product">
+                                                <span>Producto 02:</span>
+                                                <span class="added-product-name">Computador</span>
+                                            </div>
+                                            <div class="added-product">
+                                                <span>Quantidade:</span>
+                                                <span class="added-product-name">34</span>
+                                            </div>
+                                        </li>
                                         <li class="cart-item">
                                             <div class="added-product">
                                                 <span>Producto 02:</span>
@@ -513,18 +460,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <ul>
-                                        <li class="cart-item">
-                                            <div class="added-product">
-                                                <span>Producto 01:</span>
-                                                <span class="added-product-name">Computador</span>
-                                            </div>
-                                            <div class="added-product">
-                                                <span>Quantidade:</span>
-                                                <span class="added-product-name">34</span>
-                                            </div>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div>
                             <div class="sell-input-group">
@@ -537,7 +473,20 @@
                                 <div class="details new-sell-details">
                                     <div class="new-sell-flex-box">
                                         <span>Nome do Cliente</span>
-                                        <input type="text" class="new-sell-input" placeholder="Digite Nome do Cliente">
+                                        <input type="text" class="new-sell-input select-client-input"
+                                            placeholder="Digite Nome do Cliente">
+                                    </div>
+                                    <div class="mini-client-list-container hidden">
+                                        <ul>
+                                            <div class="mini-header"><span>Nome</span> <span>Compras</span></div>
+                                            <div class="mini-client-list">
+                                                <li data-id=""><span class="client-name">Manasse Timóteo</span>
+                                                    <span>123</span>
+                                                </li>
+
+
+                                            </div>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -560,30 +509,7 @@
                                 </div>
                             </div>
 
-                            <div class="detail-container">
-                                <div class="current-sell-product border-detail">
-                                    <div>
-                                        <span class="current-product-sell-name sell-label">Prê-visualização da
-                                            Venda</span>
 
-                                    </div>
-
-                                </div>
-                                <div class="details sell-details">
-                                    <div class="details-flex-box">
-                                        <span>Método de Pagamento</span>
-                                        <span class="current-parcel">Cartão</span>
-                                    </div>
-                                    <div class="details-flex-box">
-                                        <span>Preço Unitário </span>
-                                        <span class="current-parcel">$ 3050</span>
-                                    </div>
-                                    <div class="details-flex-box">
-                                        <span>Quantidade</span>
-                                        <span class="current-parcel">50</span>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="current-sell-product border-detail">
                                 <div>
@@ -603,7 +529,13 @@
                         </form>
                     </div>
                 </div>
-
+                <div class="sell-succes-alert hidden">
+                    <div class="alert-succes">
+                        <span class="alert-sell-text">Venda realizada com sucesso</span>
+                        <span class="btn-ok-alert">OK</span>
+                    </div>
+                    <div class="sell-overlay"></div>
+                </div>
             </div>
             </div>
 
@@ -611,6 +543,7 @@
         </section>
 
     </section>
+
 </body>
 
 </html>

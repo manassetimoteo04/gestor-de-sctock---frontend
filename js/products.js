@@ -9,6 +9,7 @@ class ProductApp {
     // SELECIONANDO VARIÁVEIS
     this.productContainer = document.querySelector(".estaticos");
     this.newProduct = document.querySelector(".btn-add-new-product");
+    this.serProductInput = document.querySelector(".product-search-input");
     this.formContainer = document.querySelector(".add-product-container");
     // console.log(this.formContainer);
     this.cancelAddProduct = document.querySelector(".cancelar-new-product");
@@ -26,13 +27,13 @@ class ProductApp {
     this.alerDeleteMsgContainer = document.querySelector(
       ".alert-message-container"
     );
-    this.btnPrevius = document.querySelector(".btn-previous-page");
-    this.btnNext = document.querySelector(".btn-next-page");
-    this.curPagelabel = document.querySelector(".curr-page-number");
+    this.curPagelabel = document.querySelector(".curr-page-number-product");
     this.curPage = document.querySelector(".current-product-page");
-    this.totalPagesLabel = document.querySelector(".total-pages");
+    this.totalPagesLabel = document.querySelector(".total-pages-product");
     this.searchInput = document.querySelector(".input__search");
-    this.sortContainer = document.querySelector(".sort");
+    this.btnNextPage = document.querySelector(".btn-next-page-product");
+    this.btnPevPage = document.querySelector(".btn-previous-page-product");
+    this.sorContainer = document.querySelector(".sort-list");
 
     this.newProduct?.addEventListener(
       "click",
@@ -78,18 +79,18 @@ class ProductApp {
       "click",
       this._setTarget.bind(this)
     );
-    this.searchInput?.addEventListener(
-      "keypress",
-      this._searchFunctionality.bind(this)
+    this.serProductInput?.addEventListener(
+      "input",
+      this._searchProductList.bind(this)
     );
-    this.sortContainer?.addEventListener(
-      "change",
-      this._sortFunction.bind(this)
+    this.sorContainer?.addEventListener(
+      "click",
+      this._sortProductList.bind(this)
     );
 
     //PAGINATION BTNS
-    this.btnNext?.addEventListener("click", this.goToNextPage.bind(this));
-    this.btnPrevius?.addEventListener(
+    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
+    this.btnPevPage?.addEventListener(
       "click",
       this.goToPreviousPage.bind(this)
     );
@@ -176,8 +177,17 @@ class ProductApp {
     this.detailsContainer.classList.add("hidden");
   }
   _renderProductList(arrList) {
-    console.log(arrList);
-    if (arrList.length > 0) {
+    if (arrList.length === 0) {
+      if (this.listContainer) this.listContainer.innerHTML = "";
+      const emptyList = `
+      <div class="empty-product">
+      <p>Nenhum producto encontrado</p>
+  </div>
+      `;
+      if (this.listContainer)
+        this.listContainer.insertAdjacentHTML("afterbegin", emptyList);
+    }
+    if (arrList.length !== 0) {
       if (this.listContainer) this.listContainer.innerHTML = "";
       arrList.forEach((element) => {
         let html = `
@@ -258,80 +268,85 @@ class ProductApp {
   }
 
   // FUNCIONALIDADE DE PESQUISA
-  _searchFunctionality(e) {
-    this.value = this.searchInput.value.toLowerCase();
-    this.result = this.productList.filter((item) => {
-      return item.searchData.startsWith(this.value);
-    });
-
-    document.querySelector(".product-list").innerHTML = "";
-    this.paginationRender(this.result);
-
-    this.searchInput.addEventListener("keydown", function (e) {
-      if (searchInput.value === "" && e.key === "Backspace")
-        this.paginationRender(productList);
-    });
+  _searchProductList(e) {
+    const value = this.serProductInput.value.toLowerCase();
+    console.log(value);
+    const filtered = appData.products.filter((item) =>
+      item.name.toLocaleLowerCase().startsWith(value)
+    );
+    this._pagination(filtered);
   }
-  _sortFunction() {
-    const e = this.sortContainer;
-    const sort = this.productList.sort((a, b) => {
-      if (e.value === "date") {
-        if (a.date < b.date) return -1;
-        if (a.date > b.date) return 1;
-      }
-      // if (e === "date") {
-      //   if (a.tipo === "entrada" && b.tipo === "saida") return -1;
-      //   if (a.tipo === "saida" && b.tipo === "entrada") return 1;
-      // }
-      if (e.value === "qtd") {
-        if (a.stock > b.stock) return 1;
-        if (a.stock < b.stock) return -1;
-      }
-
-      if (e.value === "price") {
-        if (a.price > b.price) return 1;
-        if (a.price < b.price) return -1;
-      }
-      return 0;
-    });
-    console.log(e.value === "date");
-    console.log(sort);
-    this._pagination(sort);
+  _sortProductList(e) {
+    const target = e.target.closest("span");
+    const def = document.querySelector(".default");
+    if (!target) return;
+    if (target.className === "date") {
+      this._sortByDate();
+      def.textContent = target.textContent;
+    }
+    if (target.className === "qtd") {
+      this._sortByStock();
+      def.textContent = target.textContent;
+    }
+    if (target.className === "price") {
+      this._sortByPrice();
+      def.textContent = target.textContent;
+    }
+    if (target.className === "income") {
+      this._filetInComeProduct();
+      def.textContent = target.textContent;
+    }
+  }
+  _sortByDate() {
+    const sorted = appData.products.sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
+    this._pagination(sorted);
+    console.log(sorted);
+  }
+  _sortByPrice() {
+    const sorted = appData.products.sort((a, b) => a.price - b.price);
+    this._pagination(sorted);
+    console.log(sorted);
+  }
+  _sortByStock() {
+    const sorted = appData.products.sort((a, b) => a.stock - b.stock);
+    this._pagination(sorted);
   }
 
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
+    this.productList = productList;
     this.productsPerPage = 7;
     this.currentPage = 1;
     this.totalPages = Math.ceil(productList.length / this.productsPerPage);
     this.totalPagesLabel.textContent = `${this.totalPages
       .toString()
       .padStart(2, 0)}`;
-    this.renderCurrentPage(this.currentPage);
+    this.renderCurrentPage(this.currentPage, productList);
   }
-  renderPage(page) {
+  renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
-    this.productsToRender = this.productList.slice(
-      this.startIndex,
-      this.endIndex
-    );
+    this.productsToRender = list.slice(this.startIndex, this.endIndex);
     this._renderProductList(this.productsToRender);
+    console.log(this.productsToRender);
   }
-  renderCurrentPage(currentPage) {
-    this.renderPage(currentPage);
+  renderCurrentPage(currentPage, list) {
+    this.renderPage(currentPage, list);
   }
   goToPreviousPage = function () {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.renderCurrentPage(this.currentPage);
+      this.renderCurrentPage(this.currentPage, this.productList);
+      console.log(this.productsToRender);
     }
     this.curPagelabel.textContent = this.currentPage;
   };
   goToNextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.renderCurrentPage(this.currentPage);
+      this.renderCurrentPage(this.currentPage, this.productList);
     }
     this.curPagelabel.textContent = this.currentPage;
   }

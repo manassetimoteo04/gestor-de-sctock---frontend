@@ -41,7 +41,7 @@ body {
 /* ESTILIZANDO O CONTAINER DOS ESTOQUES */
 .managing-stock {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -60,12 +60,10 @@ body {
   border: 1px solid var(--border-color);
 }
 
-
-
-.stock-tag {
+/* .stock-tag {
   font-weight: bold;
-  color: var(--primary-color-blue);
   margin-bottom: 2rem;
+  font-size: 2.8rem;
   display: inline-block;
 }
 
@@ -86,7 +84,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
+} */
 
 .total-stock-box div {
   display: flex;
@@ -118,10 +116,55 @@ body {
   background-color: var(--bg-divider-color);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
-  padding: 2rem;
+  min-height: 38rem;
+
 }
 
+.stock-notification-container .heading-h3 {
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
 
+.notification-stock-list {
+  overflow-y: scroll;
+  height: 100%;
+  max-height: 30rem;
+
+}
+
+.stock-notification-box {
+  padding: 2rem;
+  display: grid;
+
+  grid-template-columns: 0.3fr 6fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stock-notification-box:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+
+}
+
+.stock-notification-box ion-icon {
+  font-size: 2.4rem;
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.stock-notification-box .text {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 6fr 1fr;
+}
+
+.notification-time {
+  display: inline-block;
+  font-weight: 600;
+}
 
 .low-stock .stock-tag {
   color: inherit;
@@ -129,6 +172,75 @@ body {
 
 .btn-add-new-stock ion-icon {
   font-size: 2.2rem;
+}
+
+.sub-box-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 3rem;
+}
+
+.seach-product {
+  background-color: var(--background-color);
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--background-color);
+  width: 14rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.sort-by ion-icon {
+  border-right: 1px solid var(--border-color);
+  padding-right: 0.5rem;
+}
+
+.sort-by:hover .sort-list {
+  display: flex;
+}
+
+.sort-list {
+  position: absolute;
+  background-color: var(--background-color);
+  padding: 2rem 0.5rem;
+  bottom: -15.7rem;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  z-index: 999;
+}
+
+.sort-list span {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.sort-list span:hover {
+  background-color: var(--bg-divider-color);
+}
+
+.input__search {
+  border: none;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-stock-section .section-header {
@@ -161,6 +273,13 @@ body {
 .btn-pages {
   display: flex;
   gap: 1rem;
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
 }
 
 .btn-pages .curr-page-number {
@@ -288,9 +407,12 @@ body {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr 1fr 0.1fr;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
   align-items: center;
+}
+
+.product-item-history:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 
 .product-action {
@@ -391,24 +513,6 @@ body {
 
 /* ESTILIZANDO A LISTA DE PRODUCTOS COM ESTOQUES BAIXO */
 
-.sort {
-  background: none;
-  color: var(--primary-text-color);
-  font-size: inherit;
-}
-
-.sort:focus {
-  outline: none;
-}
-
-.sort-box {
-  padding: 1rem 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
 .products-header {
   display: grid;

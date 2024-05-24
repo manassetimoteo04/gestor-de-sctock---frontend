@@ -80,35 +80,66 @@ body {
 .main-section {
   max-width: 100%;
   display: grid;
-  grid-template-columns: 25fr 80fr;
+  /* grid-template-columns: 25fr 80fr; */
+  grid-template-columns: 5fr 95fr;
   grid-template-rows: 10fr 85fr;
   height: 100%;
   position: relative;
   transition: all 0.7s ease;
 }
 
-/* WORKING WITH THE MENU TOGGLE */
-.menu-hidden .main-section {
-  grid-template-columns: 5fr 95fr;
-}
-
-.menu-hidden .main-nav-link span {
+.main-nav-link span {
   user-select: none;
   display: none;
   pointer-events: none;
 }
 
-.menu-hidden .side__bar {
+.side__bar {
   padding: 2rem 1rem;
   padding-right: 0;
 }
 
-.menu-hidden .icon-logo {
+/* .full-logo {
+  display: none;
+} */
+
+.full-logo {
+  display: none;
+}
+
+.icon-logo {
+  display: block !important;
+}
+
+.logo {
+  padding: 0rem 1rem;
+}
+
+
+/* WORKING WITH THE MENU TOGGLE */
+.menu-hidden .main-section {
+  /* grid-template-columns: 5fr 95fr; */
+  grid-template-columns: 17fr 80fr;
+
+}
+
+.menu-hidden .main-nav-link span {
+  user-select: none;
   display: block;
+  pointer-events: none;
+}
+
+/* .menu-hidden .side__bar {
+  /* padding: 2rem 1rem;
+  padding-right: 0; 
+}
+*/
+.menu-hidden .icon-logo {
+  display: none !important;
 }
 
 .menu-hidden .full-logo {
-  display: none;
+  display: block;
 }
 
 .menu-hidden .logo {
@@ -367,7 +398,7 @@ input::placeholder {
 /* ESTILIZANDO O ASIDE BAR */
 .side__bar {
   grid-row: 1/-1;
-  padding: 2rem 3rem;
+  padding: 3rem 1rem;
   padding-right: 0;
   background-color: var(--bg-divider-color);
   overflow-y: scroll;
@@ -1029,19 +1060,12 @@ input::placeholder {
   border-radius: 0.5rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.empty-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
 
 .hidden {
   display: none;
