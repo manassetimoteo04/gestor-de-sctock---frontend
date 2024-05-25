@@ -1,8 +1,14 @@
 // REFACTORING THE CODE
-
+import { appData } from "./data.js";
+import { formatNumbers } from "./views/formatNumbers.js";
 class ClientApp {
+  _currentClientDetail;
   constructor() {
     // SELECIONANDO AS VARIÁVEIS
+    this.totalClientNumberLabel = document.querySelector(".total-client");
+    this.totalNewClientLabel = document.querySelector(".total-new-client");
+    this.totalActiveClient = document.querySelector(".total-active-client");
+
     this.actionClientBtns = document.querySelector(".action-client-btns");
     this.clientListContainer = document.querySelector(".client-container");
     this.clientDetailContainer = document.querySelector(
@@ -32,13 +38,33 @@ class ClientApp {
       ".add-new-client-container"
     );
     this.btnShowNewClientForm = document.querySelector(".btn-add-client");
+    this.clientContainerList = document.querySelector(".client-list-container");
+
+    this.totalPagesLabel = document.querySelector(".total-pages-client");
+    this.curPagelabel = document.querySelector(".curr-page-number-client");
+    this.btnPaginationClient = document.querySelector(".pagination-client");
+
+    this.inputSearchClient = document.querySelector(".search-input-client");
+    this.sortContainer = document.querySelector(".sort-by");
     // EVENT LISTNERS
+    this.inputSearchClient.addEventListener(
+      "input",
+      this._searchFilter.bind(this)
+    );
+    this.sortContainer.addEventListener(
+      "click",
+      this._sortByFunction.bind(this)
+    );
+    this.btnPaginationClient.addEventListener(
+      "click",
+      this._btnsPAgination.bind(this)
+    );
     this.btnCloseBuyDetail?.addEventListener(
       "click",
       this._closeBuyDetail.bind(this)
     );
 
-    this.actionClientBtns?.addEventListener(
+    this.clientContainerList?.addEventListener(
       "click",
       this._actionClient.bind(this)
     );
@@ -62,12 +88,21 @@ class ClientApp {
       "click",
       this._closeNewClientForm.bind(this)
     );
+    this.clientPurchaseContainer = document.querySelector(
+      ".client-pruchase-list"
+    );
     // this.newClientFormContainer?.addEventListener(
     //   "click",
     //   this._closeNewClientForm.bind(this)
     // );
+    this._pagination(appData.clients);
+    this._renderSummary();
   }
-
+  _renderSummary() {
+    const actives = appData.clients.filter((cl) => cl.status === "active");
+    this.totalClientNumberLabel.textContent = appData.clients.length;
+    this.totalActiveClient.textContent = actives.length;
+  }
   // FUNCÇÕES DOS EVENT LISTENERS
   _closeBuyDetail() {
     this.clientBuyDetailContainer?.classList.add("hidden");
@@ -75,8 +110,44 @@ class ClientApp {
   _actionClient(e) {
     const target = e.target.closest(".btn-details-user");
     if (!target) return;
+    const clientBox = target.closest(".client-box");
+    const clientID = +clientBox.dataset.id;
+    this._currentClientDetail = appData.clients.find(
+      (cl) => cl.id === clientID
+    );
+    this._settingClientContentDetail();
+    this._renderClientPurchaseList(this._currentClientDetail.purchaseHistory);
     this.clientListContainer.classList.add("hidden");
     this.clientDetailContainer.classList.remove("hidden");
+  }
+
+  _settingClientContentDetail() {
+    const clientImg = document.querySelector(".client-img");
+    const clientName = document.querySelector(".detail-client-name");
+    const clientEmail = document.querySelector(".detail-client-email");
+    const clientPhone = document.querySelector(".client-number");
+    const clientID = document.querySelector(".client-id");
+    const clientDescription = document.querySelector(".client-decription");
+    const clientResidence = document.querySelector(".client-residence");
+    const clientTotalPurchases = document.querySelector(
+      ".total-client-buy-number"
+    );
+    const totalBuyAmount = document.querySelector(".total-client-buy-amount");
+
+    const amount = this._currentClientDetail.purchaseHistory.reduce(
+      (acc, tot) => (acc += tot.totalAmount),
+      0
+    );
+    clientImg.src = this._currentClientDetail.imgPath;
+    clientName.textContent = this._currentClientDetail.name;
+    clientEmail.textContent = this._currentClientDetail.email;
+    clientPhone.textContent = this._currentClientDetail.phone;
+    clientID.textContent = this._currentClientDetail.id;
+    clientDescription.textContent = this._currentClientDetail.description;
+    clientResidence.textContent = this._currentClientDetail.address;
+    clientTotalPurchases.textContent =
+      this._currentClientDetail.purchaseHistory.length;
+    totalBuyAmount.textContent = formatNumbers.formatCurrency(amount);
   }
   _backToClient() {
     this.clientListContainer.classList.remove("hidden");
@@ -107,6 +178,168 @@ class ClientApp {
   }
   _closeNewClientForm() {
     this.newClientFormContainer.classList.add("hidden");
+  }
+  _renderClientList(list) {
+    if (!this.clientContainerList) return;
+    if (list.length === 0) {
+      this.clientContainerList.innerHTML = "";
+
+      const html = `
+      <div class="empty-product">
+      <p>Nenhum cliente encontrado</p>
+     </div>
+      `;
+      this.clientContainerList.insertAdjacentHTML("afterbegin", html);
+    }
+    if (list.length > 0) {
+      this.clientContainerList.innerHTML = "";
+      list.forEach((client) => {
+        const html = `
+      <div class="client-box" data-id="${client.id}">
+        <div>
+         <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
+         <span class="client-name">${client.name} </span>
+        </div>
+            <span class="client-phone-number">${client.phone}</span>
+            <span class="client-email">${client.email}</span>
+            <span class="client-total-sell">${
+              client.purchaseHistory.length
+            }</span>
+            <span class="client-status client-${client.status}">${
+          client.status === "active" ? "activo" : "inactivo"
+        }</span>
+            <span class="action-client-btns">
+            <button class="btn-edit-user"><ion-icon
+                 name="create-outline"></ion-icon></button>
+            <button class="btn-delete-user"><ion-icon
+                 name="trash-outline"></ion-icon></button>
+            <button class="btn-details-user"><ion-icon
+                 name="eye-outline"></ion-icon></button>
+            </span>
+
+       </div>
+      `;
+        this.clientContainerList.insertAdjacentHTML("afterbegin", html);
+      });
+    }
+  }
+
+  _searchFilter() {
+    const value = this.inputSearchClient.value.toLowerCase();
+    const filtered = appData.clients.filter((cl) =>
+      cl.name.toLocaleLowerCase().startsWith(value)
+    );
+    this._pagination(filtered);
+  }
+  _sortByFunction(e) {
+    const target = e.target.closest(".client-sort-list span");
+
+    const def = document.querySelector(".default");
+    if (target.classList.contains("name")) {
+      this._sortByName();
+      def.textContent = target.textContent;
+    }
+    if (target.classList.contains("active")) {
+      def.textContent = target.textContent;
+      this._filterActive();
+    }
+    if (target.classList.contains("inactive")) {
+      def.textContent = target.textContent;
+      this._filterInactive();
+    }
+  }
+  _sortByName() {
+    const filtered = appData.clients.sort((a, b) =>
+      b.name.localeCompare(a.name)
+    );
+    this._pagination(filtered);
+    console.log(filtered);
+  }
+  _filterActive() {
+    const filtered = appData.clients.filter((p) => p.status === "active");
+    this._pagination(filtered);
+  }
+  _filterInactive() {
+    const filtered = appData.clients.filter((p) => p.status === "inactive");
+    this._pagination(filtered);
+  }
+  _btnsPAgination(e) {
+    const targer = e.target.closest("button");
+    if (targer.classList.contains("btn-next-client")) this.goToNextPage();
+    if (targer.classList.contains("btn-prev-client")) this.goToPreviousPage();
+  }
+
+  _renderClientPurchaseList(arr) {
+    if (!this.clientPurchaseContainer) return;
+    if (arr.length === 0) {
+      this.clientPurchaseContainer.innerHTML = "";
+
+      const html = `
+      <div class="empty-product">
+      <p>Nenhum cliente encontrado</p>
+     </div>
+      `;
+      this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
+    }
+    if (arr.length > 0) {
+      this.clientPurchaseContainer.innerHTML = "";
+
+      const html = `
+      <div class="client-history">
+          <div>
+              <span class="client-icon"><ion-icon
+                      name="swap-horizontal-outline"></ion-icon></span>
+              <span class="buy-invoice-number">SM045495045</span>
+          </div>
+          <span class="buy-date">23/04/2024</span>
+          <span class="buy-amount">$ 4509.00</span>
+
+          <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
+      </div>
+      `;
+      this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
+    }
+  }
+  //PAGINAÇÃO
+  _pagination(productList) {
+    if (!this.totalPagesLabel) return;
+
+    this.productList = productList;
+    this.productsPerPage = 7;
+    this.currentPage = 1;
+    this.totalPages = Math.ceil(productList.length / this.productsPerPage);
+    this.totalPagesLabel.textContent = `${this.totalPages
+      .toString()
+      .padStart(2, 0)}`;
+
+    this.renderCurrentPage(this.currentPage, productList);
+  }
+
+  renderPage(page, list) {
+    this.startIndex = (page - 1) * this.productsPerPage;
+    this.endIndex = this.startIndex + this.productsPerPage;
+    this.productsToRender = list.slice(this.startIndex, this.endIndex);
+    this._renderClientList(this.productsToRender);
+  }
+
+  renderCurrentPage(currentPage, list) {
+    this.renderPage(currentPage, list);
+  }
+
+  goToPreviousPage = function () {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.renderCurrentPage(this.currentPage, this.productList);
+    }
+    this.curPagelabel.textContent = this.currentPage;
+  };
+
+  goToNextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.renderCurrentPage(this.currentPage, this.productList);
+    }
+    this.curPagelabel.textContent = this.currentPage;
   }
 }
 const client = new ClientApp();

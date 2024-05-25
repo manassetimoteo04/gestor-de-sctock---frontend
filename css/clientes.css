@@ -39,24 +39,74 @@ body {
   overflow: hidden;
 }
 
-.sort {
-  background: none;
-  color: var(--primary-text-color);
-  font-size: inherit;
+.list-header {
+  padding: 2rem 0;
 }
 
-.sort:focus {
-  outline: none;
-}
-
-.sort-box {
-  padding: 1rem 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
+.sub-box-header {
   display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 3rem;
+}
+
+.seach-product {
+  background-color: var(--background-color);
+  display: flex;
+  width: 100%;
+  padding: 1rem;
   align-items: center;
   gap: 1rem;
+  border-radius: 0.5rem;
 }
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--background-color);
+  width: 14rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.sort-by ion-icon {
+  border-right: 1px solid var(--border-color);
+  padding-right: 0.5rem;
+}
+
+.sort-by:hover .sort-list {
+  display: flex;
+}
+
+.sort-list {
+  position: absolute;
+  background-color: var(--background-color);
+  padding: 2rem 0.5rem;
+  bottom: -13.9rem;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  z-index: 999;
+}
+
+.sort-list span {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.sort-list span:hover {
+  background-color: var(--bg-divider-color);
+}
+
+.input__search {
+  border: none;
+}
+
 
 
 .btn-add-client {
@@ -171,6 +221,7 @@ body {
 
 .pagination-container {
   margin-top: auto;
+  padding: 2rem 0 !important;
 }
 
 .btn-pages button {
@@ -184,7 +235,7 @@ body {
   gap: 1rem;
 }
 
-.btn-pages .curr-page-number {
+.btn-pages .curr-page-number-client {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,7 +273,7 @@ body {
 
 .client-list .container {
   display: grid;
-  min-height: 55rem;
+  min-height: 40rem;
   overflow-x: scroll;
 
 }
@@ -232,7 +283,7 @@ body {
   grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1.5fr;
   font-weight: 600;
   border-bottom: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: 1rem 0;
   gap: 2rem;
   align-items: center;
   color: var(--primary-text-color);
@@ -242,7 +293,7 @@ body {
 .client-box {
   display: grid;
   grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1.5fr;
-  padding: 2rem;
+  padding: 1rem 0;
   gap: 2rem;
   align-items: center;
   min-width: 100rem;
@@ -559,12 +610,18 @@ body {
 
 }
 
+.client-purchase-sort-list {
+  top: 3.5rem;
+  max-height: 10rem;
+}
+
 .heading-client-history {
   display: grid;
   grid-template-columns: 2.5fr 1fr 1.5fr 0.5fr;
   font-weight: 600;
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
+  padding-top: 0;
   align-items: center;
   color: var(--primary-text-color);
   min-width: 50rem;

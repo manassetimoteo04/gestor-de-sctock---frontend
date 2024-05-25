@@ -734,19 +734,26 @@ body {
   z-index: 999999999;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
 }
 
+.alert-succes ion-icon {
+  font-size: 4rem;
+  color: var(--sucess-color);
+}
+
 .alert-sell-text {
   font-size: 1.8rem;
+  margin-top: 1rem;
 }
 
 .btn-ok-alert {
   font-weight: 600;
   color: var(--primary-text-color);
   cursor: pointer;
+  margin-top: 1rem;
+  width: 2rem;
 }
 
 .hidden {

@@ -347,11 +347,15 @@ const appData = {
   ],
   clients: [
     {
-      id: 301,
+      id: 300,
       name: "Mardoqueu Dickson",
       email: "mardoqueu@gmail.com",
       phone: "1234567890",
+      status: "active",
+      imgPath: "../assets/img/costumer/costumer1.png",
       address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
       purchaseHistory: [
         {
           saleId: 201,
@@ -374,11 +378,15 @@ const appData = {
     },
 
     {
-      id: 302,
-      name: "Justina Pembele",
+      id: 301,
+      name: "Kereni Pembele",
       email: "justina@gmal.com",
-      phone: "1234567890",
+      phone: "67867456",
+      status: "inactive",
+      imgPath: "../assets/img/costumer/costumer2.png",
       address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
       purchaseHistory: [
         {
           saleId: 201,
@@ -400,11 +408,110 @@ const appData = {
       ],
     },
     {
-      id: 303,
-      name: "Adelino Pembele",
-      email: "adelino@gmail.com",
-      phone: "1234567890",
+      id: 302,
+      name: "Marcelina Pembele",
+      email: "justina@gmal.com",
+      phone: "7854645676",
+      status: "inactive",
+      imgPath: "../assets/img/costumer/costumer1.png",
       address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
+      purchaseHistory: [
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 303,
+      name: "Andre Pembele",
+      email: "justina@gmal.com",
+      phone: "5667567756",
+      status: "inactive",
+      imgPath: "../assets/img/costumer/costumer2.png",
+      address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
+      purchaseHistory: [
+        {
+          saleId: 201,
+          date: "2024-05-12",
+          totalAmount: 50.99,
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 304,
+      name: "Pembele",
+      email: "adelino@gmail.com",
+      phone: "134545566",
+      status: "active",
+      imgPath: "../assets/img/costumer/costumer3.jpg",
+      address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
+
       purchaseHistory: [
         {
           saleId: 201,
@@ -433,6 +540,8 @@ const appData = {
       email: "clientone@example.com",
       phone: "1234567890",
       address: "123 Street, City, Country",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
     },
   ],
   reports: {

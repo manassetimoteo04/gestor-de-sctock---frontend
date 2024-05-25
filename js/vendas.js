@@ -153,13 +153,14 @@ class VendasApp {
 
   _renderAddedProduct(list) {
     this.carListContainer = document.querySelector(".added-cart-list");
+    if (!this.carListContainer) return;
     this.carListContainer.innerHTML = "";
 
     if (!this.carListContainer) return;
     if (list.length === 0) {
+      this.carListContainer.innerHTML = "";
       const html = `
       <span class="empty-list">Nenhum producto adicionado</span>`;
-      this.carListContainer.innerHTML = "";
       this.carListContainer.insertAdjacentHTML("afterbegin", html);
     }
 
@@ -553,6 +554,7 @@ class VendasApp {
     this._renderMiniProductList(appData.products);
     this._eventListeners();
     this._renderMiniClientList(appData.clients);
+    this._renderAddedProduct([]);
   }
 }
 const sellApp = new VendasApp();
