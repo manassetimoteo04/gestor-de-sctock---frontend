@@ -1,4 +1,6 @@
 // REFACTORING THE CODE
+const c = console.log.bind(document);
+
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";
 class ClientApp {
@@ -43,22 +45,59 @@ class ClientApp {
     this.totalPagesLabel = document.querySelector(".total-pages-client");
     this.curPagelabel = document.querySelector(".curr-page-number-client");
     this.btnPaginationClient = document.querySelector(".pagination-client");
-
+    this.purchaseBtnsPage = document.querySelector(".purchase-btns-page");
     this.inputSearchClient = document.querySelector(".search-input-client");
     this.sortContainer = document.querySelector(".sort-by");
+
+    this.clientPurchaseContainer = document.querySelector(
+      ".client-purchase-list"
+    );
+
+    this.inputSearchPuchaseList = document.querySelector(
+      ".search-input-client-purchase"
+    );
+    this.purchaseSortContainer = document.querySelector(".purchase-sort-by");
+    this.totalPurchasePages = document.querySelector(".total-pages-purchases");
+    this.currentPurchasePage = document.querySelector(".current-page-purchase");
+
+    this.alertDeleteUser = document.querySelector(".delete-user-alert");
+    this.btnDeleteCurrentCostumer =
+      document.querySelector(".btn-delete-client");
     // EVENT LISTNERS
-    this.inputSearchClient.addEventListener(
+    this.btnDeleteCurrentCostumer?.addEventListener(
+      "click",
+      this._deleteClientShowPopUp.bind(this)
+    );
+    this.inputSearchClient?.addEventListener(
       "input",
       this._searchFilter.bind(this)
     );
-    this.sortContainer.addEventListener(
+    this.sortContainer?.addEventListener(
       "click",
       this._sortByFunction.bind(this)
     );
-    this.btnPaginationClient.addEventListener(
+
+    this.btnPaginationClient?.addEventListener(
       "click",
       this._btnsPAgination.bind(this)
     );
+    this.purchaseBtnsPage?.addEventListener(
+      "click",
+      this._btnsPAgination.bind(this)
+    );
+    this.inputSearchPuchaseList?.addEventListener(
+      "input",
+      this._searchPurchaeFilter.bind(this)
+    );
+    this.purchaseSortContainer?.addEventListener(
+      "click",
+      this._sortPurchase.bind(this)
+    );
+    this.clientPurchaseContainer?.addEventListener(
+      "click",
+      this._showBuyDetail.bind(this)
+    );
+
     this.btnCloseBuyDetail?.addEventListener(
       "click",
       this._closeBuyDetail.bind(this)
@@ -88,8 +127,9 @@ class ClientApp {
       "click",
       this._closeNewClientForm.bind(this)
     );
-    this.clientPurchaseContainer = document.querySelector(
-      ".client-pruchase-list"
+    this.alertDeleteUser?.addEventListener(
+      "click",
+      this._deleteClientClosePopUp.bind(this)
     );
     // this.newClientFormContainer?.addEventListener(
     //   "click",
@@ -99,6 +139,7 @@ class ClientApp {
     this._renderSummary();
   }
   _renderSummary() {
+    if (!this.totalClientNumberLabel) return;
     const actives = appData.clients.filter((cl) => cl.status === "active");
     this.totalClientNumberLabel.textContent = appData.clients.length;
     this.totalActiveClient.textContent = actives.length;
@@ -107,18 +148,33 @@ class ClientApp {
   _closeBuyDetail() {
     this.clientBuyDetailContainer?.classList.add("hidden");
   }
-  _actionClient(e) {
-    const target = e.target.closest(".btn-details-user");
+  _showBuyDetail(e) {
+    const target = e.target.closest(".btn-see-buy-detail");
     if (!target) return;
-    const clientBox = target.closest(".client-box");
-    const clientID = +clientBox.dataset.id;
-    this._currentClientDetail = appData.clients.find(
-      (cl) => cl.id === clientID
-    );
-    this._settingClientContentDetail();
-    this._renderClientPurchaseList(this._currentClientDetail.purchaseHistory);
-    this.clientListContainer.classList.add("hidden");
-    this.clientDetailContainer.classList.remove("hidden");
+    this.clientBuyDetailContainer?.classList.remove("hidden");
+    const buy = target.closest(".client-history");
+    const buyID = +buy.dataset.id;
+    this._settingPurchaseDetailContent(buyID);
+  }
+  _actionClient(e) {
+    const target = e.target.closest("button");
+    // const target = e.target.closest(".btn-details-user");
+    // const target2 = e.target.closest(".btn-details-user");
+
+    if (target.classList.contains("btn-details-user")) {
+      const clientBox = target.closest(".client-box");
+      const clientID = +clientBox.dataset.id;
+      this._currentClientDetail = appData.clients.find(
+        (cl) => cl.id === clientID
+      );
+      this._settingClientContentDetail();
+      this._pagination(this._currentClientDetail.purchaseHistory);
+      this.clientListContainer.classList.add("hidden");
+      this.clientDetailContainer.classList.remove("hidden");
+    }
+    if (target.classList.contains("btn-delete-user")) {
+      this._deleteClientShowPopUp();
+    }
   }
 
   _settingClientContentDetail() {
@@ -152,6 +208,7 @@ class ClientApp {
   _backToClient() {
     this.clientListContainer.classList.remove("hidden");
     this.clientDetailContainer.classList.add("hidden");
+    this._pagination(appData.clients);
   }
   _clientHistoryFunction(e) {
     const target = e.target.closest(".btn-see-buy-detail");
@@ -194,6 +251,7 @@ class ClientApp {
     if (list.length > 0) {
       this.clientContainerList.innerHTML = "";
       list.forEach((client) => {
+        if (!client.id) return;
         const html = `
       <div class="client-box" data-id="${client.id}">
         <div>
@@ -265,6 +323,7 @@ class ClientApp {
   }
   _btnsPAgination(e) {
     const targer = e.target.closest("button");
+
     if (targer.classList.contains("btn-next-client")) this.goToNextPage();
     if (targer.classList.contains("btn-prev-client")) this.goToPreviousPage();
   }
@@ -276,28 +335,139 @@ class ClientApp {
 
       const html = `
       <div class="empty-product">
-      <p>Nenhum cliente encontrado</p>
+      <p>Nenhuma compra encontrada</p>
      </div>
       `;
       this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
     }
     if (arr.length > 0) {
       this.clientPurchaseContainer.innerHTML = "";
+      arr.forEach((item) => {
+        const puchaseNumber = appData.sales.find((i) => i.id === item.saleId);
 
-      const html = `
-      <div class="client-history">
-          <div>
+        if (!puchaseNumber) return;
+        const html = `
+      <div class="client-history" data-id="${item.saleId}">
+          <div> 
               <span class="client-icon"><ion-icon
                       name="swap-horizontal-outline"></ion-icon></span>
-              <span class="buy-invoice-number">SM045495045</span>
+              <span class="buy-invoice-number">${item.invoideID}</span>
           </div>
-          <span class="buy-date">23/04/2024</span>
-          <span class="buy-amount">$ 4509.00</span>
+          <span class="buy-date">${formatNumbers.formatDates(
+            new Date(item.date)
+          )}</span>
+          <span class="buy-amount">${formatNumbers.formatCurrency(
+            item.totalAmount
+          )}</span>
 
           <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
       </div>
       `;
-      this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
+        this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
+      });
+    }
+  }
+  _searchPurchaeFilter(e) {
+    const value = this.inputSearchPuchaseList.value.toLowerCase();
+    const filtered = this._currentClientDetail.purchaseHistory.filter((item) =>
+      item.invoideID.toLowerCase().startsWith(value)
+    );
+    this._pagination(filtered);
+  }
+  _sortPurchase(e) {
+    const target = e.target.closest("span");
+    const def = document.querySelector(".def");
+    c(target);
+    if (target.classList.contains("sort-date")) {
+      def.textContent = target.textContent;
+      this._sortPurchaseDate();
+    }
+    if (target.classList.contains("sort-amount")) {
+      def.textContent = target.textContent;
+      this._sortPurchaseAmount();
+    }
+  }
+  _sortPurchaseDate() {
+    const filtered = this._currentClientDetail.purchaseHistory.sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
+    console.log(filtered);
+    this._pagination(filtered);
+  }
+  _sortPurchaseAmount() {
+    const filtered = this._currentClientDetail.purchaseHistory.sort(
+      (a, b) => new Date(a.totalAmount) - new Date(b.totalAmount)
+    );
+    console.log(filtered);
+    this._pagination(filtered);
+  }
+  _settingPurchaseDetailContent(id) {
+    const purchase = this._currentClientDetail.purchaseHistory.find(
+      (s) => s.saleId === id
+    );
+    const invoiceNumberLabel = document.querySelector(".invoice-number");
+    const buyStatusLabel = document.querySelector(".buy-status");
+    const invoiceNumberLabel2 = document.querySelector(
+      ".invoice-number-detail"
+    );
+    const buyDateLabel = document.querySelector(".purchase-date");
+    const paymentTypeLabel = document.querySelector(".pay-method");
+    const buyStatusLabel2 = document.querySelector(".buy-status-detail");
+    const totalBuyAmountLabel = document.querySelector(".total-buy-amount");
+
+    //ADICIONANDO O TEXT CONTENT NO DOM
+    invoiceNumberLabel.textContent = purchase.invoideID;
+    invoiceNumberLabel2.textContent = purchase.invoideID;
+    buyDateLabel.textContent = formatNumbers.formatDates(
+      new Date(purchase.date)
+    );
+    paymentTypeLabel.textContent = "Cash";
+    buyStatusLabel2.textContent = "Succeso";
+    buyStatusLabel.textContent = "Sucesso";
+    totalBuyAmountLabel.textContent = formatNumbers.formatCurrency(
+      purchase.totalAmount
+    );
+    this._renderPuchaseItems(purchase.items);
+  }
+  _renderPuchaseItems(list) {
+    const itemContainer = document.querySelector(".purchase-product-list");
+    itemContainer.innerHTML = "";
+    list.forEach((p, i) => {
+      const productName = appData.products.find(
+        (pr) => pr.id === p.productId
+      ).name;
+      const html = `
+      <div class="product">
+        <span class="product-header">Producto ${i + 1} <span
+                class="product-name">${productName}</span></span>
+        <ul class="product-bought-list">
+            <li>Quantidade <span class="quantity">${p.quantity}</span></li>
+            <li>Preço Unitário <span class="quantity">${formatNumbers.formatCurrency(
+              p.price
+            )}</span></li>
+        </ul>
+    </div>
+      `;
+      itemContainer.insertAdjacentHTML("afterbegin", html);
+    });
+  }
+
+  // POPUP DE ELIMINAR CLIENTE
+  _deleteClientShowPopUp() {
+    this.alertDeleteUser.classList.remove("hidden");
+  }
+  _deleteClientClosePopUp(e) {
+    const targer = e.target;
+    console.log(targer.classList);
+
+    if (targer.classList.contains("overlay-delete-user"))
+      this.alertDeleteUser.classList.add("hidden");
+    if (targer.classList.contains("btn-cancel-delete-costumer"))
+      this.alertDeleteUser.classList.add("hidden");
+
+    if (targer.classList.contains("btn-confirm-delete-costumer")) {
+      this.alertDeleteUser.classList.add("hidden");
+      this._backToClient();
     }
   }
   //PAGINAÇÃO
@@ -311,6 +481,9 @@ class ClientApp {
     this.totalPagesLabel.textContent = `${this.totalPages
       .toString()
       .padStart(2, 0)}`;
+    this.totalPurchasePages.textContent = `${this.totalPages
+      .toString()
+      .padStart(2, 0)}`;
 
     this.renderCurrentPage(this.currentPage, productList);
   }
@@ -320,6 +493,7 @@ class ClientApp {
     this.endIndex = this.startIndex + this.productsPerPage;
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
     this._renderClientList(this.productsToRender);
+    this._renderClientPurchaseList(this.productsToRender);
   }
 
   renderCurrentPage(currentPage, list) {
@@ -332,6 +506,7 @@ class ClientApp {
       this.renderCurrentPage(this.currentPage, this.productList);
     }
     this.curPagelabel.textContent = this.currentPage;
+    this.currentPurchasePage.textContent = this.currentPage;
   };
 
   goToNextPage() {
@@ -340,6 +515,7 @@ class ClientApp {
       this.renderCurrentPage(this.currentPage, this.productList);
     }
     this.curPagelabel.textContent = this.currentPage;
+    this.currentPurchasePage.textContent = this.currentPage;
   }
 }
 const client = new ClientApp();

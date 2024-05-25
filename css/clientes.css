@@ -635,6 +635,11 @@ body {
   min-width: 50rem;
 }
 
+.client-history:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+
+}
+
 .client-history div {
   display: flex;
   align-items: center;
@@ -845,6 +850,11 @@ body {
   justify-content: space-between;
 }
 
+.purchase-product-list {
+  max-height: 12rem;
+  overflow-y: scroll;
+}
+
 .invoice-number-detail {
   font-weight: 600;
   color: var(--primary-color-blue);
@@ -898,6 +908,68 @@ body {
   color: inherit;
   margin-bottom: 1rem;
   align-items: end;
+}
+
+.delete-user-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+
+}
+
+.overlay-delete-user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.356);
+  backdrop-filter: blur(5px);
+  z-index: -2;
+}
+
+.delete-user-alert-message {
+  max-width: 32rem;
+  background-color: var(--bg-divider-color);
+  padding: 2rem;
+  margin: 20rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.delete-user-alert-message ion-icon {
+  font-size: 3.2rem;
+  color: var(--primary-color-red);
+}
+
+.alert-text {
+  font-size: 1.8rem;
+}
+
+.alert-delete-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.alert-delete-btns button {
+  padding: 1rem 2rem;
+  font-size: inherit;
+  color: inherit;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-confirm-delete-costumer {
+  color: #fff !important;
+  background-color: var(--primary-color-blue) !important;
 }
 
 @media (max-width: 54.3em) {

@@ -1,5 +1,4 @@
 // REFACTORING THE CODE
-const c = console.log.bind(document);
 
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";

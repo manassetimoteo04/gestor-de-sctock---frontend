@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="header__profile-box">
-                    <img src="/assets/img/admin/admin.png" alt="" class="header__profile-img">
+                    <img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
                     <div class="profile__name-box">
                         <span class="header__p-name">Timóteo Pembele</span>
                         <span class="permission">Admin <ion-icon name="chevron-down-outline"
@@ -397,15 +397,15 @@
                             <div class="seach-product">
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Digitar Factura..."
-                                    class="input__search search-input-client">
+                                    class="input__search search-input-client-purchase">
                             </div>
 
-                            <div class="sort-by">
+                            <div class="sort-by purchase-sort-by">
                                 <ion-icon name="filter-outline"></ion-icon>
-                                <span class="default">Filtrar</span>
+                                <span class="def">Filtrar</span>
                                 <div name="" id="" class="sort-list client-purchase-sort-list">
-                                    <span class="name">Data</span>
-                                    <span class="active">Montante</span>
+                                    <span class="sort-date">Data</span>
+                                    <span class="sort-amount">Montante</span>
                                 </div>
                             </div>
                         </div>
@@ -446,15 +446,14 @@
                         </div>
                     </div>
 
-                    <!-- PAGINAÇÃO DA LISTA DE VENDAS -->
                     <div class="pagination-container">
-                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                                class="current-product-page total-pages">10</span></div>
-                        <div class="btn-pages">
-                            <button class="btn-previous-page">
+                        <div class="pagination">Páginas <span
+                                class="current-product-page total-pages-purchases">10</span></div>
+                        <div class="btn-pages purchase-btns-page">
+                            <button class="btn-prev-client">
                                 <ion-icon name="chevron-back-outline"></ion-icon></button>
-                            <span class="curr-page-number">1</span>
-                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                            <span class="curr-page-number-client current-page-purchase">1</span>
+                            <button class="btn-next-client"> <ion-icon name="chevron-forward-outline"></ion-icon>
                             </button>
                         </div>
                     </div>
@@ -462,64 +461,8 @@
                 </div>
 
 
-                <!-- ------------------------------ -->
-                <!-- <div class="client-buy-history">
-                    <div class="buy-history-container">
-                        <div class="client-buy-history-header">
-                            <span class="header-history">Histórico de Compras</span>
-                        </div>
-                        <div class="history">
-
-                            <div class="history-header">
-                                <span>Factura</span>
-                                <span>Data</span>
-                                <span>Quantidade</span>
-                                <span>Ver</span>
-                            </div>
-                            <div class="buy-history">
-                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
-                                <span>23/04/2023</span>
-                                <span>$ 3456,00</span>
-                                <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
-                            </div>
-                            <div class="buy-history">
-                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
-                                <span>23/04/2023</span>
-                                <span>$ 3456,00</span>
-                                <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
-                            </div>
-                            <div class="buy-history">
-                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
-                                <span>23/04/2023</span>
-                                <span>$ 3456,00</span>
-                                <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
-                            </div>
-                            <div class="buy-history">
-                                <span> <ion-icon name="swap-horizontal-outline"></ion-icon>SMG9348457945</span>
-                                <span>23/04/2023</span>
-                                <span>$ 3456,00</span>
-                                <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="pagination-container">
-                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                                class="current-product-page total-pages">10</span></div>
-                        <div class="btn-pages">
-                            <button class="btn-previous-page">
-                                <ion-icon name="chevron-back-outline"></ion-icon></button>
-                            <span class="curr-page-number">1</span>
-                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
             </div>
 
-            <!-- DETALHES DE VENDA -->
             <div class="client-buy-detail-container hidden ">
                 <div class="buy-detail-box">
                     <button class="btn-close-buy-detail"><ion-icon name="close-outline"></ion-icon></button>
@@ -533,34 +476,40 @@
                         <ul class="buy-detail-list">
                             <li><span>Número da Factura</span> <span class="invoice-number-detail">SMG9348457945</span>
                             </li>
-                            <li><span>Data da Compra</span> <span class="buy-date">Ago 23, 2023, 17:01
-                                    PM</span>
+                            <li><span>Data da compra</span> <span class="purchase-date">SMG9348457945</span>
                             </li>
+
                         </ul>
                     </div>
                     <div class="buy-detail-informations">
                         <span class="subheader-buy">Productos Comprados</span>
-                        <div class="product">
-                            <span class="product-header">Producto 01 <span class="product-name">Computador</span></span>
-                            <ul class="product-bought-list">
-                                <li>Quantidade <span class="quantity">23</span></li>
-                                <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
-                            </ul>
+                        <div class="purchase-product-list">
+
+                            <div class="product">
+                                <span class="product-header">Producto 01 <span
+                                        class="product-name">Computador</span></span>
+                                <ul class="product-bought-list">
+                                    <li>Quantidade <span class="quantity">23</span></li>
+                                    <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
+                                </ul>
+                            </div>
+                            <div class="product">
+                                <span class="product-header">Producto 02 <span
+                                        class="product-name">Computador</span></span>
+                                <ul class="product-bought-list">
+                                    <li>Quantidade <span class="quantity">23</span></li>
+                                    <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="product">
-                            <span class="product-header">Producto 02 <span class="product-name">Computador</span></span>
-                            <ul class="product-bought-list">
-                                <li>Quantidade <span class="quantity">23</span></li>
-                                <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
-                            </ul>
-                        </div>
+
                     </div>
                     <div class="buy-detail-informations">
                         <span class="subheader-buy">Detalhes de Pagamento</span>
                         <ul class="buy-detail-list">
                             <li><span>Método de Pagamento</span> <span class="pay-method">Cash</span>
                             </li>
-                            <li><span>Status</span> <span class="buy-date">Succeso</span>
+                            <li><span>Status</span> <span class="buy-status buy-status-detail">Succeso</span>
                             </li>
                         </ul>
                     </div>
@@ -572,7 +521,23 @@
 
                 </div>
             </div>
+
         </section>
+
+        <div class="delete-user-alert hidden">
+            <div class="overlay-delete-user"></div>
+            <div class="delete-user-alert-message">
+                <ion-icon name="trash-outline"></ion-icon>
+                <span class="alert-text">Tens a certeza de deseja eliminar este cliente?</span>
+
+                <div class="alert-delete-btns">
+                    <button class="btn-confirm-delete-costumer">Eliminar</button>
+                    <button class="btn-cancel-delete-costumer">Cancelar</button>
+                </div>
+            </div>
+
+
+        </div>
 
     </section>
 </body>

@@ -358,8 +358,9 @@ const appData = {
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
       purchaseHistory: [
         {
-          saleId: 201,
-          date: "2024-05-12",
+          saleId: 204,
+          date: "2024-05-12T10:00:00Z",
+          invoideID: "IIV20240512",
           totalAmount: 50.99,
           items: [
             {
@@ -390,16 +391,35 @@ const appData = {
       purchaseHistory: [
         {
           saleId: 201,
-          date: "2024-05-12",
+          date: "2024-05-12T10:00:00Z",
           totalAmount: 50.99,
+          invoideID: "INV20240512",
           items: [
             {
-              productId: 101,
+              productId: 103,
               quantity: 2,
               price: 10.99,
             },
             {
+              productId: 104,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 203,
+          date: "2024-05-12T10:00:00Z",
+          totalAmount: 50.99,
+          invoideID: "BHN20240512",
+          items: [
+            {
               productId: 102,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 101,
               quantity: 1,
               price: 20.99,
             },
@@ -419,9 +439,29 @@ const appData = {
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
       purchaseHistory: [
         {
+          saleId: 207,
+          invoideID: "HGB20240512",
+          date: "2024-05-13",
+          totalAmount: 456.99,
+          items: [
+            {
+              productId: 103,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
           saleId: 201,
-          date: "2024-05-12",
-          totalAmount: 50.99,
+          date: "2024-05-14",
+          totalAmount: 340.99,
+          invoideID: "AAN20240512",
+
           items: [
             {
               productId: 101,
@@ -435,13 +475,16 @@ const appData = {
             },
           ],
         },
+
         {
-          saleId: 201,
-          date: "2024-05-12",
-          totalAmount: 50.99,
+          saleId: 202,
+          date: "2024-05-19",
+          totalAmount: 123.99,
+          invoideID: "AAN20240512",
+
           items: [
             {
-              productId: 101,
+              productId: 104,
               quantity: 2,
               price: 10.99,
             },
@@ -452,10 +495,31 @@ const appData = {
             },
           ],
         },
+
         {
-          saleId: 201,
-          date: "2024-05-12",
-          totalAmount: 50.99,
+          saleId: 203,
+          date: "2024-05-17",
+          totalAmount: 689.99,
+          invoideID: "AAN20240512",
+
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 103,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 204,
+          date: "2024-05-12T10:00:00Z",
+          totalAmount: 40.99,
+          invoideID: "IIV20240512",
           items: [
             {
               productId: 101,
@@ -483,9 +547,10 @@ const appData = {
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
       purchaseHistory: [
         {
-          saleId: 201,
-          date: "2024-05-12",
+          saleId: 208,
+          date: "2024-05-12T10:00:00Z",
           totalAmount: 50.99,
+          invoideID: "DFH20240512",
           items: [
             {
               productId: 101,
@@ -515,8 +580,65 @@ const appData = {
       purchaseHistory: [
         {
           saleId: 201,
-          date: "2024-05-12",
+          date: "2024-05-12T10:00:00Z",
           totalAmount: 50.99,
+          invoideID: "BNH20240512",
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 204,
+          date: "2024-05-12T10:00:00Z",
+          totalAmount: 50.99,
+          invoideID: "INV20240512",
+
+          items: [
+            {
+              productId: 103,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 104,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 203,
+          date: "2024-05-12T10:00:00Z",
+          totalAmount: 50.99,
+          invoideID: "HHT20240512",
+
+          items: [
+            {
+              productId: 101,
+              quantity: 2,
+              price: 10.99,
+            },
+            {
+              productId: 102,
+              quantity: 1,
+              price: 20.99,
+            },
+          ],
+        },
+        {
+          saleId: 207,
+          date: "2024-05-12T10:00:00Z",
+          totalAmount: 50.99,
+          invoideID: "INV20240512",
           items: [
             {
               productId: 101,
