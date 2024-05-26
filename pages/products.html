@@ -19,9 +19,7 @@
 </head>
 
 <body>
-    <!-- SESSÃO PRINCIPAL -->
     <section class="dashboard-section main-section">
-        <!-- HEADER PRINCIPAL -->
         <header class="main__header">
 
             <div class="search__div">
@@ -40,7 +38,7 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header hidden">
+                <div class="notification-header ">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
@@ -99,11 +97,8 @@
             </div>
         </header>
 
-        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
         <aside class="side__bar">
-            <!-- LOGOTIPO -->
             <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
-            <!-- BARRA DE MENU PRINCIPAL -->
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
@@ -135,15 +130,12 @@
             </nav>
         </aside>
 
-        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
         <section class="main__content-section ">
-            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
                     <h2 class="heading-h2">Monitorar productos</h2>
                     <span class="section-tag">Gerencie os teus productos</span>
                 </header>
-                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
                 <div class="add-new-product-box">
                     <button class="btn-add-new-product">
                         <ion-icon name="add-outline"></ion-icon>
@@ -151,7 +143,6 @@
                     </button>
                 </div>
             </div>
-            <!-- CONTAINER DOS PRODUCTOS -->
             <div class="statics-box product-container">
 
 
@@ -181,25 +172,20 @@
                 </div>
 
                 <div class="container ">
-                    <div class="estaticos">
-                        <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
+                    <div class="container-list">
                         <div class="products-header">
-                            <div>
-                                <span><ion-icon name="list-outline"></ion-icon></span>
-                                <span>Productos</span>
-                            </div>
+
+                            <span>Productos</span>
+
                             <span>Categoria</span>
                             <span>Preço</span>
-                            <span>QTD.</span>
+                            <span>Estoque</span>
                             <span>Data</span>
                             <span>Acção</span>
                         </div>
-                        <!-- PRODUCTOS -->
                         <div class="product-list">
 
-                            <!-- <div class="empty-product">
-                                <p>Nenhum producto encontrado</p>
-                            </div> -->
+
                             <!-- <div class="product-item">
                                
                                 <div>
@@ -227,7 +213,6 @@
 
                     </div>
                 </div>
-                <!-- PAGINAÇÃO DO PRODUCTO -->
                 <div class="pagination-box">
 
                     <div class="pagination">Páginas <span class="total-pages-product">10</span></div>
@@ -243,171 +228,162 @@
 
         </section>
 
-        <!-- ADICIONAR UM PRODUCTO NOVO : FORMULÁRIO -->
         <section class=" add-product-container hidden">
-            <div class="sub-container">
+            <div class="overlay-new-product-form"></div>
+            <form action="#" class="new-product-form">
+                <header class="add-new-header">
+                    <div>
 
-                <div class="container">
-                    <!-- CABEÇARIO DO FORMULÁRIO -->
+                        <h2 class="heading-h2">Adicionar producto</h2>
+                        <span class="btn-close-add-new-product"><ion-icon name="close-outline"></ion-icon></span>
 
-                    <!-- FORMULÁRIO PARA ADICIONAR NOVO PRODUCTO -->
-                    <form action="#" class="new-product-form">
-                        <header class="add-new-header">
-                            <h2 class="heading-h2">Adicionar producto</h2>
-                            <span class="btn-close-add-new-product"><ion-icon name="close-outline"></ion-icon></span>
-                        </header>
-                        <div class="form-group">
-                            <div class="group">
-                                <label for="product-name">Nome do producto</label>
-                                <input type="text" placeholder="Nome do producto"
-                                    class="input-product-name input-edit-product-name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="group">
-
-                                <label for="product-category" class="product-category">Categoria <span
-                                        class="btn-new-category"><ion-icon name="add-circle-outline"></ion-icon>
-                                        Adicionar</span></label>
-                                <select name="" id="" class="select-category">
-                                    <option value="">Escolha</option>
-                                    <option value="">Electronicos</option>
-                                    <option value="">Roupas</option>
-                                    <option value="">Mobilias</option>
-                                    <option value="">Calçados</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="group">
-                                <label for="product-name">Preço de venda</label>
-                                <input type="number" placeholder="Preço de venda"
-                                    class="input-sell-price input-edit-product-price">
-                            </div>
-                            <div class="group">
-                                <label for="product-name">Preço de compra </label>
-                                <input type="number" placeholder="Preço de compra"
-                                    class="input-buy-price input-edit-buy-price">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="group">
-                                <label for="product-name">Quantidade</label>
-                                <input type="number" placeholder="Quantidade" class="input-quantity">
-                            </div>
-                            <div class="group">
-                                <label for="product-name">Código SKU </label>
-                                <input type="number" placeholder="Preço de compra" class="input-buy-price">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="group">
-                                <label for="product-name">Descrição</label>
-                                <textarea name="" id="" cols="10" rows="5" class="product-description-input"></textarea>
-                            </div>
-
-                        </div>
-                        <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
-                        <div class="form-group">
-                            <div class="btns">
-                                <button class="confirmar-new-product">Adicionar</button>
-                                <button class="cancelar-new-product">Cancelar</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+                    </div>
+                    <span>Informações detalhadas do producto</span>
+                </header>
+                <div class="form-group">
+                    <div class="group">
+                        <label for="product-name">Nome do producto</label>
+                        <input type="text" placeholder="Nome do producto"
+                            class="input-product-name input-edit-product-name">
+                    </div>
                 </div>
-                <div class="create-category hidden">
-                    <form action="" class="category-form">
-                        <header>
-                            <span class="categ-header">Criar Categoria</span>
-                            <span class="close-category"><ion-icon name="close-outline"></ion-icon></span>
-                        </header>
-                        <input type="text" placeholder="Nova Categoria">
+                <div class="form-group">
+                    <div class="group">
 
-                        <button class="btn-add-category">Confirmar</button>
-
-                    </form>
+                        <label for="product-category" class="product-category">Categoria <span
+                                class="btn-new-category"><ion-icon name="add-circle-outline"></ion-icon>
+                                Adicionar</span></label>
+                        <select name="" id="" class="select-category">
+                            <option value="">Escolha</option>
+                            <option value="">Electronicos</option>
+                            <option value="">Roupas</option>
+                            <option value="">Mobilias</option>
+                            <option value="">Calçados</option>
+                        </select>
+                    </div>
 
                 </div>
+                <div class="form-group">
+                    <div class="group">
+                        <label for="product-name">Preço de venda</label>
+                        <input type="number" placeholder="Preço de venda"
+                            class="input-sell-price input-edit-product-price">
+                    </div>
+                    <div class="group">
+                        <label for="product-name">Preço de compra </label>
+                        <input type="number" placeholder="Preço de compra" class="input-buy-price input-edit-buy-price">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="group">
+                        <label for="product-name">Quantidade</label>
+                        <input type="number" placeholder="Quantidade" class="input-quantity">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="group">
+                        <label for="product-name">Descrição</label>
+                        <textarea name="" id="" cols="10" rows="5" class="product-description-input"></textarea>
+                    </div>
+
+                </div>
+                <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
+                <div class="form-group">
+                    <div class="btns">
+                        <button class="confirmar-new-product">Adicionar</button>
+                        <button class="cancelar-new-product">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+            <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+            <div class="create-category hidden">
+                <div class="overlay-create-category"></div>
+                <form action="" class="category-form">
+                    <header>
+                        <span class="categ-header">Criar Categoria</span>
+                        <span class="close-category"><ion-icon name="close-outline"></ion-icon></span>
+                    </header>
+                    <input type="text" placeholder="Nova Categoria">
+
+                    <button class="btn-add-category">Confirmar</button>
+
+                </form>
+
             </div>
 
         </section>
 
-        <!-- VER DETALHES DO PRODUCTO -->
         <section class=" details-container hidden">
-            <div class="sub-container">
+            <div class="overlay-product-detail"></div>
+            <div class="container">
+                <header class="details-header">
+                    <div>
+                        <h3 class="heading-h3">Ver detalhes</h3>
+                        <span class="">Ver as informações de detalhe do producto</span>
+                    </div>
+                    <button class="btn-close-details"><ion-icon name="close-outline"></ion-icon></button>
 
-                <div class="container">
-                    <!-- CABEÇARIO DO FORMULÁRIO -->
-                    <header class="add-new-header details-header">
-                        <div>
-                            <h2 class="heading-h2">Detalhes</h2>
-                            <span class="section-tag">Ver detalhes do producto</span>
-                        </div>
-                        <button class="btn-close-details"><ion-icon name="close-outline"></ion-icon></button>
+                </header>
 
-                    </header>
 
-                    <!-- FORMULÁRIO PARA ADICIONAR NOVO PRODUCTO -->
-                    <div class="product-details">
-                        <div class="form-group details-group">
-                            <div class="group">
-                                <label>Nome do producto</label>
-                                <span class="product-name-details">Lenovo 3rd Gerenetion</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group details-group">
-                            <div class="group">
-                                <label>Categoria</label>
-                                <span class="product-category-details">Computador</span>
-                            </div>
-                        </div>
-                        <div class="form-group details-group">
-                            <div class="group">
-                                <label>Preço de compra</label>
-                                <span class="product-buy-price-details">$ 3259,00</span>
-                            </div>
-                            <div class="group">
-                                <label>Preço de venda</label>
-                                <span class="product-sell-price-details">$ 3259,00</span>
-                            </div>
-                        </div>
-                        <div class="form-group details-group">
-                            <div class="group">
-                                <label>Estoque</label>
-                                <span class="product-stock-qtd-details">132</span>
-                            </div>
-                            <div class="group">
-                                <label>ID Producto</label>
-                                <span class="product-id-details">CP043</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group details-group">
-                            <div class="group">
-                                <label>Descrição</label>
-                                <p class="product-description-details">Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing
-                                    elit placeat error autem nihil.</p>
-                            </div>
-                        </div>
-                        <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
-                        <div class="barcode">
-                            <img src="../assets/barcode1.png" alt="">
+                <div class="product-details">
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Nome do producto</label>
+                            <span class="product-name-details">Lenovo 3rd Gerenetion</span>
                         </div>
                     </div>
-                    <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
-                </div>
 
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Categoria</label>
+                            <span class="product-category-details">Computador</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Preço de compra</label>
+                            <span class="product-buy-price-details">$ 3259,00</span>
+                        </div>
+                        <div class="group">
+                            <label>Preço de venda</label>
+                            <span class="product-sell-price-details">$ 3259,00</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Estoque</label>
+                            <span class="product-stock-qtd-details">132</span>
+                        </div>
+                        <div class="group">
+                            <label>ID Producto</label>
+                            <span class="product-id-details">CP043</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Fornecedor</label>
+                            <span class="product-supplier-details">Manasse Timóteo</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Descrição</label>
+                            <p class="product-description-details">Lorem ipsum dolor, sit amet consectetur
+                                adipisicing
+                                elit placeat error autem nihil.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
         </section>
     </section>
 
-    <!-- MENSAGEM DE ALERTA AO ELIMINAR UM PRODUCTO -->
     <div class="alert-message-container hidden">
+        <div class="overlay-delete-product"></div>
         <div class="alerta-message">
             <ion-icon name="trash-outline"></ion-icon>
             <span class="alert-text">Tens certeza que deseja excluir este produto?</span>
@@ -417,12 +393,12 @@
             </div>
         </div>
     </div>
-    <div class="delete-confirmed-message hidden">
-        <ion-icon name="checkmark-outline"></ion-icon>
+    <!-- <div class="delete-confirmed-message hidden">
         <div class="alerta-message ">
+            <ion-icon name="checkmark-outline"></ion-icon>
             <span class="alert-text confirmed">Producto eliminado com sucesso</span>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>

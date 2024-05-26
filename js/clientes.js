@@ -3,10 +3,13 @@ const c = console.log.bind(document);
 
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";
+
 class ClientApp {
   _currentClientDetail;
   constructor() {
-    // SELECIONANDO AS VARIÁVEIS
+    // SELECIONANDO AS VARIÁVEIS PARA MANIPULAÇÃO DO DOM
+
+    // VARIÁVEIR DO RESUMO OU SUMMARY
     this.totalClientNumberLabel = document.querySelector(".total-client");
     this.totalNewClientLabel = document.querySelector(".total-new-client");
     this.totalActiveClient = document.querySelector(".total-active-client");
@@ -16,6 +19,7 @@ class ClientApp {
     this.clientDetailContainer = document.querySelector(
       ".section__client-details"
     );
+
     this.btnBackToClientList = document.querySelector(
       ".btn-back-to-client-list"
     );
@@ -52,7 +56,6 @@ class ClientApp {
     this.clientPurchaseContainer = document.querySelector(
       ".client-purchase-list"
     );
-
     this.inputSearchPuchaseList = document.querySelector(
       ".search-input-client-purchase"
     );
@@ -63,99 +66,40 @@ class ClientApp {
     this.alertDeleteUser = document.querySelector(".delete-user-alert");
     this.btnDeleteCurrentCostumer =
       document.querySelector(".btn-delete-client");
-    // EVENT LISTNERS
-    this.btnDeleteCurrentCostumer?.addEventListener(
-      "click",
-      this._deleteClientShowPopUp.bind(this)
-    );
-    this.inputSearchClient?.addEventListener(
-      "input",
-      this._searchFilter.bind(this)
-    );
-    this.sortContainer?.addEventListener(
-      "click",
-      this._sortByFunction.bind(this)
-    );
 
-    this.btnPaginationClient?.addEventListener(
-      "click",
-      this._btnsPAgination.bind(this)
-    );
-    this.purchaseBtnsPage?.addEventListener(
-      "click",
-      this._btnsPAgination.bind(this)
-    );
-    this.inputSearchPuchaseList?.addEventListener(
-      "input",
-      this._searchPurchaeFilter.bind(this)
-    );
-    this.purchaseSortContainer?.addEventListener(
-      "click",
-      this._sortPurchase.bind(this)
-    );
-    this.clientPurchaseContainer?.addEventListener(
-      "click",
-      this._showBuyDetail.bind(this)
-    );
-
-    this.btnCloseBuyDetail?.addEventListener(
-      "click",
-      this._closeBuyDetail.bind(this)
-    );
-
-    this.clientContainerList?.addEventListener(
-      "click",
-      this._actionClient.bind(this)
-    );
-    this.btnBackToClientList?.addEventListener(
-      "click",
-      this._backToClient.bind(this)
-    );
-    this.clientHistoryContainer?.addEventListener(
-      "click",
-      this._clientHistoryFunction.bind(this)
-    );
-    this.clientMenuList?.addEventListener(
-      "click",
-      this._clientToggleMenu.bind(this)
-    );
-    this.btnShowNewClientForm?.addEventListener(
-      "click",
-      this._showNewClientForm.bind(this)
-    );
-    this.btnCloseAddClientForm?.addEventListener(
-      "click",
-      this._closeNewClientForm.bind(this)
-    );
-    this.alertDeleteUser?.addEventListener(
-      "click",
-      this._deleteClientClosePopUp.bind(this)
-    );
-    // this.newClientFormContainer?.addEventListener(
-    //   "click",
-    //   this._closeNewClientForm.bind(this)
-    // );
-    this._pagination(appData.clients);
-    this._renderSummary();
+    // INICIALIZADORES
+    this._eventListeners();
+    this._init();
   }
+
+  // RENDERIZAR OS SUMMARY
   _renderSummary() {
     if (!this.totalClientNumberLabel) return;
     const actives = appData.clients.filter((cl) => cl.status === "active");
     this.totalClientNumberLabel.textContent = appData.clients.length;
     this.totalActiveClient.textContent = actives.length;
   }
+
   // FUNCÇÕES DOS EVENT LISTENERS
-  _closeBuyDetail() {
-    this.clientBuyDetailContainer?.classList.add("hidden");
+  _closeBuyDetail(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-buy-detail"))
+      this.clientBuyDetailContainer?.classList.add("hidden");
+    if (target.closest(".btn-close-buy-detail"))
+      this.clientBuyDetailContainer?.classList.add("hidden");
   }
+
   _showBuyDetail(e) {
     const target = e.target.closest(".btn-see-buy-detail");
     if (!target) return;
+
     this.clientBuyDetailContainer?.classList.remove("hidden");
     const buy = target.closest(".client-history");
     const buyID = +buy.dataset.id;
     this._settingPurchaseDetailContent(buyID);
   }
+
+  // ACÇÕES NO BOTÃO DE EVENTOS NA LISTA DOS CLIENTES, [EDIT, DELETE, SEE-DETAIL]
   _actionClient(e) {
     const target = e.target.closest("button");
     // const target = e.target.closest(".btn-details-user");
@@ -175,8 +119,34 @@ class ClientApp {
     if (target.classList.contains("btn-delete-user")) {
       this._deleteClientShowPopUp();
     }
+    if (target.classList.contains("btn-edit-user")) {
+      // this._settingEditClientValues();
+      this._showNewClientForm();
+      const costumerId = +target.closest(".client-box").dataset.id;
+      this._settinClientEditValue(costumerId);
+    }
   }
 
+  // CONFIGURAR OS VALUES NOS INPUTS AO EDITAR O CLIENTE
+  _settinClientEditValue(id) {
+    const currentCostumer = appData.clients.find((cl) => cl.id === id);
+    console.log(currentCostumer);
+    const inputClientName = document.querySelector(".input-client-name");
+    const inputClientEmail = document.querySelector(".input-client-email");
+    const inputClientPhone = document.querySelector(".input-client-phone");
+    const inputClientAdress = document.querySelector(".input-client-address");
+    const inputClientDescription = document.querySelector(
+      ".input-client-description"
+    );
+
+    inputClientName.value = currentCostumer.name;
+    inputClientEmail.value = currentCostumer.email;
+    inputClientPhone.value = currentCostumer.phone;
+    inputClientAdress.value = currentCostumer.address;
+    inputClientDescription.value = currentCostumer.description;
+  }
+
+  // CONFIGURANDO O CONTENT AO VER O DETALHE DO CLIENTE ACTUAL
   _settingClientContentDetail() {
     const clientImg = document.querySelector(".client-img");
     const clientName = document.querySelector(".detail-client-name");
@@ -194,6 +164,8 @@ class ClientApp {
       (acc, tot) => (acc += tot.totalAmount),
       0
     );
+
+    // MUDANDO O TEXT CONTENT
     clientImg.src = this._currentClientDetail.imgPath;
     clientName.textContent = this._currentClientDetail.name;
     clientEmail.textContent = this._currentClientDetail.email;
@@ -205,16 +177,21 @@ class ClientApp {
       this._currentClientDetail.purchaseHistory.length;
     totalBuyAmount.textContent = formatNumbers.formatCurrency(amount);
   }
+
+  // VOLTAR A LISTA DE CLIENTES
   _backToClient() {
     this.clientListContainer.classList.remove("hidden");
     this.clientDetailContainer.classList.add("hidden");
     this._pagination(appData.clients);
   }
+
+  // FUNÇÕES PAR O MOBILE PARA VER AS INFORMAÇÕES DO CLIENTE E LISTA DE COMPRAS
   _clientHistoryFunction(e) {
     const target = e.target.closest(".btn-see-buy-detail");
     if (!target) return;
     this.clientBuyDetailContainer.classList.remove("hidden");
   }
+  // FUNÇÃO PARA MUDAR ENTRE A LISTA DE COMPRAS E INFORMAÇÕES DO CLIENTE ACTUAL
   _clientToggleMenu(e) {
     this.link = e.target;
     this.afterElement = document.querySelector(".client-menu::after");
@@ -230,12 +207,23 @@ class ClientApp {
       this.clientListHistoryBox.classList.remove("hideClientInfo");
     }
   }
+
+  // MOSTRAR FORMULÁRIO PARA ADICIONAR CLIENTE
   _showNewClientForm() {
     this.newClientFormContainer.classList.remove("hidden");
   }
-  _closeNewClientForm() {
-    this.newClientFormContainer.classList.add("hidden");
+
+  // ESCONDER FORMULÁRIO PARA ADICIONAR CLIENTE
+  _closeNewClientForm(e) {
+    const target = e.target;
+
+    if (target.classList.contains("overlay-client-form"))
+      this.newClientFormContainer.classList.add("hidden");
+    if (target.closest(".close-form-new-client"))
+      this.newClientFormContainer.classList.add("hidden");
   }
+
+  // RENDERIZAR A LISTA DE CLIENTES NO DOM
   _renderClientList(list) {
     if (!this.clientContainerList) return;
     if (list.length === 0) {
@@ -248,6 +236,7 @@ class ClientApp {
       `;
       this.clientContainerList.insertAdjacentHTML("afterbegin", html);
     }
+
     if (list.length > 0) {
       this.clientContainerList.innerHTML = "";
       list.forEach((client) => {
@@ -282,6 +271,7 @@ class ClientApp {
     }
   }
 
+  // FUNÇÃO PARA O INPUT DE PESQUISA NA LISTA DE CLIENTES
   _searchFilter() {
     const value = this.inputSearchClient.value.toLowerCase();
     const filtered = appData.clients.filter((cl) =>
@@ -289,38 +279,49 @@ class ClientApp {
     );
     this._pagination(filtered);
   }
+
+  // FUNÇÃO PARA CLASSIFICAR NA LISTA DE CLIENTES
   _sortByFunction(e) {
     const target = e.target.closest(".client-sort-list span");
-
+    if (!target) return;
     const def = document.querySelector(".default");
     if (target.classList.contains("name")) {
       this._sortByName();
       def.textContent = target.textContent;
     }
+
     if (target.classList.contains("active")) {
       def.textContent = target.textContent;
       this._filterActive();
     }
+
     if (target.classList.contains("inactive")) {
       def.textContent = target.textContent;
       this._filterInactive();
     }
   }
+
+  // CLASSIFICAR EM ORDEM ALFABÉTICA
   _sortByName() {
     const filtered = appData.clients.sort((a, b) =>
       b.name.localeCompare(a.name)
     );
     this._pagination(filtered);
-    console.log(filtered);
   }
+
+  // FILTRAR CLIENTES ACTIVOS
   _filterActive() {
     const filtered = appData.clients.filter((p) => p.status === "active");
     this._pagination(filtered);
   }
+
+  // FILTRAR CLIENTES INACTIVOS
   _filterInactive() {
     const filtered = appData.clients.filter((p) => p.status === "inactive");
     this._pagination(filtered);
   }
+
+  // EVENTO DOS BUTTON DA PAGINAÇÃO
   _btnsPAgination(e) {
     const targer = e.target.closest("button");
 
@@ -328,6 +329,7 @@ class ClientApp {
     if (targer.classList.contains("btn-prev-client")) this.goToPreviousPage();
   }
 
+  // RENDERIZAR A LISTA DE COMPRAS DO CLIENTE ACTUAL
   _renderClientPurchaseList(arr) {
     if (!this.clientPurchaseContainer) return;
     if (arr.length === 0) {
@@ -367,6 +369,8 @@ class ClientApp {
       });
     }
   }
+
+  // PESQUISAR NA LISTA DE COMPRAS DO CLIENTE ACTUAL
   _searchPurchaeFilter(e) {
     const value = this.inputSearchPuchaseList.value.toLowerCase();
     const filtered = this._currentClientDetail.purchaseHistory.filter((item) =>
@@ -374,6 +378,8 @@ class ClientApp {
     );
     this._pagination(filtered);
   }
+
+  // CLASSIFICAÇÃO NA LISTA DE COMPRAS DE CLIENTE ACTUAL
   _sortPurchase(e) {
     const target = e.target.closest("span");
     const def = document.querySelector(".def");
@@ -387,20 +393,24 @@ class ClientApp {
       this._sortPurchaseAmount();
     }
   }
+
+  // CLASSIFICAR POR DATA
   _sortPurchaseDate() {
     const filtered = this._currentClientDetail.purchaseHistory.sort(
       (a, b) => new Date(a.date) - new Date(b.date)
     );
-    console.log(filtered);
     this._pagination(filtered);
   }
+
+  // CLASSIFICAR POR MONTANTE
   _sortPurchaseAmount() {
     const filtered = this._currentClientDetail.purchaseHistory.sort(
       (a, b) => new Date(a.totalAmount) - new Date(b.totalAmount)
     );
-    console.log(filtered);
     this._pagination(filtered);
   }
+
+  // CONFIGURANDO OS CONTENT DO DETALHE DE COMPRA DO CLIENTE ACTUAL
   _settingPurchaseDetailContent(id) {
     const purchase = this._currentClientDetail.purchaseHistory.find(
       (s) => s.saleId === id
@@ -470,7 +480,8 @@ class ClientApp {
       this._backToClient();
     }
   }
-  //PAGINAÇÃO
+
+  //PAGINAÇÃO DA LISTA
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
 
@@ -488,6 +499,7 @@ class ClientApp {
     this.renderCurrentPage(this.currentPage, productList);
   }
 
+  // RENDERIZAR PAGINAÇÃO
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
@@ -500,6 +512,7 @@ class ClientApp {
     this.renderPage(currentPage, list);
   }
 
+  // PÁGINA ANTERIOR
   goToPreviousPage = function () {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -509,6 +522,7 @@ class ClientApp {
     this.currentPurchasePage.textContent = this.currentPage;
   };
 
+  // PÁGINA SEGUINTE
   goToNextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -517,6 +531,93 @@ class ClientApp {
     this.curPagelabel.textContent = this.currentPage;
     this.currentPurchasePage.textContent = this.currentPage;
   }
+
+  // OS EVENT LISTNERS
+  _eventListeners() {
+    // EVENT LISTNERS
+    this.newClientFormContainer?.addEventListener(
+      "click",
+      this._closeNewClientForm.bind(this)
+    );
+
+    this.btnDeleteCurrentCostumer?.addEventListener(
+      "click",
+      this._deleteClientShowPopUp.bind(this)
+    );
+    this.inputSearchClient?.addEventListener(
+      "input",
+      this._searchFilter.bind(this)
+    );
+    this.sortContainer?.addEventListener(
+      "click",
+      this._sortByFunction.bind(this)
+    );
+
+    this.btnPaginationClient?.addEventListener(
+      "click",
+      this._btnsPAgination.bind(this)
+    );
+    this.purchaseBtnsPage?.addEventListener(
+      "click",
+      this._btnsPAgination.bind(this)
+    );
+    this.inputSearchPuchaseList?.addEventListener(
+      "input",
+      this._searchPurchaeFilter.bind(this)
+    );
+    this.purchaseSortContainer?.addEventListener(
+      "click",
+      this._sortPurchase.bind(this)
+    );
+    this.clientPurchaseContainer?.addEventListener(
+      "click",
+      this._showBuyDetail.bind(this)
+    );
+
+    // this.btnCloseBuyDetail?.addEventListener(
+    //   "click",
+    //   this._closeBuyDetail.bind(this)
+    // );
+    this.clientBuyDetailContainer?.addEventListener(
+      "click",
+      this._closeBuyDetail.bind(this)
+    );
+    this.clientContainerList?.addEventListener(
+      "click",
+      this._actionClient.bind(this)
+    );
+    this.btnBackToClientList?.addEventListener(
+      "click",
+      this._backToClient.bind(this)
+    );
+    this.clientHistoryContainer?.addEventListener(
+      "click",
+      this._clientHistoryFunction.bind(this)
+    );
+    this.clientMenuList?.addEventListener(
+      "click",
+      this._clientToggleMenu.bind(this)
+    );
+    this.btnShowNewClientForm?.addEventListener(
+      "click",
+      this._showNewClientForm.bind(this)
+    );
+    // this.btnCloseAddClientForm?.addEventListener(
+    //   "click",
+    //   this._closeNewClientForm.bind(this)
+    // );
+    this.alertDeleteUser?.addEventListener(
+      "click",
+      this._deleteClientClosePopUp.bind(this)
+    );
+  }
+
+  // FUNÇÕES AUTO-INICIALIZADAS
+  _init() {
+    this._pagination(appData.clients);
+    this._renderSummary();
+  }
 }
+
 const client = new ClientApp();
 export { client };

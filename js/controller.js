@@ -1,5 +1,5 @@
 import { mainApp, renderMain } from "./main.js";
-import { productClass, productList } from "./products.js";
+import { productClass } from "./products.js";
 import { client } from "./clientes.js";
 import { newStock } from "./estoque.js";
 import { sellApp } from "./vendas.js";

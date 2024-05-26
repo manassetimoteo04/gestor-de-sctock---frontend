@@ -40,7 +40,7 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header hidden">
+                <div class="notification-header ">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
@@ -281,7 +281,6 @@
                         </div>
                     </div>
 
-                    <!-- PAGINAÇÃO DA LISTA DE VENDAS -->
                     <div class="pagination-container pagination-client">
                         <div class="pagination">Páginas <span class="total-pages-client">10</span></div>
                         <div class="btn-pages">
@@ -296,26 +295,32 @@
                 </div>
 
                 <div class="add-new-client-container hidden">
+                    <div class="overlay-client-form"></div>
                     <form action="" class="form-new-client">
                         <span class="form-header">Adicionar Cliente <span class="close-form-new-client"><ion-icon
                                     name="close-outline"></ion-icon></span></span>
 
                         <div class="form-group">
                             <label for="">Nome do Cliente</label>
-                            <input type="text" placeholder="Nome do Cliente">
+                            <input type="text" placeholder="Nome do Cliente" class="input-client-name">
                         </div>
                         <div class="form-group">
                             <label for="">Email do Cliente</label>
-                            <input type="text" placeholder="Exemplo@me.com">
+                            <input type="email" placeholder="Exemplo@me.com" class="input-client-email">
                         </div>
                         <div class="form-group">
                             <label for="">Número do Cliente</label>
-                            <input type="text" placeholder="Número do Cliente">
+                            <input type="text" placeholder="Número do Cliente" class="input-client-phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Residência</label>
+                            <input type="text" placeholder="Número do Cliente" class="input-client-address">
                         </div>
 
                         <div class="form-group">
                             <label for="">Descrição</label>
-                            <textarea name="" id="" cols="30" rows="3" placeholder="Descrição"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" placeholder="Descrição"
+                                class="input-client-description"></textarea>
                         </div>
                         <div class="btns-group">
                             <button class="add-client-btn">Adicionar</button>
@@ -384,9 +389,6 @@
 
                 </div>
 
-
-
-                <!-- -------------------------------- -->
 
                 <div class="client-list-history hideClientInfo">
                     <div class="list-header">
@@ -464,8 +466,11 @@
             </div>
 
             <div class="client-buy-detail-container hidden ">
+                <div class="overlay-buy-detail"></div>
                 <div class="buy-detail-box">
-                    <button class="btn-close-buy-detail"><ion-icon name="close-outline"></ion-icon></button>
+                    <div class="helper-div">
+                        <button class="btn-close-buy-detail"><ion-icon name="close-outline"></ion-icon></button>
+                    </div>
                     <div class="buy-detail-header">
                         <span class="invoice-number">SMG9348457945</span>
                         <span class="buy-status buy-succes">Succeso</span>

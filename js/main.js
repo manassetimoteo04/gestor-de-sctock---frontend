@@ -5,6 +5,7 @@ import { formatNumbers } from "./views/formatNumbers.js";
 class renderDataMain {
   constructor() {
     //SELECIONANDO VARIAVEIS
+
     this.recentProductContainer = document.querySelector(
       ".recent-product-list"
     );
@@ -157,6 +158,7 @@ class MainApp extends renderDataMain {
   constructor() {
     super();
     // SELECIONANDO AS VARIÁVEIS
+    this.mainContentSection = document.querySelector(".main__content-section");
     this.toggleMenuBtn = document.querySelector(".toggleMenu__btn");
     this.btnToggleNotificationContainer?.addEventListener(
       "click",
@@ -177,17 +179,30 @@ class MainApp extends renderDataMain {
       "click",
       this._toggleDarkMode.bind(this)
     );
+    this.mainContentSection.addEventListener(
+      "click",
+      this._sectionEventL.bind(this)
+    );
     // FUNÇÕES CHAMADAS NO PROCESSO DE LOADING
     this._getDarkToLocalStorage();
     this._renderChart();
   }
 
   // TODAS AS FUNCIONALIDADES
+  _sectionEventL() {
+    this._hideMenu();
+    this.body.classList.remove("show");
+    this.body.classList.remove("show-notif");
+  }
   _toggleMenu() {
     this.body.classList.toggle("menu-hidden");
   }
+
+  _hideMenu() {
+    this.body.classList.remove("menu-hidden");
+  }
   _showNofitication(e) {
-    this.notiticaTionHeaderContainer.classList.toggle("hidden");
+    this.body.classList.toggle("show-notif");
   }
   _profileToggle() {
     this.body.classList.toggle("show");

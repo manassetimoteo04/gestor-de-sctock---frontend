@@ -376,10 +376,18 @@ body {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.356);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 99999;
-  padding: 2rem;
+  padding: 2rem 0;
+}
+
+.overlay-client-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 150%;
+  z-index: -2;
 }
 
 .form-new-client {
@@ -401,6 +409,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--primary-text-color);
 }
 
 .form-header .close-form-new-client {
@@ -440,7 +449,6 @@ body {
   border-radius: 0.5rem;
   cursor: pointer;
   background-color: var(--background-color);
-  border: 1px solid var(--border-color);
   color: inherit;
 }
 
@@ -464,8 +472,6 @@ body {
   position: relative;
   display: none;
 }
-
-
 
 .client-menu span {
   color: inherit;
@@ -793,17 +799,26 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.479);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 9999;
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   overflow-y: scroll;
-  padding: 0 2rem;
+}
+
+.overlay-buy-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  height: 150%;
+  z-index: -1;
 }
 
 .buy-detail-box {
   background-color: var(--bg-divider-color);
   max-width: 45rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding: 2rem;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
@@ -816,6 +831,13 @@ body {
   font-weight: 600;
   color: var(--primary-text-color);
   margin-bottom: 3rem;
+}
+
+.helper-div {
+  display: flex;
+  justify-content: right;
+  color: var(--primary-text-color);
+
 }
 
 .buy-status {
@@ -926,8 +948,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.356);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2);
   z-index: -2;
 }
 

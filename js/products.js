@@ -1,13 +1,12 @@
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";
 
-const productList = [];
 class ProductApp {
   productList = appData.products;
   target;
   constructor() {
     // SELECIONANDO VARIÁVEIS
-    this.productContainer = document.querySelector(".estaticos");
+    this.productContainer = document.querySelector(".container-list");
     this.newProduct = document.querySelector(".btn-add-new-product");
     this.serProductInput = document.querySelector(".product-search-input");
     this.formContainer = document.querySelector(".add-product-container");
@@ -35,94 +34,53 @@ class ProductApp {
     this.btnPevPage = document.querySelector(".btn-previous-page-product");
     this.sorContainer = document.querySelector(".sort-list");
 
-    this.newProduct?.addEventListener(
-      "click",
-      this._showNewProductForm.bind(this)
-    );
-    this.btnCloseNewProductForm?.addEventListener(
-      "click",
-      this._closeNewProductForm.bind(this)
-    );
-    this.btnShowCategoryForm?.addEventListener(
-      "click",
-      this._showCategoryForm.bind(this)
-    );
-    this.btnCloseCategoryForm?.addEventListener(
-      "click",
-      this._closeCategoryForm.bind(this)
-    );
-    this.cancelAddProduct?.addEventListener(
-      "click",
-      this._cancelAddNewProduct.bind(this)
-    );
-    this.productContainer?.addEventListener(
-      "click",
-      this._editProduct.bind(this)
-    );
-    this.productContainer?.addEventListener(
-      "click",
-      this._seeProductDetail.bind(this)
-    );
-    this.btnCloseDetails?.addEventListener(
-      "click",
-      this._closeProductDetail.bind(this)
-    );
-    this.btnCancelDelete?.addEventListener(
-      "click",
-      this._alertMessage.bind(this)
-    );
-    this.btnConfirmDelete?.addEventListener(
-      "click",
-      this._deteleProductFunction.bind(this)
-    );
-    this.productContainer?.addEventListener(
-      "click",
-      this._setTarget.bind(this)
-    );
-    this.serProductInput?.addEventListener(
-      "input",
-      this._searchProductList.bind(this)
-    );
-    this.sorContainer?.addEventListener(
-      "click",
-      this._sortProductList.bind(this)
-    );
-
-    //PAGINATION BTNS
-    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
-    this.btnPevPage?.addEventListener(
-      "click",
-      this.goToPreviousPage.bind(this)
-    );
     // CHAMANDO FUNCTIONS
-    this._pagination(this.productList);
+    this._init();
   }
 
-  //FUNCTIONS
-  _allEventListener() {}
+  // MOSTRAR O FORMULÁRIO PARA ADICIOANR NOVO PRODUCTO
   _showNewProductForm() {
     this.formContainer.classList.remove("hidden");
   }
-  _closeNewProductForm() {
-    this.formContainer.classList.add("hidden");
+
+  // FECHAR O FORMULÁRIO
+  _closeNewProductForm(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-new-product-form"))
+      this.formContainer.classList.add("hidden");
+    if (target.closest(".btn-close-add-new-product"))
+      this.formContainer.classList.add("hidden");
   }
+
+  // MINI FORM PARA ADICIONAR CATEGORIA
   _showCategoryForm() {
     this.categoryFormContainer.classList.remove("hidden");
   }
-  _closeCategoryForm() {
-    this.categoryFormContainer.classList.add("hidden");
+
+  // FECHAR MINIFORM
+  _closeCategoryForm(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-create-category"))
+      this.categoryFormContainer.classList.add("hidden");
+    if (target.closest(".close-category"))
+      this.categoryFormContainer.classList.add("hidden");
   }
+
+  // CANCELAR NOVO PRODUCTO
   _cancelAddNewProduct() {
     this.formContainer.classList.add("hidden");
   }
+
+  // CHAMANDO A FUNÇÃO PARA EDITAR O PRODUCTO
   _editProduct(e) {
     this.target = e.target.closest(".btn-edit-product");
     if (!this.target) return;
     this.formContainer?.classList.remove("hidden");
     const productID = +this.target.closest(".product-item").dataset.id;
-    // SELECIONANDO VARÍAVEIS DO EDIT PRODUCT
     this._settingTheProductEditInputValue(productID);
   }
+
+  // CONFIGURANDO OS VALUES DO INPUT DO PRODUCTO SELECIOANDO
   _settingTheProductEditInputValue(product) {
     const cureentProduct = appData.products.find((item) => item.id === product);
     console.log(cureentProduct);
@@ -141,6 +99,8 @@ class ProductApp {
     inputDescription.value = cureentProduct.description;
     estockQ.value = cureentProduct.stock;
   }
+
+  // FUNÇÃO PARA VER OS DETALHES DO PRODUCTO SELECIONADO
   _seeProductDetail(e) {
     this.target = e.target.closest(".btn-details-product");
     if (!this.target) return;
@@ -148,6 +108,8 @@ class ProductApp {
     const productID = +this.target.closest(".product-item").dataset.id;
     this._displayProductDetailContent(productID);
   }
+
+  // FUNÇÃO PARA RENDERIZAR OS CONTENTS DO PRODUCTO SELECIONADO NO POPUP
   _displayProductDetailContent(product) {
     const cureentProduct = appData.products.find((item) => item.id === product);
     const productNameLabel = document.querySelector(".product-name-details");
@@ -170,12 +132,21 @@ class ProductApp {
     productSellPriceLabel.textContent = formatNumbers.formatCurrency(
       cureentProduct.price
     );
+    productStockQtyLabel.textContent = cureentProduct.stock;
     productCategoryLabel.textContent = cureentProduct.category;
     productIDLabel.textContent = cureentProduct.id;
   }
-  _closeProductDetail() {
-    this.detailsContainer.classList.add("hidden");
+
+  // FECHAR DETALHES DO PRODUCTO
+  _closeProductDetail(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-product-detail"))
+      this.detailsContainer.classList.add("hidden");
+    if (target.closest(".btn-close-details"))
+      this.detailsContainer.classList.add("hidden");
   }
+
+  // RENDERIZAR A LISTA DE PRODUCTOS
   _renderProductList(arrList) {
     if (arrList.length === 0) {
       if (this.listContainer) this.listContainer.innerHTML = "";
@@ -192,10 +163,8 @@ class ProductApp {
       arrList.forEach((element) => {
         let html = `
       <div class="product-item" data-id="${element.id}">
-         <!-- NOME DO PRODUCTO -->
-         <div>
-             <span class="select-btn"><ion-icon
-                     name="caret-down-outline"></ion-icon></ion-icon></span>
+         <div class="product-name-container">
+             <span class=""><ion-icon name="chevron-expand-outline"></ion-icon></span>
              <span class="product-name">${element.name} </span>
          </div>
          <span class="product-category">${element.category}</span>
@@ -221,53 +190,34 @@ class ProductApp {
           this.listContainer.insertAdjacentHTML("afterbegin", html);
       });
     }
-    // if (arrList.length === 0) {
-    //   console.log(arrList);
-    //   document
-    //     .querySelector(".product-list")
-    //     .insertAdjacentHTML(
-    //       "afterbegin",
-    //       `<p classs="sem-resul">Nenhum producto encontrado </p>`
-    //     );
-    // }
   }
 
-  _alertMessage() {
-    this.alerDeleteMsgContainer.classList.add("hidden");
+  // MENSAGEM DE ALERTA PARA ELIMINAR PRODUCTO
+  _alertMessage(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-delete-product"))
+      this.alerDeleteMsgContainer.classList.add("hidden");
+    if (target.closest(".cancel-delete-btn"))
+      this.alerDeleteMsgContainer.classList.add("hidden");
   }
+
+  // CONFIGURAR O TARGET
   _setTarget(e) {
     this.target = e.target.closest(".btn-delete-product");
     if (!this.target) return;
     this.alerDeleteMsgContainer.classList.remove("hidden");
   }
+
+  // FUNÇÃO PARA MOSTRAR O POPUP DE ALERTA PRA ELMIINAR PRODUCTO
   _deteleProductFunction(e) {
     const productID = +this.target.closest(".product-item").dataset.id;
     console.log(productID);
     const i = appData.products.findIndex((item) => item.id === productID);
-    console.log(appData.products);
-    console.log(i);
-    appData.products.splice(i, 1);
-    console.log(appData.products);
-    // this.renderPagination(productList);
-    if (productList.length === 1) productList.splice(0, -1);
     this.alerDeleteMsgContainer.classList.add("hidden");
-    // ALERTA DE SUCESSO NO PROCESSO DE ELIMINAÇÃO
     this._pagination(appData.products);
-    document
-      .querySelector(".delete-confirmed-message")
-      .classList.remove("hidden");
-    // ESCONDENDO APÓS 1,5 SEGUNDOS
-    setTimeout(
-      () =>
-        document
-          .querySelector(".delete-confirmed-message")
-          .classList.add("hidden"),
-      1500
-    );
-    setLocalStorage();
   }
 
-  // FUNCIONALIDADE DE PESQUISA
+  // FUNCIONALIDADE DE PESQUISA NA LISTA DE PRODUCTOS
   _searchProductList(e) {
     const value = this.serProductInput.value.toLowerCase();
     console.log(value);
@@ -276,6 +226,8 @@ class ProductApp {
     );
     this._pagination(filtered);
   }
+
+  // FUNÇÃO PARA CLASSIFICAR A LISTA
   _sortProductList(e) {
     const target = e.target.closest("span");
     const def = document.querySelector(".default");
@@ -297,6 +249,8 @@ class ProductApp {
       def.textContent = target.textContent;
     }
   }
+
+  //CLASSFICICAR EPOR DATA
   _sortByDate() {
     const sorted = appData.products.sort(
       (a, b) => new Date(a.date) - new Date(b.date)
@@ -304,16 +258,20 @@ class ProductApp {
     this._pagination(sorted);
     console.log(sorted);
   }
+  //CLASSFICICAR POR PREÇO
   _sortByPrice() {
     const sorted = appData.products.sort((a, b) => a.price - b.price);
     this._pagination(sorted);
     console.log(sorted);
   }
+
+  //CLASSFICICAR POR ESTOQUE
   _sortByStock() {
     const sorted = appData.products.sort((a, b) => a.stock - b.stock);
     this._pagination(sorted);
   }
 
+  // PAGINAÇÃO DA LISTA DE PRODUCTOS
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
     this.productList = productList;
@@ -325,6 +283,8 @@ class ProductApp {
       .padStart(2, 0)}`;
     this.renderCurrentPage(this.currentPage, productList);
   }
+
+  // CONFIGURARA  PÁGINA A SER RENDERIZADA
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
@@ -335,6 +295,8 @@ class ProductApp {
   renderCurrentPage(currentPage, list) {
     this.renderPage(currentPage, list);
   }
+
+  // FUNÇÃO PARA IR NA PÁGINA ANTERIOR
   goToPreviousPage = function () {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -343,6 +305,8 @@ class ProductApp {
     }
     this.curPagelabel.textContent = this.currentPage;
   };
+
+  // FUNÇÃO PARA IR NA PÁGINA POSTERIOR
   goToNextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -350,7 +314,78 @@ class ProductApp {
     }
     this.curPagelabel.textContent = this.currentPage;
   }
+
+  // CHAMANDO TODOS OS EVENTLISNTERS
+  _allEventListener() {
+    this.newProduct?.addEventListener(
+      "click",
+      this._showNewProductForm.bind(this)
+    );
+    this.formContainer?.addEventListener(
+      "click",
+      this._closeNewProductForm.bind(this)
+    );
+    this.btnShowCategoryForm?.addEventListener(
+      "click",
+      this._showCategoryForm.bind(this)
+    );
+    this.categoryFormContainer?.addEventListener(
+      "click",
+      this._closeCategoryForm.bind(this)
+    );
+
+    this.cancelAddProduct?.addEventListener(
+      "click",
+      this._cancelAddNewProduct.bind(this)
+    );
+    this.productContainer?.addEventListener(
+      "click",
+      this._editProduct.bind(this)
+    );
+    this.productContainer?.addEventListener(
+      "click",
+      this._seeProductDetail.bind(this)
+    );
+
+    this.alerDeleteMsgContainer?.addEventListener(
+      "click",
+      this._alertMessage.bind(this)
+    );
+    this.detailsContainer?.addEventListener(
+      "click",
+      this._closeProductDetail.bind(this)
+    );
+    this.btnConfirmDelete?.addEventListener(
+      "click",
+      this._deteleProductFunction.bind(this)
+    );
+    this.productContainer?.addEventListener(
+      "click",
+      this._setTarget.bind(this)
+    );
+    this.serProductInput?.addEventListener(
+      "input",
+      this._searchProductList.bind(this)
+    );
+    this.sorContainer?.addEventListener(
+      "click",
+      this._sortProductList.bind(this)
+    );
+
+    //PAGINATION BTNS
+    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
+    this.btnPevPage?.addEventListener(
+      "click",
+      this.goToPreviousPage.bind(this)
+    );
+  }
+
+  // FUNÇÕES AUTOINICIALIZADAS
+  _init() {
+    this._pagination(this.productList);
+    this._allEventListener();
+  }
 }
 
 const productClass = new ProductApp();
-export { productList, productClass };
+export { productClass };

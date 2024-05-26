@@ -63,14 +63,26 @@ class VendasApp {
     this.newSellFormContainer.classList.remove("hidden");
   }
 
-  _closeSellFormFunction() {
-    this.sellDetailContainer.classList.remove("hidden");
-    this.sellDetailContainer.classList.add("hide-detail");
-    this.newSellFormContainer.classList.add("hidden");
+  _closeSellFormFunction(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-new-sell-form")) {
+      this.sellDetailContainer.classList.remove("hidden");
+      this.sellDetailContainer.classList.add("hide-detail");
+      this.newSellFormContainer.classList.add("hidden");
+    }
+    if (target.closest(".btn-close-sell-form")) {
+      this.sellDetailContainer.classList.remove("hidden");
+      this.sellDetailContainer.classList.add("hide-detail");
+      this.newSellFormContainer.classList.add("hidden");
+    }
   }
 
-  _closeSellDetailFunction() {
-    this.sellDetailContainer?.classList.add("hidden");
+  _closeSellDetailFunction(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-sell-detail"))
+      this.sellDetailContainer?.classList.add("hidden");
+    if (target.closest(".btn-close-sell-details"))
+      this.sellDetailContainer?.classList.add("hidden");
   }
 
   _hideSingleDetailFunction(btn) {
@@ -484,6 +496,10 @@ class VendasApp {
   }
 
   _eventListeners() {
+    this.sellDetailContainer?.addEventListener(
+      "click",
+      this._closeSellDetailFunction.bind(this)
+    );
     this.selectClientInput?.addEventListener(
       "click",
       this._showMiniClientList.bind(this)
@@ -515,14 +531,18 @@ class VendasApp {
       "click",
       this._showsellDetail.bind(this)
     );
-    this.btnCloseSellFormContainer?.addEventListener(
+    // this.btnCloseSellFormContainer?.addEventListener(
+    //   "click",
+    //   this._closeSellFormFunction.bind(this)
+    // );
+    this.newSellFormContainer?.addEventListener(
       "click",
       this._closeSellFormFunction.bind(this)
     );
-    this.btnCloseSellDetail?.addEventListener(
-      "click",
-      this._closeSellDetailFunction.bind(this)
-    );
+    // this.btnCloseSellDetail?.addEventListener(
+    //   "click",
+    //   this._closeSellDetailFunction.bind(this)
+    // );
     this.btnHideSingleDetail?.forEach(
       this._hideSingleDetailFunction.bind(this)
     );

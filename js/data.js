@@ -658,10 +658,33 @@ const appData = {
   supplier: [
     {
       id: 301,
-      name: "Client One",
+      name: "Ricaro Pembele",
+      email: "ricardopembele@gmail.com",
+      phone: "1234567890",
+      address: "123 Street, City, Country",
+      products: ["Comprimidos", "Pastas"],
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
+    },
+
+    {
+      id: 302,
+      name: "Augustina Mpaka",
+      email: "augustinampaka@gmail.com",
+      phone: "2334345345",
+      address: "123 Street, City, Country",
+      products: ["Mesas"],
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
+    },
+
+    {
+      id: 304,
+      name: "Germina Pembele",
       email: "clientone@example.com",
       phone: "1234567890",
       address: "123 Street, City, Country",
+      products: ["Computador", "Telefone"],
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sunt accusamus sed sit officiis, velit, error voluptas rem at provident delectus quam dicta nam, quae minima eaque voluptatem quaerat quasi!",
     },
