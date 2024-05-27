@@ -148,18 +148,19 @@ class ProductApp {
 
   // RENDERIZAR A LISTA DE PRODUCTOS
   _renderProductList(arrList) {
+    if (!this.listContainer) return;
     if (arrList.length === 0) {
-      if (this.listContainer) this.listContainer.innerHTML = "";
+      this.listContainer.innerHTML = "";
       const emptyList = `
       <div class="empty-product">
       <p>Nenhum producto encontrado</p>
   </div>
       `;
-      if (this.listContainer)
-        this.listContainer.insertAdjacentHTML("afterbegin", emptyList);
+
+      this.listContainer.insertAdjacentHTML("afterbegin", emptyList);
     }
     if (arrList.length !== 0) {
-      if (this.listContainer) this.listContainer.innerHTML = "";
+      this.listContainer.innerHTML = "";
       arrList.forEach((element) => {
         let html = `
       <div class="product-item" data-id="${element.id}">
@@ -185,9 +186,8 @@ class ProductApp {
          </span>
      </div>
       `;
-        // VERIFICAR NOVAMENTO SE O LISTCONTAINER NÃO É UNDEFINED
-        if (this.listContainer)
-          this.listContainer.insertAdjacentHTML("afterbegin", html);
+
+        this.listContainer.insertAdjacentHTML("afterbegin", html);
       });
     }
   }

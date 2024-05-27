@@ -264,7 +264,6 @@ class VendasApp {
 
   _settingDetailSellContent(id) {
     const currentSell = appData.sales.find((item) => item.id === +id);
-    console.log(currentSell);
     const invoiceHeaderLabel = document.querySelector(
       ".invoice-number-label-header"
     );

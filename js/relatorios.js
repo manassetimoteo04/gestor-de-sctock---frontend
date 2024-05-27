@@ -24,20 +24,46 @@ class ReportApp {
       ".container-progress-sell-category"
     );
     this.topProductList = document.querySelector(".top-product-list");
+    this.actualStockContainer = document.querySelector(".actual-stock-list");
+
+    this.totalPagesLabel = document.querySelector(".total-pages-report");
+    this.curPagelabel = document.querySelector(".curr-page-number-report");
+    this.btnNextPage = document.querySelector(".btn-next-page-report");
+    this.btnPrevPage = document.querySelector(".btn-previous-page-report");
+    this.inputSearchStock = document.querySelector(
+      ".search-input-report-stock"
+    );
+    this.actualStockSort = document.querySelector(".report-sort-by");
     // EVENT LISTENERS
     this.filterContainer?.addEventListener(
       "click",
       this._toggleFiterBtn.bind(this)
     );
-    this.btnCloseDateInputContainer?.addEventListener(
+    this.filterDateInputContainer?.addEventListener(
       "click",
       this._closeFilterDateContainer.bind(this)
     );
+    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
+    this.btnPrevPage?.addEventListener(
+      "click",
+      this.goToPreviousPage.bind(this)
+    );
+
+    this.inputSearchStock.addEventListener(
+      "input",
+      this._searchActualStockFilter.bind(this)
+    );
+    this.actualStockContainer?.addEventListener(
+      "click",
+      this._sortActualStock.bind(this)
+    );
+
     this._renderSummary();
     this._renderChartLine();
     this._renderMostSelledProduct(appData.reports.topSellingProducts);
     this._renderSalesByCategory(appData.reports.salesByCategory);
     this._renderTopProducts(appData.reports.topSellingProducts);
+    this._pagination(appData.reports.currentStock);
   }
   // FUNCÇÕES DOS EVENT LISTENERS
   _renderSummary() {
@@ -67,11 +93,21 @@ class ReportApp {
     if (!target) return;
     this.filterDateInputContainer.classList.remove("hidden");
   }
-  _closeFilterDateContainer() {
-    this.filterDateInputContainer.classList.add("hidden");
+  _closeFilterDateContainer(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-date-report"))
+      this.filterDateInputContainer.classList.add("hidden");
+    if (target.closest(".btn-close-filter-analityc"))
+      this.filterDateInputContainer.classList.add("hidden");
+
+    if (target.closest(".btn-generate-report"))
+      this.filterDateInputContainer.classList.add("hidden");
   }
 
   _renderChartLine() {
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue("--secondary-text-color")
+      .trim();
     const ctx = document.getElementById("monthlySalesChart");
     const data = {
       labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
@@ -83,6 +119,12 @@ class ReportApp {
           backgroundColor: "rgba(153, 170, 245, 0.2)",
           fill: true,
           tension: 0.01,
+          borderColor: "rgba(75, 192, 192, 1)",
+          tension: 0.1,
+          pointBackgroundColor: "rgba(75, 192, 192, 1)",
+          pointBorderColor: "#fff",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(75, 192, 192, 1)",
         },
       ],
     };
@@ -101,7 +143,10 @@ class ReportApp {
               color: "#4361ee",
             },
             ticks: {
-              color: "#4361ee", // Cor dos ticks do eixo X
+              font: {
+                size: 18,
+              },
+              color: color,
             },
           },
           y: {
@@ -110,7 +155,10 @@ class ReportApp {
               color: "#4361ee",
             },
             ticks: {
-              color: "#4361ee", // Cor dos ticks do eixo X
+              font: {
+                size: 18,
+              },
+              color: color,
             },
             beginAtZero: true,
           },
@@ -137,6 +185,16 @@ class ReportApp {
               },
             },
           },
+          legend: {
+            display: false,
+            position: "top",
+            labels: {
+              font: {
+                size: 18,
+              },
+              color: color,
+            },
+          },
         },
       },
     };
@@ -152,7 +210,6 @@ class ReportApp {
 
     list.forEach((item) => {
       const productName = appData.products.find((p) => p.id === item.productId);
-      c(productName.price);
       const html = `<div class="most-selled-product">
       <div class="product-name"> <ion-icon name="trending-up-outline"></ion-icon>
           <div>
@@ -179,7 +236,6 @@ class ReportApp {
     list.forEach((item) => {
       const percentage =
         (item.amount / appData.reports.salesByPeriod[0].totalSales) * 100;
-      console.log(percentage);
       const html = `
       <div class="category-box">
       <div>
@@ -202,7 +258,6 @@ class ReportApp {
     this.topProductList.innerHTML = "";
     list.forEach((item) => {
       const producName = appData.products.find((p) => p.id === item.productId);
-      c(producName);
       const html = `
       <div class="product-box">
           <div>
@@ -221,6 +276,96 @@ class ReportApp {
       `;
       this.topProductList.insertAdjacentHTML("afterbegin", html);
     });
+  }
+
+  _renderActualStock(list) {
+    this.actualStockContainer.innerHTML = "";
+    if (list.length === 0) {
+      this.listContainer.innerHTML = "";
+      const emptyList = `
+      <div class="empty-product">
+      <p>Nenhum producto encontrado</p>
+      </div>
+      `;
+      this.actualStockContainer.insertAdjacentHTML("afterbegin", emptyList);
+    }
+    list.forEach((item) => {
+      const product = appData.products.find((p) => p.id === item.productId);
+      const html = `
+    <div class="product-box">
+        <div>
+            <span class="product-icon"><ion-icon
+                    name="chevron-expand-outline"></ion-icon></span>
+            <span class="">${product.name} </span>
+        </div>
+        <span class="">${product.category} </span>
+        <span class="">${product.stock}</span>
+        <span class="">45</span>
+        <span class="">${product.id}</span>
+    </div>
+      `;
+      this.actualStockContainer.insertAdjacentHTML("afterbegin", html);
+    });
+  }
+
+  _searchActualStockFilter() {
+    // const value = this.inputSearchStock.value.toLowerCase();
+    // console.log(value);
+    // const filtered = appData.reports.currentStock.filter((item) =>
+    //   item.id.startsWith(value)
+    // );
+    // this._pagination(filtered);
+  }
+  _sortActualStock(e) {
+    const target = e.target.closest("span");
+    if (target.classList.contains("sort-stock")) this.sorByStock();
+    if (target.classList.contains("sort-sell")) this.sorBySell();
+  }
+  sorByStock() {}
+  sorBySell() {}
+  //PAGINAÇÃO DA LISTA
+  _pagination(productList) {
+    if (!this.totalPagesLabel) return;
+
+    this.productList = productList;
+    this.productsPerPage = 7;
+    this.currentPage = 1;
+    this.totalPages = Math.ceil(productList.length / this.productsPerPage);
+    this.totalPagesLabel.textContent = `${this.totalPages
+      .toString()
+      .padStart(2, 0)}`;
+
+    this.renderCurrentPage(this.currentPage, productList);
+  }
+
+  // RENDERIZAR PAGINAÇÃO
+  renderPage(page, list) {
+    this.startIndex = (page - 1) * this.productsPerPage;
+    this.endIndex = this.startIndex + this.productsPerPage;
+    this.productsToRender = list.slice(this.startIndex, this.endIndex);
+    this._renderActualStock(this.productsToRender);
+  }
+
+  renderCurrentPage(currentPage, list) {
+    this.renderPage(currentPage, list);
+  }
+
+  // PÁGINA ANTERIOR
+  goToPreviousPage = function () {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.renderCurrentPage(this.currentPage, this.productList);
+    }
+    this.curPagelabel.textContent = this.currentPage;
+  };
+
+  // PÁGINA SEGUINTE
+  goToNextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.renderCurrentPage(this.currentPage, this.productList);
+    }
+    this.curPagelabel.textContent = this.currentPage;
   }
 }
 const report = new ReportApp();

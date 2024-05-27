@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/relatorios.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="../assets/img/logo/logo.png" type="image/x-icon">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
@@ -101,12 +102,9 @@
         </header>
 
 
-        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
         <aside class="side__bar">
-            <!-- LOGOTIPO -->
             <h1 class="logo"> <img src="../assets/img/logo/logo.png" class="icon-logo"><span
                     class="full-logo">StockMaster</span></h1>
-            <!-- BARRA DE MENU PRINCIPAL -->
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
@@ -137,24 +135,20 @@
             </nav>
         </aside>
 
-        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
         <section class="main__content-section">
-            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
                     <h2 class="heading-h2">Relátorios e Análises</h2>
                     <span class="section-tag">Vê as estátisticas</span>
                 </header>
-                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
+
                 <div class="filter-analitycs-container">
                     <span class="filter-by today-reports filtered">Hoje</span>
                     <div class=" filter-by date-filter">
                         <p class="start-date">23, Jan 2023</p> - <p class="end-date">24, Jan 2023</p>
-
-                        <!-- CONTAINER PARA FILTRAR DADOS COM BASE AS DATAS INSERIDAS -->
-
                     </div>
                     <div class="filter-input hidden">
+                        <span class="overlay-date-report"></span>
                         <div>
                             <form action="">
                                 <h4 class="filter-heading">Inserir Período <p class="btn-close-filter-analityc">
@@ -328,25 +322,44 @@
 
 
                     <div class="statics-box static-stock-container">
+                        <div class="list-header">
 
-                        <h3 class="heading-h3">Estoque Actual</h3>
+                            <h3 class="heading-h3">Estoque actual</h3>
+                            <div class="sub-box-header">
+
+                                <div class="seach-product">
+                                    <ion-icon name="search-outline"></ion-icon>
+                                    <input type="text" placeholder="Digitar Factura..."
+                                        class="input__search search-input-report-stock">
+                                </div>
+
+                                <div class="sort-by report-sort-by">
+                                    <ion-icon name="filter-outline"></ion-icon>
+                                    <span class="def">Filtrar</span>
+                                    <div name="" id="" class="sort-list client-purchase-sort-list">
+                                        <span class="sort-stock">Estoque</span>
+                                        <span class="sort-sell">Venda</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="container ">
                             <div class="estatic">
-                                <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
+
                                 <div class="heading-stock">
                                     <span>Productos</span>
 
                                     <span>Categoria</span>
                                     <span>Estoques</span>
                                     <span>Vendas</span>
-                                    <span>Status</span>
+                                    <span>ID Producto</span>
                                 </div>
-                                <!-- PRODUCTOS -->
                                 <div class="actual-stock-list">
                                     <div class="product-box">
                                         <div>
                                             <span class="product-icon"><ion-icon
-                                                    name="trending-down-outline"></ion-icon></span>
+                                                    name="chevron-expand-outline"></ion-icon></span>
                                             <span class="">Computador</span>
                                         </div>
                                         <span class="">Informática</span>
@@ -359,15 +372,14 @@
 
                             </div>
                         </div>
-                        <!-- PAGINAÇÃO DO PRODUCTO -->
-                        <div class="subheader">
-                            <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                                    class="current-product-page total-pages">10</span></div>
+                        <div class="pagination-container">
+                            <div class="pagination">Páginas <span class="total-pages-report">10</span></div>
                             <div class="btn-pages">
-                                <button class="btn-previous-page">
+                                <button class="btn-previous-page-report">
                                     <ion-icon name="chevron-back-outline"></ion-icon></button>
-                                <span class="curr-page-number">1</span>
-                                <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
+                                <span class="curr-page-number-report">1</span>
+                                <button class="btn-next-page-report"> <ion-icon
+                                        name="chevron-forward-outline"></ion-icon>
                                 </button>
                             </div>
                         </div>

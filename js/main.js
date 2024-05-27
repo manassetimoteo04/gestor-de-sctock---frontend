@@ -226,6 +226,9 @@ class MainApp extends renderDataMain {
   }
 
   _renderChart() {
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue("--secondary-text-color")
+      .trim();
     this.labels = ["07h", "10h", "13h", "16", "18h", "20h", "21h"];
 
     this.data = {
@@ -265,6 +268,16 @@ class MainApp extends renderDataMain {
                 return color;
               },
             },
+          },
+        },
+        legend: {
+          display: false,
+          position: "top",
+          labels: {
+            font: {
+              size: 18,
+            },
+            color: color,
           },
         },
       });

@@ -69,12 +69,20 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.35);
   width: 100%;
   height: 100%;
   padding: 2rem;
   z-index: 9999;
-  backdrop-filter: blur(3px);
+}
+
+.overlay-date-report {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
 }
 
 .filter-input div {
@@ -208,10 +216,10 @@ canvas {
   color: var(--primary-text-color);
 }
 
-.analityc-summary-box .analityc-summary-icon {
+.analityc-summary-box .analityc-summary-icon ion-icon {
   background-color: var(--background-color);
-  padding: 2rem;
-  font-size: 3rem;
+  padding: 1rem;
+  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -443,6 +451,79 @@ canvas {
 /* -------------------- */
 
 
+.list-header {
+  padding: 2rem 0;
+}
+
+.list-header h3 {
+  border-bottom: none !important;
+}
+
+.sub-box-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 3rem;
+}
+
+.seach-product {
+  background-color: var(--background-color);
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--background-color);
+  width: 14rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.sort-by ion-icon {
+  border-right: 1px solid var(--border-color);
+  padding-right: 0.5rem;
+}
+
+.sort-by:hover .sort-list {
+  display: flex;
+}
+
+.sort-list {
+  position: absolute;
+  background-color: var(--background-color);
+  padding: 2rem 0.5rem;
+  bottom: -10rem;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  z-index: 999;
+}
+
+.sort-list span {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.sort-list span:hover {
+  background-color: var(--bg-divider-color);
+}
+
+.input__search {
+  border: none;
+}
+
+
 .static-stock-container .container {
   overflow-x: scroll;
 }
@@ -485,6 +566,14 @@ canvas {
   background-color: rgba(255, 255, 255, 0);
 }
 
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
 .container::-webkit-scrollbar-thumb:hover {
   background-color: #555;
   /* Cor do botão de rolagem ao passar o mouse */
@@ -512,7 +601,7 @@ ion-icon {
   color: inherit;
 }
 
-.btn-pages .curr-page-number {
+.btn-pages .curr-page-number-report {
   display: flex;
   align-items: center;
   justify-content: center;
