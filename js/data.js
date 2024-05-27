@@ -5,7 +5,7 @@
 const appData = {
   loggedInUser: {
     id: 1,
-    name: "Admin User",
+    name: "Manasse Timóteo",
     role: "Administrador",
     token: "abc123token",
     permissions: [
@@ -141,6 +141,7 @@ const appData = {
     {
       name: "Massa F",
       quantity: 80,
+      productId: 201,
       date: "2024-05-22T10:17:24.185Z",
       category: "Brinquedos",
       type: "entrada",
@@ -693,8 +694,9 @@ const appData = {
     salesByPeriod: [
       {
         period: "2024-05-01 to 2024-05-31",
-        totalSales: 1000.0,
+        totalSales: 344567.9,
         totalOrders: 25,
+        totalL: 2340,
         mostSoldProducts: [
           {
             productId: 101,
@@ -705,6 +707,25 @@ const appData = {
             quantity: 30,
           },
         ],
+      },
+    ],
+
+    salesByCategory: [
+      {
+        category: "Electronicos",
+        amount: 234545,
+      },
+      {
+        category: "Roupas",
+        amount: 54545,
+      },
+      {
+        category: "Cosméticos",
+        amount: 72945,
+      },
+      {
+        category: "Calçados",
+        amount: 107945,
       },
     ],
     currentStock: [
@@ -720,11 +741,13 @@ const appData = {
     topSellingProducts: [
       {
         productId: 101,
-        quantity: 50,
+        sales: 50,
+        total: 2395,
       },
       {
         productId: 102,
-        quantity: 30,
+        sales: 30,
+        total: 3495,
       },
     ],
   },

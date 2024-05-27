@@ -106,15 +106,23 @@ body {
 } */
 
 .full-logo {
-  display: none;
+  opacity: 0;
+
 }
 
 .icon-logo {
   display: block !important;
+  width: 3.5rem;
+  padding-right: 1rem;
+  transition: all 0.3s;
 }
 
 .logo {
   padding: 0rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
 }
 
 
@@ -138,12 +146,14 @@ body {
   padding-right: 0; 
 }
 */
-.menu-hidden .icon-logo {
+/* .menu-hidden .icon-logo {
   display: none !important;
-}
+} */
 
 .menu-hidden .full-logo {
-  display: block;
+  opacity: 1;
+  transition: all 0.3s;
+
 }
 
 .menu-hidden .logo {
@@ -288,7 +298,7 @@ input::placeholder {
   position: absolute;
   right: 1rem;
   bottom: -30.5rem;
-  max-width: 23rem;
+  max-width: 30rem;
   min-width: 28rem;
   background-color: var(--bg-divider-color);
   padding: 1rem;
@@ -307,7 +317,7 @@ input::placeholder {
   position: absolute;
   right: 8rem;
   bottom: -30.5rem;
-  max-width: 23rem;
+  max-width: 35rem;
   min-width: 28rem;
   background-color: var(--bg-divider-color);
   padding: 1rem;
@@ -335,10 +345,25 @@ input::placeholder {
 }
 
 .notifications-box {
-  background-color: var(--background-color);
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1rem 0;
   margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.notifications-box ion-icon {
+  background-color: var(--background-color) !important;
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--primary-color-red);
+  font-size: 2.4rem !important;
+
+}
+
+.notifications-box:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 
 .notification-text-container .notification-text-header {
@@ -424,7 +449,7 @@ input::placeholder {
 /* ESTILIZANDO O ASIDE BAR */
 .side__bar {
   grid-row: 1/-1;
-  padding: 3rem 1rem;
+  padding: 2.5rem 1rem;
   padding-right: 0;
   background-color: var(--bg-divider-color);
   overflow-y: scroll;
@@ -476,6 +501,7 @@ input::placeholder {
 .logo {
   font-size: 2.4rem;
   color: var(--bs-orange);
+  margin-top: 0;
   margin-bottom: 4rem;
   color: var(--primary-text-color);
 }

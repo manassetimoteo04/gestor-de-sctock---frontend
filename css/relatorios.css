@@ -202,7 +202,7 @@ canvas {
   font-weight: 600;
 }
 
-.analityc-summary-box .analityc-total-earning {
+.analityc-summary-box .analityc-total {
   font-size: 3.2rem;
   font-weight: 700;
   color: var(--primary-text-color);
@@ -240,6 +240,11 @@ canvas {
   padding-bottom: 3rem;
 }
 
+.heading-h3 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
 .analitycs-header {
   font-weight: 600;
   color: var(--primary-text-color);
@@ -258,6 +263,7 @@ canvas {
   gap: 1rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-color);
+  color: var(--primary-text-color);
   align-items: center;
 
 }
@@ -266,7 +272,7 @@ canvas {
   display: grid;
   grid-template-columns: 3.5fr 2fr 2fr;
   gap: 2rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
   align-items: center;
 }
 
@@ -278,6 +284,15 @@ canvas {
   display: flex;
   align-items: center;
   gap: 1rem;
+
+}
+
+.product-name div {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-selled {
   color: var(--primary-text-color);
   font-weight: 600;
 }
@@ -290,6 +305,11 @@ canvas {
   justify-content: center;
   border-radius: 0.5rem;
   color: var(--primary-color-blue);
+}
+
+.total-selled-amount {
+  justify-self: right;
+  font-weight: 600;
 }
 
 .stock-reports-container {
@@ -323,14 +343,18 @@ canvas {
   border-bottom: 1px solid var(--border-color);
   font-weight: 600;
   align-items: center;
+  color: var(--primary-text-color);
 }
 
 .product-box {
   display: grid;
   grid-template-columns: 2.5fr 1.5fr 1fr 1fr 1fr;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border-color);
+  padding: 1.2rem 0;
   align-items: center;
+}
+
+.product-box:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 
 .stock-status {
@@ -376,6 +400,44 @@ canvas {
   width: 100%;
   grid-column: 1/-1;
   gap: 0;
+}
+
+.container-progress-sell-category {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+
+.progress {
+  height: 3rem;
+  background-color: var(--background-color);
+  border-radius: 50rem;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.progress-bar {
+  background-color: #4361ee;
+  height: 100%;
+  width: 50%;
+  border-radius: 50rem;
+
 }
 
 /* -------------------- */
@@ -460,30 +522,6 @@ ion-icon {
   border-radius: 50%;
   font-weight: bold;
   color: #fff;
-}
-
-.top-pagination {
-  display: flex;
-  justify-content: space-between;
-}
-
-.top-pagination-container {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  gap: 1rem;
-  color: var(--secondary-text-color);
-  cursor: pointer;
-}
-
-.top-pagination-container .page {
-  padding: 1rem;
-  background-color: var(--primary-color-blue);
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 

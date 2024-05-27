@@ -939,6 +939,10 @@ body {
   width: 100%;
   height: 100%;
   z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 
 }
 
@@ -954,15 +958,15 @@ body {
 }
 
 .delete-user-alert-message {
-  max-width: 32rem;
+  max-width: 35rem;
   background-color: var(--bg-divider-color);
   padding: 2rem;
-  margin: 20rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
+  color: var(--primary-text-color);
 }
 
 .delete-user-alert-message ion-icon {
@@ -1084,4 +1088,8 @@ body {
   .summary-text {
     font-size: 1.8rem;
   }
+}
+
+.hidden {
+  display: none;
 }

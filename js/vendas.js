@@ -268,6 +268,7 @@ class VendasApp {
     const invoiceHeaderLabel = document.querySelector(
       ".invoice-number-label-header"
     );
+    if (!invoiceHeaderLabel) return;
 
     const sellSatusLabel = document.querySelector(".single-status");
     const invoiceNumberLabel = document.querySelector(
@@ -574,6 +575,7 @@ class VendasApp {
     this._eventListeners();
     this._renderMiniClientList(appData.clients);
     this._renderAddedProduct([]);
+    this._settingDetailSellContent(appData.sales.slice(-1)[0].id);
   }
 }
 const sellApp = new VendasApp();

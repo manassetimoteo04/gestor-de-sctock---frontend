@@ -158,7 +158,9 @@ class MainApp extends renderDataMain {
   constructor() {
     super();
     // SELECIONANDO AS VARIÁVEIS
-    this.mainContentSection = document.querySelector(".main__content-section");
+    this.mainContentSection = document.querySelectorAll(
+      ".main__content-section"
+    );
     this.toggleMenuBtn = document.querySelector(".toggleMenu__btn");
     this.btnToggleNotificationContainer?.addEventListener(
       "click",
@@ -179,10 +181,9 @@ class MainApp extends renderDataMain {
       "click",
       this._toggleDarkMode.bind(this)
     );
-    this.mainContentSection.addEventListener(
-      "click",
-      this._sectionEventL.bind(this)
-    );
+    this.mainContentSection.forEach((btn) => {
+      btn.addEventListener("click", this._sectionEventL.bind(this));
+    });
     // FUNÇÕES CHAMADAS NO PROCESSO DE LOADING
     this._getDarkToLocalStorage();
     this._renderChart();

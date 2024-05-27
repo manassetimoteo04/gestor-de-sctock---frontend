@@ -468,12 +468,12 @@ class ClientApp {
   }
   _deleteClientClosePopUp(e) {
     const targer = e.target;
-    console.log(targer.classList);
-
-    if (targer.classList.contains("overlay-delete-user"))
+    if (targer.classList.contains("overlay-delete-user")) {
       this.alertDeleteUser.classList.add("hidden");
-    if (targer.classList.contains("btn-cancel-delete-costumer"))
+    }
+    if (targer.classList.contains("btn-cancel-delete-costumer")) {
       this.alertDeleteUser.classList.add("hidden");
+    }
 
     if (targer.classList.contains("btn-confirm-delete-costumer")) {
       this.alertDeleteUser.classList.add("hidden");

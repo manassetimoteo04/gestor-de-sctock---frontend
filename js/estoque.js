@@ -11,14 +11,14 @@ class StockApp {
   constructor() {
     // SELECIONADO AS VARIAVEIS
     this.ctx = document.getElementById("pieChart");
-    this.lowStockForm = document.querySelector(".low-stock-edit-container");
+    this.historicDetailContainer = document.querySelector(
+      ".historic-product-detail "
+    );
     this.lowStockContainer = document.querySelector(".low-stock-list");
     this.btnUpdateStockConfirm = document.querySelector(
       ".confirm-update-product"
     );
-    this.btnCloseUpdateContainer = document.querySelector(
-      ".btn-close-update-product"
-    );
+
     this.inputQuantityUpdate = document.querySelector(".update-quantity-input");
     this.lowNotificationContainer = document.querySelector(
       ".notification-stock-list"
@@ -39,7 +39,11 @@ class StockApp {
       "click",
       this._sortProductList.bind(this)
     );
-    this.lowStockContainer?.addEventListener(
+    // this.lowStockContainer?.addEventListener(
+    //   "click",
+    //   this._updateStock.bind(this)
+    // );
+    this.productInOUtHistory?.addEventListener(
       "click",
       this._updateStock.bind(this)
     );
@@ -47,9 +51,13 @@ class StockApp {
       "click",
       this._confirmUpdateStock.bind(this)
     );
-    this.btnCloseUpdateContainer?.addEventListener(
+    // this.btnCloseUpdateContainer?.addEventListener(
+    //   "click",
+    //   this._closeHistoricDetail.bind(this)
+    // );
+    this.historicDetailContainer?.addEventListener(
       "click",
-      this._closeUpdateStockFom.bind(this)
+      this._closeHistoricDetail.bind(this)
     );
     this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
     this.btnPevPage?.addEventListener(
@@ -113,7 +121,7 @@ class StockApp {
     let html;
     list.forEach((item) => {
       html = `
-        <div class="product-item-history" data-id="">
+        <div class="product-item-history" data-id="${item.productId}">
 
           <span class="product-name"><ion-icon name="arrow-${
             item.type === "entrada" ? "down" : "up"
@@ -141,34 +149,33 @@ class StockApp {
   _updateStock(e) {
     this.target = e.target.closest(".btn-update-stock");
     if (!this.target) return;
-    this.data = this.target.closest(".product-item");
-    this.item = productList.find((p) => p.SKUCode === this.data.dataset.id);
-    this.index = productList.indexOf(this.item);
-    console.log(productList[this.index]);
-    this.lowStockForm.classList.remove("hidden");
-    this._renderUpdateForm(productList[this.index]);
+    const Id = +this.target.closest(".product-item-history").dataset.id;
+
+    this.historicDetailContainer.classList.remove("hidden");
+    this._renderUpdateForm(Id);
   }
-  _closeUpdateStockFom() {
-    this.lowStockForm.classList.add("hidden");
+  _closeHistoricDetail(e) {
+    const target = e.target;
+    if (target.classList.contains("overlay-historic-detail"))
+      this.historicDetailContainer.classList.add("hidden");
+    if (target.closest(".btn-close-historic-detail"))
+      this.historicDetailContainer.classList.add("hidden");
   }
-  _renderUpdateForm(item) {
-    document.querySelector(".update-product-name").textContent = item.name;
-    document.querySelector(".update-product-category").textContent =
+  _renderUpdateForm(id) {
+    const item = appData.registerInOutProducts.find((p) => p.productId === id);
+
+    document.querySelector(".product-name-historic").textContent = item.name;
+    document.querySelector(".product-category-historic").textContent =
       item.category;
-    document.querySelector(
-      ".update-product-sell-price"
-    ).textContent = `$ ${item.sellPrice}`;
-    document.querySelector(
-      ".update-product-buy-price"
-    ).textContent = `$ ${item.buyPrice}`;
-    document.querySelector(".update-product-actual-stock").textContent =
-      item.quantity;
-    document.querySelector(".update-product-min-stock").textContent =
-      item.alertQuantity;
+
+    document.querySelector(".product-qty-historic").textContent = item.quantity;
+    document.querySelector(".product-event-type").textContent = item.type;
+    document.querySelector(".product-date-historic").textContent =
+      formatNumbers.formatDates(new Date(item.date));
   }
   _confirmUpdateStock() {
     productList[this.index].quantity += +this.inputQuantityUpdate.value;
-    this.lowStockForm.classList.add("hidden");
+    this.historicDetailContainer.classList.add("hidden");
     this.lowStockProductList = productList.filter(
       (product) => product.quantity < product.alertQuantity
     );

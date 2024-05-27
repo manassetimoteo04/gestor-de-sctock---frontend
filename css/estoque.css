@@ -166,8 +166,10 @@ body {
   font-weight: 600;
 }
 
-.low-stock .stock-tag {
+.stock-tag {
   color: inherit;
+  font-size: 2.8rem;
+  font-weight: 600;
 }
 
 .btn-add-new-stock ion-icon {
@@ -368,8 +370,6 @@ body {
   color: var(--primary-text-color);
 }
 
-
-
 .out-product-icon {
   color: var(--primary-color-bluer);
   display: flex;
@@ -436,6 +436,11 @@ body {
   margin-bottom: 3rem;
 }
 
+.product-name {
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+
 .container-registos {
   overflow-x: scroll;
 }
@@ -499,17 +504,7 @@ body {
   overflow-x: scroll;
 }
 
-/* .low-stock-container .estaticos,
-.stocks .estaticos {
-  min-width: 90rem;
-  max-width: 100rem;
-} */
 
-
-#pieChart {
-  width: 100%;
-  height: 100%;
-}
 
 /* ESTILIZANDO A LISTA DE PRODUCTOS COM ESTOQUES BAIXO */
 
@@ -667,27 +662,38 @@ ion-icon {
 }
 
 /* FORMULÁRIO PARA ACTUALIZAÇÃO DO ESTOQUE */
-.low-stock-edit-container {
+.historic-product-detail {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 99999;
-  background-color: rgba(0, 0, 0, 0.407);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
+  padding: 2rem;
+
 }
 
-.low-stock-edit-container .container {
-  overflow-y: scroll;
+.overlay-historic-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  z-index: -2;
 }
 
-.update-product-form {
+.detail-historic header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.detail-historic {
   background-color: var(--bg-divider-color);
-  max-width: 40rem;
+  max-width: 45rem;
   margin: 5rem auto;
   padding: 2rem;
   border-radius: 0.5rem;
@@ -697,65 +703,21 @@ ion-icon {
   border: 1px solid var(--border-color);
 }
 
-.update-product-form div:not(:last-child) {
-  border-bottom: 1px solid var(--border-color);
-  padding: 0.5rem 0;
-}
-
-.non-border {
-  border: none !important;
-}
-
-.update-form-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.update-label-group {
+.detail-historic div {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  padding: 1rem 0;
+  gap: 1rem;
 }
 
-.update-main {
-  font-size: 2.2rem;
-  font-weight: bold;
+.detail-historic div:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 
-.form-update-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-}
-
-.update-quantity-input {
-  background-color: var(--background-color);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  color: inherit;
-  font-size: inherit;
-  margin-top: 1rem;
-}
-
-.update-quantity-input:focus {
-  outline: none;
-}
-
-.confirm-update-product {
-  padding: 1rem 2rem;
-  background-color: var(--primary-color-blue);
-  border-radius: 0.5rem;
-  font-size: inherit;
-  color: #fff;
+.detail-heading {
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.confirm-update-product:hover {
-  background-color: var(--secondary-color-blue);
+  color: var(--primary-text-color);
+  font-size: 1.8rem;
 }
 
 .btn-close-update-product {

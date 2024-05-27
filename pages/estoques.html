@@ -21,13 +21,10 @@
 </head>
 
 <body>
-    <!-- SESSÃO PRINCIPAL -->
 
     <!-- <div class="preloader"></div> -->
     <section class="dashboard-section main-section">
-        <!-- HEADER PRINCIPAL -->
         <header class="main__header">
-            <!-- BARRA DE PESQUISA -->
             <div class="search__div">
                 <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
                 <!-- <div>
@@ -35,7 +32,6 @@
                     <ion-icon name="search-outline"></ion-icon>
                 </div> -->
             </div>
-            <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
                 <a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
                         name="notifications-outline"></ion-icon></a>
@@ -103,11 +99,9 @@
             </div>
         </header>
 
-        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
         <aside class="side__bar">
-            <!-- LOGOTIPO -->
-            <h1 class="logo"> <span class="icon-logo">SP</span><span class="full-logo">StockMaster</span></h1>
-            <!-- BARRA DE MENU PRINCIPAL -->
+            <h1 class="logo"> <img src="../assets/img/logo/logo.png" class="icon-logo"><span
+                    class="full-logo">StockMaster</span></h1>
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
@@ -125,7 +119,7 @@
                     <li><a href="fornecedores.html" class="main-nav-link"><ion-icon
                                 name="podium-outline"></ion-icon><span>Fornecedores</span></a></li>
                     <li><a href="relatorios.html" class="main-nav-link"><ion-icon
-                                name="bar-chart-outline"></ion-icon><span>Relatórios e análises</span></a></li>
+                                name="bar-chart-outline"></ion-icon><span>Análises</span></a></li>
                     <li><a href="perfil.html" class="main-nav-link"><ion-icon
                                 name="person-circle-outline"></ion-icon><span>Perfil</span></a></li>
                     <!-- <li>
@@ -141,19 +135,12 @@
 
         <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
         <section class="main__content-section main-stock-section ">
-            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
                     <h2 class="heading-h2">Teus Estoques</h2>
                     <span class="section-tag">Monitorar os teus estoques</span>
                 </header>
-                <!-- BOTÃO PARA MOSTRAR O FORMULÁRIO PARA ADICIONAR UM NOVO PRODUCTO -->
-                <div class="add-new-product-box">
-                    <!-- <button class="btn-add-new-stock">
-                        <ion-icon name="add-outline"></ion-icon>
-                        Criar Categoria
-                    </button> -->
-                </div>
+
             </div>
             <div class="managing-stock">
                 <div class="grid-02-cols">
@@ -203,53 +190,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="statics-box product-container alert-stock">
-
-                    <header class="alert-header-stock">
-                        <h3 class="heading-h3">Notificação de Estoque</h3>
-                        <div>
-                            <a href="#" class="see-all-link">Ver todos <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
-                        </div>
-                    </header>
-                    <div class="container ">
-                        <div class="estaticos">
-                            <div class="alert-header">
-
-                                <span>Producto</span>
-                                <span>Categoria</span>
-                                <span>Mínimo</span>
-                                <span>Estoque</span>
-                            </div>
-                            <div class="low-stock-list">
-
-                                <div class="product-stock-alert ">
-
-                                    <span class="product-span"> <span class="product-alert-icon"><ion-icon
-                                                name="warning-outline"></ion-icon></span>
-                                        Mackbook Pro</span>
-                                    <span>Computador</span>
-                                    <span>10</span>
-                                    <span>9</span>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    PAGINAÇÃO DO PRODUCTO
-                    <div class="subheader">
-                        <div class="pagination">Página <span class="current-product-page">01</span> de <span
-                                class="current-product-page total-pages">10</span></div>
-                        <div class="btn-pages">
-                            <button class="btn-previous-page">
-                                <ion-icon name="chevron-back-outline"></ion-icon></button>
-                            <span class="curr-page-number">1</span>
-                            <button class="btn-next-page"> <ion-icon name="chevron-forward-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div> 
-                </div> -->
 
             </div>
 
@@ -283,9 +223,7 @@
                 </div>
                 <div class="container ">
                     <div class="estaticos">
-                        <!-- CABEÇÃO DA DESCRIÇÃO DOS PRODUCTOS -->
                         <div class="products-historic-header">
-
                             <span>Productos</span>
                             <span>Categoria</span>
                             <span>Quantidade</span>
@@ -293,11 +231,9 @@
                             <span>Data</span>
                             <span>Ver</span>
                         </div>
-                        <!-- PRODUCTOS -->
 
                         <div class="product-in-out-history">
                             <div class="product-item-history" data-id="">
-
                                 <span class="product-name"><ion-icon name="arrow-down-outline"
                                         class="in-product"></ion-icon>
                                     Computador</span>
@@ -347,55 +283,38 @@
     </section>
 
 
-    <section class=" low-stock-edit-container hidden">
-        <div class="container">
-            <form action="#" class="update-product-form">
-                <header class="update-form-header">
-                    <h2 class="heading-h2">Actualizar Estoque</h2>
-                    <span class="btn-close-update-product"><ion-icon name="close-outline"></ion-icon></span>
-                </header>
-                <div class="update-label-group">
-                    <span for="product-label">Nome do producto</span>
-                    <span class="update-product-name update-main">Computador</span>
-                </div>
-                <div class="update-label-group">
-                    <span for="product-label">Categoria</span>
-                    <span class="update-product-category update-main">Computador</span>
-                </div>
-                <div class="form-update-group">
-                    <div class="update-label-group non-border">
-                        <span for="product-label">Preço de venda</span>
-                        <span class="update-product-sell-price update-main">$ 1094,00</span>
-                    </div>
-                    <div class="update-label-group non-border">
-                        <span for="product-label">Preço de compra</span>
-                        <span class="update-product-buy-price update-main">$ 600,00</span>
-                    </div>
-                </div>
+    <section class="historic-product-detail hidden">
+        <div class="overlay-historic-detail"></div>
+        <div class="detail-historic">
+            <header class="">
+                <h2 class="heading-h3">Ver detalhes</h2>
+                <span class="btn-close-historic-detail"><ion-icon name="close-outline"></ion-icon></span>
+            </header>
 
-                <div class="form-update-group">
-                    <div class="update-label-group non-border">
-                        <span for="product-label">Estoque actual</span>
-                        <span class="update-product-actual-stock update-main">17</span>
-                    </div>
-                    <div class="update-label-group non-border">
-                        <span for="product-label">Estoque mínimo</span>
-                        <span class="update-product-min-stock update-main">50</span>
-                    </div>
-                </div>
-                <div class="update-label-group non-border">
-                    <span for="product-label">Seleciona a Quantidade</span>
-                    <input type="number" min="5" max="100" class="update-quantity-input">
-                </div>
-                <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
-                <div class="form-group">
-                    <div class="btns">
-                        <button class="confirm-update-product">Adicionar</button>
+            <div>
+                <span class="detail-heading">Nome do Producto</span>
+                <span class="product-name-historic">Computador</span>
+            </div>
+            <div>
+                <span class="detail-heading">Categoria</span>
+                <span class="product-category-historic">Electronicos</span>
+            </div>
 
-                    </div>
-                </div>
-            </form>
-            <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+            <div>
+                <span class="detail-heading">Evento</span>
+                <span class="product-event-type">Saida</span>
+            </div>
+
+            <div>
+                <span class="detail-heading">Quantidade</span>
+                <span class="product-qty-historic">Computador</span>
+            </div>
+            <div>
+                <span class="detail-heading">Data</span>
+                <span class="product-date-historic">12/05/2024</span>
+            </div>
+
+
         </div>
 
 

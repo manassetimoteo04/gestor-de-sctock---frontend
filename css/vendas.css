@@ -39,7 +39,7 @@ body {
 }
 
 .list-header {
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .sub-box-header {
@@ -189,6 +189,7 @@ body {
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   max-height: 92rem;
+  padding: 0 2rem;
 }
 
 .sell-history .sell-container-list {
@@ -200,7 +201,7 @@ body {
   grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr;
   font-weight: 600;
   border-bottom: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: 2rem 0;
   gap: 2rem;
   align-items: center;
   min-width: 60rem;
@@ -211,7 +212,7 @@ body {
 .sell-box {
   display: grid;
   grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr;
-  padding: 2rem;
+  padding: 1rem 0;
   gap: 2rem;
   align-items: center;
   min-width: 60rem;
@@ -219,7 +220,6 @@ body {
 }
 
 .sell-box:hover {
-  background-color: var(--background-color);
   cursor: pointer;
 }
 
@@ -253,10 +253,17 @@ body {
   color: var(--primary-color-blue);
 }
 
-.sell-icon {
+.sell-icon ion-icon {
   font-size: 2.2rem;
   color: var(--primary-color-blue);
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 0.4rem;
 
+}
+
+.sell-icon {
+  padding: 0 !important;
 }
 
 .sell-box div {
@@ -603,7 +610,6 @@ body {
 .sell-payment-way {
   padding: 1rem;
   background-color: var(--background-color);
-  border: 1px solid var(--border-color);
   font-size: inherit;
   border-radius: 0.5rem;
   color: inherit;
@@ -631,7 +637,6 @@ body {
 
 .btn-cancel-sell {
   background-color: var(--background-color) !important;
-  border: 1px solid var(--border-color) !important;
   color: var(--primary-text-color) !important;
 }
 
