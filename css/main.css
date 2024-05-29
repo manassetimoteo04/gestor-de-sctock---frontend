@@ -1294,7 +1294,7 @@ input::placeholder {
   bottom: 0;
   z-index: 9999999;
   overflow: hidden;
-  background-color: var(--bg-divider-color);
+  background-color: #fff;
   backdrop-filter: blur(50px);
 }
 
@@ -1304,8 +1304,8 @@ input::placeholder {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid transparent;
-  border-bottom: 6px solid var(--primary-text-color);
-  border-top: 6px solid var(--primary-text-color);
+  border-bottom: 6px solid #000;
+  border-top: 6px solid #000;
   border-radius: 50%;
   width: 60px;
   height: 60px;

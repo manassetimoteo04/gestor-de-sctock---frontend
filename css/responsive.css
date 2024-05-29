@@ -1,7 +1,7 @@
 /* SCREEN SIZE MAX-WIDTH: 973PX */
 @media (max-width: 60.8em) {
   .menu-hidden .main-section {
-    grid-template-columns: 8fr 95fr !important;
+    grid-template-columns: 25fr 80fr !important;
   }
 }
 

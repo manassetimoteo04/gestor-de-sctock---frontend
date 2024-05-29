@@ -395,7 +395,8 @@ class MainApp extends renderDataMain {
   _logoutFunction() {
     this.isAuthenticated = false;
     localStorage.setItem("loged", this.isAuthenticated);
-    this._isAuthenticated();
+    // this._isAuthenticated();
+    location.reload();
   }
 
   // MOSTRANDO O ALERYA DE CAMPO OBRIGATÓRIO E ALERTA DE CONTA NÃO ENCONTRADA
@@ -447,7 +448,6 @@ class MainApp extends renderDataMain {
 
     if (inputLoginPassword.value && inputLoginUsername.value) {
       this._loader();
-
       this.currentAccount = appData.auth.users.find(
         (acc) => inputLoginUsername.value === acc.username
       );
@@ -456,33 +456,35 @@ class MainApp extends renderDataMain {
       }
       if (inputLoginPassword.value === this.currentAccount.password) {
         this.isAuthenticated = true;
+        location.reload();
         localStorage.setItem("loged", this.isAuthenticated);
         this._isAuthenticated();
         inputLogin.forEach((input) => (input.value = ""));
       }
     }
   }
-  _isAuthenticated() {
-    const isLoged = JSON.parse(localStorage.getItem("loged"));
-    if (isLoged === true) this.loginContainer.classList.add("hidden");
+  // _isAuthenticated() {
+  //   const isLoged = JSON.parse(localStorage.getItem("loged"));
+  //   // if (!this.loginContainer) return;
+  //   if (isLoged === true) this.loginContainer.classList.add("hidden");
 
-    if (isLoged === false) {
-      const pathParts = window.location.pathname.split("/");
-      const depth = pathParts.length - 2;
+  //   if (isLoged === false) {
+  //     const pathParts = window.location.pathname.split("/");
+  //     const depth = pathParts.length - 2;
 
-      let loginPath = "/index.html";
-      for (let i = 0; i < depth; i++) {
-        loginPath = ".." + loginPath;
-      }
-      console.log(loginPath);
-      // window.location.href = "/index.html";
-      this.loginContainer.classList.remove("hidden");
-    }
-  }
+  //     let loginPath = "/index.html";
+  //     for (let i = 0; i < depth; i++) {
+  //       loginPath = ".." + loginPath;
+  //     }
+  //     window.location.href = "login.html";
+  //     this.loginContainer.classList.remove("hidden");
+  //   }
+  // }
+
   _INIT() {
     // FUNÇÕES CHAMADAS NO PROCESSO DE LOADING
     this._getDarkToLocalStorage();
-    // this._renderChart();
+    this._renderChart();
     this._allEventListeners();
     this._renderUserHeaderinfo();
     this._floatingLabeleLogin();
@@ -490,7 +492,6 @@ class MainApp extends renderDataMain {
     this._reInitiInput();
     this._toggleLoginRegister();
     this._loader();
-    this._isAuthenticated();
   }
 
   _allEventListeners() {
