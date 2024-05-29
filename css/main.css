@@ -1032,7 +1032,7 @@ input::placeholder {
   height: 100vh;
   background-color: var(--background-color);
   z-index: 99999;
-
+  padding: 1rem;
   overflow-y: scroll;
 
 }
@@ -1087,11 +1087,12 @@ input::placeholder {
 
 .field {
   position: relative;
-  height: 5rem;
+  height: 6rem;
   background-color: var(--background-color);
   border-radius: 1rem;
   padding: rem;
   overflow: hidden;
+  border: 2px solid transparent;
 }
 
 .form-header h2 {
@@ -1147,6 +1148,9 @@ input::placeholder {
   right: 1.2rem;
   transform: translateY(-50%);
   cursor: pointer;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
 }
 
 .see-box ion-icon {

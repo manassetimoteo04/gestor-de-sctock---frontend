@@ -3,6 +3,7 @@ import { formatNumbers } from "./views/formatNumbers.js";
 
 // CLASSE PARA FENDERIZAR OS DADOS
 class renderDataMain {
+  isAuthenticated = false;
   constructor() {
     //SELECIONANDO VARIAVEIS DO DOM
     this.preloader = document.querySelector(".preloader");
@@ -48,6 +49,7 @@ class renderDataMain {
   _renderUserHeaderinfo() {
     const headerFullName = document.querySelector(".header__p-name");
     const userRole = document.querySelector(".header__profile-box .permission");
+    if (!headerFullName) return;
     headerFullName.textContent = appData.loggedInUser.name;
     userRole.textContent = appData.loggedInUser.role;
   }
@@ -55,6 +57,7 @@ class renderDataMain {
     const notificationContainer = document.querySelector(
       ".notitification-list-header .list"
     );
+    if (!notificationContainer) return;
     notificationContainer.innerHTML = "";
     list.forEach((item) => {
       const porduct = appData.products.find((id) => id.id === item.productId);
@@ -210,6 +213,8 @@ class MainApp extends renderDataMain {
     this.labelPurchase = document.querySelectorAll(".tot-label-num");
     this.allNumberLabel = document.querySelectorAll(".counter-num");
     this.ctx = document.getElementById("myChart");
+    this.loginContainer = document.querySelector(".section-login-register");
+    this.logOutAccount = document.querySelector(".btn-log-out");
     this._INIT();
   }
 
@@ -387,6 +392,11 @@ class MainApp extends renderDataMain {
       this._loginValidateInput.bind(this)
     );
   }
+  _logoutFunction() {
+    this.isAuthenticated = false;
+    localStorage.setItem("loged", this.isAuthenticated);
+    this._isAuthenticated();
+  }
 
   // MOSTRANDO O ALERYA DE CAMPO OBRIGATÓRIO E ALERTA DE CONTA NÃO ENCONTRADA
   _reInitiInput() {
@@ -405,14 +415,26 @@ class MainApp extends renderDataMain {
       });
     });
   }
+  _showHidePassword(e) {
+    const target = e.target.closest(".see-box");
+    console.log(e.target);
+    if (!target) return;
+    const input = target.previousElementSibling;
+    input.type === "password"
+      ? (input.type = "text")
+      : (input.type = "password");
 
+    const childs = target.children;
+    childs[0].classList.toggle("hidden");
+    childs[1].classList.toggle("hidden");
+  }
   // VALIDANDO OS VALORES DOS INPUTS
   _loginValidateInput(e) {
     e.preventDefault();
     const inputLoginUsername = document.querySelector(".input-login-username");
     const inputLoginPassword = document.querySelector(".input-login-password");
     const inputLogin = document.querySelectorAll(".login-form input");
-    const loginContainer = document.querySelector(".section-login-register");
+
     this.accountNotFoundAlert = document.querySelector(
       ".alert-account-not-found"
     );
@@ -433,12 +455,30 @@ class MainApp extends renderDataMain {
         this.accountNotFoundAlert.classList.remove("hidden");
       }
       if (inputLoginPassword.value === this.currentAccount.password) {
-        loginContainer.classList.add("hidden");
+        this.isAuthenticated = true;
+        localStorage.setItem("loged", this.isAuthenticated);
+        this._isAuthenticated();
         inputLogin.forEach((input) => (input.value = ""));
       }
     }
   }
+  _isAuthenticated() {
+    const isLoged = JSON.parse(localStorage.getItem("loged"));
+    if (isLoged === true) this.loginContainer.classList.add("hidden");
 
+    if (isLoged === false) {
+      const pathParts = window.location.pathname.split("/");
+      const depth = pathParts.length - 2;
+
+      let loginPath = "/index.html";
+      for (let i = 0; i < depth; i++) {
+        loginPath = ".." + loginPath;
+      }
+      console.log(loginPath);
+      // window.location.href = "/index.html";
+      this.loginContainer.classList.remove("hidden");
+    }
+  }
   _INIT() {
     // FUNÇÕES CHAMADAS NO PROCESSO DE LOADING
     this._getDarkToLocalStorage();
@@ -450,6 +490,7 @@ class MainApp extends renderDataMain {
     this._reInitiInput();
     this._toggleLoginRegister();
     this._loader();
+    this._isAuthenticated();
   }
 
   _allEventListeners() {
@@ -461,9 +502,17 @@ class MainApp extends renderDataMain {
       "click",
       this._toggleDarkMode.bind(this)
     );
-    this.mainContentSection.forEach((btn) => {
+    this.mainContentSection?.forEach((btn) => {
       btn.addEventListener("click", this._sectionEventL.bind(this));
     });
+    this.loginContainer?.addEventListener(
+      "click",
+      this._showHidePassword.bind(this)
+    );
+    this.logOutAccount?.addEventListener(
+      "click",
+      this._logoutFunction.bind(this)
+    );
   }
 }
 
