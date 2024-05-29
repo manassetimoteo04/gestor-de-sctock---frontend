@@ -6,8 +6,15 @@ const appData = {
   loggedInUser: {
     id: 1,
     name: "Manasse Timóteo",
-    role: "Administrador",
+    role: "Admin",
     token: "abc123token",
+    username: "@manassetimoteo",
+    userInfo: {
+      email: "manassetimoteo@gmail.com",
+      phone: "+244 9404 7979",
+      bio: "Software developer",
+      address: "Angola, Luanda, Cazenga, Combustíveis",
+    },
     permissions: [
       "manage_products",
       "manage_inventory",
@@ -133,6 +140,20 @@ const appData = {
         message: "Stock for Product B is below the threshold.",
         threshold: 20,
         stock: 12,
+        date: "2024-05-19T10:17:24.185Z",
+      },
+      {
+        productId: 101,
+        message: "Stock for Product B is below the threshold.",
+        threshold: 20,
+        stock: 8,
+        date: "2024-05-29T08:17:24.185Z",
+      },
+      {
+        productId: 103,
+        message: "Stock for Product B is below the threshold.",
+        threshold: 20,
+        stock: 14,
         date: "2024-05-19T10:17:24.185Z",
       },
     ],
@@ -756,7 +777,7 @@ const appData = {
       {
         id: 1,
         username: "admin",
-        password: "password123",
+        password: "123",
         role: "Administrador",
       },
       {

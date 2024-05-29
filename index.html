@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+	<div class="preloader "></div>
 
 	<section class="dashboard-section main-section">
 
@@ -85,8 +85,8 @@
 				<div class="header__profile-box">
 					<img src="assets/img/admin/admin.png" alt="" class="header__profile-img">
 					<div class="profile__name-box">
-						<span class="header__p-name">Timóteo Pembele</span>
-						<span class="permission">Admin <ion-icon name="chevron-down-outline"
+						<span class="header__p-name user-full-name">Timóteo Pembele</span>
+						<span class="permission user-role">Admin <ion-icon name="chevron-down-outline"
 								class="profile-click-icon"></ion-icon></span>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 						<span class="week-span-text">Ganhos mensais</span>
 						<span class="label__total-purchase-due tot-label-num month-earn-total">24086</span>
 						<span class="total-text">+<span class="percentage"> 79.9%</span> aumentado em relação ao mês
-							passad0</span>
+							passado</span>
 					</div>
 					<div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
 				</div>
@@ -362,64 +362,119 @@
 		</section>
 	</section>
 
-	<section class="section-login-register hidden">
-		<h1 class="logo login-logo"> StockMaster <a href="#" class="header__btn toggle-dark-mode notification__btn">
-				<ion-icon name="sunny-outline" class="hidden light-icon"></ion-icon>
-				<ion-icon name="moon-outline" class="dark-icon"></ion-icon>
-			</a></h1>
-		<div class="login-container hidden">
-			<form action="" class="login-form">
-				<h2 class="heading-h2">Iniciar Sessão</h2>
-				<div class="form-group">
-					<label for="user-name">Nome se Usuário</label>
-					<input type="text" class="login-input input-user-name" placeholder="@username">
-				</div>
-				<div class="form-group">
-					<label for="user-name">Palavra-passe</label>
-					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
-				</div>
-				<button class="btn-login">Login</button>
-				<span class="no-account">Não tem conta? <span class="create-account">Criar Conta</span></span>
-			</form>
-			<div class="ilustration-container">
+	<section class="section-login-register">
+		<h1 class=" form-logo"> <img src="assets/img/logo/logo.png" class="icon-logo"><span class="">StockMaster</span>
+		</h1>
+		<div class="container-login-register login-container">
 
-			</div>
-		</div>
-		<div class="create-account-container">
-			<div class="ilustration-container">
-
-			</div>
 			<form action="" class="login-form">
-				<h2 class="heading-h2">Criar Conta</h2>
+				<div class="form-header">
+					<h2 class="heading-h2">LOG IN</h2>
+					<span>Bem-vindo de volta! Inicie sessão para continuar</span>
+				</div>
+				<div class="alert-account-not-found hidden">
+					<span>Palavra-passe ou senha errada, tente novamente</span>
+				</div>
+
 				<div class="form-group">
-					<label for="user-name">Primeiro nome</label>
-					<input type="text" class="login-input input-user-name" placeholder="Ex: Manasse">
+					<div class="field">
+						<input type="text" class="input-login-username">
+						<label for="first-name">Nome de usuário</label>
+					</div>
+					<span class="mini-alert-text hidden">Campo obrigratório!</span>
 				</div>
 				<div class="form-group">
-					<label for="user-name">Segundo Nome</label>
-					<input type="text" class="login-input input-user-name" placeholder="Ex: Timóteo">
+					<div class="field">
+						<input type="password" class="input-login-password">
+						<div class="see-box">
+							<ion-icon name="eye-outline" class="see-password"></ion-icon>
+							<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+						</div>
+
+						<label for="first-name">Palavra-passe</label>
+					</div>
+					<span class="mini-alert-text hidden">Campo obrigratório!</span>
+					<a href="#" class="forgot-password">Esqueceu a senha?</a>
+
 				</div>
-				<div class="form-group">
-					<label for="user-name">Nome se Usuário</label>
-					<input type="text" class="login-input input-user-name" placeholder="@username">
-				</div>
-				<div class="form-group">
-					<label for="user-name">Número Telefone</label>
-					<input type="text" class="login-input input-user-name" placeholder="Ex: +244 94040*****">
-				</div>
-				<div class="form-group">
-					<label for="user-name">Palavra-passe</label>
-					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
-				</div>
-				<div class="form-group">
-					<label for="user-name">Confirmar Palavra-passe</label>
-					<input type="password" class="login-input input-user-name" placeholder="Palavra-passe">
-				</div>
-				<button class="btn-login">Criar conta</button>
-				<span class="no-account">Já tem conta?<span class="create-account">Iniciar sessão</span></span>
+
+				<button class="btn-primary btn-login">Iniciar sessão</button>
+				<span class="or-span">OU</span>
+
+				<button class=" btn-secondary no-account">Criar conta</button>
 			</form>
 
 		</div>
+
+
+
+		<!-- FORMULÁRIO PARA CRIAR CONTA -->
+		<div class="container-login-register create-account-container hidden">
+
+			<form action="" class="register-form">
+
+				<div class="form-header">
+					<h2 class="heading-h2">Criar Conta</h2>
+					<span>Preencha com as tua informações o formulário abaixo para criar uma conta nova </span>
+				</div>
+
+				<div class="form-group field-2-group">
+					<div class="field">
+						<input type="text" class="input-edit-first-name">
+						<label for="first-name">Primeiro Nome</label>
+					</div>
+					<div class="field">
+						<input type="text" class="input-edit-first-name">
+						<label for="first-name">Último Nome</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="field">
+						<input type="text" class="input-edit-first-name">
+						<label for="first-name">Nome de Usuário</label>
+					</div>
+
+				</div>
+				<div class="form-group">
+					<div class="field">
+						<input type="text" class="input-edit-first-name">
+						<label for="first-name">Endereço de E-mail</label>
+					</div>
+
+				</div>
+				<div class="form-group">
+					<div class="field">
+						<input type="password" class="input-edit-first-name">
+						<div class="see-box">
+							<ion-icon name="eye-outline" class="see-password"></ion-icon>
+							<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+						</div>
+						<label for="first-name">Palavra-passe</label>
+					</div>
+
+				</div>
+				<div class="form-group">
+					<div class="field">
+						<input type="password" class="input-edit-first-name">
+						<div class="see-box">
+							<ion-icon name="eye-outline" class="see-password"></ion-icon>
+							<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+						</div>
+						<label for="first-name">Confirmar Palavra-passe</label>
+					</div>
+
+
+				</div>
+
+				<button class="btn-primary btn-create-account">Criar conta</button>
+				<span class="or-span">Já tem uma conta?</span>
+
+				<button class="btn-secondary have-account">Iniciar Sessão</button>
+			</form>
+
+		</div>
+
 	</section>
 </body>
 

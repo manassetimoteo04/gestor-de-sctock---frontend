@@ -2,8 +2,10 @@
 const c = console.log.bind(document);
 import { appData } from "./data.js";
 import { formatNumbers } from "./views/formatNumbers.js";
+
 class ReportApp {
   constructor() {
+    // SELECIONADNO AS VARIÁVEIS DO DOM
     this.totalEarningLabel = document.querySelector(".analityc-total-earning");
     this.totalOrdersLabel = document.querySelector(".analityc-total-order");
     this.totalLucLabel = document.querySelector(".analityc-total-lucr");
@@ -35,42 +37,21 @@ class ReportApp {
     );
     this.actualStockSort = document.querySelector(".report-sort-by");
     // EVENT LISTENERS
-    this.filterContainer?.addEventListener(
-      "click",
-      this._toggleFiterBtn.bind(this)
-    );
-    this.filterDateInputContainer?.addEventListener(
-      "click",
-      this._closeFilterDateContainer.bind(this)
-    );
-    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
-    this.btnPrevPage?.addEventListener(
-      "click",
-      this.goToPreviousPage.bind(this)
-    );
 
-    this.inputSearchStock.addEventListener(
-      "input",
-      this._searchActualStockFilter.bind(this)
-    );
-    this.actualStockContainer?.addEventListener(
-      "click",
-      this._sortActualStock.bind(this)
-    );
-
-    this._renderSummary();
-    this._renderChartLine();
-    this._renderMostSelledProduct(appData.reports.topSellingProducts);
-    this._renderSalesByCategory(appData.reports.salesByCategory);
-    this._renderTopProducts(appData.reports.topSellingProducts);
-    this._pagination(appData.reports.currentStock);
+    // INICIALIZANDO
+    this._allEventListners();
+    this._init();
   }
+
   // FUNCÇÕES DOS EVENT LISTENERS
+
+  // RENDERIZAR O RESUMO DOS REPORT
   _renderSummary() {
     if (!this.totalEarningLabel) return;
     this.totalEarningLabel.textContent = formatNumbers.formatCurrency(
       appData.reports.salesByPeriod[0].totalSales
     );
+
     this.totalLucLabel.textContent = formatNumbers.formatCurrency(
       appData.reports.salesByPeriod[0].totalL
     );
@@ -79,24 +60,33 @@ class ReportApp {
       appData.reports.salesByPeriod[0].totalOrders;
   }
 
+  // TOGGLE NOS BOTTONS PARA FILTRAR E GERAR RELATÓRIO
   _toggleFiterBtn(e) {
     const target = e.target.closest(".filter-by");
     if (!target) return;
+
     this.filerBuyButton.forEach((btn) => btn.classList.remove("filtered"));
     document.querySelector(`.${target.classList[1]}`).classList.add("filtered");
 
     // CHAMANDO A FUNÇÃO PARA MOSTRAR O DATE FILTER CONTAINER
     this._showingDateFilterContainer(e);
   }
+
+  // MOSTRAR O FORMULÁRIO PARA INSERIR O PERÍODO PAR GERAR RELATÓRIO
   _showingDateFilterContainer(e) {
     const target = e.target.closest(".date-filter");
     if (!target) return;
+
     this.filterDateInputContainer.classList.remove("hidden");
   }
+
+  // FECHANDO O FORMULÁRIO PARA INSERIR PERIODO
   _closeFilterDateContainer(e) {
     const target = e.target;
+
     if (target.classList.contains("overlay-date-report"))
       this.filterDateInputContainer.classList.add("hidden");
+
     if (target.closest(".btn-close-filter-analityc"))
       this.filterDateInputContainer.classList.add("hidden");
 
@@ -104,6 +94,7 @@ class ReportApp {
       this.filterDateInputContainer.classList.add("hidden");
   }
 
+  // RENDRIZAR O GRÁFICO DO CHART.JS
   _renderChartLine() {
     const color = getComputedStyle(document.documentElement)
       .getPropertyValue("--secondary-text-color")
@@ -204,12 +195,14 @@ class ReportApp {
     }
   }
 
+  // RENDERIZAR OS PRODUCTOS MAIS VENDIDOS
   _renderMostSelledProduct(list) {
     if (!this.mostSelledProductList) return;
     this.mostSelledProductList.innerHTML = "";
 
     list.forEach((item) => {
       const productName = appData.products.find((p) => p.id === item.productId);
+
       const html = `<div class="most-selled-product">
       <div class="product-name"> <ion-icon name="trending-up-outline"></ion-icon>
           <div>
@@ -219,9 +212,7 @@ class ReportApp {
               )}</span>
           </div>
       </div>
-
       <span class="quantity">${item.sales} </span>
-
       <span class="total-selled-amount">${formatNumbers.formatCurrency(
         item.total
       )}</span>
@@ -230,9 +221,12 @@ class ReportApp {
       this.mostSelledProductList.insertAdjacentHTML("afterbegin", html);
     });
   }
+
+  // RENDERIZAR VENDAS POR CATEGORIA
   _renderSalesByCategory(list) {
     if (!this.topCategoryContainer) return;
     this.topCategoryContainer.innerHTML = "";
+
     list.forEach((item) => {
       const percentage =
         (item.amount / appData.reports.salesByPeriod[0].totalSales) * 100;
@@ -249,13 +243,16 @@ class ReportApp {
       </div>
      </div>
       `;
+
       this.topCategoryContainer.insertAdjacentHTML("afterbegin", html);
     });
   }
 
+  // RENDERIZAR OS PRODUCTOS TOP
   _renderTopProducts(list) {
     if (!this.topProductList) return;
     this.topProductList.innerHTML = "";
+
     list.forEach((item) => {
       const producName = appData.products.find((p) => p.id === item.productId);
       const html = `
@@ -274,10 +271,12 @@ class ReportApp {
 
       </div>
       `;
+
       this.topProductList.insertAdjacentHTML("afterbegin", html);
     });
   }
 
+  // RENDERIZAR O ESTOQUE ACTUAL
   _renderActualStock(list) {
     this.actualStockContainer.innerHTML = "";
     if (list.length === 0) {
@@ -308,6 +307,7 @@ class ReportApp {
     });
   }
 
+  // PESQUISAR NA LISTA DE ESTQOUE
   _searchActualStockFilter() {
     // const value = this.inputSearchStock.value.toLowerCase();
     // console.log(value);
@@ -323,6 +323,7 @@ class ReportApp {
   }
   sorByStock() {}
   sorBySell() {}
+
   //PAGINAÇÃO DA LISTA
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
@@ -366,6 +367,41 @@ class ReportApp {
       this.renderCurrentPage(this.currentPage, this.productList);
     }
     this.curPagelabel.textContent = this.currentPage;
+  }
+
+  // TODOS OS EVENT LISTNERS
+  _allEventListners() {
+    this.filterContainer?.addEventListener(
+      "click",
+      this._toggleFiterBtn.bind(this)
+    );
+    this.filterDateInputContainer?.addEventListener(
+      "click",
+      this._closeFilterDateContainer.bind(this)
+    );
+    this.btnNextPage?.addEventListener("click", this.goToNextPage.bind(this));
+    this.btnPrevPage?.addEventListener(
+      "click",
+      this.goToPreviousPage.bind(this)
+    );
+
+    this.inputSearchStock?.addEventListener(
+      "input",
+      this._searchActualStockFilter.bind(this)
+    );
+    this.actualStockContainer?.addEventListener(
+      "click",
+      this._sortActualStock.bind(this)
+    );
+  }
+  // CHAMANDO FUNÇÕES AUTO INICIALIZADAS
+  _init() {
+    this._renderSummary();
+    this._renderChartLine();
+    this._renderMostSelledProduct(appData.reports.topSellingProducts);
+    this._renderSalesByCategory(appData.reports.salesByCategory);
+    this._renderTopProducts(appData.reports.topSellingProducts);
+    this._pagination(appData.reports.currentStock);
   }
 }
 const report = new ReportApp();

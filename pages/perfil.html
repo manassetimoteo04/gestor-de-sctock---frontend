@@ -20,11 +20,10 @@
 </head>
 
 <body>
-    <!-- SESSÃO PRINCIPAL -->
+    <div class="preloader"></div>
+
     <section class="dashboard-section main-section">
-        <!-- HEADER PRINCIPAL -->
         <header class="main__header">
-            <!-- BARRA DE PESQUISA -->
             <div class="search__div">
                 <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
                 <!-- <div>
@@ -32,7 +31,6 @@
                     <ion-icon name="search-outline"></ion-icon>
                 </div> -->
             </div>
-            <!-- BOX DO USUÁRIO NO HEADER -->
             <div class="header__user">
                 <a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
                         name="notifications-outline"></ion-icon></a>
@@ -92,20 +90,19 @@
             </div>
             <div class="profile-infor-box">
                 <ul class="profile-list">
-                    <li><a href="" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu Perfil</a></li>
+                    <li><a href="perfil.html" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu Perfil</a>
+                    </li>
                     <li><a href="#" class="p-link"><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
-                    <li><a href="#" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon> Terminar
+                    <li><a href="../index.html" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon>
+                            Terminar
                             Sessão</a></li>
                 </ul>
             </div>
         </header>
 
-        <!-- SESSÃO LATERAL ESQUERDO DO CONTAINER -->
         <aside class="side__bar">
-            <!-- LOGOTIPO -->
             <h1 class="logo"> <img src="../assets/img/logo/logo.png" class="icon-logo"><span
                     class="full-logo">StockMaster</span></h1>
-            <!-- BARRA DE MENU PRINCIPAL -->
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li> <a href="../index.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
@@ -138,9 +135,7 @@
             </nav>
         </aside>
 
-        <!-- CONTEÚDO PRINCIPAL DA SESSÃO DE PRODUCTOS -->
         <section class="main__content-section account-container">
-            <!-- CABEÇÁRIO DA SESSÃO DE PRODUCTOS -->
             <div class="section-header">
                 <header class="sect-head">
                     <h2 class="heading-h2">Condigurações da Conta</h2>
@@ -184,7 +179,7 @@
                                 </div>
                                 <div>
                                     <span class="profile-label">Último Nome</span>
-                                    <span class="first-name main-label">Timóteo</span>
+                                    <span class="second-name main-label">Timóteo</span>
                                 </div>
                             </div>
                             <div class="profile-grid">
@@ -200,11 +195,11 @@
                             <div class="profile-grid">
                                 <div>
                                     <span class="profile-label">Bio</span>
-                                    <span class="first-name main-label">Software Engineer</span>
+                                    <span class="user-bio main-label">Software Engineer</span>
                                 </div>
                                 <div>
                                     <span class="profile-label">Username</span>
-                                    <span class="first-name main-label">@manassetimoteo</span>
+                                    <span class="user-name main-label">@manassetimoteo</span>
                                 </div>
                             </div>
                         </div>
@@ -223,73 +218,76 @@
                             </div>
                             <div class="profile-grid">
                                 <div>
-                                    <span class="profile-label">Bairro</span>
-                                    <span class="user-country main-label">Angoa</span>
+                                    <span class="profile-label">Município</span>
+                                    <span class="user-township main-label">Luanda</span>
                                 </div>
                                 <div>
-                                    <span class="profile-label">Município</span>
-                                    <span class="user-province main-label">Luanda</span>
+                                    <span class="profile-label">Bairro</span>
+                                    <span class="user-neighbor main-label">Angoa</span>
                                 </div>
+
                             </div>
 
                         </div>
                     </div>
                     <div class="edit-profile-information hidden">
+                        <div class="overlay-edit-profile"></div>
                         <form action="#" class="edit-profile-information-form">
                             <div class="form-heading">
                                 <h3 class="heading-h3">Editar as Informações</h3>
                                 <span class="btn-close-edit-profile"><ion-icon name="close-outline"></ion-icon></span>
                             </div>
+                            <span class="form-tag">Adicionar as tuas informações Pessoais e mais </span>
                             <h4>Informações Pessoais</h4>
                             <div class="form-group">
 
                                 <div class="field">
-                                    <input type="text" id="first-name" required>
+                                    <input type="text" id="first-name" required class="input-edit-first-name">
                                     <label for="first-name">Primeiro nome</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" id="last-name" required>
+                                    <input type="text" id="last-name" required class="input-edit-last-name">
                                     <label for="last-name">Último nome</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="field">
-                                    <input type="text" id="email-adress" required>
+                                    <input type="text" id="email-adress" class="input-edit-email" required>
                                     <label for="email-adress">E-mail</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" id="user-phone" required>
+                                    <input type="text" id="user-phone" class="input-edit-phone" required>
                                     <label for="user-phone">Telefone</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="field">
-                                    <input type="text" id="user-bio" required>
+                                    <input type="text" id="user-bio" class="input-edit-bio" required>
                                     <label for="user-bio">Bio</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" id="user-name" required>
+                                    <input type="text" id="user-name" class="input-edit-username" required>
                                     <label for="user-name">Username</label>
                                 </div>
                             </div>
                             <h4>Endereço</h4>
                             <div class="form-group">
                                 <div class="field">
-                                    <input type="text" id="countryuser" required>
+                                    <input type="text" class="input-edit-country" required>
                                     <label for="countryuser">País</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" id="user-province" required>
+                                    <input type="text" class="input-edit-province" required>
                                     <label for="user-province">Província</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="field">
-                                    <input type="text" id="user-neighbor" required>
+                                    <input type="text" id="user-neighbor" class="input-edit-neighbor" required>
                                     <label for="user-neighbor">Bairro</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" id="user-city" required>
+                                    <input type="text" id="user-city" class="input-edit-town" required>
                                     <label for="user-city">Município</label>
                                 </div>
                             </div>
@@ -298,7 +296,16 @@
                     </div>
 
                 </div>
-
+                <div class="alert-information-update hidden">
+                    <div class="overlay-sucess-update"></div>
+                    <div class="alert-container">
+                        <div>
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            <span class="alert-text">Informações foram salvas com sucesso</span>
+                        </div>
+                        <span class="btn-close-succes-update-popup">Fechar</span>
+                    </div>
+                </div>
                 <div class="security-information security-info-box hidden account-box">
                     <h3 class="heading-h3">Segurança</h3>
                     <span>Gere a tua palavra passe, redefina e mais</span>
@@ -308,24 +315,43 @@
                         <span>Alterar Palavra-passe </span><ion-icon name="chevron-forward-outline"></ion-icon>
                     </div>
                     <div class="edit-user-password hidden">
+                        <div class="overlay-edit-password"></div>
                         <form action="#" class="edit-password-form">
                             <div class="form-heading">
                                 <h3 class="heading-h3">Alterar Palavra-passe</h3>
+
                                 <span class="btn-close-edit-password"><ion-icon name="close-outline"></ion-icon></span>
                             </div>
+                            <span class="form-tag">Altere a tua Senha </span>
                             <div class="form-group">
                                 <div class="field">
-                                    <input type="password" id="actual-password" required>
+                                    <input type="password" autocomplete="new-password" autocorrect="off"
+                                        spellcheck="false" required>
+                                    <div class="see-box">
+                                        <ion-icon name="eye-outline" class="see-password"></ion-icon>
+                                        <ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+                                    </div>
                                     <label for="actual-password">Senha</label>
                                 </div>
 
 
                                 <div class="field">
-                                    <input type="password" id="countryuser" required>
+                                    <input type="password" autocomplete="new-password" autocorrect="off"
+                                        spellcheck="false" required>
+                                    <div class="see-box">
+                                        <ion-icon name="eye-outline" class="see-password"></ion-icon>
+                                        <ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+                                    </div>
                                     <label for="countryuser">Nova Senha</label>
+
                                 </div>
                                 <div class="field">
-                                    <input type="password" id="user-province" required>
+                                    <input type="password" autocomplete="new-password" autocorrect="off"
+                                        spellcheck="false" required>
+                                    <div class="see-box">
+                                        <ion-icon name="eye-outline" class="see-password"></ion-icon>
+                                        <ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+                                    </div>
                                     <label for="user-province">Confirmar Senha</label>
                                 </div>
                             </div>
@@ -344,6 +370,8 @@
                     </div>
 
                     <div class="delete-alert-notification hidden">
+                        <div class="overlay-delete-account"></div>
+
                         <div class="alert-message-container ">
                             <ion-icon name="trash-outline"></ion-icon></ion-icon>
                             <span class="alert-text">Tens certeza que deseja eliminar a tua conta?</span>
@@ -360,7 +388,7 @@
                                         name="close-outline"></ion-icon></span></span>
                             <span>Confirmar a tua senha para continuar</span>
                             <div class="field">
-                                <input type="password" id="actual-password" required>
+                                <input type="password" required>
                                 <label for="actual-password">Senha</label>
                             </div>
                             <button class="delete-account-btn">Eliminar conta</button>

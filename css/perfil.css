@@ -189,18 +189,26 @@ body {
   top: 0;
   left: 0;
   overflow: scroll;
-  background-color: rgba(0, 0, 0, 0.315);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
   z-index: 9999;
-  backdrop-filter: blur(5px);
   padding: 2rem;
 
 }
 
+.overlay-edit-profile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  z-index: -2;
+}
+
 .edit-profile-information-form {
   background-color: var(--bg-divider-color);
-  padding: 4rem;
+  padding: 2rem;
   max-width: 60rem;
   margin: 7rem auto;
   border-radius: 0.5rem;
@@ -228,20 +236,20 @@ body {
 
 .field {
   background-color: var(--background-color);
-  padding: 1.7rem 0rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
   position: relative;
   display: flex;
   align-items: end;
-  height: 5rem;
+  height: 6rem;
+  overflow: hidden;
+  padding: 2rem !important;
 }
 
 .field label {
   position: absolute;
   bottom: 50%;
   transform: translateY(-50%);
-  left: 5%;
+  left: 1.2rem !important;
   transition: 0.3s;
 }
 
@@ -252,7 +260,7 @@ body {
   color: inherit;
   margin-top: 0.2rem;
   position: absolute;
-  padding-left: 0.5rem;
+  padding-left: 1.2rem !important;
   bottom: 0;
   overflow: hidden;
 }
@@ -306,18 +314,26 @@ body {
   top: 0;
   left: 0;
   overflow: scroll;
-  background-color: rgba(0, 0, 0, 0.315);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
   z-index: 9999;
-  backdrop-filter: blur(5px);
   padding: 2rem;
+}
+
+.overlay-edit-password {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
 }
 
 .edit-password-form {
   background-color: var(--bg-divider-color);
-  padding: 4rem;
-  max-width: 50rem;
+  padding: 2rem;
+  max-width: 40rem;
   margin: 7rem auto;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
@@ -329,6 +345,11 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 2.4rem;
+  margin-bottom: -0.7rem;
+}
+
+.form-tag {
+  display: inline-block;
   margin-bottom: 3rem;
 }
 
@@ -343,16 +364,6 @@ body {
   gap: 1rem;
 }
 
-.field {
-  background-color: var(--background-color);
-  padding: 1.7rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  position: relative;
-  display: flex;
-  align-items: end;
-  height: 6rem;
-}
 
 .field label {
   position: absolute;
@@ -360,7 +371,6 @@ body {
   top: 40%;
   transition: 0.3s;
   left: 2rem;
-  font-weight: 600;
 }
 
 .field input {
@@ -389,6 +399,18 @@ body {
   color: var(--primary-text-color);
 }
 
+.see-box {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.see-box ion-icon {
+  font-size: 2.4rem;
+}
+
 .btn-save-profile-info {
   padding: 1rem;
   background-color: var(--primary-color-blue);
@@ -397,6 +419,55 @@ body {
   font-size: inherit;
   font-weight: 600;
   color: #fff;
+  cursor: pointer;
+}
+
+.alert-information-update {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+}
+
+.overlay-sucess-update {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.alert-information-update .alert-container {
+  background-color: var(--bg-divider-color);
+  padding: 2rem;
+  max-width: 35rem;
+  color: var(--primary-text-color);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.alert-information-update .alert-container div {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.alert-information-update ion-icon {
+  font-size: 5rem;
+  color: var(--sucess-color);
+}
+
+.btn-close-succes-update-popup {
+  margin-left: auto;
   cursor: pointer;
 }
 
@@ -431,9 +502,20 @@ body {
   width: 100%;
   height: 100%;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.322);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-delete-account {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
 }
 
 .close-delete-container {
@@ -446,10 +528,9 @@ body {
 
 .alert-message-container {
   background-color: var(--bg-divider-color);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 0.5rem;
   width: 35rem;
-  margin: 10rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -497,7 +578,6 @@ body {
   padding: 3rem;
   border-radius: 0.5rem;
   width: 35rem;
-  margin: 10rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
