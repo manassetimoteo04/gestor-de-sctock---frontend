@@ -35,6 +35,8 @@ class VendasApp {
     this.miniList = document.querySelector(
       ".product-list-select .mini-product-list"
     );
+    this.carListContainer = document.querySelector(".added-cart-list");
+    // this.btnRemoveProductTocart
 
     this.selectClientInput = document.querySelector(".select-client-input");
     this.miniClientContainer = document.querySelector(
@@ -47,22 +49,23 @@ class VendasApp {
     this.init();
   }
 
+  // MOSTRAR DETALHES DA VENDA
   _showsellDetail(e) {
     const target = e.target.closest(".sell-box");
     if (!target) return;
     this.sellID = target.dataset.id;
-    console.log(this.sellID);
     this.sellDetailContainer.classList.remove("hidden");
     this.sellDetailContainer.classList.remove("hide-detail");
     this.newSellFormContainer.classList.add("hidden");
     this._settingDetailSellContent(this.sellID);
   }
 
+  // MOSTRAR O FORMULÁRIO PARA REALIZAR NOVA VEDA
   _showNewSellFunction() {
     this.sellDetailContainer.classList.add("hidden");
     this.newSellFormContainer.classList.remove("hidden");
   }
-
+  // CHECHAR O FORMULÁRIO DE NOVA VENDA
   _closeSellFormFunction(e) {
     const target = e.target;
     if (target.classList.contains("overlay-new-sell-form")) {
@@ -76,7 +79,7 @@ class VendasApp {
       this.newSellFormContainer.classList.add("hidden");
     }
   }
-
+  // FECHAR O DETALHE VENDA NO MOBILE
   _closeSellDetailFunction(e) {
     const target = e.target;
     if (target.classList.contains("overlay-sell-detail"))
@@ -85,6 +88,7 @@ class VendasApp {
       this.sellDetailContainer?.classList.add("hidden");
   }
 
+  // FECHAR SESSÕES DO DETALHE [DETALHES DA VENDA, DETALHES DO PRODUCTO, INFOMAÇÃO DO CLIENE...]
   _hideSingleDetailFunction(btn) {
     btn.addEventListener("click", function (e) {
       this.name = btn.dataset.class;
@@ -93,18 +97,12 @@ class VendasApp {
     });
   }
 
+  // FUNÇÃO PARA MOSTRAR A MINI LISTA DE PRODUCTOS NO INPUT PARA
   _selectProductFunction() {
     this.miniProductList.classList.remove("hidden");
   }
 
-  _miniListItemFunction(t) {
-    this.miniListItem?.forEach(function (item) {
-      item.addEventListener("click", function () {
-        t.miniProductList.classList.add("hidden");
-      });
-    });
-  }
-
+  // FECHAR A MINI LISTA DE PRODUCTOS AO SELECIONAR UM PRODUCTO
   _hideMiniList(e) {
     const target = e.target.closest(".product-item-select");
     if (!target) return;
@@ -114,6 +112,7 @@ class VendasApp {
     this.miniProductList.classList.add("hidden");
   }
 
+  // FILTRAR OS PRODUCTOS AO DIGITAR O NOME NO INPUT PARA SELECIONAR O PRODUCTO
   _filterMiniListProduct() {
     const value = this.selectProductInput.value.toLowerCase();
     const filtered = appData.products.filter((item) =>
@@ -121,7 +120,7 @@ class VendasApp {
     );
     this._renderMiniProductList(filtered);
   }
-
+  // RENDERIZAR A MINI LISTA DE PRODUCTOS A SER SELECIONADO
   _renderMiniProductList(list) {
     if (!this.miniList) return;
 
@@ -148,6 +147,7 @@ class VendasApp {
     }
   }
 
+  // FUNÇÃO PARA ADICIONAR PRODUCTO NO CARRINHO
   _addProductToCart(e) {
     e.preventDefault();
     if (this.selectProductInput.value && this.selectedProductQty.value) {
@@ -162,8 +162,18 @@ class VendasApp {
     } else alert("Preencha os campos");
   }
 
+  // REMOVER PRODUCTO DA LISTA
+  _removeProductToCart(e) {
+    const target = e.target.closest(".remove-item-to-cart");
+    if (!target) return;
+    const id = +target.closest(".cart-item").dataset.id;
+    console.log(id);
+    const index = this.sellCart.findIndex((item) => item.productId === id);
+    this.sellCart.splice(index, 1);
+    this._renderAddedProduct(this.sellCart);
+  }
+  // RENDRIZAR OS PRODUCTOS SELECIONADOS
   _renderAddedProduct(list) {
-    this.carListContainer = document.querySelector(".added-cart-list");
     if (!this.carListContainer) return;
     this.carListContainer.innerHTML = "";
 
@@ -182,13 +192,15 @@ class VendasApp {
         );
 
         const html = `
-       <li class="cart-item">
+       <li class="cart-item" data-id="${product.id}">
        <div class="added-product">
          <span>${product.name} </span>
          <span class="added-product-name">${formatNumbers.formatCurrency(
            product.price
          )}</span>
        </div>
+       <span class="remove-item-to-cart"><ion-icon
+       name="trash-outline"></ion-icon></span>
        <div class="added-product">
          <span>${item.quantity}</span>
          <span class="added-product-name">${formatNumbers.formatCurrency(
@@ -203,10 +215,11 @@ class VendasApp {
     }
   }
 
+  // MOSTRAR A MINI LISTA DE CLIENTE A SER SELECIONADO
   _showMiniClientList() {
     this.miniClientContainer.classList.remove("hidden");
   }
-
+  // SELECIONANDO O CLIENTE
   _selectClient(e) {
     e.preventDefault();
     if (e.target.closest(".btn-add-client")) {
@@ -221,12 +234,14 @@ class VendasApp {
     this.miniClientContainer.classList.add("hidden");
     c(e.target);
   }
+  // SE O CLIENTE NÃO FOR ENCONTRADO NA LISTA ADICIONAR A LISTA
   _newClientAdded() {
     this.alertSellContainer.classList.remove("hidden");
     const alertText = document.querySelector(".alert-sell-text");
     alertText.textContent = "Cliente adicionado com sucesso";
   }
 
+  // FUNÇÃO PARA RENDEZIAR A MINI LISTA DE CLIENTES
   _renderMiniClientList(arr) {
     if (!this.miniClientList) return;
 
@@ -253,6 +268,7 @@ class VendasApp {
     }
   }
 
+  // FILTRAR A LISTA DE CLIENTES AO DIGITAR O NOME NO INPUT
   _filterMiniClient() {
     const value = this.selectClientInput.value.toLowerCase();
     const filtered = appData.clients.filter((item) =>
@@ -262,6 +278,7 @@ class VendasApp {
     this._renderMiniClientList(filtered);
   }
 
+  // CONFIGURAR OS CONTENT DE DETALHES DA VENDA
   _settingDetailSellContent(id) {
     const currentSell = appData.sales.find((item) => item.id === +id);
     const invoiceHeaderLabel = document.querySelector(
@@ -304,6 +321,7 @@ class VendasApp {
       currentSell.totalAmount
     );
 
+    // RENDERIZAR OS PRODUCTOS DA VENDA
     const renderSellItem = function (list) {
       itemListContainer.innerHTML = "";
 
@@ -332,11 +350,16 @@ class VendasApp {
 
     renderSellItem(currentSell.items);
   }
-  _confirmSell() {
+
+  // CONFIRMAR VENDA
+  _confirmSell(e) {
+    e.preventDefault();
     this.alertSellContainer.classList.remove("hidden");
     const alertText = document.querySelector(".alert-sell-text");
     alertText.textContent = "Venda realizada com sucesso";
   }
+
+  // GUARDAR O ALERTA DE REALIZAÇÃO DE VENDA
   _hideSellAlert(e) {
     const target = e.target;
     if (target.closest(".sell-overlay"))
@@ -344,6 +367,8 @@ class VendasApp {
     if (target.closest(".btn-ok-alert"))
       this.alertSellContainer.classList.add("hidden");
   }
+
+  // RENDERIZAR A LISTA DE VENDAS
   _renderSaleList(arr) {
     if (arr.length === 0) {
       if (this.sellContainerList) this.sellContainerList.innerHTML = "";
@@ -390,6 +415,7 @@ class VendasApp {
     });
   }
 
+  //CLASSIFICAR A LISTA DE VENDAS
   _sortSellList(e) {
     const target = e.target.closest("span");
     const def = document.querySelector(".default");
@@ -417,6 +443,7 @@ class VendasApp {
     }
   }
 
+  // CLASSIFICAR PELA DATA
   _sortByDate() {
     const sorted = appData.sales.sort(
       (a, b) => new Date(a.date) - new Date(b.date)
@@ -425,6 +452,7 @@ class VendasApp {
     console.log(sorted);
   }
 
+  // CLASSIFICAR POR QUANTIDADE
   _sortByAmount() {
     const sorted = appData.sales.sort(
       (a, b) => new Date(a.totalAmount) - new Date(b.totalAmount)
@@ -432,18 +460,19 @@ class VendasApp {
     this._pagination(sorted);
   }
 
+  // FILTRAR VENDAS COM STATUS DE SUCESSO
   _sortBySuccess() {
     const sorted = appData.sales.filter((item) => item.status === "success");
     this._pagination(sorted);
   }
 
+  // FILTRAR OS PENDENTES
   _sortByPending() {
     const sorted = appData.sales.filter((item) => item.status === "pending");
     this._pagination(sorted);
   }
 
-  //SEACRH SELL
-
+  //PESQUISAR NA LISTA DE VENDAS
   _searchSell() {
     const value = this.searchSellList.value.toLowerCase();
     console.log(value);
@@ -468,6 +497,7 @@ class VendasApp {
     this.renderCurrentPage(this.currentPage, productList);
   }
 
+  // LISTA A SER RENDERIZADO
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
@@ -495,6 +525,7 @@ class VendasApp {
     this.curPagelabel.textContent = this.currentPage;
   }
 
+  // TODOS OS EVENT LISTENERS
   _eventListeners() {
     this.sellDetailContainer?.addEventListener(
       "click",
@@ -523,6 +554,10 @@ class VendasApp {
       "click",
       this._addProductToCart.bind(this)
     );
+    this.carListContainer?.addEventListener(
+      "click",
+      this._removeProductToCart.bind(this)
+    );
     this.btnShowNewSellForm?.addEventListener(
       "click",
       this._showNewSellFunction.bind(this)
@@ -531,18 +566,12 @@ class VendasApp {
       "click",
       this._showsellDetail.bind(this)
     );
-    // this.btnCloseSellFormContainer?.addEventListener(
-    //   "click",
-    //   this._closeSellFormFunction.bind(this)
-    // );
+
     this.newSellFormContainer?.addEventListener(
       "click",
       this._closeSellFormFunction.bind(this)
     );
-    // this.btnCloseSellDetail?.addEventListener(
-    //   "click",
-    //   this._closeSellDetailFunction.bind(this)
-    // );
+
     this.btnHideSingleDetail?.forEach(
       this._hideSingleDetailFunction.bind(this)
     );
@@ -567,8 +596,9 @@ class VendasApp {
       this._hideSellAlert.bind(this)
     );
   }
+
+  // INICIALIZADOR
   init() {
-    this._miniListItemFunction(this);
     this._pagination(appData.sales);
     this._renderMiniProductList(appData.products);
     this._eventListeners();

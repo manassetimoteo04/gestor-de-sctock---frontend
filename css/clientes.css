@@ -335,8 +335,8 @@ body {
 }
 
 .client-status {
-  background-color: var(--background-color);
-  padding: 0.5rem 1rem;
+  background: none !important;
+  padding: 0 !important;
   border-radius: 0.5rem;
   font-weight: 600;
 }

@@ -13,6 +13,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
   --sucess-color: #43b943;
+  --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #f1f1f1;
 }
 
 .dark-mode {
@@ -28,9 +30,9 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d31e;
   --sucess-color: #43b943;
-
+  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee) --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #0f0f0f;
 }
-
 
 
 body {
@@ -120,8 +122,12 @@ body {
   gap: 0.5rem;
 }
 
+.btn-add-new-sell:active {
+  transform: scale(95%);
+}
+
 .btn-add-new-sell:hover {
-  background-color: var(--secondary-color-blue);
+  background-color: var(--button-primrary-hover-color);
 }
 
 .btn-add-new-sell ion-icon {
@@ -194,6 +200,12 @@ body {
 
 .sell-history .sell-container-list {
   min-height: 60rem;
+}
+
+.sell-history .container {
+  width: 100%;
+  overflow-x: scroll;
+  padding: 0 2rem;
 }
 
 .heading-sell {
@@ -526,7 +538,7 @@ body {
 }
 
 .btn-add-product-cart {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   background-color: var(--primary-color-blue);
   color: #fff;
   display: flex;
@@ -535,6 +547,15 @@ body {
   cursor: pointer;
   font-weight: 500;
   border-radius: 0.3rem;
+  transition: all 0.3s;
+}
+
+.btn-add-product-cart:hover {
+  background-color: var(--button-primrary-hover-color);
+}
+
+.btn-add-product-cart:active {
+  transform: scale(95%);
 }
 
 .btn-add-product-cart ion-icon {
@@ -564,11 +585,46 @@ body {
   margin-bottom: 1rem;
   max-height: 11rem;
   overflow: scroll;
+  transition: all 0.5s;
+
 }
 
 .cart-list li {
   border-left: 0.3rem solid var(--primary-color-blue);
   padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.5s;
+
+}
+
+.cart-list li:hover .remove-item-to-cart {
+  transform: translateY(-50%);
+}
+
+.remove-item-to-cart {
+  background-color: var(--primary-color-red);
+  padding: 0.5rem;
+  color: var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transform: translateY(-1000%);
+  transition: all 0.2s;
+
+
+}
+
+.remove-item-to-cart ion-icon {
+  font-size: 2.4rem;
+  color: #fff;
 }
 
 .added-product {
@@ -626,8 +682,8 @@ body {
 }
 
 .sell-btns button {
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  padding: 1rem 4rem;
+  border-radius: 5rem;
   background-color: var(--primary-color-blue);
   font-size: inherit;
   color: #fff;
@@ -635,8 +691,13 @@ body {
   cursor: pointer;
 }
 
+.sell-btns button:hover {
+  background-color: var(--button-primrary-hover-color);
+}
+
 .btn-cancel-sell {
-  background-color: var(--background-color) !important;
+  background: none !important;
+  border: 1px solid var(--primary-color-blue);
   color: var(--primary-text-color) !important;
 }
 
@@ -783,7 +844,6 @@ body {
   }
 
   .sell-history {
-
     min-width: 0;
   }
 

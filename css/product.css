@@ -62,6 +62,8 @@ body {
   background-color: var(--button-primrary-hover-color);
 }
 
+
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -412,34 +414,37 @@ textarea:focus {
 
 .confirmar-new-product {
   background-color: var(--primary-color-blue);
-  padding: 1rem 2rem;
-  border-radius: 5px;
+  padding: 1rem 4rem;
+  border-radius: 50rem;
   color: var(--bg-divider-color);
-  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
   font-size: inherit;
   color: #fff;
+  font-weight: 600;
+
 }
 
 .cancelar-new-product {
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 1rem 4rem;
+  border-radius: 50rem;
   cursor: pointer;
   transition: 0.3s;
   font-size: inherit;
-  background-color: var(--background-color);
   color: inherit;
+  background: none;
+  color: var(--primary-text-color);
+  border: 1px solid var(--primary-color-blue);
 }
 
 .cancelar-new-product:hover {
-  background-color: var(--button-secondary-hover-color);
+  color: var(--primary-color-blue);
 }
 
 .btns {
   display: flex;
   gap: 2rem;
+  width: 100%;
 }
 
 .confirmar-new-product:hover {
@@ -509,9 +514,9 @@ textarea:focus {
 }
 
 .btn-add-category {
-  padding: 1rem;
+  padding: 1rem 4rem;
   font-size: inherit;
-  border-radius: 0.5rem;
+  border-radius: 50rem;
   background-color: var(--primary-color-blue);
   color: #fff;
   font-weight: 600;

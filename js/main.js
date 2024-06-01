@@ -61,7 +61,6 @@ class renderDataMain {
     notificationContainer.innerHTML = "";
     list.forEach((item) => {
       const porduct = appData.products.find((id) => id.id === item.productId);
-      console.log(porduct);
       const html = `
       <div class="notifications-box">
 			<ion-icon name="notifications-outline"></ion-icon>
@@ -394,7 +393,7 @@ class MainApp extends renderDataMain {
   }
   _logoutFunction() {
     this.isAuthenticated = false;
-    localStorage.setItem("loged", this.isAuthenticated);
+    localStorage.removeItem("loged");
     // this._isAuthenticated();
     location.reload();
   }

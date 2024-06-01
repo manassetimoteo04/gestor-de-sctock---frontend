@@ -1077,7 +1077,7 @@ input::placeholder {
   gap: 2rem;
 }
 
-.form-header {
+.form-header-login {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
