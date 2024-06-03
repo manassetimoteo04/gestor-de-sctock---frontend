@@ -1,10 +1,7 @@
 /* CONFIGURANDO AS CORES */
 :root {
   --primary-color-blue: #4361ee;
-
   --secondary-color-blue: #99aaf5;
-  --secondary-color-blue: rgba(153, 170, 245, 0.5);
-
   --primary-color-red: #ff6868;
   --dark-grey-heading-01: #565863;
   --less-dark-grey-heading-02: #8c8f9f;
@@ -16,7 +13,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #99aaf5, #4361ee)
+  --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #f1f1f1
 }
 
 .dark-mode {
@@ -32,7 +30,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d31e;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee)
+  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee) --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #0f0f0f;
 }
 
 body {
@@ -102,12 +101,13 @@ canvas {
 }
 
 .filter-input input {
-  padding: 1rem;
+  padding: 1.4rem;
   width: 100%;
   background-color: var(--background-color);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   padding-right: -3rem;
+  font-size: inherit;
 }
 
 
@@ -122,13 +122,16 @@ canvas {
   padding: 1rem;
   width: 100%;
   background-color: var(--primary-color-blue);
-  border-radius: 0.5rem;
-  font-weight: 600;
+  border-radius: 5rem;
   color: #fff;
   font-size: inherit;
   cursor: pointer;
   margin-top: 1rem;
 
+}
+
+.btn-generate-report:hover {
+  background-color: var(--button-primrary-hover-color);
 }
 
 .btn-close-filter-analityc {

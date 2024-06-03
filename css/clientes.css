@@ -13,7 +13,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #99aaf5, #4361ee)
+  --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #f1f1f1
 }
 
 .dark-mode {
@@ -29,7 +30,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d31e;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee)
+  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee) --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #0f0f0f;
 }
 
 body {
@@ -397,7 +399,7 @@ body {
   margin: 5rem auto;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
 
@@ -424,12 +426,12 @@ body {
 
 .form-group input,
 .form-group textarea {
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 0.5rem;
   background-color: var(--background-color);
-  color: inherit;
-  border: 1px solid var(--border-color);
-  font-size: initial;
+  color: var(--primary-text-color);
+  font-size: inherit;
+
 }
 
 .form-group input:focus,
@@ -439,23 +441,31 @@ body {
 
 .btns-group {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .btns-group button {
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   font-size: inherit;
-  font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 5rem;
   cursor: pointer;
-  background-color: var(--background-color);
-  color: inherit;
+  color: var(--primary-text-color);
+  background: none;
+  border: 1px solid var(--border-color);
+}
+
+.btns-group button:nth-child(2):hover {
+  border-color: var(--primary-color-blue);
 }
 
 .add-client-btn {
   background-color: var(--primary-color-blue) !important;
   border-color: transparent;
   color: #fff !important;
+}
+
+.add-client-btn:hover {
+  background-color: var(--button-primrary-hover-color) !important;
 }
 
 /* DETALHES DO CLIENTE */
@@ -984,18 +994,26 @@ body {
 }
 
 .alert-delete-btns button {
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   font-size: inherit;
   color: inherit;
-  background-color: var(--background-color);
-  border-radius: 0.5rem;
+  border-radius: 5rem;
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  font-weight: 600;
+  background: none;
+}
+
+.alert-delete-btns button:nth-child(2):hover {
+  border-color: var(--primary-color-blue);
 }
 
 .btn-confirm-delete-costumer {
   color: #fff !important;
   background-color: var(--primary-color-blue) !important;
+}
+
+.btn-confirm-delete-costumer:hover {
+  background-color: var(--button-primrary-hover-color) !important;
 }
 
 @media (max-width: 54.3em) {

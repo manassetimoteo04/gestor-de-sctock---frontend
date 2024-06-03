@@ -6,6 +6,7 @@ import { formatNumbers } from "./views/formatNumbers.js";
 class ReportApp {
   constructor() {
     // SELECIONADNO AS VARIÁVEIS DO DOM
+    this.btnGenerateReport = document.querySelector(".btn-generate-report");
     this.totalEarningLabel = document.querySelector(".analityc-total-earning");
     this.totalOrdersLabel = document.querySelector(".analityc-total-order");
     this.totalLucLabel = document.querySelector(".analityc-total-lucr");
@@ -39,7 +40,14 @@ class ReportApp {
     // EVENT LISTENERS
 
     // INICIALIZANDO
-    this._allEventListners();
+
+    c(
+      new Intl.DateTimeFormat("pt-AO", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }).format(new Date("12/05/2024"))
+    );
     this._init();
   }
 
@@ -93,7 +101,44 @@ class ReportApp {
     if (target.closest(".btn-generate-report"))
       this.filterDateInputContainer.classList.add("hidden");
   }
+  _settReportFilterDate(e) {
+    e.preventDefault();
+    const inputFromDate = document.querySelector(".input-from");
+    const inputToDate = document.querySelector(".input-to");
+    const startDateLabel = document.querySelector(".start-date");
+    const endDateLabel = document.querySelector(".end-date");
 
+    startDateLabel.textContent = this.dateHelper(inputFromDate.value);
+    endDateLabel.textContent = this.dateHelper(inputToDate.value);
+    if (!inputToDate.value) {
+      endDateLabel.textContent = this.dateHelper(inputFromDate.value);
+    }
+  }
+
+  dateHelper(value) {
+    //git-ignore
+    const months = [
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Set",
+      "Out",
+      "Nov",
+      "Dez",
+    ];
+
+    const date = new Date(value);
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    return `  ${day}, ${months[month]} ${year}`;
+  }
   // RENDRIZAR O GRÁFICO DO CHART.JS
   _renderChartLine() {
     const color = getComputedStyle(document.documentElement)
@@ -371,6 +416,10 @@ class ReportApp {
 
   // TODOS OS EVENT LISTNERS
   _allEventListners() {
+    this.btnGenerateReport?.addEventListener(
+      "click",
+      this._settReportFilterDate.bind(this)
+    );
     this.filterContainer?.addEventListener(
       "click",
       this._toggleFiterBtn.bind(this)
@@ -396,6 +445,7 @@ class ReportApp {
   }
   // CHAMANDO FUNÇÕES AUTO INICIALIZADAS
   _init() {
+    this._allEventListners();
     this._renderSummary();
     this._renderChartLine();
     this._renderMostSelledProduct(appData.reports.topSellingProducts);

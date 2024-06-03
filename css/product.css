@@ -374,7 +374,7 @@ ion-icon {
 .form-group select,
 textarea {
   background: none;
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 0.5rem;
   cursor: pointer;
   width: 100%;
@@ -421,7 +421,6 @@ textarea:focus {
   transition: 0.3s;
   font-size: inherit;
   color: #fff;
-  font-weight: 600;
 
 }
 
@@ -434,11 +433,11 @@ textarea:focus {
   color: inherit;
   background: none;
   color: var(--primary-text-color);
-  border: 1px solid var(--primary-color-blue);
+  border: 1px solid var(--border-color);
 }
 
 .cancelar-new-product:hover {
-  color: var(--primary-color-blue);
+  border-color: var(--primary-color-blue);
 }
 
 .btns {
@@ -658,13 +657,17 @@ textarea:focus {
 }
 
 .alert-btns button {
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--background-color);
+  padding: 1rem 4rem;
+  border-radius: 5rem;
   font-size: inherit;
+  background: none;
+  border: 1px solid var(--border-color);
   color: var(--primary-text-color);
-  font-weight: 600;
   cursor: pointer;
+}
+
+.alert-btns button:nth-child(2):hover {
+  border-color: var(--primary-color-blue);
 }
 
 .confirm-delete-btn {

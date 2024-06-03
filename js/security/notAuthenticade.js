@@ -6,7 +6,7 @@ class NOTAuthenticated {
     const isLoged = JSON.parse(localStorage.getItem("loged"));
 
     if (!isLoged) {
-      window.location.href = "/pages/login.html";
+      window.location.href = "../index.html";
     }
   }
 }

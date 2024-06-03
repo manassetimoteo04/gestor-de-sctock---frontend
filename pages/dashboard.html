@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>StockMaster - Gestão de Estoques e Vendas</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/responsive.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="shortcut icon" href="assets/img/logo/logo.png" type="image/x-icon">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+	<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<script defer src="../js/security/notAuthenticade.js"></script>
+	<script defer type="module" src="../js/controller.js"></script>
+</head>
+
+<body>
+	<div class="preloader "></div>
+
+	<section class="dashboard-section main-section">
+
+		<header class="main__header">
+
+			<div class="search__div">
+				<a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+				<!-- <div class="hidden">
+					<input type="text" placeholder="Pesquisar" class="input__search">
+					<ion-icon name="search-outline"></ion-icon>
+				</div> -->
+			</div>
+
+			<div class="header__user">
+				<a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
+						name="notifications-outline"></ion-icon></a>
+
+				<a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
+						class="hidden light-icon"></ion-icon>
+					<ion-icon name="moon-outline" class="dark-icon"></ion-icon>
+				</a>
+				<div class="notification-header">
+					<h3 class="heading-h3">Notificações</h3>
+					<div class="filter-noti"><span>Hoje</span>
+						<span>Todos</span>
+					</div>
+					<div class="notitification-list-header">
+						<div class="list">
+
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container"><span class="notification-text-header">Estoque
+										Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Agora mesmo</span>
+								</div>
+							</div>
+
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container"><span class="notification-text-header">Estoque
+										Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Há 2h</span>
+								</div>
+							</div>
+							<div class="notifications-box">
+								<ion-icon name="notifications-outline"></ion-icon>
+								<div class="notification-text-container">
+									<span class="notification-text-header">Estoque Baixo</span>
+									<p><span class="notif-product-name">Computador</span> está com nível baixo de
+										estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+									<span class="notif-date">Ontem</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="header__profile-box">
+					<img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
+					<div class="profile__name-box">
+						<span class="header__p-name user-full-name">Timóteo Pembele</span>
+						<span class="permission user-role">Admin <ion-icon name="chevron-down-outline"
+								class="profile-click-icon"></ion-icon></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="profile-infor-box">
+				<ul class="profile-list">
+					<li><a href="pages/perfil.html" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu
+							Perfil</a></li>
+					<li><a href="pages/perfil.html" class="p-link"><ion-icon name="settings-outline"></ion-icon>
+							Configurações</a></li>
+					<li><a href="" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon>
+							Terminar
+							Sessão</a></li>
+				</ul>
+			</div>
+		</header>
+
+
+
+		<aside class="side__bar">
+			<!-- LOGO -->
+			<h1 class="logo"> <img src="../assets/img/logo/logo.png" class="icon-logo"><span
+					class="full-logo">StockMaster</span></h1>
+
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li> <a href="index.html" class="main-nav-link active-link"><ion-icon
+								name="grid-outline"></ion-icon>
+							<span>Dashboard</span></a></li>
+					<li><a href="products.html" class="main-nav-link "> <ion-icon name="layers-outline"></ion-icon>
+							<span>Productos</span></a>
+					</li>
+					<li><a href="estoques.html" class="main-nav-link "> <ion-icon name="cube-outline"></ion-icon><span>
+								Estoques</span> </a></li>
+					<li><a href="vendas.html" class="main-nav-link "><ion-icon
+								name="cart-outline"></ion-icon><span>Vendas</span></a></li>
+					<li><a href="clientes.html" class="main-nav-link "><ion-icon
+								name="people-outline"></ion-icon><span>Clientes</span></a></li>
+					<li><a href="fornecedores.html" class="main-nav-link"><ion-icon
+								name="podium-outline"></ion-icon><span>Fornecedores</span></a></li>
+					<li><a href="relatorios.html" class="main-nav-link"><ion-icon
+								name="bar-chart-outline"></ion-icon><span>Análises</span></a></li>
+					<li><a href="perfil.html" class="main-nav-link"><ion-icon
+								name="person-circle-outline"></ion-icon><span>Perfil</span></a></li>
+					<!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+				</ul>
+
+			</nav>
+
+		</aside>
+
+
+
+		<section class="main__content-section">
+
+			<div class="section-header">
+				<header class="sect-head">
+					<h2 class="heading-h2">Dashboard</h2>
+					<span class="section-tag">Vê todas as informações sobre as suas compras e vendas</span>
+				</header>
+			</div>
+
+
+
+			<div class="grid grid-02">
+
+				<div class="total-box weekly-earning">
+					<div class="total-flex">
+						<span class="week-span-text">Ganhos semanais</span>
+						<span class="label__total-purchase-due tot-label-num week-earning-total">11390</span>
+						<span class="total-text">+<span class="percentage"> 43%</span> aumentado em relação a semana
+							passada</span>
+					</div>
+					<div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
+				</div>
+
+
+				<div class="total-box weekly-earning">
+					<div class="total-flex">
+						<span class="week-span-text">Ganhos mensais</span>
+						<span class="label__total-purchase-due tot-label-num month-earn-total">24086</span>
+						<span class="total-text">+<span class="percentage"> 79.9%</span> aumentado em relação ao mês
+							passado</span>
+					</div>
+					<div class="icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
+				</div>
+
+			</div>
+
+
+			<div class="total-container grid grid-04">
+
+				<div class="total-box total__purchase-box today">
+					<div class="total-icon"><ion-icon name="logo-usd"></ion-icon></div>
+
+					<div class="total-flex">
+						<span class="label__total-purchase-due tot-label-num ">6700</span>
+						<span class="total-text">Renda Total</span>
+					</div>
+				</div>
+
+
+				<div class="total-box total__purchase-box today">
+					<div class="total-icon"><ion-icon name="logo-usd"></ion-icon></div>
+
+					<div class="total-flex">
+						<span class="label__total-purchase-due tot-label-num">5670</span>
+						<span class="total-text">Productos Vendido</span>
+					</div>
+				</div>
+
+
+				<div class="total-box total__purchase-box today">
+					<div class="total-icon"><ion-icon name="logo-usd"></ion-icon></div>
+					<div class="total-flex">
+						<span class="label__total-purchase-due tot-label-num">2340</span>
+						<span class="total-text">Receita Total</span>
+					</div>
+				</div>
+
+
+				<div class="total-box total__costumer-box tot-box-02">
+					<div class="total-flex">
+						<span class="total-text">Clientes</span>
+						<span class="label__total-purchase-due tot-label-num total-client-number">4570</span>
+					</div>
+					<div class="total-icon"><ion-icon name="people-outline"></ion-icon></div>
+				</div>
+
+
+				<div class="total-box total__costumer-box tot-box-02 box-light-blue">
+					<div class="total-flex">
+						<span class="total-text">Fornecedores</span>
+						<span class="label__total-purchase-due tot-label-num total-supplier-number">3450</span>
+					</div>
+					<div class="total-icon"><ion-icon name="person-add-outline"></ion-icon></div>
+				</div>
+
+
+				<div class="total-box total__costumer-box tot-box-02 ">
+					<div class="total-flex">
+						<span class="total-text">Productos</span>
+						<span class="label__total-purchase-due tot-label-num total-product-number">100</span>
+					</div>
+					<div class="total-icon"><ion-icon name="cube-outline"></ion-icon></div>
+				</div>
+
+
+			</div>
+
+			<div class="statics_recent-container">
+
+				<div class="statics-box">
+					<div class="subheader">
+						<h3 class="heading-h3">Vendas</h3>
+						<div></div>
+					</div>
+
+					<div class="fixed canvas">
+						<canvas id="myChart" width="400" height="300"></canvas>
+					</div>
+				</div>
+				<div class="recent-products-notification-box">
+					<div class="subheader">
+						<h3 class="heading-h3">Productos recentes</h3>
+						<div>
+							<a href="pages/products.html" class="see-all-link">Ver todos <ion-icon
+									name="arrow-forward-outline"></ion-icon></a>
+						</div>
+					</div>
+
+					<div class="fixed">
+						<div class="recent-product-notification recent-product-heading">
+							<div>
+								<span>Productos</span>
+							</div>
+							<span>Categoria</span>
+						</div>
+						<div class="recent-product-list">
+							<!-- <div class="recent-product-notification">
+								<div>
+									<ion-icon name="arrow-down-outline"></ion-icon>
+									<span class="product-name">Lenovo 3D 3GEn</span>
+								</div>
+								<span class="product-price">Electonicos</span>
+							</div> -->
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="statics_recent-container grid-more">
+
+				<div class="recent-products-notification-box">
+
+					<div class="subheader">
+						<h3 class="heading-h3">Mais vendidos</h3>
+						<div>
+							<a href="pages/vendas.html" class="see-all-link">Ver todos<ion-icon
+									name="arrow-forward-outline"></ion-icon></a>
+						</div>
+					</div>
+					<div class="fixed">
+						<div class="most-selled-list">
+
+							<div class="product-notification most-salled">
+								<ion-icon name="trending-up-outline"></ion-icon>
+								<div>
+									<div class="flex-most-selled">
+
+										<span class="product-name">Lenovo 3D 3GEn</span>
+										<span class="number">Quantidade</span>
+									</div>
+									<div class="flex-most-selled">
+										<span class="product-price">$580</span>
+										<span class="sale-num">230</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+				<div class="statics-box">
+					<div class="subheader">
+						<h3 class="heading-h3">Vendas Recentes</h3>
+						<div>
+							<a href="#" class="see-all-link">Ver todos <ion-icon
+									name="arrow-forward-outline"></ion-icon></a>
+						</div>
+					</div>
+					<div class="fixed transation-scroll">
+
+
+						<div class="recent-transation-heading">
+							<span>Factura</span>
+							<span>Total</span>
+							<span>Data</span>
+							<span>Satus</span>
+						</div>
+
+						<div class="recent-transation-list">
+							<div class="transation-recent">
+								<div class="invoice-container">
+									<ion-icon name="swap-horizontal-outline"></ion-icon>
+									<div>
+										<span class="invoice-number">SMO0934343</span>
+										<span class="payment-type">Cash</span>
+									</div>
+								</div>
+								<span class="total-sell">$ 23498</span>
+								<span class="sell-date">há 1 min</span>
+								<span class="sell-status">Sucesso</span>
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<!-- <section class="section-login-register">
+		<h1 class=" form-logo"> <img src="assets/img/logo/logo.png" class="icon-logo"><span class="">StockMaster</span>
+		</h1>
+		<div class="container-login-register login-container">
+
+			<form action="" class="login-form">
+				<div class="form-header">
+					<h2 class="heading-h2">LOG IN</h2>
+					<span>Bem-vindo de volta! Inicie sessão para continuar</span>
+				</div>
+				<div class="alert-account-not-found hidden">
+					<span>Palavra-passe ou senha errada, tente novamente</span>
+				</div>
+
+				<div class="form-group">
+					<div class="field">
+						<input type="text" class="input-login-username">
+						<label for="first-name">Nome de usuário</label>
+					</div>
+					<span class="mini-alert-text hidden">Campo obrigratório!</span>
+				</div>
+				<div class="form-group">
+					<div class="field">
+						<input type="password" class="input-login-password">
+						<div class="see-box">
+							<ion-icon name="eye-outline" class="see-password"></ion-icon>
+							<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+						</div>
+
+						<label for="first-name">Palavra-passe</label>
+					</div>
+					<span class="mini-alert-text hidden">Campo obrigratório!</span>
+					<a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+				</div>
+
+				<button class="btn-primary btn-login">Iniciar sessão</button>
+				<span class="or-span">OU</span>
+
+				<button class=" btn-secondary no-account">Criar conta</button>
+			</form>
+
+		</div>
+
+
+
+		<!-- FORMULÁRIO PARA CRIAR CONTA -->
+	<div class="container-login-register create-account-container hidden">
+
+		<form action="" class="register-form">
+
+			<div class="form-header">
+				<h2 class="heading-h2">Criar Conta</h2>
+				<span>Preencha com as tua informações o formulário abaixo para criar uma conta nova </span>
+			</div>
+
+			<div class="form-group field-2-group">
+				<div class="field">
+					<input type="text" class="input-edit-first-name">
+					<label for="first-name">Primeiro Nome</label>
+				</div>
+				<div class="field">
+					<input type="text" class="input-edit-first-name">
+					<label for="first-name">Último Nome</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="field">
+					<input type="text" class="input-edit-first-name">
+					<label for="first-name">Nome de Usuário</label>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<div class="field">
+					<input type="text" class="input-edit-first-name">
+					<label for="first-name">Endereço de E-mail</label>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<div class="field">
+					<input type="password" class="input-edit-first-name">
+					<div class="see-box">
+						<ion-icon name="eye-outline" class="see-password"></ion-icon>
+						<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+					</div>
+					<label for="first-name">Palavra-passe</label>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<div class="field">
+					<input type="password" class="input-edit-first-name">
+					<div class="see-box">
+						<ion-icon name="eye-outline" class="see-password"></ion-icon>
+						<ion-icon name="eye-off-outline" class="hide-password hidden"></ion-icon>
+					</div>
+					<label for="first-name">Confirmar Palavra-passe</label>
+				</div>
+
+
+			</div>
+
+			<button class="btn-primary btn-create-account">Criar conta</button>
+			<span class="or-span">Já tem uma conta?</span>
+
+			<button class="btn-secondary have-account">Iniciar Sessão</button>
+		</form>
+
+	</div>
+
+	</section>
+</body>
+
+</html>

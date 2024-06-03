@@ -6,7 +6,7 @@ class isAuthenticated {
     const isLoged = JSON.parse(localStorage.getItem("loged"));
 
     if (isLoged === true) {
-      window.location.href = "../index.html";
+      window.location.href = "pages/dashboard.html";
     }
   }
 }

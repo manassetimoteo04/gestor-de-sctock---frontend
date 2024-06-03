@@ -66,6 +66,14 @@
   background-color: rgba(255, 255, 255, 0);
 }
 
+button:active {
+  transform: scale(95%);
+}
+
+button {
+  transition: all 0.3s;
+}
+
 html {
   font-size: 62.5%;
 }

@@ -13,7 +13,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d3c4;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #99aaf5, #4361ee)
+  --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #f1f1f1
 }
 
 .dark-mode {
@@ -29,7 +30,8 @@
   --box-border-radius: 1.2rem;
   --border-color: #d3d3d31e;
   --sucess-color: #43b943;
-  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee)
+  --main-gradient: linear-gradient(to top left, #9aaaf5, #4361ee) --button-primrary-hover-color: #253faf;
+  --button-secondary-hover-color: #0f0f0f;
 }
 
 body {
@@ -346,11 +348,10 @@ body {
 
 .form-group input,
 .form-group textarea {
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 0.5rem;
   background-color: var(--background-color);
-  color: inherit;
-  border: 1px solid var(--border-color);
+  color: var(--primary-text-color);
   font-size: initial;
 }
 
@@ -365,20 +366,27 @@ body {
 }
 
 .btns-group button {
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   font-size: inherit;
-  font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 5rem;
   cursor: pointer;
-  background-color: var(--background-color);
   border: 1px solid var(--border-color);
-  color: inherit;
+  background: none;
+  color: var(--primary-text-color);
+}
+
+.btns-group button:nth-child(2):hover {
+  border-color: var(--primary-color-blue);
 }
 
 .add-supplier-btn {
   background-color: var(--primary-color-blue) !important;
   border-color: transparent;
   color: #fff !important;
+}
+
+.add-supplier-btn:hover {
+  background-color: var(--button-primrary-hover-color) !important;
 }
 
 /* DETALHES DO FORNECEDOR */
@@ -516,20 +524,32 @@ body {
   color: var(--primary-color-red);
 }
 
+.alert-container div {
+  display: flex;
+  gap: 1rem;
+}
+
 .alert-container button {
   font-size: inherit;
-  font-weight: 600;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   background-color: var(--primary-color-blue);
   color: #fff;
-  border-radius: .3rem;
-  margin-right: 1rem;
+  border-radius: 5rem;
   cursor: pointer;
 }
 
+.alert-container button:nth-child(1):hover {
+  background-color: var(--button-primrary-hover-color);
+}
+
 .btn-cancel-delete-supplier {
-  background-color: var(--background-color) !important;
-  color: var(--secondary-text-color) !important;
+  color: var(--primary-text-color) !important;
+  background: none !important;
+  border: 1px solid var(--border-color);
+}
+
+.btn-cancel-delete-supplier:hover {
+  border-color: var(--primary-color-blue);
 }
 
 .succes-alert-container {
