@@ -6,15 +6,11 @@ class StockApp {
   lowStockProductList;
   constructor() {
     // SELECIONADO AS VARIAVEIS DO BOM
-    this.ctx = document.getElementById("pieChart");
     this.historicDetailContainer = document.querySelector(
       ".historic-product-detail "
     );
 
     this.lowStockContainer = document.querySelector(".low-stock-list");
-    this.btnUpdateStockConfirm = document.querySelector(
-      ".confirm-update-product"
-    );
 
     this.inputQuantityUpdate = document.querySelector(".update-quantity-input");
     this.lowNotificationContainer = document.querySelector(
@@ -37,81 +33,6 @@ class StockApp {
     // INICIALIZANDO AS FUNÇÕES
     this._allEventListeners();
     this._init();
-  }
-
-  // RENDERIZAR NOTIFICÇÃO DE ESTOQUE BAIXO
-  _renderLowStockNotifications(arrList) {
-    if (!this.lowNotificationContainer) return;
-
-    if (arrList.length === 0) {
-      this.lowNotificationContainer?.insertAdjacentHTML(
-        "afterbegin",
-        `<p classs="sem-resul">Nenhum producto encontrado </p>`
-      );
-    } else {
-      this.lowNotificationContainer.innerHTML = "";
-      arrList.forEach((element) => {
-        let html = `
-        <div class="stock-notification-box" data-id="">
-        <ion-icon name="notifications-outline"></ion-icon>
-        <div class="notification-content">
-            <div class="text">
-                <p>
-                ${element.message}
-                </p>
-                <span class="notification-time">${formatNumbers.formatDates(
-                  new Date(element.date)
-                )}</span>
-            </div>
-        </div>
-    </div>
-    `;
-        this.lowNotificationContainer.insertAdjacentHTML("afterbegin", html);
-      });
-    }
-  }
-
-  // RENDERIZAR A LISTA DE REGISTO DE ENTRADA E SAIDA DE PRODUCTOS
-  _renderRegisterInOutList(list) {
-    if (!this.productInOUtHistory) return;
-    if (list.length === 0) {
-      this.productInOUtHistory.innerHTML = "";
-      const emptyList = `
-      <div class="empty-product">
-      <p>Nenhum producto encontrado</p>
-     </div>
-      `;
-
-      this.productInOUtHistory.insertAdjacentHTML("afterbegin", emptyList);
-    }
-    if (list.length > 0) this.productInOUtHistory.innerHTML = "";
-    let html;
-    list.forEach((item) => {
-      html = `
-        <div class="product-item-history" data-id="${item.productId}">
-
-          <span class="product-name"><ion-icon name="arrow-${
-            item.type === "entrada" ? "down" : "up"
-          }-outline" class="${
-        item.type === "entrada" ? "in-product" : "out-product"
-      }"></ion-icon>
-          ${item.name}</span>
-
-          <span class="product-category">${item.category} </span>
-          <span class="product-price">${item.quantity} </span>
-          <span class="product-qtd ">${item.type} </span>
-          <span class="product-date">${formatNumbers.formatDates(
-            new Date(item.date)
-          )}</span>
-                               
-          <span class="product-action">
-              <button class="btn-update-stock"><ion-icon name="eye-outline"></ion-icon></button>
-          </span>
-        </div>
-        `;
-
-      this.productInOUtHistory.insertAdjacentHTML("afterbegin", html);
-    });
   }
 
   // MOSTRAR O CONTAINER PARA DETALHES DO EVENTO DO PRODUCTO
@@ -154,64 +75,75 @@ class StockApp {
     if (!target) return;
 
     if (target.className === "date") {
-      this._sortByDate();
+      //DESCOMENTAR PARA CHAMAR O EVENTO DE FILTRAGE,
+      // this._sortByDate();
       def.textContent = target.textContent;
     }
 
     if (target.className === "qtd") {
-      this._sortByStock();
+      //DESCOMENTAR PARA CHAMAR O EVENTO DE FILTRAGE,
+      // this._sortByStock();
       def.textContent = target.textContent;
     }
 
     if (target.className === "outcome") {
-      this._filetOutComeProduct();
+      //DESCOMENTAR PARA CHAMAR O EVENTO DE FILTRAGE,
+      // this._filetOutComeProduct();
       def.textContent = target.textContent;
     }
 
     if (target.className === "income") {
-      this._filetInComeProduct();
+      //DESCOMENTAR PARA CHAMAR O EVENTO DE FILTRAGE,
+      // this._filetInComeProduct();
       def.textContent = target.textContent;
     }
   }
   // CLASSFICAR POR DATA
   _sortByDate() {
-    const sorted = appData.registerInOutProducts.sort(
-      (a, b) => new Date(a.date) - new Date(b.date)
-    );
+    //PEGAR OS DADOS REAIS E REALIZAR A FILTRAGEM
+    // const sorted = appData.registerInOutProducts.sort(
+    //   (a, b) => new Date(a.date) - new Date(b.date)
+    // );
+
     this._pagination(sorted);
   }
 
   // CLASSFICAR POR ESTOQUE
   _sortByStock() {
-    const sorted = appData.registerInOutProducts.sort(
-      (a, b) => a.quantity - b.quantity
-    );
+    //PEGAR OS DADOS REAIS E REALIZAR A FILTRAGEM
+
+    // const sorted = appData.registerInOutProducts.sort(
+    //   (a, b) => a.quantity - b.quantity
+    // );
     this._pagination(sorted);
   }
   // FILTRAR ENTRADAS
   _filetInComeProduct() {
-    const sorted = appData.registerInOutProducts.filter(
-      (item) => item.type === "entrada"
-    );
+    //PEGAR OS DADOS REAIS E REALIZAR A FILTRAGEM
+    // const sorted = appData.registerInOutProducts.filter(
+    //   (item) => item.type === "entrada"
+    // );
     this._pagination(sorted);
-    console.log(sorted);
   }
+
   // FILTRAR SAIDAS
   _filetOutComeProduct() {
-    const sorted = appData.registerInOutProducts.filter(
-      (item) => item.type === "saída"
-    );
+    //PEGAR OS DADOS REAIS E REALIZAR A FILTRAGEM
+    // const sorted = appData.registerInOutProducts.filter(
+    //   (item) => item.type === "saída"
+    // );
     this._pagination(sorted);
-    console.log(sorted);
   }
 
   // FUNÇÃO PARA PESQUISAR NA LISTA
   _serachInOutList() {
+    //PEGANDO O VALOR DO INPUT
     const value = this.historyInputSearch.value.toLowerCase();
-    console.log(value);
-    const filtered = appData.registerInOutProducts.filter((item) =>
-      item.name.toLocaleLowerCase().startsWith(value)
-    );
+
+    //PEGAR OS DADOS REAIS E REALIZAR A FILTRAGEM
+    // const filtered = appData.registerInOutProducts.filter((item) =>
+    //   item.name.toLocaleLowerCase().startsWith(value)
+    // );
     this._pagination(filtered);
   }
 
@@ -219,6 +151,7 @@ class StockApp {
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
     this.productList = productList;
+    // MARCAR O NÚMERO DE ELEMTNO POR PÁGINA
     this.productsPerPage = 7;
     this.currentPage = 1;
     this.totalPages = Math.ceil(productList.length / this.productsPerPage);
@@ -232,8 +165,9 @@ class StockApp {
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
+
+    //LISTA A SER RENDERIZADA
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
-    this._renderRegisterInOutList(this.productsToRender);
   }
   renderCurrentPage(currentPage, list) {
     this.renderPage(currentPage, list);
@@ -286,8 +220,8 @@ class StockApp {
 
   // FUNCÇÕES AUTOINICIALIZADAS
   _init() {
-    this._renderLowStockNotifications(appData.inventory.lowStockNotifications);
-    this._pagination(appData.registerInOutProducts);
+    //DESCOMENTAR E INICIAR A PAGINAÇÃO DO DADOS REAIS
+    // this._pagination(appData.registerInOutProducts);
   }
 }
 const newStock = new StockApp();

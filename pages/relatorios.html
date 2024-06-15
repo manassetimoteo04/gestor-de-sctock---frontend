@@ -44,14 +44,16 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header ">
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
                     </div>
                     <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
                         <div class="list">
-
+                            <!-- BOX DE NOTIFICAÇÃO -->
                             <div class="notifications-box">
                                 <ion-icon name="notifications-outline"></ion-icon>
                                 <div class="notification-text-container"><span class="notification-text-header">Estoque
@@ -62,24 +64,6 @@
                                 </div>
                             </div>
 
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container"><span class="notification-text-header">Estoque
-                                        Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Há 2h</span>
-                                </div>
-                            </div>
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container">
-                                    <span class="notification-text-header">Estoque Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Ontem</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -144,12 +128,13 @@
                     <h2 class="heading-h2">Relátorios e Análises</h2>
                     <span class="section-tag">Vê as estátisticas</span>
                 </header>
-
+                <!-- CONTAINER PARA FILTRAGEM DE PERÍODO -->
                 <div class="filter-analitycs-container">
                     <span class="filter-by today-reports filtered">Hoje</span>
                     <div class=" filter-by date-filter">
                         <p class="start-date">23, Jan 2023</p> - <p class="end-date">24, Jan 2023</p>
                     </div>
+                    <!-- CONTAINER PARA INSERIR O PERÍODO -->
                     <div class="filter-input hidden">
                         <span class="overlay-date-report"></span>
                         <div>
@@ -164,10 +149,9 @@
                                 <input type="date" class="date-filter-input input-to">
                                 <button class="btn-generate-report">Gerar Relatório</button>
                             </form>
-
                         </div>
-
                     </div>
+
                 </div>
             </div>
             <!-- <div class="days-week-days-month-container">
@@ -182,6 +166,8 @@
 
                 </div>
             </div> -->
+
+            <!--  RESUMO DO RELATÓRIO  -->
             <div class="analitycs-reports-container">
                 <div class="analitycs-summary-container">
                     <div class="analityc-summary-box">
@@ -208,10 +194,12 @@
                 </div>
 
                 <div class="all-analitycs-charts">
+                    <!-- GRÁFICO DE ANÁLISES -->
                     <div class="box-analityc">
                         <h3 class="heading-h3">Análises de Vendas</h3>
                         <canvas id="monthlySalesChart"></canvas>
                     </div>
+                    <!-- CONTAINER DE PRODUCTOS MAIS VENDIDOS -->
                     <div class="most-selled-product-reports box-analityc">
                         <h3 class="heading-h3">Mais Vendidos</h3>
 
@@ -221,8 +209,10 @@
                                 <span>Quantidade</span>
                                 <span class="total-selled-amount">Total</span>
                             </div>
-                            <div class="most-selled-list-report">
 
+                            <!-- LISTA DE PRODUCTOS MAIS VENDIDOS -->
+                            <div class="most-selled-list-report">
+                                <!-- BOX DE PRODUCTO  -->
                                 <div class="most-selled-product">
                                     <div class="product-name"> <ion-icon name="trending-up-outline"></ion-icon>
                                         <div>
@@ -241,6 +231,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- CONTAINER DE PRODUCTOS TOP -->
                 <div class="stock-reports-container actual-stock-container">
                     <div class="statics-box actual-stock">
 
@@ -258,7 +249,9 @@
                                     <span>Preço</span>
                                     <span>Vendas</span>
                                 </div>
+                                <!-- LISTA DE PRODUCTOS TOP A SER RENDERIZADO -->
                                 <div class="top-product-list">
+                                    <!-- PRODUCTO TOP BOX -->
                                     <div class="product-box">
                                         <div>
                                             <span class="product-icon"><ion-icon
@@ -277,10 +270,13 @@
                         </div>
 
                     </div>
+
+                    <!-- VENDAS POR CATEGORIA -->
                     <div class="stock-chart">
                         <h3 class="heading-h3">Vendas por Categoria</h3>
-
+                        <!-- LISTA DE VENDAS POR CATEGORIA -->
                         <div class="container-progress-sell-category">
+                            <!-- CATEGORIA -->
                             <div class="category-box">
                                 <div>
                                     <span class="category-name">Computadores</span>
@@ -291,51 +287,24 @@
                                 </div>
                             </div>
 
-                            <div class="category-box">
-                                <div>
-                                    <span class="category-name">Computadores</span>
-                                    <span class="category-amount"> $ 344569</span>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar"></div>
-                                </div>
-                            </div>
-
-                            <div class="category-box">
-                                <div>
-                                    <span class="category-name">Computadores</span>
-                                    <span class="category-amount"> $ 344569</span>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar"></div>
-                                </div>
-                            </div>
-                            <div class="category-box">
-                                <div>
-                                    <span class="category-name">Outros</span>
-                                    <span class="category-amount"> $ 344569</span>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar"></div>
-                                </div>
-                            </div>
                         </div>
                         <!-- <canvas id="myDonutChart"></canvas> -->
                     </div>
 
+                    <!-- CONTAINER DE ESTOQUE ACTUAL -->
 
                     <div class="statics-box static-stock-container">
                         <div class="list-header">
 
                             <h3 class="heading-h3">Estoque actual</h3>
                             <div class="sub-box-header">
-
+                                <!-- INPUT DE PESQUISA NA LISTA DE ESTOQUE -->
                                 <div class="seach-product">
                                     <ion-icon name="search-outline"></ion-icon>
                                     <input type="text" placeholder="Digitar Factura..."
                                         class="input__search search-input-report-stock">
                                 </div>
-
+                                <!-- FILTRAGEM NA LISTA -->
                                 <div class="sort-by report-sort-by">
                                     <ion-icon name="filter-outline"></ion-icon>
                                     <span class="def">Filtrar</span>
@@ -358,7 +327,11 @@
                                     <span>Vendas</span>
                                     <span>ID Producto</span>
                                 </div>
+
+                                <!-- LISTA DE ESTOQUE ACTUAL A SER REBDERIZADO -->
                                 <div class="actual-stock-list">
+
+                                    <!-- BOX DO PRODUCTO ACTUAL -->
                                     <div class="product-box">
                                         <div>
                                             <span class="product-icon"><ion-icon
@@ -375,6 +348,8 @@
 
                             </div>
                         </div>
+
+                        <!-- CONTAINER DE PAGINAÇÃO NA LISTA -->
                         <div class="pagination-container">
                             <div class="pagination">Páginas <span class="total-pages-report">10</span></div>
                             <div class="btn-pages">

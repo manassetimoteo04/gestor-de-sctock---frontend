@@ -40,14 +40,16 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header ">
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
                     </div>
                     <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
                         <div class="list">
-
+                            <!-- BOX DE NOTIFICAÇÃO -->
                             <div class="notifications-box">
                                 <ion-icon name="notifications-outline"></ion-icon>
                                 <div class="notification-text-container"><span class="notification-text-header">Estoque
@@ -58,24 +60,6 @@
                                 </div>
                             </div>
 
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container"><span class="notification-text-header">Estoque
-                                        Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Há 2h</span>
-                                </div>
-                            </div>
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container">
-                                    <span class="notification-text-header">Estoque Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Ontem</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -161,13 +145,13 @@
 
                         <h3 class="heading-h3">Todos os Fornecedores</h3>
                         <div class="sub-box-header">
-
                             <div class="seach-product">
+                                <!-- INPUT DE PESQUISA DA LISTA DE FORNECEDORES -->
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Procurar fornecedor"
                                     class="input__search search-input-supplier">
                             </div>
-
+                            <!-- BOX DE FILTRAFEM NA LISTA DE FORNECEDORES -->
                             <div class="sort-by">
                                 <ion-icon name="filter-outline"></ion-icon>
                                 <span class="default">Filtrar</span>
@@ -192,39 +176,20 @@
                                     <span>Acção</span>
 
                                 </div>
+
+                                <!-- LISTA DE FORNECEDORES A SER RENDERIZADO -->
                                 <div class="supplier-list-container">
-
-
-                                    <div class="supplier-box">
+                                    <!-- BOX DO FORNECEDOR -->
+                                    <div class="supplier-box" data-id="">
                                         <div>
                                             <span class="supplier-icon"><ion-icon
                                                     name="person-outline"></ion-icon></span>
-                                            <span class="supllier-name">Manasse Timóteo</span>
+                                            <span class="supllier-name">[NOME DO FORNECEDOR] </span>
                                         </div>
-                                        <span class="supplier-phone-number">+244 940 407 979</span>
-                                        <span class="supplier-email">example@me.com</span>
-                                        <span class="supplier-total-sell">123</span>
-                                        <span class="supplier-status supplier-active">Activo</span>
-                                        <span class="action-supplier-btns">
-                                            <button class="btn-edit-supplier"><ion-icon
-                                                    name="create-outline"></ion-icon></button>
-                                            <button class="btn-delete-supplier"><ion-icon
-                                                    name="trash-outline"></ion-icon></button>
-                                            <button class="btn-details-supplier"><ion-icon
-                                                    name="ellipsis-vertical-outline"></ion-icon></button>
-                                        </span>
+                                        <span class="supplier-phone-number">[TELEFONE]</span>
+                                        <span class="supplier-email">[EMAIL]</span>
+                                        <span class="supp-products">[PRODUCTOS,...]</span>
 
-                                    </div>
-                                    <div class="supplier-box">
-                                        <div>
-                                            <span class="supplier-icon"><ion-icon
-                                                    name="person-outline"></ion-icon></span>
-                                            <span class="supllier-name">Manasse Timóteo</span>
-                                        </div>
-                                        <span class="supplier-phone-number">+244 940 407 979</span>
-                                        <span class="supplier-email">example@me.com</span>
-                                        <span class="supplier-total-sell">Computador</span>
-                                        <span class="supplier-status supplier-inactive">Inactivo</span>
                                         <span class="action-supplier-btns">
                                             <button class="btn-edit-supplier"><ion-icon
                                                     name="create-outline"></ion-icon></button>
@@ -241,7 +206,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- CONTAINER DE PAGINAÇÃO D ALISTA DE FORNECEDORES -->
                     <div class="pagination-container">
                         <div class="pagination">Páginas <span class="total-pages-supplier">10</span></div>
                         <div class="btn-pages">
@@ -255,12 +220,12 @@
 
                 </div>
 
+                <!-- CONTAINER PARA ADICIONAR NOVO FORNECEDOR -->
                 <div class="add-new-supplier-container hidden">
                     <div class="overlay-new-supplier"></div>
+                    <!-- FORMULÁRIO PARA ADICIONAR FORNECEDOR -->
                     <form action="" class="form-new-supplier">
-
                         <div>
-
                             <span class="form-header">
                                 <h3 class="heading-h3">
                                     Adicionar Fornecedor
@@ -296,6 +261,7 @@
                             <textarea name="" id="" cols="30" rows="5" placeholder="Descrição"
                                 class="input-supplier-description"></textarea>
                         </div>
+                        <!-- EVENTOS PARA ADICIONAR FORNCEDOR -->
                         <div class="btns-group">
                             <button class="add-supplier-btn">Adicionar</button>
                             <button class="cancel-add-supplier-btn">Cancelar</button>
@@ -303,7 +269,7 @@
                     </form>
                 </div>
 
-
+                <!-- CONTAINER DO DETALHES DO FORNECEDOR -->
                 <div class="supplier-detail-container hidden">
                     <div class="overlay-supplier-detail"></div>
                     <div class="supplier-detail-box">
@@ -343,7 +309,7 @@
             </div>
             </div>
         </section>
-
+        <!-- POPUP DE SUCESSO AO ADICIONAR NOVO FORNCECEDOR -->
         <div class="succes-alert-container hidden">
             <div class="overlay-succes-alert"></div>
             <div class="alert-container">
@@ -354,7 +320,7 @@
                 <span class="close-succes-popup">OK</span>
             </div>
         </div>
-
+        <!-- POPUP DE ALERTA PARA ELIMINAR FORNECEDOR -->
         <div class="delete-supplier-alert hidden">
             <div class="overlay-delete-supplier"></div>
             <div class="alert-container">

@@ -42,14 +42,16 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header ">
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
                     </div>
                     <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
                         <div class="list">
-
+                            <!-- BOX DE NOTIFICAÇÃO -->
                             <div class="notifications-box">
                                 <ion-icon name="notifications-outline"></ion-icon>
                                 <div class="notification-text-container"><span class="notification-text-header">Estoque
@@ -60,24 +62,6 @@
                                 </div>
                             </div>
 
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container"><span class="notification-text-header">Estoque
-                                        Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Há 2h</span>
-                                </div>
-                            </div>
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container">
-                                    <span class="notification-text-header">Estoque Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Ontem</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -150,18 +134,21 @@
                     </button>
                 </div>
             </div>
+
+            <!-- CONTAINER DE TODOS OS PRODUCTOS -->
             <div class="statics-box product-container">
+                <!-- CABELARIO -->
                 <div class="list-header">
 
                     <h3 class="heading-h3">Todos os Productos</h3>
                     <div class="sub-box-header">
-
+                        <!-- INPUT DE PESQUISA NA LISTA DE PRODUCTOS -->
                         <div class="seach-product">
                             <ion-icon name="search-outline"></ion-icon>
                             <input type="text" placeholder="Pesquisar nome do producto"
                                 class="input__search product-search-input">
                         </div>
-
+                        <!-- BOX DE FILTRAGEM NA LISTA DE PRODUCTOS -->
                         <div class="sort-by">
                             <ion-icon name="filter-outline"></ion-icon>
                             <span class="default">Data</span>
@@ -187,21 +174,19 @@
                             <span>Data</span>
                             <span>Acção</span>
                         </div>
+
+                        <!-- LISTA DE PRODUCTOS  ONDE SERÁ RENDERIZADO-->
                         <div class="product-list">
-
-
-                            <!-- <div class="product-item">
-                               
-                                <div>
-                                    <span class="select-btn"><ion-icon
-                                            name="caret-down-outline"></ion-icon></ion-icon></span>
-                                    <span class="product-name">Lenovo 3rd Geração</span>
+                            <!-- BOX DE PRODUCTO -->
+                            <div class="product-item" data-id="">
+                                <div class="product-name-container">
+                                    <span class=""><ion-icon name="chevron-expand-outline"></ion-icon></span>
+                                    <span class="product-name">Nome do producto</span>
                                 </div>
-                                <span class="product-category">Laptop</span>
-                                <span class="product-price">$15080,00</span>
-                                <span class="product-qtd">140</span>
-                                <span class="product-date">12/04/2023</span>
-                                
+                                <span class="product-category">Categoria</span>
+                                <span class="product-price">Preço</span>
+                                <span class="product-qtd">Estoque[34]</span>
+                                <span class="product-date">Data</span>
                                 <span class="product-action">
                                     <button class="btn-edit-product"><ion-icon
                                             name="create-outline"></ion-icon></button>
@@ -210,13 +195,13 @@
                                     <button class="btn-details-product"><ion-icon
                                             name="ellipsis-vertical-outline"></ion-icon></button>
                                 </span>
-                            </div> -->
-
-
+                            </div>
                         </div>
 
                     </div>
                 </div>
+
+                <!-- BOX DA PAGINAÇÃO DA LISTA -->
                 <div class="pagination-box">
 
                     <div class="pagination">Páginas <span class="total-pages-product">10</span></div>
@@ -232,12 +217,13 @@
 
         </section>
 
+        <!-- CONTAINER PARA ADICIONAR UM PRODUCTO NOVO -->
         <section class=" add-product-container hidden">
             <div class="overlay-new-product-form"></div>
+            <!-- FORMULÁRIO PARA ADICIONAR PRODUCO -->
             <form action="#" class="new-product-form">
                 <header class="add-new-header">
                     <div>
-
                         <h2 class="heading-h2">Adicionar producto</h2>
                         <span class="btn-close-add-new-product"><ion-icon name="close-outline"></ion-icon></span>
 
@@ -247,6 +233,7 @@
                 <div class="form-group">
                     <div class="group">
                         <label for="product-name">Nome do producto</label>
+                        <!-- INPUT DO NOME DO PRODUCTO -->
                         <input type="text" placeholder="Nome do producto"
                             class="input-product-name input-edit-product-name">
                     </div>
@@ -257,6 +244,8 @@
                         <label for="product-category" class="product-category">Categoria <span
                                 class="btn-new-category"><ion-icon name="add-circle-outline"></ion-icon>
                                 Adicionar</span></label>
+
+                        <!-- SELECIONAR A CATEGORI -->
                         <select name="" id="" class="select-category">
                             <option value="">Escolha</option>
                             <option value="">Electronicos</option>
@@ -270,17 +259,20 @@
                 <div class="form-group">
                     <div class="group">
                         <label for="product-name">Preço de venda</label>
+                        <!-- INPUT DO PREÇO DO PRODUCTO -->
                         <input type="number" placeholder="Preço de venda"
                             class="input-sell-price input-edit-product-price">
                     </div>
                     <div class="group">
                         <label for="product-name">Preço de compra </label>
+                        <!-- INPUT DO PREÇO DE COMPRA -->
                         <input type="number" placeholder="Preço de compra" class="input-buy-price input-edit-buy-price">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="group">
                         <label for="product-name">Quantidade</label>
+                        <!-- INPUT DE QUANTIDADE -->
                         <input type="number" placeholder="Quantidade" class="input-quantity">
                     </div>
 
@@ -288,6 +280,7 @@
                 <div class="form-group">
                     <div class="group">
                         <label for="product-name">Descrição</label>
+                        <!-- INPUT DE DESCRIÇÃO -->
                         <textarea name="" id="" cols="10" rows="5" class="product-description-input"></textarea>
                     </div>
 
@@ -301,6 +294,8 @@
                 </div>
             </form>
             <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+
+            <!-- MINI FORMULÁRIO PARA CRIAR CATEGORIA NOVA -->
             <div class="create-category hidden">
                 <div class="overlay-create-category"></div>
                 <form action="" class="category-form">
@@ -318,6 +313,7 @@
 
         </section>
 
+        <!-- CONTAINER DOS DETALHES DO PRODUCTO -->
         <section class=" details-container hidden">
             <div class="overlay-product-detail"></div>
             <div class="container">
@@ -329,8 +325,6 @@
                     <button class="btn-close-details"><ion-icon name="close-outline"></ion-icon></button>
 
                 </header>
-
-
                 <div class="product-details">
                     <div class="form-group details-group">
                         <div class="group">
@@ -386,6 +380,7 @@
         </section>
     </section>
 
+    <!-- POPUP DE ALERTA DE CONFIRMAÇÃO PARA ELIMINAÇÃO DO PRODUCTO -->
     <div class="alert-message-container hidden">
         <div class="overlay-delete-product"></div>
         <div class="alerta-message">

@@ -80,33 +80,15 @@ class ProductApp {
     this._settingTheProductEditInputValue(productID);
   }
 
-  // CONFIGURANDO OS VALUES DO INPUT DO PRODUCTO SELECIOANDO
-  _settingTheProductEditInputValue(product) {
-    const cureentProduct = appData.products.find((item) => item.id === product);
-    console.log(cureentProduct);
-    const heading = document.querySelector(".add-new-header .heading-h2");
-    const inputName = document.querySelector(".input-edit-product-name");
-    const inputPrice = document.querySelector(".input-edit-product-price");
-    const inputBuyPrice = document.querySelector(".input-edit-buy-price");
-    const inputDescription = document.querySelector(
-      ".product-description-input"
-    );
-    const estockQ = document.querySelector(".input-quantity");
-    heading.textContent = "Editar Producto";
-    inputName.value = cureentProduct.name;
-    inputPrice.value = cureentProduct.price;
-    inputBuyPrice.value = 2303;
-    inputDescription.value = cureentProduct.description;
-    estockQ.value = cureentProduct.stock;
-  }
-
   // FUNÇÃO PARA VER OS DETALHES DO PRODUCTO SELECIONADO
   _seeProductDetail(e) {
     this.target = e.target.closest(".btn-details-product");
     if (!this.target) return;
     this.detailsContainer.classList.remove("hidden");
     const productID = +this.target.closest(".product-item").dataset.id;
-    this._displayProductDetailContent(productID);
+
+    //DESCOMENTAR E PEGAR O ID CORRECTO PARA RENDERIZAR O CONTENT DOS DETALHES DO PRODUCTO
+    // this._displayProductDetailContent(productID);
   }
 
   // FUNÇÃO PARA RENDERIZAR OS CONTENTS DO PRODUCTO SELECIONADO NO POPUP
@@ -136,7 +118,6 @@ class ProductApp {
     productCategoryLabel.textContent = cureentProduct.category;
     productIDLabel.textContent = cureentProduct.id;
   }
-
   // FECHAR DETALHES DO PRODUCTO
   _closeProductDetail(e) {
     const target = e.target;
@@ -144,52 +125,6 @@ class ProductApp {
       this.detailsContainer.classList.add("hidden");
     if (target.closest(".btn-close-details"))
       this.detailsContainer.classList.add("hidden");
-  }
-
-  // RENDERIZAR A LISTA DE PRODUCTOS
-  _renderProductList(arrList) {
-    if (!this.listContainer) return;
-    if (arrList.length === 0) {
-      this.listContainer.innerHTML = "";
-      const emptyList = `
-      <div class="empty-product">
-      <p>Nenhum producto encontrado</p>
-  </div>
-      `;
-
-      this.listContainer.insertAdjacentHTML("afterbegin", emptyList);
-    }
-    if (arrList.length !== 0) {
-      this.listContainer.innerHTML = "";
-      arrList.forEach((element) => {
-        let html = `
-      <div class="product-item" data-id="${element.id}">
-         <div class="product-name-container">
-             <span class=""><ion-icon name="chevron-expand-outline"></ion-icon></span>
-             <span class="product-name">${element.name} </span>
-         </div>
-         <span class="product-category">${element.category}</span>
-         <span class="product-price">${formatNumbers.formatCurrency(
-           element.price
-         )}</span>
-         <span class="product-qtd">${element.stock}</span>
-         <span class="product-date">${formatNumbers.formatDates(
-           new Date(element.date)
-         )}</span>
-         <span class="product-action">
-             <button class="btn-edit-product"><ion-icon
-                     name="create-outline"></ion-icon></button>
-             <button class="btn-delete-product"><ion-icon
-                     name="trash-outline"></ion-icon></button>
-             <button class="btn-details-product"><ion-icon
-                     name="ellipsis-vertical-outline"></ion-icon></button>
-         </span>
-     </div>
-      `;
-
-        this.listContainer.insertAdjacentHTML("afterbegin", html);
-      });
-    }
   }
 
   // MENSAGEM DE ALERTA PARA ELIMINAR PRODUCTO
@@ -211,52 +146,61 @@ class ProductApp {
   // FUNÇÃO PARA MOSTRAR O POPUP DE ALERTA PRA ELMIINAR PRODUCTO
   _deteleProductFunction(e) {
     const productID = +this.target.closest(".product-item").dataset.id;
-    console.log(productID);
-    const i = appData.products.findIndex((item) => item.id === productID);
     this.alerDeleteMsgContainer.classList.add("hidden");
     this._pagination(appData.products);
   }
 
   // FUNCIONALIDADE DE PESQUISA NA LISTA DE PRODUCTOS
   _searchProductList(e) {
+    // PEGANDO O VALOR DO INPUT DE PESQUISA NOS PRODUCTOS E TRA
     const value = this.serProductInput.value.toLowerCase();
-    console.log(value);
-    const filtered = appData.products.filter((item) =>
-      item.name.toLocaleLowerCase().startsWith(value)
-    );
-    this._pagination(filtered);
+
+    //AQUI VAI ANALISAR O INPUT DO BASE OS DADOS REAIS
+    // const filtered = appData.products.filter((item) =>
+    //   item.name.toLocaleLowerCase().startsWith(value)
+    // );
+
+    // DESCOMENTAR PARA CHAMAR A FUNÇÃO DE PAGINAÇÃO
+    // this._pagination(filtered);
   }
 
   // FUNÇÃO PARA CLASSIFICAR A LISTA
   _sortProductList(e) {
+    // PEGA O TARGER
     const target = e.target.closest("span");
+    // O label do sort
     const def = document.querySelector(".default");
     if (!target) return;
+
+    //ANALISANDO AS CONDIÇÕES PARA FILTRAGEM
     if (target.className === "date") {
-      this._sortByDate();
-      def.textContent = target.textContent;
+      // DESCOMENTAR PARA CHAMAR A FUNÇÃO DE FILTRAGEM
+      // this._sortByDate();
+      // def.textContent = target.textContent;
     }
     if (target.className === "qtd") {
-      this._sortByStock();
-      def.textContent = target.textContent;
+      // DESCOMENTAR PARA CHAMAR A FUNÇÃO DE FILTRAGEM
+      // this._sortByStock();
+      // def.textContent = target.textContent;
     }
     if (target.className === "price") {
-      this._sortByPrice();
-      def.textContent = target.textContent;
+      // DESCOMENTAR PARA CHAMAR A FUNÇÃO DE FILTRAGEM
+      // this._sortByPrice();
+      // def.textContent = target.textContent;
     }
     if (target.className === "income") {
-      this._filetInComeProduct();
-      def.textContent = target.textContent;
+      // DESCOMENTAR PARA CHAMAR A FUNÇÃO DE FILTRAGEM
+      // this._filetInComeProduct();
+      // def.textContent = target.textContent;
     }
   }
 
-  //CLASSFICICAR EPOR DATA
+  //CLASSFICICAR POR DATA
   _sortByDate() {
     const sorted = appData.products.sort(
       (a, b) => new Date(a.date) - new Date(b.date)
     );
     this._pagination(sorted);
-    console.log(sorted);
   }
   //CLASSFICICAR POR PREÇO
   _sortByPrice() {
@@ -275,6 +219,7 @@ class ProductApp {
   _pagination(productList) {
     if (!this.totalPagesLabel) return;
     this.productList = productList;
+    //AQUI MARCA O NÚMERO DE PRODUCTOS POR PÁGINA
     this.productsPerPage = 7;
     this.currentPage = 1;
     this.totalPages = Math.ceil(productList.length / this.productsPerPage);
@@ -288,9 +233,10 @@ class ProductApp {
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
+
+    //LISTA  A SER RENDERIZADO
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
-    this._renderProductList(this.productsToRender);
-    console.log(this.productsToRender);
+    // this._renderProductList(this.productsToRender);
   }
   renderCurrentPage(currentPage, list) {
     this.renderPage(currentPage, list);

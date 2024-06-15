@@ -1,7 +1,7 @@
 // REFACTORING THE CODE
-const c = console.log.bind(document);
-import { appData } from "./data.js";
-import { formatNumbers } from "./views/formatNumbers.js";
+// const c = console.log.bind(document);
+// import { appData } from "./data.js";
+// import { formatNumbers } from "./views/formatNumbers.js";
 
 class ReportApp {
   constructor() {
@@ -41,13 +41,6 @@ class ReportApp {
 
     // INICIALIZANDO
 
-    c(
-      new Intl.DateTimeFormat("pt-AO", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }).format(new Date("12/05/2024"))
-    );
     this._init();
   }
 
@@ -56,26 +49,17 @@ class ReportApp {
   // RENDERIZAR O RESUMO DOS REPORT
   _renderSummary() {
     if (!this.totalEarningLabel) return;
-    this.totalEarningLabel.textContent = formatNumbers.formatCurrency(
-      appData.reports.salesByPeriod[0].totalSales
-    );
-
-    this.totalLucLabel.textContent = formatNumbers.formatCurrency(
-      appData.reports.salesByPeriod[0].totalL
-    );
-
-    this.totalOrdersLabel.textContent =
-      appData.reports.salesByPeriod[0].totalOrders;
+    this.totalEarningLabel.textContent = "234, 0345, 00 KZ";
+    this.totalLucLabel.textContent = "234, 0345, 00 KZ";
+    this.totalOrdersLabel.textContent = 34234;
   }
 
   // TOGGLE NOS BOTTONS PARA FILTRAR E GERAR RELATÓRIO
   _toggleFiterBtn(e) {
     const target = e.target.closest(".filter-by");
     if (!target) return;
-
     this.filerBuyButton.forEach((btn) => btn.classList.remove("filtered"));
     document.querySelector(`.${target.classList[1]}`).classList.add("filtered");
-
     // CHAMANDO A FUNÇÃO PARA MOSTRAR O DATE FILTER CONTAINER
     this._showingDateFilterContainer(e);
   }
@@ -115,6 +99,7 @@ class ReportApp {
     }
   }
 
+  //HELPER PARA AJUDAR NO CONTENT DO BOTÃO DE FILTRAR DATA
   dateHelper(value) {
     //git-ignore
     const months = [
@@ -139,6 +124,7 @@ class ReportApp {
 
     return `  ${day}, ${months[month]} ${year}`;
   }
+
   // RENDRIZAR O GRÁFICO DO CHART.JS
   _renderChartLine() {
     const color = getComputedStyle(document.documentElement)
@@ -240,120 +226,36 @@ class ReportApp {
     }
   }
 
-  // RENDERIZAR OS PRODUCTOS MAIS VENDIDOS
-  _renderMostSelledProduct(list) {
-    if (!this.mostSelledProductList) return;
-    this.mostSelledProductList.innerHTML = "";
-
-    list.forEach((item) => {
-      const productName = appData.products.find((p) => p.id === item.productId);
-
-      const html = `<div class="most-selled-product">
-      <div class="product-name"> <ion-icon name="trending-up-outline"></ion-icon>
-          <div>
-              <span>${productName.name}</span>
-              <span class="price-selled">${formatNumbers.formatCurrency(
-                productName.price
-              )}</span>
-          </div>
-      </div>
-      <span class="quantity">${item.sales} </span>
-      <span class="total-selled-amount">${formatNumbers.formatCurrency(
-        item.total
-      )}</span>
-  </div>
-`;
-      this.mostSelledProductList.insertAdjacentHTML("afterbegin", html);
-    });
-  }
-
+  //DESCOMENTAR PARA RENDERIZAR VENDAS POR CATEGORIA
   // RENDERIZAR VENDAS POR CATEGORIA
-  _renderSalesByCategory(list) {
-    if (!this.topCategoryContainer) return;
-    this.topCategoryContainer.innerHTML = "";
+  // _renderSalesByCategory(list) {
+  //   // if (!this.topCategoryContainer) return;
+  //   // this.topCategoryContainer.innerHTML = "";
 
-    list.forEach((item) => {
-      const percentage =
-        (item.amount / appData.reports.salesByPeriod[0].totalSales) * 100;
-      const html = `
-      <div class="category-box">
-      <div>
-          <span class="category-name">${item.category} </span>
-          <span class="category-amount"> ${formatNumbers.formatCurrency(
-            item.amount
-          )} </span>
-      </div>
-      <div class="progress">
-          <div class="progress-bar" style="width: ${percentage}%;"></div>
-      </div>
-     </div>
-      `;
+  //   // list.forEach((item) => {
+  //   //   const percentage =
+  //   //     (item.amount / appData.reports.salesByPeriod[0].totalSales) * 100;
+  //   //   const html = `
+  //   //   <div class="category-box">
+  //   //   <div>
+  //   //       <span class="category-name">${item.category} </span>
+  //   //       <span class="category-amount"> ${formatNumbers.formatCurrency(
+  //   //         item.amount
+  //   //       )} </span>
+  //   //   </div>
+  //   //   <div class="progress">
+  //   //       <div class="progress-bar" style="width: ${percentage}%;"></div>
+  //   //   </div>
+  //   //  </div>
+  //   //   `;
 
-      this.topCategoryContainer.insertAdjacentHTML("afterbegin", html);
-    });
-  }
-
-  // RENDERIZAR OS PRODUCTOS TOP
-  _renderTopProducts(list) {
-    if (!this.topProductList) return;
-    this.topProductList.innerHTML = "";
-
-    list.forEach((item) => {
-      const producName = appData.products.find((p) => p.id === item.productId);
-      const html = `
-      <div class="product-box">
-          <div>
-              <span class="product-icon"><ion-icon
-                      name="bookmark-outline"></ion-icon></span>
-              <span class="">${producName.name} </span>
-          </div>
-          <span class="">${producName.category}</span>
-          <span class="">${producName.stock}</span>
-          <span class="">${formatNumbers.formatCurrency(
-            producName.price
-          )}</span>
-          <span class="">${item.sales}</span>
-
-      </div>
-      `;
-
-      this.topProductList.insertAdjacentHTML("afterbegin", html);
-    });
-  }
-
-  // RENDERIZAR O ESTOQUE ACTUAL
-  _renderActualStock(list) {
-    this.actualStockContainer.innerHTML = "";
-    if (list.length === 0) {
-      this.listContainer.innerHTML = "";
-      const emptyList = `
-      <div class="empty-product">
-      <p>Nenhum producto encontrado</p>
-      </div>
-      `;
-      this.actualStockContainer.insertAdjacentHTML("afterbegin", emptyList);
-    }
-    list.forEach((item) => {
-      const product = appData.products.find((p) => p.id === item.productId);
-      const html = `
-    <div class="product-box">
-        <div>
-            <span class="product-icon"><ion-icon
-                    name="chevron-expand-outline"></ion-icon></span>
-            <span class="">${product.name} </span>
-        </div>
-        <span class="">${product.category} </span>
-        <span class="">${product.stock}</span>
-        <span class="">45</span>
-        <span class="">${product.id}</span>
-    </div>
-      `;
-      this.actualStockContainer.insertAdjacentHTML("afterbegin", html);
-    });
-  }
+  //   //   this.topCategoryContainer.insertAdjacentHTML("afterbegin", html);
+  //   // });
+  // }
 
   // PESQUISAR NA LISTA DE ESTQOUE
   _searchActualStockFilter() {
+    // descomentar para pesquisar na lista com dados reais
     // const value = this.inputSearchStock.value.toLowerCase();
     // console.log(value);
     // const filtered = appData.reports.currentStock.filter((item) =>
@@ -361,11 +263,14 @@ class ReportApp {
     // );
     // this._pagination(filtered);
   }
+
+  //filtragem
   _sortActualStock(e) {
     const target = e.target.closest("span");
     if (target.classList.contains("sort-stock")) this.sorByStock();
     if (target.classList.contains("sort-sell")) this.sorBySell();
   }
+  //logia de filtragem
   sorByStock() {}
   sorBySell() {}
 
@@ -389,7 +294,7 @@ class ReportApp {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
-    this._renderActualStock(this.productsToRender);
+    // this._renderActualStock(this.productsToRender);
   }
 
   renderCurrentPage(currentPage, list) {
@@ -448,10 +353,8 @@ class ReportApp {
     this._allEventListners();
     this._renderSummary();
     this._renderChartLine();
-    this._renderMostSelledProduct(appData.reports.topSellingProducts);
-    this._renderSalesByCategory(appData.reports.salesByCategory);
-    this._renderTopProducts(appData.reports.topSellingProducts);
-    this._pagination(appData.reports.currentStock);
+    // this._renderSalesByCategory(appData.reports.salesByCategory);
+    // this._pagination(appData.reports.currentStock);
   }
 }
 const report = new ReportApp();

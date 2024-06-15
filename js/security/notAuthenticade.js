@@ -10,5 +10,5 @@ class NOTAuthenticated {
     }
   }
 }
-
-const AUTHENTICATION = new NOTAuthenticated();
+// COMENTEI ESSA FUNCIONALIDADE PARA NÃO
+// const AUTHENTICATION = new NOTAuthenticated();

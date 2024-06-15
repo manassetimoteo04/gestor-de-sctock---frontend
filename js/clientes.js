@@ -72,12 +72,13 @@ class ClientApp {
     this._init();
   }
 
-  // RENDERIZAR OS SUMMARY
+  // RENDERIZAR OS SUMMARY OU RESUMO DOS CLIENTES
   _renderSummary() {
     if (!this.totalClientNumberLabel) return;
-    const actives = appData.clients.filter((cl) => cl.status === "active");
-    this.totalClientNumberLabel.textContent = appData.clients.length;
-    this.totalActiveClient.textContent = actives.length;
+    //DESCOMENTAR PARA PEGAR DADOS REAIS
+    // // const actives = appData.clients.filter((cl) => cl.status === "active");
+    // this.totalClientNumberLabel.textContent = appData.clients.length;
+    // this.totalActiveClient.textContent = actives.length;
   }
 
   // FUNCÇÕES DOS EVENT LISTENERS
@@ -94,43 +95,51 @@ class ClientApp {
     if (!target) return;
 
     this.clientBuyDetailContainer?.classList.remove("hidden");
-    const buy = target.closest(".client-history");
-    const buyID = +buy.dataset.id;
-    this._settingPurchaseDetailContent(buyID);
+
+    //DESCOMENTAR PARA PEGAR O ID CORRECTO DE COMPRA ACTUAL E RENDRIZAR OS DETALHES DA COMPRA
+    // const buy = target.closest(".client-history");
+    // const buyID = +buy.dataset.id;
+    // this._settingPurchaseDetailContent(buyID);
   }
 
   // ACÇÕES NO BOTÃO DE EVENTOS NA LISTA DOS CLIENTES, [EDIT, DELETE, SEE-DETAIL]
   _actionClient(e) {
     const target = e.target.closest("button");
-    // const target = e.target.closest(".btn-details-user");
-    // const target2 = e.target.closest(".btn-details-user");
 
+    //ABRINDO O CONTAINER DE DETALHES DO CLIENTS
     if (target.classList.contains("btn-details-user")) {
       const clientBox = target.closest(".client-box");
       const clientID = +clientBox.dataset.id;
-      this._currentClientDetail = appData.clients.find(
-        (cl) => cl.id === clientID
-      );
-      this._settingClientContentDetail();
-      this._pagination(this._currentClientDetail.purchaseHistory);
+
+      //DESCOMENTAR PARA PEGAR O DADOS REAIS COM BASE O ID E MARCAR O CLIENTE ACTUAL
+      // this._currentClientDetail = appData.clients.find(
+      //   (cl) => cl.id === clientID
+      // );
+      // this._settingClientContentDetail();
+      // this._pagination(this._currentClientDetail.purchaseHistory);
+
       this.clientListContainer.classList.add("hidden");
       this.clientDetailContainer.classList.remove("hidden");
     }
+    //CHAMANDO O EVENTO PARA ELIMINAR O CLIENTE
     if (target.classList.contains("btn-delete-user")) {
       this._deleteClientShowPopUp();
     }
+    // CHAMANDO O EVENTO PARA EDITAR O CLIENTE
     if (target.classList.contains("btn-edit-user")) {
       // this._settingEditClientValues();
       this._showNewClientForm();
-      const costumerId = +target.closest(".client-box").dataset.id;
-      this._settinClientEditValue(costumerId);
+
+      //DESCOMENTAR PARA COLOCAR OS VALUES NO INPUT COM BASE OS DADOS REAIS
+      // const costumerId = +target.closest(".client-box").dataset.id;
+      // this._settinClientEditValue(costumerId);
     }
   }
 
   // CONFIGURAR OS VALUES NOS INPUTS AO EDITAR O CLIENTE
   _settinClientEditValue(id) {
-    const currentCostumer = appData.clients.find((cl) => cl.id === id);
-    console.log(currentCostumer);
+    // DESCOMENTAR PARA ENCONTRAR O CLIENTE COM BASE OS DADOS REAIS
+    // const currentCostumer = appData.clients.find((cl) => cl.id === id);
     const inputClientName = document.querySelector(".input-client-name");
     const inputClientEmail = document.querySelector(".input-client-email");
     const inputClientPhone = document.querySelector(".input-client-phone");
@@ -182,7 +191,8 @@ class ClientApp {
   _backToClient() {
     this.clientListContainer.classList.remove("hidden");
     this.clientDetailContainer.classList.add("hidden");
-    this._pagination(appData.clients);
+    //DESCOMENTAR PARA RENDERIZAR A PAGINAÇÃO
+    // this._pagination(appData.clients);
   }
 
   // FUNÇÕES PAR O MOBILE PARA VER AS INFORMAÇÕES DO CLIENTE E LISTA DE COMPRAS
@@ -221,54 +231,6 @@ class ClientApp {
       this.newClientFormContainer.classList.add("hidden");
     if (target.closest(".close-form-new-client"))
       this.newClientFormContainer.classList.add("hidden");
-  }
-
-  // RENDERIZAR A LISTA DE CLIENTES NO DOM
-  _renderClientList(list) {
-    if (!this.clientContainerList) return;
-    if (list.length === 0) {
-      this.clientContainerList.innerHTML = "";
-
-      const html = `
-      <div class="empty-product">
-      <p>Nenhum cliente encontrado</p>
-     </div>
-      `;
-      this.clientContainerList.insertAdjacentHTML("afterbegin", html);
-    }
-
-    if (list.length > 0) {
-      this.clientContainerList.innerHTML = "";
-      list.forEach((client) => {
-        if (!client.id) return;
-        const html = `
-      <div class="client-box" data-id="${client.id}">
-        <div>
-         <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
-         <span class="client-name">${client.name} </span>
-        </div>
-            <span class="client-phone-number">${client.phone}</span>
-            <span class="client-email">${client.email}</span>
-            <span class="client-total-sell">${
-              client.purchaseHistory.length
-            }</span>
-            <span class="client-status client-${client.status}">${
-          client.status === "active" ? "activo" : "inactivo"
-        }</span>
-            <span class="action-client-btns">
-            <button class="btn-edit-user"><ion-icon
-                 name="create-outline"></ion-icon></button>
-            <button class="btn-delete-user"><ion-icon
-                 name="trash-outline"></ion-icon></button>
-            <button class="btn-details-user"><ion-icon
-                 name="eye-outline"></ion-icon></button>
-            </span>
-
-       </div>
-      `;
-        this.clientContainerList.insertAdjacentHTML("afterbegin", html);
-      });
-    }
   }
 
   // FUNÇÃO PARA O INPUT DE PESQUISA NA LISTA DE CLIENTES
@@ -327,47 +289,6 @@ class ClientApp {
 
     if (targer.classList.contains("btn-next-client")) this.goToNextPage();
     if (targer.classList.contains("btn-prev-client")) this.goToPreviousPage();
-  }
-
-  // RENDERIZAR A LISTA DE COMPRAS DO CLIENTE ACTUAL
-  _renderClientPurchaseList(arr) {
-    if (!this.clientPurchaseContainer) return;
-    if (arr.length === 0) {
-      this.clientPurchaseContainer.innerHTML = "";
-
-      const html = `
-      <div class="empty-product">
-      <p>Nenhuma compra encontrada</p>
-     </div>
-      `;
-      this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
-    }
-    if (arr.length > 0) {
-      this.clientPurchaseContainer.innerHTML = "";
-      arr.forEach((item) => {
-        const puchaseNumber = appData.sales.find((i) => i.id === item.saleId);
-
-        if (!puchaseNumber) return;
-        const html = `
-      <div class="client-history" data-id="${item.saleId}">
-          <div> 
-              <span class="client-icon"><ion-icon
-                      name="swap-horizontal-outline"></ion-icon></span>
-              <span class="buy-invoice-number">${item.invoideID}</span>
-          </div>
-          <span class="buy-date">${formatNumbers.formatDates(
-            new Date(item.date)
-          )}</span>
-          <span class="buy-amount">${formatNumbers.formatCurrency(
-            item.totalAmount
-          )}</span>
-
-          <span class="btn-see-buy-detail"><ion-icon name="eye-outline"></ion-icon></span>
-      </div>
-      `;
-        this.clientPurchaseContainer.insertAdjacentHTML("afterbegin", html);
-      });
-    }
   }
 
   // PESQUISAR NA LISTA DE COMPRAS DO CLIENTE ACTUAL
@@ -437,30 +358,35 @@ class ClientApp {
     totalBuyAmountLabel.textContent = formatNumbers.formatCurrency(
       purchase.totalAmount
     );
-    this._renderPuchaseItems(purchase.items);
+
+    //DESCOMENTAR PARA RENDERIZAR
+    //RENDERIZANDO OS ITEMS OU PRODUCTOS DA COMPRA
+    // this._renderPuchaseItems(purchase.items);
   }
-  _renderPuchaseItems(list) {
-    const itemContainer = document.querySelector(".purchase-product-list");
-    itemContainer.innerHTML = "";
-    list.forEach((p, i) => {
-      const productName = appData.products.find(
-        (pr) => pr.id === p.productId
-      ).name;
-      const html = `
-      <div class="product">
-        <span class="product-header">Producto ${i + 1} <span
-                class="product-name">${productName}</span></span>
-        <ul class="product-bought-list">
-            <li>Quantidade <span class="quantity">${p.quantity}</span></li>
-            <li>Preço Unitário <span class="quantity">${formatNumbers.formatCurrency(
-              p.price
-            )}</span></li>
-        </ul>
-    </div>
-      `;
-      itemContainer.insertAdjacentHTML("afterbegin", html);
-    });
-  }
+
+  //DESCOMENTAR PARA RENDERIZAR OS PRODUCTOS DA COMPRA
+  // _renderPuchaseItems(list) {
+  //   const itemContainer = document.querySelector(".purchase-product-list");
+  //   itemContainer.innerHTML = "";
+  //   list.forEach((p, i) => {
+  //     const productName = appData.products.find(
+  //       (pr) => pr.id === p.productId
+  //     ).name;
+  //     const html = `
+  //     <div class="product">
+  //       <span class="product-header">Producto ${i + 1} <span
+  //               class="product-name">${productName}</span></span>
+  //       <ul class="product-bought-list">
+  //           <li>Quantidade <span class="quantity">${p.quantity}</span></li>
+  //           <li>Preço Unitário <span class="quantity">${formatNumbers.formatCurrency(
+  //             p.price
+  //           )}</span></li>
+  //       </ul>
+  //   </div>
+  //     `;
+  //     itemContainer.insertAdjacentHTML("afterbegin", html);
+  //   });
+  // }
 
   // POPUP DE ELIMINAR CLIENTE
   _deleteClientShowPopUp() {
@@ -503,9 +429,11 @@ class ClientApp {
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
+    //Productos a ser renderizado
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
-    this._renderClientList(this.productsToRender);
-    this._renderClientPurchaseList(this.productsToRender);
+
+    // this._renderClientList(this.productsToRender);
+    // this._renderClientPurchaseList(this.productsToRender);
   }
 
   renderCurrentPage(currentPage, list) {

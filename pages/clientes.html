@@ -40,14 +40,16 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header ">
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
                     </div>
                     <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
                         <div class="list">
-
+                            <!-- BOX DE NOTIFICAÇÃO -->
                             <div class="notifications-box">
                                 <ion-icon name="notifications-outline"></ion-icon>
                                 <div class="notification-text-container"><span class="notification-text-header">Estoque
@@ -58,24 +60,6 @@
                                 </div>
                             </div>
 
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container"><span class="notification-text-header">Estoque
-                                        Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Há 2h</span>
-                                </div>
-                            </div>
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container">
-                                    <span class="notification-text-header">Estoque Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Ontem</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -148,7 +132,7 @@
                     </button>
                 </div>
             </div>
-
+            <!-- RESUMO DOS CLIENTES -->
             <div class="clients-summary">
                 <div class="client-summary-box">
                     <span class="icon-client-summary"><ion-icon name="people-outline"></ion-icon></span>
@@ -188,19 +172,19 @@
             </div>
 
             <div class="grid-client">
-
+                <!-- CONTAINER DA LISTA DE CLIENTES -->
                 <div class="client-list">
                     <div class="list-header">
 
                         <h3 class="heading-h3">Todos os Clientes</h3>
                         <div class="sub-box-header">
-
+                            <!-- INPUT DE PESQUISA NA LISTA -->
                             <div class="seach-product">
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Procurar cliente"
                                     class="input__search search-input-client">
                             </div>
-
+                            <!-- BOX DE FILTRAGEM NA LISTA -->
                             <div class="sort-by">
                                 <ion-icon name="filter-outline"></ion-icon>
                                 <span class="default">Filtrar</span>
@@ -230,8 +214,10 @@
                                     <span>Acção</span>
 
                                 </div>
+
+                                <!-- LISTA DE CLIENTES A SER RENDERIZADO -->
                                 <div class="client-list-container">
-
+                                    <!-- BOX DO CLIENTE -->
                                     <div class="client-box">
                                         <div>
                                             <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
@@ -252,25 +238,7 @@
 
                                     </div>
 
-                                    <div class="client-box">
-                                        <div>
-                                            <span class="client-icon"><ion-icon name="person-outline"></ion-icon></span>
-                                            <span class="client-name">Manasse Timóteo</span>
-                                        </div>
-                                        <span class="client-phone-number">+244 940 407 979</span>
-                                        <span class="client-email">manassetimoteo@gmail.com</span>
-                                        <span class="client-total-sell">123</span>
-                                        <span class="client-status client-active">Activo</span>
-                                        <span class="action-client-btns">
-                                            <button class="btn-edit-user"><ion-icon
-                                                    name="create-outline"></ion-icon></button>
-                                            <button class="btn-delete-user"><ion-icon
-                                                    name="trash-outline"></ion-icon></button>
-                                            <button class="btn-details-user"><ion-icon
-                                                    name="ellipsis-vertical-outline"></ion-icon></button>
-                                        </span>
 
-                                    </div>
                                 </div>
 
 
@@ -278,6 +246,7 @@
                         </div>
                     </div>
 
+                    <!-- PAGINAÇÃO DA LISTA DE CLIENTES -->
                     <div class="pagination-container pagination-client">
                         <div class="pagination">Páginas <span class="total-pages-client">10</span></div>
                         <div class="btn-pages">
@@ -291,8 +260,10 @@
 
                 </div>
 
+                <!-- CONTAINER PARA ADICIONAR NOVO CLIENTE -->
                 <div class="add-new-client-container hidden">
                     <div class="overlay-client-form"></div>
+                    <!-- FORMULÁRIO PARA ADICIONAR NOVO CLIENTE -->
                     <form action="" class="form-new-client">
                         <span class="form-header">Adicionar Cliente <span class="close-form-new-client"><ion-icon
                                     name="close-outline"></ion-icon></span></span>
@@ -319,6 +290,7 @@
                             <textarea name="" id="" cols="30" rows="5" placeholder="Descrição"
                                 class="input-client-description"></textarea>
                         </div>
+                        <!-- BOTÕES DE EVENTO DO FORMULÁRIO -->
                         <div class="btns-group">
                             <button class="add-client-btn">Adicionar</button>
                             <button class="cancel-add-client-btn">Cancelar</button>
@@ -331,6 +303,8 @@
             </div>
         </section>
 
+        <!-- SECÇÃO DE DETALHES DO CLIENTE -->
+
         <section class="main__content-section section__client-details hidden">
             <div class="client-detail-header">
                 <span class="btn-back-to-client-list"><ion-icon name="arrow-back-outline"></ion-icon> Informação do
@@ -341,17 +315,21 @@
 
 
             </div>
+            <!-- MENU DO CLIENTE NO MOBILE PARA MUDAR ENTRE PERFIL E HISTÓRICO DE COMPRAS -->
             <div class="client-menu">
                 <span class="client-link link-client-profile">Perfil</span>
                 <span class="client-link link-client-historic">Histórico de Compra</span>
 
             </div>
             <div class="client-detail-grid">
+                <!-- CONTAINER DE INFORMAÇÕES DO CLIENTE -->
                 <div class="client-information-box">
+                    <!-- CAPA -->
                     <div class="profile-box">
                         <div class="capa">
                             <img src="../assets/img/admin/admin.png" alt="" class="client-img">
                         </div>
+                        <!-- INFORMAÇÕES -->
                         <div class="client-information">
                             <span class="client-name detail-client-name">Manasse Timóteo <span
                                     class="client-status client-active">Activo</span></span>
@@ -362,7 +340,7 @@
                         </div>
                     </div>
 
-
+                    <!-- DESCRIÇÃO DO CLIENTE -->
                     <div class="client-information">
                         <span class="client-label">Descrição</span>
 
@@ -372,12 +350,14 @@
                             deserunt.</span>
 
                     </div>
+                    <!-- RESIDÊNCIA -->
                     <div class="client-information">
                         <span class="client-label">Residências</span>
                         <span class="client-residence">Luanda, Cazenga Rua Agusto Casa nº 23</span>
                     </div>
+                    <!-- INFORMAÇOES DE COMPRA-->
                     <div class="client-information buy-information">
-                        <span class="client-label">Informação de Vendas</span>
+                        <span class="client-label">Informação de Compra</span>
                         <span class="client-buy-number">Número de Compras <span
                                 class="total-client-buy-number">230</span></span>
                         <span class="client-buy-number">Total Montante <span class="total-client-buy-amount">34095,00
@@ -386,19 +366,19 @@
 
                 </div>
 
-
+                <!-- CONTAINER DE HISTÓRICO DE COMPRAS DO CLIENTE -->
                 <div class="client-list-history hideClientInfo">
                     <div class="list-header">
 
                         <h3 class="heading-h3">Histórico de Compras</h3>
                         <div class="sub-box-header">
-
+                            <!-- INPUT DE PESQUISA NA LISTA DE COMPRAS -->
                             <div class="seach-product">
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Digitar Factura..."
                                     class="input__search search-input-client-purchase">
                             </div>
-
+                            <!-- BOX DE FILTRAGEM NA LISTA DE COMPRAS -->
                             <div class="sort-by purchase-sort-by">
                                 <ion-icon name="filter-outline"></ion-icon>
                                 <span class="def">Filtrar</span>
@@ -425,8 +405,9 @@
                                     <span>Ver</span>
 
                                 </div>
+                                <!-- LISTA DE COMPRAS DO CLIENTE A SER RENDERIZADO -->
                                 <div class="client-purchase-list">
-
+                                    <!-- BOX DE COMPRA  DO CLIENTE-->
                                     <div class="client-history">
                                         <div>
                                             <span class="client-icon"><ion-icon
@@ -444,7 +425,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- PAGINAÇÃO NA LISTA DE COMPRAS -->
                     <div class="pagination-container">
                         <div class="pagination">Páginas <span
                                 class="current-product-page total-pages-purchases">10</span></div>
@@ -461,7 +442,7 @@
 
 
             </div>
-
+            <!-- CONTAINER DE DETALHES DA COMPRA DO CLIENTE -->
             <div class="client-buy-detail-container hidden ">
                 <div class="overlay-buy-detail"></div>
                 <div class="buy-detail-box">
@@ -484,9 +465,11 @@
                         </ul>
                     </div>
                     <div class="buy-detail-informations">
+                        <!-- CONTAINER DE PRODUCTOS DA COMPRA -->
                         <span class="subheader-buy">Productos Comprados</span>
+                        <!-- LISTA DE PRODUCTOS DA COMPRA A SER RENDERIZADO-->
                         <div class="purchase-product-list">
-
+                            <!-- BOX PRODUCTO DA COMPRA -->
                             <div class="product">
                                 <span class="product-header">Producto 01 <span
                                         class="product-name">Computador</span></span>
@@ -495,14 +478,7 @@
                                     <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
                                 </ul>
                             </div>
-                            <div class="product">
-                                <span class="product-header">Producto 02 <span
-                                        class="product-name">Computador</span></span>
-                                <ul class="product-bought-list">
-                                    <li>Quantidade <span class="quantity">23</span></li>
-                                    <li>Preço Unitário <span class="quantity">$ 2030,00</span></li>
-                                </ul>
-                            </div>
+
                         </div>
 
                     </div>
@@ -525,7 +501,7 @@
             </div>
 
         </section>
-
+        <!-- POPUP DE ALERTA DE CONFIRMAÇÃO PAREA ELIMINAR O CLIENTE -->
         <div class="delete-user-alert hidden">
             <div class="overlay-delete-user"></div>
             <div class="delete-user-alert-message">

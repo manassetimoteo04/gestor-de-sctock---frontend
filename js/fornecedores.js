@@ -41,7 +41,6 @@ class SupplierApp {
   // GUARDAR O POPUP DE ALERTA PARA ELIMINAR O FORNCEDOR
   _hideAlert(e) {
     const target = e.target;
-
     if (e.target.classList.contains("overlay-delete-supplier"))
       this.deleteSupplierAlert.classList.add("hidden");
 
@@ -68,9 +67,7 @@ class SupplierApp {
     const header = document.querySelector(".form-header h3");
     const inputs = document.querySelectorAll(".form-new-supplier input");
     const input = document.querySelector(".form-new-supplier textarea");
-
     input.value = "";
-
     inputs.forEach((ip) => (ip.value = ""));
     header.textContent = "Adicionar Fornecedor";
     this.supplierFormContainer.classList.remove("hidden");
@@ -92,24 +89,29 @@ class SupplierApp {
     }
   }
 
-  // FORMULÁRIO PARA EDITAR INFORMAÇÕES DO FORNECEDOR
+  // USANDO O EVENT DELEGATION PARA OS EVENTOS NOS BOTÕES DO FORNECEDOR
   _editSupplierInfo(e) {
     const target = e.target;
-
+    //EDITAR FORNECEDOR
     if (target.closest(".btn-edit-supplier")) {
       this._showSupplierForm();
 
-      const id = +target.closest(".supplier-box").dataset.id;
-      this._settingEditSupplierInputValues(id);
+      // DESCOMENTAR E USAR DADOS REAIS
+      //CONFIGURANDO OS VALUES DO INPUT DO BASE O FORNECEDOR SELECIONADO
+      // const id = +target.closest(".supplier-box").dataset.id;
+      // this._settingEditSupplierInputValues(id);
     }
 
+    //ELIMINAR FORNECEDOR
     if (target.closest(".btn-delete-supplier")) {
       this.deleteSupplierAlert.classList.remove("hidden");
     }
-
+    // VER DETALHES DO FORNCEDOR
     if (target.closest(".btn-details-supplier")) {
-      const id = +target.closest(".supplier-box").dataset.id;
-      this._settingSupplierDetailContent(id);
+      // DESCOMENTAR E PEGAR DADOS REAIS OU ID
+      // CONFIRGURANDO AS INFORMAÇÕES DO CLIENTE COM BASE O ID
+      // const id = +target.closest(".supplier-box").dataset.id;
+      // this._settingSupplierDetailContent(id);
       this.supplerDetailContainer.classList.remove("hidden");
     }
   }
@@ -117,60 +119,11 @@ class SupplierApp {
   // FECHAR O CONTAINER DE DETALHES DO FORNECEDOR
   _closeSupplierDetail(e) {
     const target = e.target;
-
     if (target.classList.contains("overlay-supplier-detail"))
       this.supplerDetailContainer.classList.add("hidden");
 
     if (target.closest(".close-detail-supplier"))
       this.supplerDetailContainer.classList.add("hidden");
-  }
-
-  // RENDERIZAS A LISTA DE FORNECEDORES
-  _renderSupplierList(list) {
-    const suppliertList = document.querySelector(".supplier-list-container");
-
-    if (!suppliertList) return;
-
-    if (list.length < 1) {
-      const html = `
-      <div class="empty-product">
-      <p>Nenhum fornecedor encontrado</p>
-     </div>
-      `;
-      suppliertList.innerHTML = "";
-      suppliertList.insertAdjacentHTML("afterbegin", html);
-    }
-
-    if (list.length > 0) {
-      suppliertList.innerHTML = "";
-      list.forEach((supp) => {
-        const html = `
-        <div class="supplier-box" data-id="${supp.id}">
-        <div>
-            <span class="supplier-icon"><ion-icon
-                    name="person-outline"></ion-icon></span>
-            <span class="supllier-name">${supp.name} </span>
-        </div>
-        <span class="supplier-phone-number">${supp.phone}</span>
-        <span class="supplier-email">${supp.email}</span>
-        <span class="supplier-total-sell">${
-          supp.products.length > 1 ? supp.products[0] + "..." : supp.products[0]
-        }</span>
-
-        <span class="action-supplier-btns">
-            <button class="btn-edit-supplier"><ion-icon
-                    name="create-outline"></ion-icon></button>
-            <button class="btn-delete-supplier"><ion-icon
-                    name="trash-outline"></ion-icon></button>
-            <button class="btn-details-supplier"><ion-icon
-                    name="ellipsis-vertical-outline"></ion-icon></button>
-        </span>
-
-    </div>
-      `;
-        suppliertList.insertAdjacentHTML("afterbegin", html);
-      });
-    }
   }
 
   // FUNÇÃO PARA PESQUISAR NA LISTA DE FORNECEDORES
@@ -253,9 +206,8 @@ class SupplierApp {
   renderPage(page, list) {
     this.startIndex = (page - 1) * this.productsPerPage;
     this.endIndex = this.startIndex + this.productsPerPage;
+    //LISTA A SER RENDERIZADA
     this.productsToRender = list.slice(this.startIndex, this.endIndex);
-    console.log(this.productsToRender);
-    this._renderSupplierList(this.productsToRender);
   }
 
   renderCurrentPage(currentPage, list) {
@@ -324,7 +276,7 @@ class SupplierApp {
 
   // FUNÇÕES AUTO-INICIALIZADAS
   _init() {
-    this._pagination(appData.supplier);
+    // this._pagination(appData.supplier);
   }
 }
 const supplier = new SupplierApp();

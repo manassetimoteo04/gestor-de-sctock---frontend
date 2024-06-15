@@ -43,14 +43,16 @@
                         class="hidden light-icon"></ion-icon>
                     <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
                 </a>
-                <div class="notification-header ">
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
                     <h3 class="heading-h3">Notificações</h3>
                     <div class="filter-noti"><span>Hoje</span>
                         <span>Todos</span>
                     </div>
                     <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
                         <div class="list">
-
+                            <!-- BOX DE NOTIFICAÇÃO -->
                             <div class="notifications-box">
                                 <ion-icon name="notifications-outline"></ion-icon>
                                 <div class="notification-text-container"><span class="notification-text-header">Estoque
@@ -61,24 +63,6 @@
                                 </div>
                             </div>
 
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container"><span class="notification-text-header">Estoque
-                                        Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Há 2h</span>
-                                </div>
-                            </div>
-                            <div class="notifications-box">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <div class="notification-text-container">
-                                    <span class="notification-text-header">Estoque Baixo</span>
-                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
-                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
-                                    <span class="notif-date">Ontem</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -168,51 +152,43 @@
 
                     </div>
                 </div>
-
+                <!-- CONTAINER DE NOTIFICAÇÃO DE ESTOQUE BAIXO -->
                 <div class="stock-notification-container">
                     <h3 class="heading-h3">Notificações de Estoque</h3>
+                    <!-- LISTA DE NOTIFICAÇÃO -->
                     <div class="notification-stock-list">
+                        <!-- BOX DE NOTIFICAÇÃO -->
+                        <div class="stock-notification-box">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <div class="notification-content">
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tenetur deserunt
+                                    </p>
+                                    <span class="notification-time">há 1 min</span>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="stock-notification-box">
-                            <ion-icon name="notifications-outline"></ion-icon>
-                            <div class="notification-content">
-                                <div class="text">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tenetur deserunt
-                                    </p>
-                                    <span class="notification-time">há 1 min</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stock-notification-box">
-                            <ion-icon name="notifications-outline"></ion-icon>
-                            <div class="notification-content">
-                                <div class="text">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tenetur deserunt
-                                    </p>
-                                    <span class="notification-time">há 1 min</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
 
             </div>
 
-
+            <!-- CONTAINER DE REGISTO DE MOVIMENTAÇÃO DE PRODUCO -->
             <div class="statics-box product-container">
 
                 <div class="list-header">
 
                     <h3 class="heading-h3">Movimentação de Productos</h3>
                     <div class="sub-box-header">
-
+                        <!-- INPUT DE PESQUISA NA LISTA -->
                         <div class="seach-product">
                             <ion-icon name="search-outline"></ion-icon>
                             <input type="text" placeholder="Pesquisar nome do producto"
                                 class="input__search search-input-history-product">
                         </div>
-
+                        <!-- BOX DE FILTRAGEM NA LISTA -->
                         <div class="sort-by">
                             <ion-icon name="filter-outline"></ion-icon>
                             <span class="default">Data</span>
@@ -237,11 +213,14 @@
                             <span>Data</span>
                             <span>Ver</span>
                         </div>
-
+                        <!-- LISTA DE REGISTO DE ENTRADAS E SAIDAS A SER RENDELIZADO -->
                         <div class="product-in-out-history">
+                            <!-- REGISTO DE PRODUCTO -->
                             <div class="product-item-history" data-id="">
-                                <span class="product-name"><ion-icon name="arrow-down-outline"
-                                        class="in-product"></ion-icon>
+
+                                <span class="product-name">
+                                    <!-- MUDAR A CLASSE ENTRE [in-product] PARA ENTRADA E [out-product] PARA SAIDA -->
+                                    <ion-icon name="arrow-down-outline" class="in-product"></ion-icon>
                                     Computador</span>
 
                                 <span class="product-category">Electronicos</span>
@@ -253,21 +232,7 @@
                                     <button class="btn-update-stock"><ion-icon name="eye-outline"></ion-icon></button>
                                 </span>
                             </div>
-                            <div class="product-item-history" data-id="">
 
-                                <span class="product-name"><ion-icon name="arrow-up-outline"
-                                        class="out-product"></ion-icon>
-                                    Computador</span>
-
-                                <span class="product-category">Electronicos</span>
-                                <span class="product-price"> 120</span>
-                                <span class="product-qtd ">Saida</span>
-                                <span class="product-date">Agora mesmo</span>
-                                <!-- ACÇÃO DO PRODUCTO, EDITAR, ELIMINAR, VER DETALHES -->
-                                <span class="product-action">
-                                    <button class="btn-update-stock"><ion-icon name="eye-outline"></ion-icon></button>
-                                </span>
-                            </div>
                         </div>
                     </div>
 
@@ -288,7 +253,7 @@
         </section>
     </section>
 
-
+    <!-- CONTAINER PAR VER OS DETALHES DA ENTRADA OU SAÍDA -->
     <section class="historic-product-detail hidden">
         <div class="overlay-historic-detail"></div>
         <div class="detail-historic">
@@ -320,9 +285,7 @@
                 <span class="product-date-historic">12/05/2024</span>
             </div>
 
-
         </div>
-
 
     </section>
 </body>
