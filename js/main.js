@@ -1,5 +1,5 @@
-import { appData } from "./data.js";
-import { formatNumbers } from "./views/formatNumbers.js";
+// import { appData } from "./data.js";
+// import { formatNumbers } from "./views/formatNumbers.js";
 
 // CLASSE PARA FENDERIZAR OS DADOS
 class renderDataMain {

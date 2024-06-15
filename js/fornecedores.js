@@ -1,6 +1,6 @@
 // REFACTORING THE CODE
-import { appData } from "./data.js";
-const c = console.log.bind(document);
+// import { appData } from "./data.js";
+// const c = console.log.bind(document);
 
 class SupplierApp {
   constructor() {

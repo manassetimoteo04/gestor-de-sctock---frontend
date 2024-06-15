@@ -1,8 +1,8 @@
-import { appData } from "./data.js";
-import { formatNumbers } from "./views/formatNumbers.js";
+// import { appData } from "./data.js";
+// import { formatNumbers } from "./views/formatNumbers.js";
 
 class ProductApp {
-  productList = appData.products;
+  // productList = appData.products;
   target;
   constructor() {
     // SELECIONANDO VARIÁVEIS
@@ -328,7 +328,7 @@ class ProductApp {
 
   // FUNÇÕES AUTOINICIALIZADAS
   _init() {
-    this._pagination(this.productList);
+    // this._pagination(this.productList);
     this._allEventListener();
   }
 }

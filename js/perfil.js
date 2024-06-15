@@ -1,7 +1,5 @@
 // REFACTORING THE CODE
 
-import { appData } from "./data.js";
-
 class ProfileApp {
   constructor() {
     this.accounMenuContainer = document.querySelector(".account-menu");
@@ -88,11 +86,18 @@ class ProfileApp {
       "click",
       this._showHidePassword.bind(this)
     );
+    this.confirmDeleteAccountBox?.addEventListener(
+      "click",
+      this._showHidePassword.bind(this)
+    );
     // chamando funções
     this._floatingLabel();
-    this._renderUserInformatio();
-    this._initializeInputLabels();
+
+    //DESCOMENTAR E CHAMAR COM DADOS REAIS
+    // this._renderUserInformatio();
+    // this._initializeInputLabels();
   }
+  // MUDANDO ENTRE OS MENU DO PERFIL
   _toggleActiveMenu(e) {
     const target = e.target.closest("ul li");
     if (!target) return;
@@ -109,6 +114,7 @@ class ProfileApp {
     contianer.classList.remove("hidden");
   }
 
+  // FUNÇÃO PARA FECHAR O FORMULÁRIO DE EDITAR INFORMAÇÕES
   _closeEditForm(e) {
     e.preventDefault();
     const target = e.target;
@@ -121,13 +127,14 @@ class ProfileApp {
       this._showSuccesUpatInfoPopUp();
     }
   }
+
+  // FUNÇÃO PARA MOSTRAR O FORMULÁRIO DE EDITAR INFORMAÇÕES
   _showEditForm() {
     this.editProfileContainer.classList.remove("hidden");
-
     this._settingEditProfileInputValue();
     this._initializeInputLabels();
   }
-
+  // INICIALIZANDO OS INPUT PARA VERIFICAR SE NÃO ESTÁ EMPTY PARA ADICIONAR O .ACTIVE NO FLOANTING LABEL
   _initializeInputLabels() {
     this.fieldsInputs.forEach((input) => {
       if (input.value !== "") {
@@ -136,6 +143,8 @@ class ProfileApp {
       }
     });
   }
+
+  // FUNÇÃO PARA O FLOATING LABEL
   _floatingLabel() {
     this.fieldsInputs?.forEach((input) => {
       input.addEventListener("focus", function () {
@@ -163,12 +172,17 @@ class ProfileApp {
   }
 
   // FUNCÇÕES DOS EVENT LISTENERS
+  // FUNÇÃO PARA MOSTAR O FORMULÁRIO DE EDITAR O PASSWORD
   _showEditPasswordForm() {
     this.passwordForm.classList.remove("hidden");
   }
+
+  // FUNÇÃO PARA MOSTAR O POPUP DE SUCESSO AO ADICIONAR INFORMAÇÃO
   _showSuccesUpatInfoPopUp() {
     this.popupSuccessUpdateInfo.classList.remove("hidden");
   }
+
+  // FECHAR O POPUP
   _closeSuccesUpdadePopup(e) {
     const target = e.target;
     if (target.classList.contains("overlay-sucess-update"))
@@ -176,6 +190,8 @@ class ProfileApp {
     if (target.closest(".btn-close-succes-update-popup"))
       this.popupSuccessUpdateInfo.classList.add("hidden");
   }
+
+  // FECHAR O FORMULÁRIO PARA EDITAR PALAVRA-PASSE
   _closeEditPasswordForm(e) {
     const target = e.target;
     if (target.classList.contains("overlay-edit-password")) {
@@ -185,12 +201,20 @@ class ProfileApp {
       this.passwordForm.classList.add("hidden");
     }
   }
+  // ALERTA DE ELIMINAÇÃO DE CONTA
   _showDeleteAlertContainer() {
     this.alertDeleteContainer.classList.remove("hidden");
   }
+
+  // FEHCAR O ALERTA DE ELIMINAÇÃO DE CONTA
   _closeDeleteAlertContainer(e) {
     const target = e.target;
     if (target.classList.contains("overlay-delete-account")) {
+      this.alertDeleteContainer.classList.add("hidden");
+      this.confirmDeleteAccountBox.classList.add("hidden");
+      this.alertDeleteBox.classList.remove("hidden");
+    }
+    if (target.closest(".btn-close-delete-account")) {
       this.alertDeleteContainer.classList.add("hidden");
       this.confirmDeleteAccountBox.classList.add("hidden");
       this.alertDeleteBox.classList.remove("hidden");
@@ -207,6 +231,7 @@ class ProfileApp {
       this._showSuccesUpatInfoPopUp();
     }
   }
+  // BOTÕES DE ALERTA DE ELIMINAÇÃO DE CONTA
   _alertMessageBtns(e) {
     const target = e.target;
     if (target.closest(".confirm-alert")) {
@@ -218,6 +243,7 @@ class ProfileApp {
     }
   }
 
+  // FUNÇÃO PARA CONFIGURAR OS CONTENT DO USUÁRIO NO DOM
   _renderUserInformatio() {
     const userFullNameLabel = document.querySelector(".user-full-name");
     const accountTypeLabel = document.querySelector(".account-type");
@@ -252,7 +278,7 @@ class ProfileApp {
     userTown.textContent = city;
     userNeihgborLabel.textContent = neighbor;
   }
-
+  // FUNÇÃO PARA ATRIBUIR OS VALOR NO INPUT DE EDITAR PERFIL
   _settingEditProfileInputValue() {
     const inputFistName = document.querySelector(".input-edit-first-name");
     const inputLastName = document.querySelector(".input-edit-last-name");
@@ -282,7 +308,7 @@ class ProfileApp {
     inputTown.value = city;
     inputNeighbor.value = neighbor;
   }
-
+  // FUNÇÃO PARA MOSTRAR E ESCONDER PASSWORD
   _showHidePassword(e) {
     const target = e.target.closest(".see-box");
     if (!target) return;

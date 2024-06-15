@@ -1,8 +1,8 @@
 // REFACTORING THE CODE
-const c = console.log.bind(document);
+// const c = console.log.bind(document);
 
-import { appData } from "./data.js";
-import { formatNumbers } from "./views/formatNumbers.js";
+// import { appData } from "./data.js";
+// import { formatNumbers } from "./views/formatNumbers.js";
 
 class ClientApp {
   _currentClientDetail;
@@ -542,7 +542,7 @@ class ClientApp {
 
   // FUNÇÕES AUTO-INICIALIZADAS
   _init() {
-    this._pagination(appData.clients);
+    // this._pagination(appData.clients);
     this._renderSummary();
   }
 }
