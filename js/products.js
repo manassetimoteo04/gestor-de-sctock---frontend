@@ -75,7 +75,7 @@ class ProductApp {
   _editProduct(e) {
     this.target = e.target.closest(".btn-edit-product");
     if (!this.target) return;
-    this.formContainer?.classList.remove("hidden");
+    window.location.href = "editar.html";
     const productID = +this.target.closest(".product-item").dataset.id;
     this._settingTheProductEditInputValue(productID);
   }
@@ -84,6 +84,8 @@ class ProductApp {
   _seeProductDetail(e) {
     this.target = e.target.closest(".btn-details-product");
     if (!this.target) return;
+    window.location.href = "detalhes.html";
+
     this.detailsContainer.classList.remove("hidden");
     const productID = +this.target.closest(".product-item").dataset.id;
 

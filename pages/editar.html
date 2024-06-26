@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Gerencie os teus productos </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="../assets/img/logo/logo.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="../js/security/notAuthenticade.js"></script>
+    <script defer type="module" src="../js/controller.js"></script>
+</head>
+
+<body>
+    <div class="preloader"></div>
+
+    <section class="dashboard-section main-section">
+        <header class="main__header">
+
+            <div class="search__div">
+                <a href="#" class="header__btn toggleMenu__btn"> <ion-icon name="menu-outline"></ion-icon></a>
+                <!-- <div class="hidden">
+					<input type="text" placeholder="Pesquisar" class="input__search">
+					<ion-icon name="search-outline"></ion-icon>
+				</div> -->
+            </div>
+
+            <div class="header__user">
+                <a href="#" class="header__btn show-notification_btn notification__btn"> <ion-icon
+                        name="notifications-outline"></ion-icon></a>
+
+                <a href="#" class="header__btn toggle-dark-mode notification__btn"> <ion-icon name="sunny-outline"
+                        class="hidden light-icon"></ion-icon>
+                    <ion-icon name="moon-outline" class="dark-icon"></ion-icon>
+                </a>
+                <!-- CONTAINER DE NOTIFICAÇÕES -->
+                <div class="notification-header">
+                    <h3 class="heading-h3">Notificações</h3>
+                    <div class="filter-noti"><span>Hoje</span>
+                        <span>Todos</span>
+                    </div>
+                    <div class="notitification-list-header">
+                        <!-- LISTA DE NOTIFICAÇÕES A SER RENDERIZADO -->
+                        <div class="list">
+                            <!-- BOX DE NOTIFICAÇÃO -->
+                            <div class="notifications-box">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <div class="notification-text-container"><span class="notification-text-header">Estoque
+                                        Baixo</span>
+                                    <p><span class="notif-product-name">Computador</span> está com nível baixo de
+                                        estoque <span class="notif-product-sctock"></span> convêm actualizar</p>
+                                    <span class="notif-date">Agora mesmo</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="header__profile-box">
+                    <img src="../assets/img/admin/admin.png" alt="" class="header__profile-img">
+                    <div class="profile__name-box">
+                        <span class="header__p-name">Timóteo Pembele</span>
+                        <span class="permission">Admin <ion-icon name="chevron-down-outline"
+                                class="profile-click-icon"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-infor-box">
+                <ul class="profile-list">
+                    <li><a href="perfil.html" class="p-link"><ion-icon name="person-outline"></ion-icon> Meu Perfil</a>
+                    </li>
+                    <li><a href="#" class="p-link"><ion-icon name="settings-outline"></ion-icon> Configurações</a></li>
+                    <li><a href="" class="p-link btn-log-out"><ion-icon name="log-out-outline"></ion-icon>
+                            Terminar
+                            Sessão</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <aside class="side__bar">
+            <h1 class="logo"> <img src="../assets/img/logo/logo.png" class="icon-logo"><span
+                    class="full-logo">StockMaster</span></h1>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li> <a href="dashboard.html" class="main-nav-link "><ion-icon name="grid-outline"></ion-icon>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="products.html" class="main-nav-link active-link"> <ion-icon
+                                name="layers-outline"></ion-icon>
+                            <span>Productos</span></a>
+                    </li>
+                    <li><a href="estoques.html" class="main-nav-link "> <ion-icon name="cube-outline"></ion-icon><span>
+                                Estoques</span> </a></li>
+                    <li><a href="vendas.html" class="main-nav-link "><ion-icon
+                                name="cart-outline"></ion-icon><span>Vendas</span></a></li>
+                    <li><a href="clientes.html" class="main-nav-link"><ion-icon
+                                name="people-outline"></ion-icon><span>Clientes</span></a></li>
+                    <li><a href="fornecedores.html" class="main-nav-link"><ion-icon
+                                name="podium-outline"></ion-icon><span>Fornecedores</span></a></li>
+                    <li><a href="relatorios.html" class="main-nav-link"><ion-icon
+                                name="bar-chart-outline"></ion-icon><span>Análises</span></a></li>
+                    <li><a href="perfil.html" class="main-nav-link"><ion-icon
+                                name="person-circle-outline"></ion-icon><span>Perfil</span></a></li>
+                    <!-- <li>
+                        <button class="log-out-btn">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Sair</span>
+                        </button>
+                    </li> -->
+                </ul>
+
+            </nav>
+        </aside>
+
+        <section class="main__content-section ">
+            <div class="section-header">
+                <header class="sect-head">
+                    <h2 class="heading-h2">Editar Producto</h2>
+                    <span class="section-tag">Actualize as informações</span>
+                </header>
+                <div class="add-new-product-box">
+                    <!-- <button class="btn-add-new-product">
+                        <ion-icon name="add-outline"></ion-icon>
+                        Adicionar
+                    </button> -->
+                </div>
+            </div>
+            <!-- CONTAINER PARA ADICIONAR UM PRODUCTO NOVO -->
+            <section class="">
+
+                <form action="#" class="new-product-form">
+                    <div class="form-group">
+                        <div class="group">
+                            <label for="product-name">Nome do producto</label>
+                            <!-- INPUT DO NOME DO PRODUCTO -->
+                            <input type="text" placeholder="Nome do producto"
+                                class="input-product-name input-edit-product-name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="group">
+
+                            <label for="product-category" class="product-category">Categoria <span
+                                    class="btn-new-category"><ion-icon name="add-circle-outline"></ion-icon>
+                                    Adicionar</span></label>
+
+                            <!-- SELECIONAR A CATEGORI -->
+                            <select name="" id="" class="select-category">
+                                <option value="">Escolha</option>
+                                <option value="">Electronicos</option>
+                                <option value="">Roupas</option>
+                                <option value="">Mobilias</option>
+                                <option value="">Calçados</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="group">
+                            <label for="product-name">Preço de venda</label>
+                            <!-- INPUT DO PREÇO DO PRODUCTO -->
+                            <input type="number" placeholder="Preço de venda"
+                                class="input-sell-price input-edit-product-price">
+                        </div>
+                        <div class="group">
+                            <label for="product-name">Preço de compra </label>
+                            <!-- INPUT DO PREÇO DE COMPRA -->
+                            <input type="number" placeholder="Preço de compra"
+                                class="input-buy-price input-edit-buy-price">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="group">
+                            <label for="product-name">Quantidade</label>
+                            <!-- INPUT DE QUANTIDADE -->
+                            <input type="number" placeholder="Quantidade" class="input-quantity">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="group">
+                            <label for="product-name">Descrição</label>
+                            <!-- INPUT DE DESCRIÇÃO -->
+                            <textarea name="" id="" cols="10" rows="5" class="product-description-input"></textarea>
+                        </div>
+
+                    </div>
+                    <!-- BUTTÕES DE EVENTO DO FORMULÁRIO -->
+                    <div class="form-group">
+                        <div class="btns">
+                            <button class="confirmar-new-product">Adicionar</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- FIM DO FORMULÁRIO PARA ADICIONAR PRODUCTO -->
+
+                <!-- MINI FORMULÁRIO PARA CRIAR CATEGORIA NOVA -->
+                <div class="create-category hidden">
+                    <div class="overlay-create-category"></div>
+                    <form action="" class="category-form">
+                        <header>
+                            <span class="categ-header">Criar Categoria</span>
+                            <span class="close-category"><ion-icon name="close-outline"></ion-icon></span>
+                        </header>
+                        <input type="text" placeholder="Nova Categoria">
+
+                        <button class="btn-add-category">Guardar</button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+
+        <!-- CONTAINER DOS DETALHES DO PRODUCTO -->
+        <section class=" details-container hidden">
+            <div class="overlay-product-detail"></div>
+            <div class="container">
+                <header class="details-header">
+                    <div>
+                        <h3 class="heading-h3">Ver detalhes</h3>
+                        <span class="">Ver as informações de detalhe do producto</span>
+                    </div>
+                    <button class="btn-close-details"><ion-icon name="close-outline"></ion-icon></button>
+
+                </header>
+                <div class="product-details">
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Nome do producto</label>
+                            <span class="product-name-details">Lenovo 3rd Gerenetion</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Categoria</label>
+                            <span class="product-category-details">Computador</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Preço de compra</label>
+                            <span class="product-buy-price-details">$ 3259,00</span>
+                        </div>
+                        <div class="group">
+                            <label>Preço de venda</label>
+                            <span class="product-sell-price-details">$ 3259,00</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Estoque</label>
+                            <span class="product-stock-qtd-details">132</span>
+                        </div>
+                        <div class="group">
+                            <label>ID Producto</label>
+                            <span class="product-id-details">CP043</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Fornecedor</label>
+                            <span class="product-supplier-details">Manasse Timóteo</span>
+                        </div>
+                    </div>
+                    <div class="form-group details-group">
+                        <div class="group">
+                            <label>Descrição</label>
+                            <p class="product-description-details">Lorem ipsum dolor, sit amet consectetur
+                                adipisicing
+                                elit placeat error autem nihil.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <!-- POPUP DE ALERTA DE CONFIRMAÇÃO PARA ELIMINAÇÃO DO PRODUCTO -->
+    <div class="alert-message-container hidden">
+        <div class="overlay-delete-product"></div>
+        <div class="alerta-message">
+            <ion-icon name="trash-outline"></ion-icon>
+            <span class="alert-text">Tens certeza que deseja excluir este produto?</span>
+            <div class="alert-btns">
+                <button class="confirm-delete-btn">Confirmar</button>
+                <button class="cancel-delete-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="delete-confirmed-message hidden">
+        <div class="alerta-message ">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <span class="alert-text confirmed">Producto eliminado com sucesso</span>
+        </div>
+    </div> -->
+</body>
+
+</html>
