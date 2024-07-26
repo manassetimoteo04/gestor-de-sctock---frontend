@@ -104,23 +104,8 @@ class ClientApp {
 
   // ACÇÕES NO BOTÃO DE EVENTOS NA LISTA DOS CLIENTES, [EDIT, DELETE, SEE-DETAIL]
   _actionClient(e) {
-    const target = e.target.closest("button");
-
-    //ABRINDO O CONTAINER DE DETALHES DO CLIENTS
-    if (target.classList.contains("btn-details-user")) {
-      const clientBox = target.closest(".client-box");
-      const clientID = +clientBox.dataset.id;
-
-      //DESCOMENTAR PARA PEGAR O DADOS REAIS COM BASE O ID E MARCAR O CLIENTE ACTUAL
-      // this._currentClientDetail = appData.clients.find(
-      //   (cl) => cl.id === clientID
-      // );
-      // this._settingClientContentDetail();
-      // this._pagination(this._currentClientDetail.purchaseHistory);
-
-      this.clientListContainer.classList.add("hidden");
-      this.clientDetailContainer.classList.remove("hidden");
-    }
+    const target = e.target.closest("a");
+    console.log(target);
     //CHAMANDO O EVENTO PARA ELIMINAR O CLIENTE
     if (target.classList.contains("btn-delete-user")) {
       this._deleteClientShowPopUp();

@@ -49,22 +49,22 @@ class VendasApp {
     this.init();
   }
 
-  // MOSTRAR DETALHES DA VENDA
-  _showsellDetail(e) {
-    const target = e.target.closest(".sell-box");
-    if (!target) return;
-    this.sellID = target.dataset.id;
-    this.sellDetailContainer.classList.remove("hidden");
-    this.sellDetailContainer.classList.remove("hide-detail");
-    this.newSellFormContainer.classList.add("hidden");
-    // this._settingDetailSellContent(this.sellID);
-  }
+  // // MOSTRAR DETALHES DA VENDA
+  // _showsellDetail(e) {
+  //   const target = e.target.closest(".sell-box");
+  //   if (!target) return;
+  //   this.sellID = target.dataset.id;
+  //   this.sellDetailContainer.classList.remove("hidden");
+  //   this.sellDetailContainer.classList.remove("hide-detail");
+  //   this.newSellFormContainer.classList.add("hidden");
+  //   // this._settingDetailSellContent(this.sellID);
+  // }
 
   // MOSTRAR O FORMULÁRIO PARA REALIZAR NOVA VEDA
-  _showNewSellFunction() {
-    this.sellDetailContainer.classList.add("hidden");
-    this.newSellFormContainer.classList.remove("hidden");
-  }
+  // _showNewSellFunction() {
+  //   this.sellDetailContainer.classList.add("hidden");
+  //   this.newSellFormContainer.classList.remove("hidden");
+  // }
   // CHECHAR O FORMULÁRIO DE NOVA VENDA
   _closeSellFormFunction(e) {
     const target = e.target;
@@ -466,14 +466,14 @@ class VendasApp {
       this._removeProductToCart.bind(this)
     );
     //event para mostrar o formulário de venda
-    this.btnShowNewSellForm?.addEventListener(
-      "click",
-      this._showNewSellFunction.bind(this)
-    );
-    this.sellHistoryContainer?.addEventListener(
-      "click",
-      this._showsellDetail.bind(this)
-    );
+    // this.btnShowNewSellForm?.addEventListener(
+    //   "click",
+    //   this._showNewSellFunction.bind(this)
+    // );
+    // this.sellHistoryContainer?.addEventListener(
+    //   "click",
+    //   this._showsellDetail.bind(this)
+    // );
     // event para fechar o formulário de venda
     this.newSellFormContainer?.addEventListener(
       "click",

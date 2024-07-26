@@ -184,8 +184,7 @@ body {
 
 .grid-sell {
   display: grid;
-  grid-template-columns: 6fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
   margin-bottom: 3rem;
 
 }
@@ -210,7 +209,7 @@ body {
 
 .heading-sell {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr 0.5fr;
   font-weight: 600;
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
@@ -223,7 +222,7 @@ body {
 
 .sell-box {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1fr 1.5fr 0.5fr;
   padding: 1rem 0;
   gap: 2rem;
   align-items: center;
@@ -231,9 +230,6 @@ body {
 
 }
 
-.sell-box:hover {
-  cursor: pointer;
-}
 
 .sell-box .selled-product-status {
   border: 1px solid var(--border-color);
@@ -310,112 +306,13 @@ body {
   color: var(--sucess-color);
 }
 
-/* DETALHES DO PRODUCTO */
-.sell-detail-container {
-  background-color: var(--bg-divider-color);
-  min-width: 40rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-
+.see-sell-detail ion-icon {
+  font-size: 2.2rem;
 }
 
-.current-sell-product {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
+.see-sell-detail {
+  color: inherit;
 }
-
-.detail-header {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.detail-icon {
-  background-color: var(--background-color);
-  display: block;
-  padding: 1rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  border-radius: 0.5rem;
-
-}
-
-.border-detail {
-  border-bottom: 1px solid var(--border-color);
-
-}
-
-.current-product-sell-name {
-  font-weight: 500;
-  color: var(--primary-text-color);
-}
-
-.sell-label {
-  font-size: 2rem;
-
-}
-
-.hidden {
-  display: none;
-}
-
-.details {
-  padding: 2rem;
-}
-
-.hide-sell-detail {
-  display: none;
-}
-
-.details-flex-box {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.4rem;
-  font-weight: 500;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.current-sell-invoice-number {
-  color: var(--primary-color-blue);
-  font-size: 1.6rem;
-}
-
-.current-sell-date,
-.costumer {
-  font-size: 1.6rem;
-}
-
-.total-sell {
-  font-weight: 500;
-}
-
-.sell-item-list {
-  max-height: 15rem;
-  overflow-y: scroll;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.product-description-list {
-  padding: 0 2rem;
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  border-left: 0.3rem solid var(--primary-color-blue);
-}
-
-.product-description-list li {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
 
 
 .pagination-container {
@@ -436,6 +333,8 @@ body {
 .new-sell-container {
   background-color: var(--bg-divider-color);
   min-width: 40rem;
+  max-width: 80rem;
+  margin: 0 auto;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   display: flex;
@@ -825,6 +724,128 @@ body {
 .hidden {
   display: none;
 }
+
+/* FACTURA DA VENDA */
+.sell-detail-container {
+  background-color: var(--bg-divider-color);
+  min-width: 40rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.btn-back {
+  padding: 1rem 2rem;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  background-color: var(--primary-color-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.current-sell-product {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.detail-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.detail-icon {
+  background-color: var(--background-color);
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+
+}
+
+.border-detail {
+  border-bottom: 1px solid var(--border-color);
+
+}
+
+.current-product-sell-name {
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+
+.sell-label {
+  font-size: 2rem;
+
+}
+
+.hidden {
+  display: none;
+}
+
+.details {
+  padding: 2rem;
+}
+
+
+
+.details-flex-box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 500;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.current-sell-invoice-number {
+  color: var(--primary-color-blue);
+  font-size: 1.6rem;
+}
+
+.current-sell-date,
+.costumer {
+  font-size: 1.6rem;
+}
+
+.total-sell {
+  font-weight: 500;
+}
+
+.sell-item-list {
+  max-height: 15rem;
+  overflow-y: scroll;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-description-list {
+  padding: 0 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  border-left: 0.3rem solid var(--primary-color-blue);
+}
+
+.product-description-list li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+
 
 @media (max-width:60.8em) {
   .sell-history {

@@ -351,7 +351,8 @@ body {
   color: var(--primary-color-red);
 }
 
-.action-client-btns button {
+.action-client-btns button,
+.action-client-btns a {
   background: none;
   padding: 1rem;
   font-size: 2.4rem;
@@ -522,6 +523,8 @@ body {
   gap: 1rem;
   font-weight: 600;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
 .client-detail-header ion-icon {
