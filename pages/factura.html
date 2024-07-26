@@ -144,73 +144,19 @@
             <!-- CONTAINER DE DETALHES DA VENDA -->
 
             <div class="sell-detail-container">
-                <span class="btn-close-sell-details"><ion-icon name="close-outline"></ion-icon></span>
-                <div class="current-sell-product btn-close-header">
+                <header class="invoice-header">
 
-                    <div class="detail-header">
-                        <span class="sell-icon detail-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></span>
-                        <!-- NÚMERO DA FACTURA -->
-                        <span class="current-product-sell-name invoice-number-label-header"> Nº FACTURA
-                            [INV20240512]</span>
+                    <div class="header-left">
+                        <img src="../assets/img/logo/logo.png" alt="" class="company-logo">
+                        <span class="company-name">NOME DA EMPRESA</span>
+                        <span class="company-nif">NIF: <span>00034930LA0926</span> </span>
+                        <span class="company-sede">Sede da Empresa</span>
                     </div>
-                    <span class="selled-product-status single-status ">Sucesso</span>
-                </div>
-                <div class="detail-container">
-                    <div class="current-sell-product border-detail">
-                        <div>
-                            <span class="current-product-sell-name sell-label">Detalhes da venda</span>
-
-                        </div>
-                        <span class="hide-dett" data-class="data-sell-detail"><ion-icon
-                                name="chevron-down-outline"></ion-icon></span>
+                    <div class="header-right"> <span class="invoice-tag">Factura</span>
+                        <span class="invoice">Factura Nº: <span>SMI034-950-9560</span></span>
+                        <span class="date">Data: <span>12/12/2024</span></span>
                     </div>
-                    <div class="details sell-details data-sell-detail">
-                        <div class="details-flex-box">
-                            <!-- NÚMERO DA FACTURA -->
-                            <span>Número da Fatura</span>
-                            <span class="current-sell-invoice-number">SMI034-950-9560</span>
-                        </div>
-                        <div class="details-flex-box">
-                            <!-- DATA DA VENDA -->
-                            <span>Data da venda</span>
-                            <span class="current-sell-date">Ago 23, 2023, 16:01 PM</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="detail-container">
-                    <div class="current-sell-product border-detail">
-                        <div>
-                            <span class="current-product-sell-name sell-label">Detalhes dos Productos</span>
-
-                        </div>
-                        <span class="hide-dett" data-class="data-sell-product-detail"><ion-icon
-                                name="chevron-down-outline"></ion-icon></span>
-                    </div>
-                    <div class="details sell-details data-sell-product-detail">
-
-                        <!-- CONTAINER DOS PRODUCTOS COMPRADOS -->
-                        <div class="sell-item-list">
-                            <!-- PRODUCTO COMPRADO -->
-                            <div class="selled-product-box">
-                                <div class="details-flex-box">
-                                    <span>Producto 1</span>
-                                    <span class="costumer">Computador</span>
-                                </div>
-                                <ul class="product-description-list">
-                                    <li><span>Preço unitário</span> <span class="selled-product-price costumer">$
-                                            500</span></li>
-                                    <li><span>Quantidade</span> <span class="selled-product-price costumer">40</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
+                </header>
                 <!-- CONTAINER DE INFORMAÇÕES DO CLIENTE -->
                 <div class="detail-container">
                     <div class="current-sell-product border-detail">
@@ -232,42 +178,66 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="detail-container">
+                    <div class="current-sell-product border-detail">
+                        <div>
+                            <span class="current-product-sell-name sell-label">Detalhes dos Productos</span>
+
+                        </div>
+                        <span class="hide-dett" data-class="data-sell-product-detail"><ion-icon
+                                name="chevron-down-outline"></ion-icon></span>
+                    </div>
+                    <div class="details sell-details data-sell-product-detail">
+                        <div class="sell-item-table">
+                            <div class="table-header">
+                                <span>Producto</span>
+                                <span>Categoria</span>
+                                <span>Quantidade</span>
+                                <span>Preço Uni.</span>
+                                <span>Subtotal</span>
+                            </div>
+                            <div class="table-item-list">
+                                <div class="item-box">
+                                    <span>Mesa</span>
+                                    <span>Mobília</span>
+                                    <span>3</span>
+                                    <span>1200 KZ</span>
+                                    <span>3600 KZ</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
                 <!-- DETALHES DO PAGAMENTO -->
                 <div class="detail-container">
                     <div class="current-sell-product border-detail">
                         <div>
-                            <span class="current-product-sell-name sell-label">Detalhe de Pagamento</span>
+                            <span class="current-product-sell-name sell-label">Informações Adicionais</span>
 
                         </div>
                         <span class="hide-dett" data-class="data-sell-payment-detail"><ion-icon
                                 name="chevron-down-outline"></ion-icon></span>
                     </div>
                     <div class="details sell-details data-sell-payment-detail">
-                        <div class="details-flex-box">
-                            <span>Método de Pagamento</span>
-                            <span class="payment-type">Cartão</span>
+
+                        <div class=" total-container">
+                            <span>Pagamento: <span>Cash</span></span>
+                            <span>IVA: <span class="iva">15%</span></span>
+                            <span>Desconto: <span class="iva">20%</span></span>
+                            <span class="total-span">Total: <span class="total">13234 KZ</span></span>
+
                         </div>
-                        <!-- <div class="details-flex-box">
-                                    <span>Preço Unitário </span>
-                                    <span class="current-parcel">$ 3050</span>
-                                </div>
-                                <div class="details-flex-box">
-                                    <span>Quantidade</span>
-                                    <span class="current-parcel">50</span>
-                                </div> -->
                     </div>
                 </div>
                 <!-- TOTAL DA COMPRA -->
-                <div class="detail-container">
-                    <div class="current-sell-product border-detail">
-                        <div>
-                            <span class="current-product-sell-name sell-label">Total</span>
 
-                        </div>
-                        <span class="total-sell">$ 495 890,00</span>
-                    </div>
-
-                </div>
             </div>
 
 
